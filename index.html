@@ -1,17 +1,11 @@
----
-layout: default
-title: 我的Blog
----
-　　<h2>{{ page.title }}</h2>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>geek41</title>  
+</head>
 
-　　<p>最新文章2</p>
+<body>
+  Only god can judge me.!
+</body>
+</html>
 
-　　<ul>
-
-　　　　{% for post in site.posts %}
-
-　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ post.url }}">{{ post.title }}</a></li>
-
-　　　　{% endfor %}
-
-　　</ul>
