@@ -6,6 +6,12 @@
 #+EMAIL:sylvan9527@gmail.com
 #+STYLE:<link rel="stylesheet" href="../stylesheets/worg.css" type="text/css" />
 
+#+BEGIN_HTML
+---
+layout: default
+title: Emacs-Yasnippet代码模板
+---
+#+END_HTML
 
 YASnippet 是 Emacs 的一个缩略词 (abbreviation) 模板替换系统，可以把一
 个预先设定好的缩略词扩展成模板。简单来讲，你可以将一些常用的代码或者文
