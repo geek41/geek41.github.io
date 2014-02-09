@@ -4,6 +4,7 @@
 #+AUTHOR:Sylvan.Li
 #+EMAIL:sylvan9527@gmail.com
 #+STYLE:<link ref="stylesheet" type="text/css" href="../stylesheet/worg.css">
+#+OPTIONS: ^:{}
 
 #+BEGIN_HTML
 ---
