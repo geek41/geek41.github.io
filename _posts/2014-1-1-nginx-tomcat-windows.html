@@ -1,0 +1,366 @@
+---
+layout: default
+title: Nginx+tomcat+windows配置负载均衡
+---
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Nginx 简介</a></li>
+<li><a href="#sec-2">2 下载地址</a></li>
+<li><a href="#sec-3">3 目录结构</a></li>
+<li><a href="#sec-4">4 nginx.conf配置</a></li>
+<li><a href="#sec-5">5 Tomcat配置</a></li>
+<li><a href="#sec-6">6 验证配置与测试负载均衡</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Nginx 简介</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电
+子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。  其特点是
+占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器
+中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名
+的微网志Plurk也使用nginx。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">下载地址</h2>
+<div class="outline-text-2" id="text-2">
+
+<p><a href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a> 这里我们推荐下载稳定版（stable
+versions），本文采用nginx-0.8.20。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">目录结构</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>  Nginx-
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">_  conf   配置目录</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">_  contrib</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">_  docs 文档目录</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">_  logs  日志目录</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">_  temp 临时文件目录</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">_  html 静态页面目录</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">_  nginx.exe 主程序</td></tr>
+</tbody>
+</table>
+
+
+
+<p>
+      window下安装Nginx极其简单，解压缩到一个无空格的英文目录即可（个
+      人习惯，担心中文出问题），双击nginx启动，这里我安装到：D:\server
+      目录，下面涉及到的tomcat也安装在此目录。
+</p>
+<p>
+DOS环境启动
+</p>
+<p>
+若果想停止nginx，dos环境运行命令：nginx -s stop
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">nginx.conf配置</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+Nginx配置文件默认在conf目录，主要配置文件为nginx.conf，我们安装在
+D:\server\nginx-0.8.20、默认主配置文件为
+D:\server\nginx-0.8.20\nginx.conf。下面是nginx作为前端反向代理服务器的
+配置。
+</p>
+<p>
+Nginx.conf代码 
+</p>
+
+
+
+<pre class="example">
+#Nginx所用用户和组，window下不指定  
+#user  niumd niumd;  
+  
+#工作的子进程数量（通常等于CPU数量或者2倍于CPU）  
+worker_processes  2;  
+  
+#错误日志存放路径  
+#error_log  logs/error.log;  
+#error_log  logs/error.log  notice;  
+error_log  logs/error.log  info;  
+  
+#指定pid存放文件  
+pid        logs/nginx.pid;  
+  
+events {  
+    #使用网络IO模型linux建议epoll，FreeBSD建议采用kqueue，window下不指定。  
+    #use epoll;  
+      
+    #允许最大连接数  
+    worker_connections  2048;  
+}  
+  
+http {  
+    include       mime.types;  
+    default_type  application/octet-stream;  
+  
+        #定义日志格式  
+    #log_format  main  '$remote_addr - $remote_user [$time_local] $request '  
+    #                  '"$status" $body_bytes_sent "$http_referer" '  
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';  
+  
+    #access_log  off;  
+    access_log  logs/access.log;  
+  
+    client_header_timeout  3m;  
+    client_body_timeout    3m;  
+    send_timeout           3m;  
+   
+    client_header_buffer_size    1k;  
+    large_client_header_buffers  4 4k;  
+  
+    sendfile        on;  
+    tcp_nopush      on;  
+    tcp_nodelay     on;  
+  
+    #keepalive_timeout  75 20;  
+  
+    include    gzip.conf;  
+    upstream localhost {  
+      #根据ip计算将请求分配各那个后端tomcat，许多人误认为可以解决session问题，其实并不能。  
+      #同一机器在多网情况下，路由切换，ip可能不同  
+      #ip_hash;   
+      server localhost:18081;  
+      server localhost:18080;  
+     }  
+  
+    server {  
+            listen       80;  
+            server_name  localhost;     
+  
+            location / {  
+                    proxy_connect_timeout   3;  
+                    proxy_send_timeout      30;  
+                    proxy_read_timeout      30;  
+                        proxy_pass http://localhost;  
+            }  
+              
+   }  
+}  
+
+</pre>
+
+
+<p>
+代理设置如下：
+Proxy.conf代码 
+</p>
+
+
+
+<pre class="example">
+proxy_redirect          off;  
+proxy_set_header        Host $host;  
+proxy_set_header        X-Real-IP $remote_addr;  
+proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;  
+client_max_body_size    10m;  
+client_body_buffer_size 128k;  
+proxy_connect_timeout   300;  
+proxy_send_timeout      300;  
+proxy_read_timeout      300;  
+proxy_buffer_size       4k;  
+proxy_buffers           4 32k;  
+proxy_busy_buffers_size 64k;  
+proxy_temp_file_write_size 64k;  
+
+</pre>
+
+
+<p>
+gzip压缩相关配置如下：
+Gzip.conf代码 
+</p>
+
+
+<pre class="example">
+gzip              on;  
+gzip_min_length      1000;  
+gzip_types         text/plain text/css application/x-javascript;  
+
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Tomcat配置</h2>
+<div class="outline-text-2" id="text-5">
+
+<p>对于tomcat大家都很熟悉，只需要修改server.xml配置文件即可，这里我们以
+apache-tomcat-6.0.14为例，分别在server目录，解压缩并命名为：
+apache-tomcat-6.0.14_1、apache-tomcat-6.0.14_2。
+</p>
+<p>
+第一处端口修改：
+xml 代码:
+</p>
+
+
+<pre class="example">
+&lt;!--&amp;nbsp;&amp;nbsp;修改port端口：18006&amp;nbsp;俩个tomcat不能重复，端口随意，别太小--&gt;  
+&lt;Server port="18006" shutdown="SHUTDOWN"&gt;  
+
+</pre>
+
+
+<p>
+第二处端口修改：
+Xml代码 
+</p>
+
+
+<pre class="example"> &lt;!--&amp;nbsp;port="18081"&amp;nbsp;tomcat监听端口，随意设置，别太小&amp;nbsp;--&gt;  
+&lt;Connector port="18081" protocol="HTTP/1.1"   
+               connectionTimeout="20000"   
+               redirectPort="8443" /&gt;   
+</pre>
+
+
+<p>
+第三处端口修改：
+Java代码 
+</p>
+
+
+<pre class="example">
+"8009" protocol="AJP/1.3" redirectPort="8443" /&gt;  
+
+</pre>
+
+
+<p>
+Engine元素增加jvmRoute属性：
+Xml代码 
+</p>
+
+
+<pre class="example">
+&lt;Engine name="Catalina" defaultHost="localhost" jvmRoute="tomcat1"&gt;  
+
+</pre>
+
+
+<p>
+两个tomcat的端口别重复，保证能启动起来，另一个tomcat配置希捷省略，监听
+端口为18080，附件中我们将上传所有的配置信息
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">验证配置与测试负载均衡</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+   首先测试nginx配置是否正确，测试命令：nginx -t  (默认验
+   证:conf\nginx.conf),也可以指定配置文件路径。
+</p>
+
+<p>
+   此例nginx安装目录：D:\server\nginx-0.8.20，dos环境下图画面成功示例：
+</p>
+<p>
+   其次验证tomcat，启动两个tomcat，不出现端口冲突即为成功（tomcat依赖
+   的java等搞“挨踢”的就废话不说了）；
+</p>
+<p>
+   最后验证配置负载均衡设置，<a href="http://localhost/">http://localhost/</a> 或
+   <a href="http://localhost/index.jsp">http://localhost/index.jsp</a> 。我修改了index.jsp页面，增加日志输出信息，
+   便于观察。注意：左上角小猫头上的：access tomcat2、access tomcat1。
+   说明访问了不同的tomcat。
+</p>
+<p>
+   至此window下nginx+tomcat负载均衡配置结束，关于tomcat Session的问题
+   通常是采用memcached，或者采用nginx_upstream_jvm_route ，他是一
+   个 Nginx 的扩展模块，用来实现基于 Cookie 的 Session Sticky 的功能。
+   如果tomcat过多不建议session同步，server间相互同步session很耗资源，
+   高并发环境容易引起Session风暴。请根据自己应用情况合理采纳session
+   解决方案。
+</p>
+<p>
+原文连接:<a href="http://xjtom78.iteye.com/blog/1107844">http://xjtom78.iteye.com/blog/1107844</a>
+</p>
+</div>
+</div>
