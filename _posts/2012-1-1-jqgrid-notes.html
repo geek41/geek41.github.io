@@ -3,11 +3,11 @@
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>java模拟并发操作进行压力测试</title>
+<title>title</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="java模拟并发操作进行压力测试"/>
+<meta name="title" content="title"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-01-15"/>
+<meta name="generated" content="date"/>
 <meta name="author" content="Sylvan.Li"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -116,219 +116,85 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="content">
-<h1 class="title">java模拟并发操作进行压力测试</h1>
-
-
+<h1 class="title">title</h1>
 
 
 ---
 layout: default
-title: java模拟并发操作进行压力测试
+title: Jqgrid 笔记
 ---
 
 
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 saveRow() -保存一行记录</a></li>
+<li><a href="#sec-2">2 selrow - 获取当前选中行的id</a></li>
+</ul>
+</div>
+</div>
 
-<pre class="example">
-import java.io.BufferedReader;
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> saveRow() -保存一行记录</h2>
+<div class="outline-text-2" id="text-1">
 
-　　import java.io.File;
 
-　　import java.io.FileInputStream;
+<p>  
+方法定义:
+</p>
 
-　　import java.io.InputStreamReader;
 
-　　import java.io.PrintWriter;
 
-　　import java.net.HttpURLConnection;
-
-　　import java.net.URL;
-
-　　import java.util.HashMap;
-
-　　import java.util.Map;
-
-　　import java.util.concurrent.ExecutorService;
-
-　　import java.util.concurrent.Executors;
-
-　　import java.util.concurrent.Semaphore;
-
-　　public class ConcurrentTest {
-
-　　private static int thread_num = 200;
-
-　　private static int client_num = 460;
-
-　　private static Map keywordMap = new HashMap();
-
-　　static {
-
-　　try {
-
-　　InputStreamReader isr = new InputStreamReader(new FileInputStream(
-
-　　new File("clicks.txt")), "GBK");
-
-　　BufferedReader buffer = new BufferedReader(isr);
-
-　　String line = "";
-
-　　while ((line = buffer.readLine()) != null) {
-
-　　keywordMap.put(line.substring(0, line.lastIndexOf(":")), "");
-
-　　}
-
-　　} catch (Exception e) {
-
-　　e.printStackTrace();
-
-　　}
-
-　　}
-
-　　public static void main(String[] args) {
-
-　　int size = keywordMap.size();
-
-　　// TODO Auto-generated method stub
-
-　　ExecutorService exec = Executors.newCachedThreadPool();
-
-　　// 50个线程可以同时访问
-
-　　final Semaphore semp = new Semaphore(thread_num);
-
-　　// 模拟2000个客户端访问
-
-　　for (int index = 0; index &lt; client_num; index++) {
-
-　　final int NO = index;
-
-　　Runnable run = new Runnable() {
-
-　　public void run() {
-
-　　try {
-
-　　// 获取许可
-
-　　semp.acquire();
-
-　　System.out.println("Thread:" + NO);
-
-　　String host = "http://10.99.23.42:7001/KMQueryCenter/query.do?";
-
-　　String para = "method=getQueryResult&amp;pageNum=1&amp;pageSize=5&amp;"
-
-　　+ "queryKeyWord="
-
-　　+ getRandomSearchKey(NO)
-
-　　+ "&amp;questionID=-1&amp;questionIdPath=-1&amp;searchType=1"
-
-　　+ "&amp;proLine=&amp;proSeries=&amp;proType=" + NO;
-
-　　System.out.println(host + para);
-
-　　URL url = new URL(host);// 此处填写供测试的url
-
-　　HttpURLConnection connection = (HttpURLConnection) url
-
-　　.openConnection();
-
-　　// connection.setRequestMethod("POST");
-
-　　// connection.setRequestProperty("Proxy-Connection",
-
-　　// "Keep-Alive");
-
-　　connection.setDoOutput(true);
-
-　　connection.setDoInput(true);
-
-　　PrintWriter out = new PrintWriter(connection
-
-　　.getOutputStream());
-
-　　out.print(para);
-
-　　out.flush();
-
-　　out.close();
-
-　　BufferedReader in = new BufferedReader(
-
-　　new InputStreamReader(connection
-
-　　.getInputStream()));
-
-　　String line = "";
-
-　　String result = "";
-
-　　while ((line = in.readLine()) != null) {
-
-　　result += line;
-
-　　}
-
-　　// System.out.println(result);
-
-　　// Thread.sleep((long) (Math.random()) * 1000);
-
-　　// 释放
-
-　　System.out.println("第：" + NO + " 个");
-
-　　semp.release();
-
-　　} catch (Exception e) {
-
-　　e.printStackTrace();
-
-　　}
-
-　　}
-
-　　};
-
-　　exec.execute(run);
-
-　　}
-
-　　// 退出线程池
-
-　　exec.shutdown();
-
-　　}
-
-　　private static String getRandomSearchKey(final int no) {
-
-　　String ret = "";
-
-　　int size = keywordMap.size();
-
-　　// int wanna = (int) (Math.random()) * (size - 1);
-
-　　ret = (keywordMap.entrySet().toArray())[no].toString();
-
-　　ret = ret.substring(0, ret.lastIndexOf("="));
-
-　　System.out.println("\t" + ret);
-
-　　return ret;
-
-　　}
-
-　　}
-
+<pre class="example">jQuery("#grid_id").saveRow(rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);
 </pre>
+
+<p>
+或者新的API
+</p>
+
+
+<pre class="example">jQuery("#grid_id").jqGrid('saveRow',rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);
+</pre>
+
+
+<p>
+例子:
+</p>
+
+
+<pre class="example">jQuery("#grid_id").jqGrid('saveRow',rowid, 
+{ 
+    successfunc: function( response ) {
+        return true; 
+    }
+});
+</pre>
+
 
 </div>
 
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> selrow - 获取当前选中行的id</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+方法定义:
+</p>
+
+
+<pre class="example">var rowid = $("#table_${uuid}").jqGrid('getGridParam', "selrow" );
+</pre>
+
+</div>
+</div>
+</div>
+
 <div id="postamble">
-<p class="date">Date: 2014-01-15</p>
+<p class="date">Date: date</p>
 <p class="author">Author: Sylvan.Li</p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
