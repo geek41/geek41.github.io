@@ -1,4 +1,4 @@
-html { font-family:"Î¢ÈíÑÅºÚ", Times, serif; font-size: 12pt;font-size:12px; }
+html { font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½", Times, serif; font-size: 12pt;font-size:12px; }
   .title  { text-align: center; }
   .todo   { color: red; }
   .done   { color: green; }
@@ -46,7 +46,7 @@ html { font-family:"Î¢ÈíÑÅºÚ", Times, serif; font-size: 12pt;font-size:12px; }
 
 body{margin:0;padding:0;}
 p{margin:0;padding:0;}
-#table-of-contents{padding:10px;}
+#table-of-contents{padding:10px;float: left;}
 #content{padding:0 20px;}
 .fleft{float:left;}
 .outline-2{margin-left:250px;border-left:1px solid #000;padding-left:50px}
