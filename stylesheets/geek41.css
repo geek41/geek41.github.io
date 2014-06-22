@@ -18,6 +18,7 @@ html { font-family:"微软雅黑",Times, serif; font-size: 12pt;font-size:14px;}
         font-size: 90%;
         overflow:auto;
   }
+  a:hover{color:blue;}
   table { border-collapse: collapse; }
   td, th { vertical-align: top;  }
   th.right  { text-align:center;  }
@@ -46,7 +47,15 @@ html { font-family:"微软雅黑",Times, serif; font-size: 12pt;font-size:14px;}
 
 body{margin:0;padding:0;}
 p{margin:0;padding:0;}
-#table-of-contents{padding:10px;float: left;}
+
+#table-of-contents {
+    float: left;
+    height: 600px;
+    margin: -100px 10px 10px;
+    overflow: scroll;
+    padding: 20px;
+    position: fixed;
+}
 #content{padding:0 20px;}
 .fleft{float:left;}
 .outline-2{margin-left:250px;border-left:1px solid #000;padding-left:50px}
