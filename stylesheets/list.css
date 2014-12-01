@@ -33,7 +33,7 @@ a:hover {
 color: black;
 }
 a:visited {
-color: #a0a;
+color: #00a;
 }
 table {
 font-size: inherit;
@@ -61,7 +61,7 @@ font-size: 80%;
 /* Site
 /*
 /*****************************************************************************/
-.site {
+#content,.site {
 font-size: 110%;
 text-align: justify;
 width: 42em;
