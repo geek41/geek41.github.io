@@ -1,3 +1,4 @@
 markdown: rdiscount
 paginate: 24
 paginate_path: "blog/page:num/"
+permalink:/:categories/:year/:month/:day/:title

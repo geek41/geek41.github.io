@@ -5,31 +5,45 @@ title: Geek 41's blog
 
 <div id="home">
   <h1>Blog Posts</h1>
+
+  <!-- category list-->
+  {% for category in site.categories %}
+  <h2>{{ category | first }}</h2>
+  <span>{{ category | last | size }}</span>
+  <ul class="arc-list">
+    {% for post in category.last %}
+        <li>{{ post.date | date:"%d/%m/%Y"}}<a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+
+  <!-- Posts list -->
   <ul class="posts">
 
-{% for post in paginator.posts %}
-  {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
-  {% if year != y %}
+	{% for post in paginator.posts %}
+	{% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+	{% if year != y %}
     {% assign year = y %}
     <li class="listing-seperator">{{ y }}</li>
-  {% endif %}
-  <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-  </li>
-{% endfor %}
+	{% endif %}
+	<li class="listing-item">
+      <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+      <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+	</li>
+	{% endfor %}
 
   </ul>
 
-<div id="post-pagination" class="paginator">
+  <!-- Pagination list -- >
+	<div id="post-pagination" class="paginator">
 
-  {% if paginator.previous_page %}
-    {% if paginator.previous_page == 1 %}
-    <a href="/"><前页</a>
-    {% else %}
-    <a href="/page{{paginator.previous_page}}"><前页</a>
-    {% endif %}
-  {% else %}
+	  {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+      <a href="/"><前页</a>
+	  {% else %}
+	 <a href="/page{{paginator.previous_page}}"><前页</a>
+	 {% endif %}
+     {% else %}
     <span class="previous disabled"><前页</span>
   {% endif %}
 
