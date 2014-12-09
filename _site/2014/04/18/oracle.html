@@ -1,0 +1,38 @@
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 BULK COLLECT</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">BULK COLLECT</h2>
+<div class="outline-text-2" id="text-1">
+
+
+
+
+
+<pre class="example">
+procedure testList is
+
+    type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype;
+    listcc table_gwgjzy;
+
+  begin
+
+    select * bulk collect into listcc from z_gwgjyj_visu_gather_value;
+    dbms_output.put_line(listcc.count);
+  exception
+    when others then
+      dbms_output.put_line(sqlcode || '' || sqlerrm);
+  end;
+
+</pre>
+
+
+
+</div>
+</div>
