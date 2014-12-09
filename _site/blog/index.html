@@ -4,6 +4,11 @@
 　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 　<title>Geek 41's blog-- Keep it simple</title>
   <link rel="stylesheet" href="/stylesheets/list.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/stylesheets/index.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+  <style type="text/css" media="screen">
+	.panel h3{font-family: "Electrolize",sans-serif;text-transform: uppercase;font-size: 1.1em;}
+  </style>
 </head>
 
 <body>
@@ -12,184 +17,399 @@
   <p>
     <a href="/index.html">{Back to index}</a>
   </p>
-　<div id="home">
-  <h1>Blog Posts</h1>
+　<div class="row-fluid">
+  <div class="span9">  
+	
+	<h3><a href="/2014/10/22/hello.html">你好，世界</a></h3>
+	
+	你好，世界
 
-  <!-- category list-->
+我的第一篇文章
+
+22 Oct 2014
+
+	
+	
+	<h3><a href="/2014/04/18/oracle.html">Oracle</a></h3>
+	
+	
+Table of Contents
+
+
+1 BULK COLLECT
+
+
+
+
+
+BULK COLLECT
+
+
+
+
+
+
+
+procedure testList is
+
+    type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype;
+    listcc table_gwgjzy;
+
+  begin
+
+    select * bulk collect into listcc from z_gwgjyj_visu_gather_value;
+    dbms_output.put_line(listcc.count);
+  exception
+    when others then
+      dbms_output.put_line(sqlcode || '' || sqlerrm);
+  end;
+
+
+
+
+
+
+
+
+	
+	
+	<h3><a href="/2014/01/15/test-concurrency.html">java模拟并发操作进行压力测试</a></h3>
+	
+	import java.io.BufferedReader; 　　import java.io.File; 　　import java.io.FileInputStream; 　　import java.io.InputStreamReader; 　　import java.io.PrintWriter; 　　import java.net.HttpURLConnection; 　　import java.net.URL; 　　import java.util.HashMap; 　　import java.util.Map; 　　import java.util.concurrent.ExecutorService; 　　import java.util.concurrent.Executors; 　　import java.util.concurrent.Semaphore; 　　public class ConcurrentTest { 　　private static int thread_num = 200; 　　private static int client_num = 460; 　　private static Map keywordMap = new HashMap(); 　　static { 　　try...
+	
+	
+	<h3><a href="/2014/01/15/ssh-commond.html">SSH 命令详解</a></h3>
+	
+	Table of Contents 1 SSH 的详细使用方法如下： SSH 的详细使用方法如下： ssh [-l login_name] [hostname | user@hostname] [command] ssh [-afgknqtvxCPX246] [-c blowfish | 3des] [-e escape_char] [-i identity_file] [-l login_name] [-o option] [-p port] [-L port:host:hostport] [-R port:host:hostport] [hostname | user@hostname] [command] sshd 为执行 ssh 的 daemon，在读者使用 ssh 之前必须去激活 sshd，在此建议把它 加在 /etc/init/rc.local 中，在每次开机时激活。...
+	
+	
+	<h3><a href="/2014/01/15/maven-exception.html">Maven 常见异常总结</a></h3>
+	
+	
+Table of Contents
+
+
+1 Could not find artifact com.sun:tools:jar:1.5.0
+
+
+
+
+
+Could not find artifact com.sun:tools:jar:1.5.0
+
+
+
+
+  Could not find artifact com.sun:tools:jar:1.5.0 at specified path
+  D:\Program Files\Java\jre/../lib/tools.jar 
+
+
+  查看项目中的JRE设置是否由JDK换成了JRE，解决方案:在POM文件中加入
+
+
+
+
+
+&lt;properties&gt;  
+    &lt;java.home&gt;D:\Program Files\Java\jdk1.6.0_10&lt;/java.home&gt; &lt;!-- 指定使用的JDK的安装目录 --&gt; 
+&lt;/properties&gt;  
+  &lt;dependency&gt;  
+        &lt;groupId&gt;com.sun&lt;/groupId&gt;  
+        &lt;artifactId&gt;tools&lt;/artifactId&gt;  
+        &lt;version&gt;1.6.0&lt;/version&gt;  
+        &lt;scope&gt;system&lt;/scope&gt;  
+        &lt;systemPath&gt;${java.home}/lib/tools.jar&lt;/systemPath&gt;  
+    &lt;/dependency&gt;  
+
+
+
+
+
+
+	
+	
+	<h3><a href="/2014/01/14/yasnippet.html">Emacs-Yasnippet代码模板</a></h3>
+	
+	YASnippet 是 Emacs 的一个缩略词 (abbreviation) 模板替换系统，可以把一 个预先设定好的缩略词扩展成模板。简单来讲，你可以将一些常用的代码或者文 字记录下来通过设定“代码片段名”来快速插入。 Table of Contents 1 YASnippet 安装 2 YASnippet 使用 3 定制自己的模板 YASnippet 安装 YASnippet 使用 在 Emacs 启动后，YASnippet 模式是作为一个子模式 (minor mode) 存在于 各个模式之中。要用 YASnippet 进行缩略词补全有好多种方法，最常用的补 全方法有三种： 输入一个缩写词 (abbrev)，然后用 snippet 的触发键 (trigger key) 来 补全。这个键默认是 TAB 或是 C-i，当然，也可以用命令 M-x yas/expand 来进行扩展。 用命令 M-x...
+	
+	
+	<h3><a href="/2014/01/01/org-mode-subscripter-setting.html">Org-mode 不让下划线_转义</a></h3>
+	
+	在 Emacs Org Mode 里，默认情况下 _ 这种字符会被当成标记语言来进行转义。 有的时候，如果你只是写写文章，这种默认的转义，会让你很不方便，尤其是你 在写一篇介绍技术的文章，里面出现的变量名有很多的下划线。这时，你会 说：”Oh, my god! 难道要我一个一个去标记不让 _ 转义么？” 如何设置让 Org Mode 在默认情况下，不转义 _ 字符呢？ 单个 org 文件的解决办法 你可以在一个 org 文件的开头，用下面的设置来关闭这个功能。 #+OPTIONS: ^:nil 如果你需要更方便的设置，可以把上面这个改为 #+OPTIONS: ^:{} 这样，当你写 a_{b} 时，_ 后被 {} 括起来的内容就会被转义，而写 a_b 时，就按普通的方式来显示。 org sites 的解决办法 如果你是用 org sites 来写笔记，想让某个 site 的所有 org...
+	
+	
+	<h3><a href="/2014/01/01/nginx-tomcat-windows.html">Nginx+tomcat+windows配置负载均衡</a></h3>
+	
+	Table of Contents 1 Nginx 简介 2 下载地址 3 目录结构 4 nginx.conf配置 5 Tomcat配置 6 验证配置与测试负载均衡 Nginx 简介 Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电 子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。 其特点是 占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器 中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名 的微网志Plurk也使用nginx。 下载地址 http://nginx.org/en/download.html 这里我们推荐下载稳定版（stable versions），本文采用nginx-0.8.20。 目录结构 Nginx- _ conf 配置目录 _ contrib _ docs 文档目录 _ logs 日志目录 _ temp 临时文件目录...
+	
+	
+	<h3><a href="/2014/01/01/java-path.html">java设置环境变量</a></h3>
+	
+	
+1.打开我的电脑&ndash;属性&ndash;高级&ndash;环境变量 
+
+
+2.新建系统变量JAVA_HOME 和CLASSPATH 
+变量名：JAVA_HOME 
+变量值：C:\Program Files\Java\jdk1.7.0
+变量名：CLASSPATH 
+变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+
+
+选择“系统变量”中变量名为“Path”的环境变量，双击该变量，把JDK安装路径中bin目录的绝对路径，添加到Path变量的值中，并使用半角的分号和已有的路径进行分隔。 
+
+
+
+变量名：Path 
+变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+这是java的环境配置，配置完成后直接启动eclipse，它会自动完成java环境的配置
+
+	
+	
+	<h3><a href="/2013/03/22/testOrg.html">Testorg</a></h3>
+	
+	
+
+
+
+testOrg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+testOrg
+
+
+
+
+Table of Contents
+
+
+1 Test&hellip;..中文
+
+1.1 test what??
+
+
+
+
+
+
+
+1 Test&hellip;..中文
+
+
+
+
+ 0000000000000000000000000000
+
+
+
+
+
+1.1 test what&gt;&gt;??
+
+
+
+
+
+
+
+
+Date: 2014-01-14
+Author: Sylvan.Li
+Org version 7.9.3f with Emacs version 24
+Validate XHTML 1.0
+
+
+
+
+
+	
+	
+	<h3><a href="/2013/02/22/ruby.html">Ruby</a></h3>
+	
+	
+
+
+
+ffffffffffff
+
+
+
+	
+	
+	<h3><a href="/code/2013/01/11/cc.html">你好，世界</a></h3>
+	
+	你好，世界
+
+我的第一篇文章
+
+11 Jan 2013
+
+	
+	
+	<h3><a href="/2013/01/01/software-architecture-design.html">如何进行软件架构设计?</a></h3>
+	
+	Table of Contents 1 软件架构设计的目的 2 软件架构设计的原则 3 软件架构设计的几种视图 4 软件架构设计路程 5 软件架构设计的常见误区及解决办法 6 关于架构设计的一点通用技巧 软件架构设计的目的 对于外包业务类型的项目，软件架构设计的目的与产品类型的项目有所不同， 在这里主要讨论外包类型项目的软件架构设计目的。 1、为大规模开发提供基础和规范，并提供可重用的资产，软件系统的大规模 开发，必须要有一定的基础和遵循一定的规范，这既是软件工程本身的要求， 也是客户的要求。架构设计的过程中可以将一些公共部分抽象提取出来，形成 公共类和工具类，以达到重用的目的。 2、一定程度上缩短项目的周期，利用软件架构提供的框架或重用组件，缩短 项目开发的周期。 3、降低开发和维护的成本，大量的重用和抽象，可以提取出一些开发人员不 用关心的公共部分，这样便可以使开发人员仅仅关注于业务逻辑的实现，从而 减少了很多工作量，提高了开发效率。 4、提高产品的质量，好的软件架构设计是产品质量的保证，特别是对于客户 常常提出的非功能性需求的满足。 软件架构设计的原则 软件架构设计必须遵循以下原则： 1、满足功能性需求和非功能需求。这是一个软件系统最基本的要求，也是架 构设计时应该遵循的最基本的原则。 2、实用性原则，就像每一个软件系统交付给用户使用时必须实用，能解决用 户的问题一样，架构设计也必须实用，否则就会“高来高去”或“过度设计”。 3、满足复用的要求，最大程度的提高开发人员的工作效率。 软件架构设计的几种视图 我们常常在讨论架构设计该做些什么的时候，或是在架构设计评审的会议上， 会提出各种各样的问题，例如开发人员该如何记录Log，事务如何控制？怎样 才能提高我们的开发人员的工作效率，即在单位时间内更有品质的完成更多的 功能？怎样满足客户的非功能性需求？怎样让生产环境的平台管理人员更好的 维护系统？ 上面这些问题，实际上是软件系统的不同的干系人站在不同的角度上提出的问 题，要回答上面这些问题，我们就得从不同的视角来看待软件架构设计这项工 作。 1、逻辑架构视角，从系统用户的角度考虑问题，设计出来的软件架构能够满 足业务逻辑的需求，能够处理现在越来越复杂的业务逻辑需求。 2、开发架构视角，从系统开发人员的角度来考虑问题，设计的架构要易于理 解，易于开发，易于单元测试，最好做到让开发人员可以用最少的代码行数完 成功能的开发。...
+	
+	
+	<h3><a href="/2013/01/01/java-class-forName.html">理解class.forName()</a></h3>
+	
+	使用jdbc方式连接数据库时会使用一句代码Class.forName(String className).这句话是什么意思呢？首先说一点Class.forName(String className)这个方法的作用是装载className这个字符串指定的类。 Table of Contents 1 官方文档 2 类装载 3 两种装载方法的区别： 4 参考资料 官方文档 返回与带有给定字符串名的类或接口相关联的 Class 对象。调用此方法等效于： Class.forName(className, true, currentLoader) 其中 currentLoader 表示此类的定义类加载器。 例如，以下代码片段返回 java.lang.Thread 类的运行时 Class 描述符。 Class t = Class.forName("java.lang.Thread") 调用 forName("X") 将导致名为 X 的类被初始化。 参数： className - 所需类的完全限定名。 返回： 具有指定名的类的 Class 对象。 通俗的说就是：获得字符串参数中指定的类，并初始化该类 类装载 类装载就是把一个类或是一个接口的字节码文件，通过解析该字节码来构建代 表这个类或是这个接口的实例的过程。...
+	
+	
+	<h3><a href="/2012/01/01/jqgrid-notes.html">Jqgrid 笔记</a></h3>
+	
+	
+Table of Contents
+
+
+1 saveRow() -保存一行记录
+2 selrow - 获取当前选中行的id
+
+
+
+
+
+saveRow() -保存一行记录
+
+
+
   
-  <h2>java</h2>
-  <span>1</span>
-  <ul class="arc-list">
-    
-        <li>01/01/2012<a href="/java/properties/2012/01/01/java-properties.html">Java获取properties资源文件路径问题</a></li>
-    
-  </ul>
+方法定义:
+
+
+
+
+jQuery("#grid_id").saveRow(rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);
+
+
+
+或者新的API
+
+
+
+jQuery("#grid_id").jqGrid('saveRow',rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);
+
+
+
+
+例子:
+
+
+
+jQuery("#grid_id").jqGrid('saveRow',rowid, 
+{ 
+    successfunc: function( response ) {
+        return true; 
+    }
+});
+
+
+
+
+
+
+
+
+selrow - 获取当前选中行的id
+
+
+
+
+方法定义:
+
+
+
+var rowid = $("#table_${uuid}").jqGrid('getGridParam', "selrow" );
+
+
+
+
+
+	
+	
+	<h3><a href="/java/properties/2012/01/01/java-properties.html">Java获取properties资源文件路径问题</a></h3>
+	
+	
+1.方法一
+
+
+
+InputStream fis =TestProperties.class.getClassLoader().getResourceAsStream("init.properties")
+
+
+
+
+
+2.方法二(要求TestProperties和init.properties在同一目录下)
+
+
+
+InputStream fis =TestProperties.class.getResourceAsStream("init.properties")
+
+
+
+
+3.方法三，对于Web工程也可以这样。
+先获取ServletContext,然后
+
+
+
+InputStream in=context.getResourceAsStream("/WEB-INF/classes/init.properties");
+
+
+
+
+	
+	
+
+
+	<!-- Pagination links -->
+<div class="pull-right">
   
-  <h2>properties</h2>
-  <span>1</span>
-  <ul class="arc-list">
-    
-        <li>01/01/2012<a href="/java/properties/2012/01/01/java-properties.html">Java获取properties资源文件路径问题</a></li>
-    
-  </ul>
+  <span><a class="btn btn-primary btn-sm disabled" href="/">Home</a></span>
+  <span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
   
-  <h2>code</h2>
-  <span>1</span>
-  <ul class="arc-list">
-    
-        <li>11/01/2013<a href="/code/2013/01/11/cc.html">你好，世界</a></li>
-    
-  </ul>
+  <span><a class="btn btn-primary btn-sm disabled">Page: 1 of 1</a></span>
   
+  <span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
+  <span><a class="btn btn-primary btn-sm disabled">Last</a></span>
+  
+</div>
 
-  <!-- Posts list -->
-  <ul class="posts">
-
+  </div>
+  <div class="span3 panel">
+	<h3>Category</h3>
 	
-	
-	
-    
-    <li class="listing-seperator">2014</li>
-	
-	<li class="listing-item">
-      <time datetime="2014-10-22">2014-10-22</time>
-      <a href="/2014/10/22/hello.html" title="你好，世界">你好，世界</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-04-18">2014-04-18</time>
-      <a href="/2014/04/18/oracle.html" title="Oracle">Oracle</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-01-15">2014-01-15</time>
-      <a href="/2014/01/15/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-01-15">2014-01-15</time>
-      <a href="/2014/01/15/ssh-commond.html" title="SSH 命令详解">SSH 命令详解</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-01-15">2014-01-15</time>
-      <a href="/2014/01/15/maven-exception.html" title="Maven 常见异常总结">Maven 常见异常总结</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-01-14">2014-01-14</time>
-      <a href="/2014/01/14/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-01-01">2014-01-01</time>
-      <a href="/2014/01/01/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-01-01">2014-01-01</time>
-      <a href="/2014/01/01/nginx-tomcat-windows.html" title="Nginx+tomcat+windows配置负载均衡">Nginx+tomcat+windows配置负载均衡</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2014-01-01">2014-01-01</time>
-      <a href="/2014/01/01/java-path.html" title="java设置环境变量">java设置环境变量</a>
-	</li>
-	
-	
-	
-    
-    <li class="listing-seperator">2013</li>
-	
-	<li class="listing-item">
-      <time datetime="2013-03-22">2013-03-22</time>
-      <a href="/2013/03/22/testOrg.html" title="Testorg">Testorg</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2013-02-22">2013-02-22</time>
-      <a href="/2013/02/22/ruby.html" title="Ruby">Ruby</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2013-01-11">2013-01-11</time>
-      <a href="/code/2013/01/11/cc.html" title="你好，世界">你好，世界</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2013-01-01">2013-01-01</time>
-      <a href="/2013/01/01/software-architecture-design.html" title="如何进行软件架构设计?">如何进行软件架构设计?</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2013-01-01">2013-01-01</time>
-      <a href="/2013/01/01/java-class-forName.html" title="理解class.forName()">理解class.forName()</a>
-	</li>
-	
-	
-	
-    
-    <li class="listing-seperator">2012</li>
-	
-	<li class="listing-item">
-      <time datetime="2012-01-01">2012-01-01</time>
-      <a href="/2012/01/01/jqgrid-notes.html" title="Jqgrid 笔记">Jqgrid 笔记</a>
-	</li>
-	
-	
-	
-	<li class="listing-item">
-      <time datetime="2012-01-01">2012-01-01</time>
-      <a href="/java/properties/2012/01/01/java-properties.html" title="Java获取properties资源文件路径问题">Java获取properties资源文件路径问题</a>
-	</li>
-	
-
-  </ul>
-
-  <!-- Pagination list -- >
-	<div id="post-pagination" class="paginator">
-
+	<!-- category list-->
+	<ul>
 	  
-    <span class="previous disabled"><前页</span>
-  
-
-      
-      <span class="current-page">1</span>
-      
-
-    
-
-  
-    <span class="next disabled" >后页></span>
-  
-  (共16篇)
+	  <li><a href="categories.html#java">java(1)</a></li>
+	  
+	  <li><a href="categories.html#properties">properties(1)</a></li>
+	  
+	  <li><a href="categories.html#code">code(1)</a></li>
+	  
+	</ul>
+  </div>
 </div>
 
-</div>
+
 　
 
 </div>
