@@ -2,7 +2,7 @@
 <html>
   <head>
 	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	　<title>你好，世界 |  Geek 41</title>
+	　<title>{{ page.title }} |  Geek 41</title>
 	<link rel="stylesheet" href="/stylesheets/list.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/stylesheets/index.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
@@ -37,55 +37,18 @@
 			
 			<!-- category list-->
 			<ul>
-			  
-			  <li><a href="/blog/categories.html#java">java(1)</a></li>
-			  
-			  <li><a href="/blog/categories.html#code">code(1)</a></li>
-			  
-			  <li><a href="/blog/categories.html#test">test(1)</a></li>
-			  
-			  <li><a href="/blog/categories.html#sample">sample(1)</a></li>
-			  
+			  {% for category in site.categories %}
+			  <li><a href="/blog/categories.html#{{ category | first }}">{{ category | first }}({{ category | last | size }})</a></li>
+			  {% endfor %}
 			</ul>
 
-			<section>
-<h3>Recently Posts</h3>
-<ul>
-
-<li><a href="/test/sample/2014/12/11/hello2.html" title="你好，世界2">你好，世界2</a></li>
-
-<li><a href="/2014/10/22/hello.html" title="你好，世界">你好，世界</a></li>
-
-<li><a href="/2014/04/18/oracle.html" title="Oracle">Oracle</a></li>
-
-<li><a href="/2014/01/15/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a></li>
-
-<li><a href="/2014/01/15/ssh-commond.html" title="SSH 命令详解">SSH 命令详解</a></li>
-
-<li><a href="/2014/01/15/maven-exception.html" title="Maven 常见异常总结">Maven 常见异常总结</a></li>
-
-<li><a href="/2014/01/14/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a></li>
-
-<li><a href="/2014/01/01/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a></li>
-
-<li><a href="/2014/01/01/nginx-tomcat-windows.html" title="Nginx+tomcat+windows配置负载均衡">Nginx+tomcat+windows配置负载均衡</a></li>
-
-<li><a href="/2014/01/01/java-path.html" title="java设置环境变量">java设置环境变量</a></li>
-
-</ul>
-</section>
-
+			{% include recently_posts.html %}
 		  </div>
 		</div>
 
 		<div class="span9">  
 		  <div class="main">
-			　<h2>你好，世界</h2>
-
-<p>我的第一篇文章</p>
-
-<p>22 Oct 2014</p>
-
+			　{{ content }}
 		  </div>
 		</div>
 	  </div>

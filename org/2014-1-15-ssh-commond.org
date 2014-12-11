@@ -4,11 +4,10 @@
 #+DATE:<2014-01-15 周三>
 #+AUTHOR:Sylvan.Li
 #+EMAIL:sylvan9527@gmail.com
-#+STYLE:<link ref="stylesheet" type="text/css" href="../stylesheet/worg.css">
 
 #+BEGIN_HTML
 ---
-layout: default
+layout: view_simple
 title: SSH 命令详解
 ---
 #+END_HTML

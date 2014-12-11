@@ -17,7 +17,7 @@
 	.panel ul li {list-style:none;}
 	.title{margin-bottom:0;padding-bottom:30px;}
 	a{color:#005580}
-	a:visited{color:#005580}
+pp	a:visited{color:#005580}
 
   </style>
 </head>
