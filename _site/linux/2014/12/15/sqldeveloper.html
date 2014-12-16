@@ -2,7 +2,7 @@
 <html>
   <head>
 	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	　<title>你好，世界 |  Geek 41</title>
+	　<title>解决linux下sqldeveloper 中文环境显示乱码的问题 |  Geek 41</title>
 	<link rel="stylesheet" href="/assets/stylesheets/list.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/stylesheets/index.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
@@ -88,13 +88,33 @@
 
 		<div class="span9">  
 		  <div class="main">
-			<h1>你好，世界</h1>
-			　<h2>你好，世界</h2>
+			<h1>解决linux下sqldeveloper 中文环境显示乱码的问题</h1>
+			　<p>
+在linux环境下装sql developer,选择中文的字体时出现乱码。由于SQL Developer使用了JDK，java环境当中缺少中文字体造成了乱码，我安装的是JDK1.6u21，因此我的JAVA的PATH是 <i>usr/lib/jvm/java/jdk1.6.0<sub>21</sub>/jre/lib/fonts</i> ，进入之后创建一个目录
+</p>
 
-<p>我的第一篇文章</p>
 
-<p>22 Oct 2014</p>
 
+<pre class="example">mkdir fallback
+cd fallback
+</pre>
+
+
+<p>
+然后在fallback目录下 使用ln创建符号链接文件，告诉SQL Developer中文字体的路径。我这里用的consolas+微软雅黑。
+</p>
+
+
+
+<pre class="example">ln -s /usr/share/fonts/win7/Yahei.Consolas.1.11b.ttf YaHei.Consolas.1.11b.ttf
+mkfontdir
+mkfontscale
+</pre>
+
+
+<p>
+然后再打开SQL Developer 就可以选择中文字体了。
+</p>
 		  </div>
 		</div>
 	  </div>

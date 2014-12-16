@@ -1,0 +1,352 @@
+---
+layout: view_simple
+title: Oracle存储过程书写规范和技巧
+excerpt: 
+keywords: ""
+categories: [Oracle]
+tags: [oracle,procedure]
+---
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 变量规范</a></li>
+<li><a href="#sec-2">2 包规范</a></li>
+<li><a href="#sec-3">3 游标规范</a></li>
+<li><a href="#sec-4">4 事务处理规范</a></li>
+<li><a href="#sec-5">5 数据封装规范</a></li>
+<li><a href="#sec-6">6 数据访问规范</a></li>
+<li><a href="#sec-7">7 日志书写规范</a></li>
+<li><a href="#sec-8">8 错误处理规范</a></li>
+<li><a href="#sec-9">9 书写规范</a></li>
+<li><a href="#sec-10">10 书写优化性能建议</a></li>
+<li><a href="#sec-11">11 其他经验规则</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">变量规范</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>1.变量名全部采用小写，局部变量名使用“v<sub>”开头，输入参数以“i</sub><sub>开头，输出参数以“o</sub><sub>”开头，输入输出参数用io</sub><sub>开头。所有输入参数必须显示声明</sub>
+2.游标的命名：游标统一用后缀 “<sub>cur”</sub> 命名
+3.使用命名的常量以避免硬编码，使用常量包,常量统一用 cn_ 的前缀命名
+4.当变量代表列时，使用%TYPE属性，当变量实际上表示数据库表的某列数据时，为避免数据库结构修改对变量的影响，应统一使用%TYPE属性对变量命名
+5.使用%TYPE以标准化非数据库变量的声明
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">包规范</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>1.按照项目制定的文件组织划分包内容
+2.包内的存储过程及函数的命名必须遵循CPIC制订的相关规范
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">游标规范</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>1.外部查询的多行数据返回使用游标进行处理，通过传递游标变量的形式返回数据到外部接口,由外部程序自行FETCH数据。
+2.打开游标前，必须显式检查游标的%ISOPEN属性。
+3.使用FETCH语句后，要立即检查%NOTFOUND属性，以便正常终止游标FETCH循环。
+4.无论PL/SQL程序是正常终止还是出错退出，都要关闭所有已打开的游标。在出错退出时，应该在其异常处理部分管理所有游标，这可以释放一部分的系统资源
+5.尽可能使用显示游标，避免使用隐式游标。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">事务处理规范</h2>
+<div class="outline-text-2" id="text-4">
+
+<p>1.在需要分割事务以使主事务的提交或者回滚独立于子事务的提交及回滚时，应使用自治事务
+2.所有的存储过程均统一在结束处统一COMMIT或者ROLLBACK
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">数据封装规范</h2>
+<div class="outline-text-2" id="text-5">
+
+<p>1.按照业务逻辑实现功能模块的封装，将业务规则逻辑集中在更少量的、良好设计的、易于维护的函数或者过程中，不必在每条SQL语句或者每天PL/SQL程序中重复这些逻辑
+2.基于单一数据表的增、删、改、查采用标准SP进行封装，不允许相同逻辑的处理出现在多个SP中
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">数据访问规范</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>1.后台数据按照逻辑划分成多个SCHEMA，不同SCHEMA的数据不可互相访问
+2.需要相互访问的表均存放在 ***的SCHEMA中，通过访问***中的接口表实现跨SCHEMA的数据访问
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">日志书写规范</h2>
+<div class="outline-text-2" id="text-7">
+
+<p>1.采用公共的API包完成后台日志数据记录。（API完成输出错误信息提示、记录错误信息内容到数据库表、系统级的错误代码及错误信息等）
+2.后台日志的信息记录级别包括INFO、WARN、ERROR，其定义以及不同级别日志的采集标准如下：
+</p>
+<ul>
+<li>INFO－提示信息，供开发人员调试使用，由开发人员自行确定，主要是调试信息，程序运行中普通信息提示。
+</li>
+<li>WARN－警告信息，可能导致严重错误的警告信息
+</li>
+<li>ERROR－错误信息，导致系统运行错误的信息。
+</li>
+</ul>
+
+<p>3.所有表操作的错误处理部分均应记录日志信息
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">错误处理规范</h2>
+<div class="outline-text-2" id="text-8">
+
+
+<p>
+1.凡是涉及到表操作(insert,update,select,delete)的sql语句,都必须进行错误捕捉,不能将错误带到后面的语句
+2.从表中select数据的语句,应严格区分NO<sub>DATA</sub><sub>FOUND</sub> 和 TOO<sub>MANY</sub><sub>ROWS的错误</sub>,并将相应错误信息填入错误信息
+3.NO<sub>DATA</sub><sub>FOUND</sub>   多数为查询条件问题导致无数据返回（用户级错误）
+4.TOO<sub>MANY</sub><sub>ROWS</sub>  应该是数据表内数据异常导致（系统级错误）
+5.所有存储过程(函数)的统一出口一律在存储过程的结束部分,不允许中间返回
+6.在每一个异常处理部分，都要定义WHEN OTHER 子程序，以便捕获所有没有显示处理或其他类型的异常
+7.所有程序中捕获到的错误,均转换成对应的errcode,errmsg,通过输出参数返回给调用者,所有存储过程（函数）结束前应统一捕获系统异常
+8.在每个存储过程(函数)的入口处统一先将返回错误代码(errCode)设置为42,功能处理成功结束后再将错误代码(errCode)设置为0(成功),避免程序过程中因错误未能正确捕获,导致功能未能完成,而程序却成功返回的情况出现
+9.所有的模块都有错误编码区间,原则上错误编码全局唯一
+10.错误信息描述应准确，业务相关的错误应将输入数据拼接到错误信息中。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">书写规范</h2>
+<div class="outline-text-2" id="text-9">
+
+
+<ol>
+<li>PL/SQL语句的所有表名、字段名遵照数据字典的定义，系统保留字、内置函数名、PL/SQL保留字、关键字大写，用户声明的标识符小写。
+</li>
+<li>对于子程序、触发器、包等带名的程序块，使用结束标识。
+</li>
+<li>变量名小写，局部变量名使用“v<sub>”开头，输入参数以“i</sub><sub>”开头，输出参数以“o</sub><sub>”开头，输入输出参数用io</sub><sub>开头。所有输入参数必须显示声明。</sub>
+</li>
+<li>连接符OR、IN、AND、以及＝、&lt;=、&gt;=等前后加上一个空格。 
+</li>
+<li>对较为复杂的SQL语句加上注释，说明算法、功能。 
+</li>
+<li>注释风格：注释单独成行、放在语句前面。 
+</li>
+<li>应对不易理解的分支条件表达式加注释； 
+</li>
+<li>对重要的计算应说明其功能； 
+</li>
+<li>过长的函数实现，应将其语句按实现的功能分段加以概括性说明； 
+</li>
+</ol>
+
+<p>10.常量及变量注释时，应注释被保存值的含义(必须)，合法取值的范围
+11.可采用单行/多行注释。（&ndash; 或 方式） 
+12.SQL语句的缩进风格 ,一行有多列，超过80个字符时，基于列对齐原则，采用下行缩进 ,WHERE子句书写时，每个条件占一行，语句另起一行时，以保留字或者连接符开始，连接符右对齐
+13.INSERT语句，必须书写字段，字段可5个或6个一组。中间用TAB分开
+14.多表连接时，使用表的别名来引用列。 
+15.供别的文件或函数调用的函数，绝不应使用全局变量交换数据； 
+16.TAB 统一定义为4个空格，建议使用Ultraedit作为SQL书写工具
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10">书写优化性能建议</h2>
+<div class="outline-text-2" id="text-10">
+
+
+<p>
+1.避免嵌套连接。例如：A = B AND B = C AND C = D
+2.WHERE条件中尽量减少使用常量比较，改用主机变量
+3.系统可能选择基于规则的优化器，所以将结果集返回数据量小的表作为驱动表（FROM后边最后一个表）。
+4.大量的排序操作影响系统性能，所以尽量减少ORDER BY和GROUP BY排序操作。  如必须使用排序操作，请遵循如下规则
+5.排序尽量建立在有索引的列上。 
+6.如结果集不需唯一，使用UNION ALL代替UNION。
+7.索引的使用
+8.尽量避免对索引列进行计算。
+9.尽量注意比较值与索引列数据类型的一致性。 
+10.对于复合索引，SQL语句必须使用主索引列 
+11.索引中，尽量避免使用NULL。 
+12.对于索引的比较，尽量避免使用!= 查询列和排序列与索引列次序保持一致
+13.尽量避免相同语句由于书写格式的不同，而导致多次语法分析。 
+14.尽量使用共享的SQL语句。
+15.查询的WHERE过滤原则，应使过滤记录数最多的条件放在最前面。 
+16.任何对列的操作都将导致表扫描，它包括数据库函数、计算表达式等等，查询时要尽可能将操作移至等号右边。 
+17.IN、OR子句常会使用工作表，使索引失效；如果不产生大量重复值，可以考虑把子句拆开；拆开的子句中应该包含索引。 
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-11" class="outline-2">
+<h2 id="sec-11">其他经验规则</h2>
+<div class="outline-text-2" id="text-11">
+
+
+<p>
+1.尽量少用嵌套查询。如必须，请用not exist代替not in子句。
+</p>
+<p>
+错误：
+</p>
+
+
+
+<pre class="example">SELECT ...... 
+
+  FROM emp 
+
+  WHERE dept_no NOT IN ( SELECT dept_no 
+
+  FROM dept 
+
+  WHERE dept_cat='A');
+</pre>
+
+
+<p>
+正确:
+</p>
+
+
+
+<pre class="example">SELECT ...... 
+
+  FROM emp e 
+
+  WHERE NOT EXISTS ( SELECT 'X' 
+
+  FROM dept 
+
+  WHERE dept_no=e.dept_no 
+
+  AND dept_cat='A'); 
+
+</pre>
+
+
+<p>
+2.用多表连接代替EXISTS子句。
+</p>
+<p>
+错误:
+</p>
+
+
+
+<pre class="example">
+SELECT ...... 
+
+  FROM emp 
+
+  WHERE EXISTS ( SELECT 'X' 
+
+  FROM dept 
+
+  WHERE dept_no=e.dept_no 
+
+  AND dept_cat='A');
+
+</pre>
+
+
+<p>
+正确：
+</p>
+
+
+
+<pre class="example">
+SELECT ...... 
+
+  FROM emp e,dept d 
+
+  WHERE e.dept_no=d.dept_no 
+
+  AND dept_cat='A';
+</pre>
+
+
+<ol>
+<li>少用DISTINCT，用EXISTS代替
+</li>
+</ol>
+
+
+<p>
+错误：
+</p>
+
+
+
+<pre class="example">
+SELECT DISTINCT d.dept_code,d.dept_name 
+
+  FROM dept d ,emp e 
+
+  WHERE e.dept_code=d.dept_code; 
+
+</pre>
+
+
+<p>
+正确:
+</p>
+
+
+
+<pre class="example">SELECT dept_code,dept_name 
+
+  FROM dept d 
+
+  WHERE EXISTS ( SELECT 'X' 
+
+  FROM emp e 
+
+  WHERE e.dept_code=d.dept_code);
+</pre>
+
+
+<p>
+4.使用UNION ALL、MINUS、INTERSECT提高性能 
+5.使用ROWID提高检索速度。对SELECT得到的单行记录，需进行DELETE、UPDATE操作时，使用ROWID将会使效率大大提高。 
+6.使用优化线索机制进行访问路径控制。 
+7.使用cursor时，显示光标优于隐式光标 。
+</p>
+
+
+
+
+</div>
+</div>
