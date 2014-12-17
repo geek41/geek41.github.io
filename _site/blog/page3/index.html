@@ -41,9 +41,9 @@
 		
 		<li><a href="/blog/categories.html#java">java(2)</a></li>
 		
-		<li><a href="/blog/categories.html#jekyll">jekyll(2)</a></li>
-		
 		<li><a href="/blog/categories.html#emacs">emacs(1)</a></li>
+		
+		<li><a href="/blog/categories.html#jekyll">jekyll(1)</a></li>
 		
 		<li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
 		
@@ -77,9 +77,9 @@
 
 <li><a href="/java/2014/12/12/properties.html" title="Java获取properties资源文件路径问题">Java获取properties资源文件路径问题</a></li>
 
-<li><a href="/jekyll/2014/12/12/jekyll.html" title="Jekyll折腾笔记">Jekyll折腾笔记</a></li>
-
 <li><a href="/2014/12/11/ooo.html" title="ooo">ooo</a></li>
+
+<li><a href="/2014/10/22/hello.html" title="你好，世界">你好，世界</a></li>
 
 </ul>
 </section>
@@ -88,11 +88,6 @@
 
   <div class="span9">  
 	<div class="main">
-	  
-	  <h3><a href="/2014/01/15/test-concurrency.html">java模拟并发操作进行压力测试</a></h3>
-	  
-	  import java.io.BufferedReader; 　　import java.io.File; 　　import java.io.FileInputStream; 　　import java.io.InputStreamReader; 　　import java.io.PrintWriter; 　　import java.net.HttpURLConnection; 　　import java.net.URL; 　　import java.util.HashMap; 　　import java.util.Map; 　　import java.util.concurrent.ExecutorService; 　　import java.util.concurrent.Executors; 　　import java.util.concurrent.Semaphore; 　　public class ConcurrentTest { 　　private static int thread_num = 200; 　　private static int client_num = 460; 　　private static Map keywordMap = new HashMap(); 　　static { 　　try...
-	  
 	  
 	  <h3><a href="/2014/01/15/ssh-commond.html">SSH 命令详解</a></h3>
 	  
@@ -159,6 +154,29 @@ Could not find artifact com.sun:tools:jar:1.5.0
 	  Table of Contents 1 Nginx 简介 2 下载地址 3 目录结构 4 nginx.conf配置 5 Tomcat配置 6 验证配置与测试负载均衡 Nginx 简介 Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电 子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。 其特点是 占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器 中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名 的微网志Plurk也使用nginx。 下载地址 http://nginx.org/en/download.html 这里我们推荐下载稳定版（stable versions），本文采用nginx-0.8.20。 目录结构 Nginx- _ conf 配置目录 _ contrib _ docs 文档目录 _ logs 日志目录 _ temp 临时文件目录...
 	  
 	  
+	  <h3><a href="/2014/01/01/java-path.html">java设置环境变量</a></h3>
+	  
+	  
+1.打开我的电脑&ndash;属性&ndash;高级&ndash;环境变量 
+
+
+2.新建系统变量JAVA_HOME 和CLASSPATH 
+变量名：JAVA_HOME 
+变量值：C:\Program Files\Java\jdk1.7.0
+变量名：CLASSPATH 
+变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+
+
+选择“系统变量”中变量名为“Path”的环境变量，双击该变量，把JDK安装路径中bin目录的绝对路径，添加到Path变量的值中，并使用半角的分号和已有的路径进行分隔。 
+
+
+
+变量名：Path 
+变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+这是java的环境配置，配置完成后直接启动eclipse，它会自动完成java环境的配置
+
+	  
+	  
 
 
 	  <!-- Pagination links -->
@@ -169,10 +187,10 @@ Could not find artifact com.sun:tools:jar:1.5.0
 		<a class="btn btn-primary btn-sm" href="/blog/page2/">&laquo; Prev</a>
 		
 		
-		<span><a class="btn btn-primary btn-sm disabled">Page: 3 of 5</a></span>
+		<span><a class="btn btn-primary btn-sm disabled">Page: 3 of 4</a></span>
 		
 		<a class="btn btn-primary btn-sm" href="/blog/page4/">Next &raquo;</a>
-		<a class="btn btn-primary btn-sm" href="/blog/page5/">Last</a>
+		<a class="btn btn-primary btn-sm" href="/blog/page4/">Last</a>
 		
 	  </div>
 	</div>

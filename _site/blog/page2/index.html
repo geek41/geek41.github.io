@@ -41,9 +41,9 @@
 		
 		<li><a href="/blog/categories.html#java">java(2)</a></li>
 		
-		<li><a href="/blog/categories.html#jekyll">jekyll(2)</a></li>
-		
 		<li><a href="/blog/categories.html#emacs">emacs(1)</a></li>
+		
+		<li><a href="/blog/categories.html#jekyll">jekyll(1)</a></li>
 		
 		<li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
 		
@@ -77,9 +77,9 @@
 
 <li><a href="/java/2014/12/12/properties.html" title="Java获取properties资源文件路径问题">Java获取properties资源文件路径问题</a></li>
 
-<li><a href="/jekyll/2014/12/12/jekyll.html" title="Jekyll折腾笔记">Jekyll折腾笔记</a></li>
-
 <li><a href="/2014/12/11/ooo.html" title="ooo">ooo</a></li>
+
+<li><a href="/2014/10/22/hello.html" title="你好，世界">你好，世界</a></li>
 
 </ul>
 </section>
@@ -123,70 +123,6 @@ InputStream fis =TestProperties.class.getResourceAsStream("init.properties")
 
 InputStream in=context.getResourceAsStream("/WEB-INF/classes/init.properties");
 
-
-
-
-	  
-	  
-	  <h3><a href="/jekyll/2014/12/12/jekyll.html">Jekyll折腾笔记</a></h3>
-	  
-	  <p>
-记录折腾Jekyll静态博客到github的一些心路历程，空闲的时间会持续更新
-</p>
-
-
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Official documents</a>
-<ul>
-<li><a href="#sec-1-1">1.1 Working with drafts</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Official documents</h2>
-<div class="outline-text-2" id="text-1">
-
-
-<p>
-  截取一些官方的文档以便折腾的时候查阅，以为官网每次要加载googleapis.com的内容，国内又访问不了，所以加载时间比较慢，所以放在这里。
-</p>
-
-</div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">Working with drafts</h3>
-<div class="outline-text-3" id="text-1-1">
-
-
-<p>
-  Drafts are posts without a date. They’re posts you’re still working on and don’t want to publish yet. To get up and running with drafts, create a <sub>drafts</sub> folder in your site’s root (as described in the site structure section) and create your first draft:
-</p>
-
-
-
-
-<pre class="example">
-|-- _drafts/
-|   |-- a-draft-post.md
-
-</pre>
-
-
-<p>
-To preview your site with drafts, simply run jekyll serve or jekyll build with the &ndash;drafts switch. Each will be assigned the value modification time of the draft file for its date, and thus you will see currently edited drafts as the latest posts.
-</p>
-<p>
-上面是官网对于drafts的解释，但是github貌似不支持，不会加载drafts中的文档，想用drafts只能选择折中的方法。
-</p>
-
-
-<!-- more-forword -->
 
 
 
@@ -271,6 +207,11 @@ procedure testList is
 
 	  
 	  
+	  <h3><a href="/2014/01/15/test-concurrency.html">java模拟并发操作进行压力测试</a></h3>
+	  
+	  import java.io.BufferedReader; 　　import java.io.File; 　　import java.io.FileInputStream; 　　import java.io.InputStreamReader; 　　import java.io.PrintWriter; 　　import java.net.HttpURLConnection; 　　import java.net.URL; 　　import java.util.HashMap; 　　import java.util.Map; 　　import java.util.concurrent.ExecutorService; 　　import java.util.concurrent.Executors; 　　import java.util.concurrent.Semaphore; 　　public class ConcurrentTest { 　　private static int thread_num = 200; 　　private static int client_num = 460; 　　private static Map keywordMap = new HashMap(); 　　static { 　　try...
+	  
+	  
 
 
 	  <!-- Pagination links -->
@@ -281,10 +222,10 @@ procedure testList is
 		<a class="btn btn-primary btn-sm" href="/blog">&laquo; Prev</a>
 		
 		
-		<span><a class="btn btn-primary btn-sm disabled">Page: 2 of 5</a></span>
+		<span><a class="btn btn-primary btn-sm disabled">Page: 2 of 4</a></span>
 		
 		<a class="btn btn-primary btn-sm" href="/blog/page3/">Next &raquo;</a>
-		<a class="btn btn-primary btn-sm" href="/blog/page5/">Last</a>
+		<a class="btn btn-primary btn-sm" href="/blog/page4/">Last</a>
 		
 	  </div>
 	</div>

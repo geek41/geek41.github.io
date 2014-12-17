@@ -41,9 +41,9 @@
 		
 		<li><a href="/blog/categories.html#java">java(2)</a></li>
 		
-		<li><a href="/blog/categories.html#jekyll">jekyll(2)</a></li>
-		
 		<li><a href="/blog/categories.html#emacs">emacs(1)</a></li>
+		
+		<li><a href="/blog/categories.html#jekyll">jekyll(1)</a></li>
 		
 		<li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
 		
@@ -77,9 +77,9 @@
 
 <li><a href="/java/2014/12/12/properties.html" title="Java获取properties资源文件路径问题">Java获取properties资源文件路径问题</a></li>
 
-<li><a href="/jekyll/2014/12/12/jekyll.html" title="Jekyll折腾笔记">Jekyll折腾笔记</a></li>
-
 <li><a href="/2014/12/11/ooo.html" title="ooo">ooo</a></li>
+
+<li><a href="/2014/10/22/hello.html" title="你好，世界">你好，世界</a></li>
 
 </ul>
 </section>
@@ -88,29 +88,6 @@
 
   <div class="span9">  
 	<div class="main">
-	  
-	  <h3><a href="/2014/01/01/java-path.html">java设置环境变量</a></h3>
-	  
-	  
-1.打开我的电脑&ndash;属性&ndash;高级&ndash;环境变量 
-
-
-2.新建系统变量JAVA_HOME 和CLASSPATH 
-变量名：JAVA_HOME 
-变量值：C:\Program Files\Java\jdk1.7.0
-变量名：CLASSPATH 
-变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
-
-
-选择“系统变量”中变量名为“Path”的环境变量，双击该变量，把JDK安装路径中bin目录的绝对路径，添加到Path变量的值中，并使用半角的分号和已有的路径进行分隔。 
-
-
-
-变量名：Path 
-变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
-这是java的环境配置，配置完成后直接启动eclipse，它会自动完成java环境的配置
-
-	  
 	  
 	  <h3><a href="/2013/03/22/testOrg.html">Testorg</a></h3>
 	  
@@ -279,6 +256,40 @@ var rowid = $("#table_${uuid}").jqGrid('getGridParam', "selrow" );
 
 	  
 	  
+	  <h3><a href="/java/2012/01/01/java-properties.html">Java获取properties资源文件路径问题</a></h3>
+	  
+	  
+1.方法一
+
+
+
+InputStream fis =TestProperties.class.getClassLoader().getResourceAsStream("init.properties")
+
+
+
+
+
+2.方法二(要求TestProperties和init.properties在同一目录下)
+
+
+
+InputStream fis =TestProperties.class.getResourceAsStream("init.properties")
+
+
+
+
+3.方法三，对于Web工程也可以这样。
+先获取ServletContext,然后
+
+
+
+InputStream in=context.getResourceAsStream("/WEB-INF/classes/init.properties");
+
+
+
+
+	  
+	  
 
 
 	  <!-- Pagination links -->
@@ -289,10 +300,10 @@ var rowid = $("#table_${uuid}").jqGrid('getGridParam', "selrow" );
 		<a class="btn btn-primary btn-sm" href="/blog/page3/">&laquo; Prev</a>
 		
 		
-		<span><a class="btn btn-primary btn-sm disabled">Page: 4 of 5</a></span>
+		<span><a class="btn btn-primary btn-sm disabled">Page: 4 of 4</a></span>
 		
-		<a class="btn btn-primary btn-sm" href="/blog/page5/">Next &raquo;</a>
-		<a class="btn btn-primary btn-sm" href="/blog/page5/">Last</a>
+		<span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
+		<span><a class="btn btn-primary btn-sm disabled">Last</a></span>
 		
 	  </div>
 	</div>
