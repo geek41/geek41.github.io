@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>2014年度个人总结</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="2014年度个人总结"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015-01-07"/>
+<meta name="author" content="生产MIS-李松伟"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">2014年度个人总结</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 关于JHOP平台快速开发</a>
+<ul>
+<li><a href="#sec-1-1">1.1 何谓平台？</a></li>
+<li><a href="#sec-1-2">1.2 耦合性&amp;拓展性</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 现状</a></li>
+<li><a href="#sec-1-2-2">1.2.2 maven 的使用</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3 性能问题</a></li>
+<li><a href="#sec-1-4">1.4 安全性</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 海外资产运监为什么做了那么久？</a>
+<ul>
+<li><a href="#sec-2-1">2.1 需求设计</a></li>
+<li><a href="#sec-2-2">2.2 项目管理</a></li>
+<li><a href="#sec-2-3">2.3 开发质量</a></li>
+<li><a href="#sec-2-4">2.4 测试上的问题</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 公司制度上的一些看法</a>
+<ul>
+<li><a href="#sec-3-1">3.1 工作日志填报</a></li>
+<li><a href="#sec-3-2">3.2 公司邮件系统</a></li>
+<li><a href="#sec-3-3">3.3 人性化管理</a></li>
+<li><a href="#sec-3-4">3.4 公司文化</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 总结</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 关于JHOP平台快速开发</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  因为MIS线的产品多基于JHOP开发，但是我觉得JHOP有很多问题需要完善，当然这都是个人建议，而且已经多次被‘少数服从多数‘打败。
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 何谓平台？</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p>  开发平台=框架搭建?当然我对于平台的概念并不十分清楚，但是就目前来看，JHOP很像是框架搭建用以复用的一套脚手架程序。因为我也能用框架开源的框架搭起来一套，并不一定比这差太多，而且我之前也一直是这么做的。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 耦合性&amp;拓展性</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 现状</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+
+<ul>
+<li>现在开发的模式是，一个新项目就从svn clone一个JHOP example程序，我无法选择不要那些功能，像一些jhop-core,jhop-shiro,jhop-mail等等组建统统被加进来，而且是jar包加载。这不像一个高复用性、低耦合的工厂，当然你可以说我可以在配置文件中删除这些配置和jar包，但是这么做太笨了，而且core里面有shiro的东西，这可能会造成依赖故障。
+
+</li>
+<li>系统的大多数组件都是硬编码的,如果我想用spring security代替apache shiro 这非常困难。如果我想弃用jqgrid，这几乎不可能，因为它贯穿了整个系统的JSP页面，使得每个页面都有js脚本，难以维护不美观，甚至弹窗等功能也拓展自jqgrid，这真的很糟糕，人家就是做表格的，无法形容对此之烦感。
+</li>
+<li>JHOP里面稀有的注释和JAR包的封装使得拓展变得非常困难，如果我想看JHOP-core里面某个类怎么实现的，需要去别的项目里找或者反编译JAR里面的class（这肯定没有注释了）,这样让一个新手在JHOP上开发变得困难重重啊。 
+</li>
+<li>就海运项目来说，用到了一套WEB前端框架virgo，里面加载了几个css,20个js脚本，加上本身JHOP的jqgrid,workflow等等，大约每个页面需要加载30多个脚本，7个样式，导致最终页面样式看起来很遭。就依赖关系很难将30个JS剔除大部分，而且没人知道这些JS是做什么的究竟有没有用。
+</li>
+<li>页面程序分离。想在有很多技术像sitemesh,ajax都可以使得加载部分请求，现在的程序都是全加载，真的很浪费资源。
+</li>
+<li>数据源的使用。我们有很多功能是要依赖oracle的存储过程，oracle提供的bi算法等。大体来说大多数公司都推荐用存储过程来完成业务逻辑的，这让开发变得难以维护，而且跨平台变得困难，我换成mysql就肯定无法跑起来了。
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> maven 的使用</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+<p>    JHOP平台里面有maven技术，但是几乎没有使用到
+</p><ul>
+<li id="sec-1-2-2-1">jar包管理<br/>
+     JHOP开发程序的jar包并没有交给maven来管理，虽然我们有私服。合理的jar包管理使得一个程序源码以除了jar在内的更小的子集，也就是说我svn的迁出过程只要几M而已。这是最显而易见的好处，还有就是jar包升级，当然这个离我们比较远就不说了。
+</li>
+</ul>
+<ul>
+<li id="sec-1-2-2-2">打包和自动化测试<br/>
+    目前的程序打包方式是eclipse exprot war,这很老土。离开了eclipse我们怎么打包呢，测试人员不装eclipse就没法打包了吗？为什么我们maven里面没有配置打包的细节，而且还有ant.xml，但是里面也没有打包的脚本。我觉得这个是最需要完善的，能节省很多时间和变得敏捷。
+    最近公司也在谈自动化测试，但是我从任何人的身上没有了解到任何信息。我为了使自己的程序变得敏捷很早就研究过。maven打包的时候是会自动化测试的，当然前提是你要写了测试方法和你的测试覆盖率是多少。这里也引出一个概念TDD-测试驱动开发，这个简单讲是我在test包里面写测试接口，系统的具体业务来实现，最终用以所有测试接口测试通过来定义系统的完成情况，这是一个测试先行的敏捷开发流程，虽然用的人太少了，但是也会是未来的趋势，但也反映了没有扎实的编程功底做自动化测试是一件不靠普的事。
+
+</li>
+</ul>
+<ul>
+<li id="sec-1-2-2-3">项目生成<br/>
+     maven可以自定义原型（archetype),这样我们把每一类项目都分别打成一个原型，这样我们在特定的项目里只需要根据需要的原型来生成项目，降低耦合性
+
+
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 性能问题</h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+<p>
+   做传统行业开发，对性能，并发，大数据处理上面要求相对较低，但是我们不能不做重视。一套JHOP checkout，至少要1g的堆内存才能保证不溢出，这很怪，因为我们的项目真的没有庞大到这种状态。因为系统硬件，oracle的性能，使得我们的程序能够提升很高的效率水平，但是单位时间单位内存可以优化出很多资源的，当真的面临有限资源的庞大系统时JHOP将不足以支撑了。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 安全性</h3>
+<div class="outline-text-3" id="text-1-4">
+
+
+<p>
+   因为之前做过第三方测试，测前整个系统全线失败，到处是xss，cxfs等，当然这不是什么技术难题，需要完善到平台里面。目前海运项目的密码加密方式是rsa，我对此也有异议，虽然rsa基数大了很难被破解，但是如果攻破程序就可以通过密钥文件解密了，我还是觉得非可逆的比较好。
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 海外资产运监为什么做了那么久？</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  我个人总结了我对于此项目的一些看法，但是内容多是反面的，因为我认为这些是可以完善的。自然这个项目每个人都非常辛苦，每个人都值得尊敬，这个项目的优点之类的话就不说了，大家能理解，领导也会汇报。虽然做的辛苦，但是不辛苦怎么能看到问题，怎么能成长呢。
+</p>
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 需求设计</h3>
+<div class="outline-text-3" id="text-2-1">
+
+
+<ul>
+<li>这个项目需求贯穿始终，直到最后还有需求在调整,那么项目初期的2个月的需求调研是一个什么状况呢?说白了很简单，需求就是明白客户到底想要什么，可能我们辛苦的需求只是潜入深出了吧。作为软件开发的第一个环节，这里没做好，就牵着开发和测试走，每个模块都重新实现过，我们不能从客户身上找原因，这风险应该是我们需要预估到的，我们应该透过问题的本质去处理这个事情。
+</li>
+<li>就开发人员收到的需求文档更像是设计文档，里面大多是业务流程，（点击什么-弹出什么-显示什么），这和我之前工作中收到的都不一样，我觉得设计业务流程让开发人员做更合适，这样能更好的系统整体、拓展性考虑去开发功能，不至于一个功能受另一个影响，好多模块重新开发。
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 项目管理</h3>
+<div class="outline-text-3" id="text-2-2">
+
+
+<p>
+   理论上所有项目在规定时间内都会被完成，这是项目经理的职业技能。我个人觉得不能因为资源不足、某员工做的不好来推脱责任，这些我们应该在项目初期做好风险预估和合理的时间上的计划评定，当然我承认这非常困难和需要经验和技术含量。举个例子，3月份我觉得让测试进来不好，导致了开发需求和修改bug并行的一种状态，这让开发做起来是一件很痛苦的事，需要不停的切换在不同的功能中，无法专心。对此我表示异议，但是梁工指出咱们这个项目不是特殊么，你不能因为软件开发应该是一个什么流程就按流程走。对此我印象深刻，因为就这样测试拖延这开发进度从3月到了年底，我觉得这浪费了太多资源和时间。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 开发质量</h3>
+<div class="outline-text-3" id="text-2-3">
+
+
+<p>
+   不得不承认我对于JHOP平台并不很熟，而且被分担了重要而复杂的模块，导致了很多bug，拖延了时间。为了让自己从忙碌的加班中解脱出来，经常用一些‘临时的解决方案’，导致了当时看起来没有问题，但是后来bug多多，我失职了，但是我也身心疲惫，我真的也尽力的做了。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 测试上的问题</h3>
+<div class="outline-text-3" id="text-2-4">
+
+
+<p>
+   对于开发人员需要给测试讲解需求，这件事我始终不能表示理解，而且还给领导批评了很多次。我很反感，我出于开发一个功能的状态中必须要及时切出去给测试讲需求和怎么实现的，不然会导致测试工作无法进行。。。当然我们项目的测试人员做了很多繁重的甚至反复繁重的工作，我觉得他们的付出可以排第一位，无可厚非。
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 公司制度上的一些看法</h2>
+<div class="outline-text-2" id="text-3">
+
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 工作日志填报</h3>
+<div class="outline-text-3" id="text-3-1">
+
+
+<p>
+   我觉得这个东西有点怪，因为有一些都是一周填一次，填的内容都一样，起码我是这样。当然领导应该也不会看，加上操作起来体验不好，我会觉得这个东西有些浪费时间，不是一个很好的考核体系。还是应该引导员工主动的安排计划和填报工作情况，这才变得有意义，当然这需要好的制度设计。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 公司邮件系统</h3>
+<div class="outline-text-3" id="text-3-2">
+
+
+<p>
+   经常收到很多不需要关心的邮件，导致邮件过多，如果有重要邮件未加星标，就可能错过。比如XXX周报情况之类的，超出我关注的范畴了。还有谁捡到一根数据线之类的，我不能理解你哪来的勇气发全体呢。。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 人性化管理</h3>
+<div class="outline-text-3" id="text-3-3">
+
+
+<p>
+   这点我认为公司做的不够好，毕竟大多数员工幸福感和归属感是不足的。治国之道，民为重，社稷次之，君为轻。但是我觉得现在就是反过来了。希望领导不要只关心项目负责人的汇报，能够以人为本的去深入项目，了解员工，完善员工培养，增加归属感，降低人员流动。我们不能留不住人，总为别的公司培养人才吧。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 公司文化</h3>
+<div class="outline-text-3" id="text-3-4">
+
+
+<p>
+   了解到‘我们项目大多数客户根本就不用’，‘有的还没开发就验收’之类的话，我觉得软件和服务是未来的趋势，势必将超越硬件的价值，希望领导能重视。盈利很重要，但是我就想在做得好的前提下把钱挣了，呵呵。我觉得软件开发和做企业家性质是一样的，我们都是为了提供人们的工作效率，为人民服务，为社会服务的，所以我很光荣的热爱着坚持在软件开发的路上。
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 总结</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+  上面说了很多我看到的问题，当然恒泰实达有太多的优点和太多可爱的人，大家心肠都很好都能吃苦。虽然在项目里可能遇到些矛盾，但是多是为了项目考虑，我觉得这很正常。最后感谢恒泰实达带给我的美好的回忆。
+</p></div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2015-01-07</p>
+<p class="author">Author: 生产MIS-李松伟</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
