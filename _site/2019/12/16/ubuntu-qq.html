@@ -1,0 +1,33 @@
+&#8212;
+layout: view_simple
+title: Ubuntu下安装qq
+excerpt: 
+keywords: &#8220;&#8221;
+categories: [折腾Ubuntu]
+tags: [ubuntu,linuxqq]
+&#8212;
+
+<p>在Ubuntu下装QQ一直是个非常折腾人的事，试过很多方法。webqq,pidgin,longne qq,winestrick,要么不成功要么效果不好。无意间发现deepin qq（qq2012 international），安装容易，还算好用。</p>
+<!-- more -->
+<h1>Deepin-wineqq</h1>
+<p>1.安装字体ttf-wqy-microhei</p>
+<p>如果使用的是64位系统，先安装ttf-wqy-microhei。
+  下载地址: http://pan.baidu.com/s/1eQIiRQE</p>
+<p>2.执行</p>
+<div class="highlight"><pre>wget http://packages.linuxdeepin.com/deepin/pool/non-free/d/deepinwine-qqintl/deepinwine-qqintl_0.1.3-2_all.deb
+wget http://packages.linuxdeepin.com/deepin/pool/non-free/d/deepinwine-qqintl/wine-qqintl_0.1.3-2_i386.deb
+sudo dpkg -i deepinwine-qqintl_0.1.3-2_all.deb wine-qqintl_0.1.3-2_i386.deb
+sudo apt-get -f install
+sudo dpkg -i deepinwine-qqintl_0.1.3-2_all.deb wine-qqintl_0.1.3-2_i386.deb
+</pre></div>
+<p>如果上面的下载地址失效，用下面这个：</p>
+<div class="highlight"><pre>wget http://ftp.vim.org/os/Linux/distr/deepin/pool/non-free/d/deepinwine-qqintl/deepinwine-qqintl_0.1.3-2_all.deb
+wget http://ftp.vim.org/os/Linux/distr/deepin/pool/non-free/d/deepinwine-qqintl/wine-qqintl_0.1.3-2_i386.deb
+sudo dpkg -i deepinwine-qqintl_0.1.3-2_all.deb wine-qqintl_0.1.3-2_i386.deb
+sudo apt-get -f install
+sudo dpkg -i deepinwine-qqintl_0.1.3-2_all.deb wine-qqintl_0.1.3-2_i386.deb
+</pre></div>
+<h1>wineqq-2013tm</h1>
+<p>原文地址:http://a-nerd.info/?p=1354</p>
+<p>这个我没试，因为上面的成功了，贴出地址:
+  http://www.ubuntukylin.com/applications/showimg.php?lang=cn&amp;amp;id=23&lt;/a&gt;</p>

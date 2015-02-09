@@ -2,15 +2,24 @@
 <html>
 <head>
 　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-　<title>Geek 41|Keep it simple stupid</title>
+　<title>Geek 41|Don't repeat yourself</title>
   <link rel="stylesheet" href="/assets/stylesheets/list.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="/assets/stylesheets/index.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
   <style type="text/css" media="screen">
 	*{font-size:14px;}
+	body{background-color:#fbfaf7}
 	#content{width:1170px;margin: 10px auto;}
 	.main{padding-left:10px;color:#666;}
-	.main h3 a{font-size:16px;color:#000;font-family:"微软雅黑"}
+	.main h3{border-bottom: 1px solid #ccc;}
+	.main h3 a{font-size:20px;color:#c30000;font-family:"微软雅黑","Arvo",Monaco,serif;}
+	.main h5{
+
+	font-family: "Arvo",Monaco,serif;
+    font-weight: 700;
+
+	color: #232323;
+    margin: 36px 0 10px;}
 	.panel{padding-right:5px;border-right:1px solid #000;}
 	.panel h3{font-family: "Electrolize",sans-serif;text-transform: uppercase;font-size: 1.1em;}
 	.panel ul{margin:0 0 10px 15px;}
@@ -24,7 +33,7 @@
 
 <body>
 <div id="content">
-  <h1 class="title">Keep it simple stupid</h1>
+  <h1 class="title">Don't repeat yourself</h1>
 　<div class="row-fluid">
 
   <div class="span3">
@@ -61,6 +70,8 @@
 <h3>Recently Posts</h3>
 <ul>
 
+<li><a href="/2019/12/16/ubuntu-qq.html" title="Ubuntu Qq">Ubuntu Qq</a></li>
+
 <li><a href="/%E6%8A%98%E8%85%BEubuntu/2014/12/16/ubuntu-qq.html" title="Ubuntu下安装qq">Ubuntu下安装qq</a></li>
 
 <li><a href="/%E6%8A%98%E8%85%BEemacs/2014/12/16/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
@@ -79,8 +90,6 @@
 
 <li><a href="/2014/12/11/ooo.html" title="ooo">ooo</a></li>
 
-<li><a href="/2014/10/22/hello.html" title="你好，世界">你好，世界</a></li>
-
 </ul>
 </section>
 </div>
@@ -89,9 +98,42 @@
   <div class="span9">  
 	<div class="main">
 	  
-	  <h3><a href="/2013/03/22/testOrg.html">Testorg</a></h3>
-	  
-	  
+
+	  <div >
+		<h5 class="post-date" align="right">01 Jan 2014</h5>
+	  </div>
+	  <div >
+		<h3><a href="/2014/01/01/java-path.html">java设置环境变量</a></h3>
+		
+		
+1.打开我的电脑&ndash;属性&ndash;高级&ndash;环境变量 
+
+
+2.新建系统变量JAVA_HOME 和CLASSPATH 
+变量名：JAVA_HOME 
+变量值：C:\Program Files\Java\jdk1.7.0
+变量名：CLASSPATH 
+变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+
+
+选择“系统变量”中变量名为“Path”的环境变量，双击该变量，把JDK安装路径中bin目录的绝对路径，添加到Path变量的值中，并使用半角的分号和已有的路径进行分隔。 
+
+
+
+变量名：Path 
+变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+这是java的环境配置，配置完成后直接启动eclipse，它会自动完成java环境的配置
+
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">22 Mar 2013</h5>
+	  </div>
+	  <div >
+		<h3><a href="/2013/03/22/testOrg.html">Testorg</a></h3>
+		
+		
 
 
 
@@ -161,11 +203,16 @@ Validate XHTML 1.0
 
 
 
-	  
-	  
-	  <h3><a href="/2013/02/22/ruby.html">Ruby</a></h3>
-	  
-	  
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">22 Feb 2013</h5>
+	  </div>
+	  <div >
+		<h3><a href="/2013/02/22/ruby.html">Ruby</a></h3>
+		
+		
 
 
 
@@ -173,21 +220,36 @@ ffffffffffff
 
 
 
-	  
-	  
-	  <h3><a href="/2013/01/01/software-architecture-design.html">如何进行软件架构设计?</a></h3>
-	  
-	  Table of Contents 1 软件架构设计的目的 2 软件架构设计的原则 3 软件架构设计的几种视图 4 软件架构设计路程 5 软件架构设计的常见误区及解决办法 6 关于架构设计的一点通用技巧 软件架构设计的目的 对于外包业务类型的项目，软件架构设计的目的与产品类型的项目有所不同， 在这里主要讨论外包类型项目的软件架构设计目的。 1、为大规模开发提供基础和规范，并提供可重用的资产，软件系统的大规模 开发，必须要有一定的基础和遵循一定的规范，这既是软件工程本身的要求， 也是客户的要求。架构设计的过程中可以将一些公共部分抽象提取出来，形成 公共类和工具类，以达到重用的目的。 2、一定程度上缩短项目的周期，利用软件架构提供的框架或重用组件，缩短 项目开发的周期。 3、降低开发和维护的成本，大量的重用和抽象，可以提取出一些开发人员不 用关心的公共部分，这样便可以使开发人员仅仅关注于业务逻辑的实现，从而 减少了很多工作量，提高了开发效率。 4、提高产品的质量，好的软件架构设计是产品质量的保证，特别是对于客户 常常提出的非功能性需求的满足。 软件架构设计的原则 软件架构设计必须遵循以下原则： 1、满足功能性需求和非功能需求。这是一个软件系统最基本的要求，也是架 构设计时应该遵循的最基本的原则。 2、实用性原则，就像每一个软件系统交付给用户使用时必须实用，能解决用 户的问题一样，架构设计也必须实用，否则就会“高来高去”或“过度设计”。 3、满足复用的要求，最大程度的提高开发人员的工作效率。 软件架构设计的几种视图 我们常常在讨论架构设计该做些什么的时候，或是在架构设计评审的会议上， 会提出各种各样的问题，例如开发人员该如何记录Log，事务如何控制？怎样 才能提高我们的开发人员的工作效率，即在单位时间内更有品质的完成更多的 功能？怎样满足客户的非功能性需求？怎样让生产环境的平台管理人员更好的 维护系统？ 上面这些问题，实际上是软件系统的不同的干系人站在不同的角度上提出的问 题，要回答上面这些问题，我们就得从不同的视角来看待软件架构设计这项工 作。 1、逻辑架构视角，从系统用户的角度考虑问题，设计出来的软件架构能够满 足业务逻辑的需求，能够处理现在越来越复杂的业务逻辑需求。 2、开发架构视角，从系统开发人员的角度来考虑问题，设计的架构要易于理 解，易于开发，易于单元测试，最好做到让开发人员可以用最少的代码行数完 成功能的开发。...
-	  
-	  
-	  <h3><a href="/2013/01/01/java-class-forName.html">理解class.forName()</a></h3>
-	  
-	  使用jdbc方式连接数据库时会使用一句代码Class.forName(String className).这句话是什么意思呢？首先说一点Class.forName(String className)这个方法的作用是装载className这个字符串指定的类。 Table of Contents 1 官方文档 2 类装载 3 两种装载方法的区别： 4 参考资料 官方文档 返回与带有给定字符串名的类或接口相关联的 Class 对象。调用此方法等效于： Class.forName(className, true, currentLoader) 其中 currentLoader 表示此类的定义类加载器。 例如，以下代码片段返回 java.lang.Thread 类的运行时 Class 描述符。 Class t = Class.forName("java.lang.Thread") 调用 forName("X") 将导致名为 X 的类被初始化。 参数： className - 所需类的完全限定名。 返回： 具有指定名的类的 Class 对象。 通俗的说就是：获得字符串参数中指定的类，并初始化该类 类装载 类装载就是把一个类或是一个接口的字节码文件，通过解析该字节码来构建代 表这个类或是这个接口的实例的过程。...
-	  
-	  
-	  <h3><a href="/2012/01/01/jqgrid-notes.html">Jqgrid 笔记</a></h3>
-	  
-	  
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">01 Jan 2013</h5>
+	  </div>
+	  <div >
+		<h3><a href="/2013/01/01/software-architecture-design.html">如何进行软件架构设计?</a></h3>
+		
+		Table of Contents 1 软件架构设计的目的 2 软件架构设计的原则 3 软件架构设计的几种视图 4 软件架构设计路程 5 软件架构设计的常见误区及解决办法 6 关于架构设计的一点通用技巧 软件架构设计的目的 对于外包业务类型的项目，软件架构设计的目的与产品类型的项目有所不同， 在这里主要讨论外包类型项目的软件架构设计目的。 1、为大规模开发提供基础和规范，并提供可重用的资产，软件系统的大规模 开发，必须要有一定的基础和遵循一定的规范，这既是软件工程本身的要求， 也是客户的要求。架构设计的过程中可以将一些公共部分抽象提取出来，形成 公共类和工具类，以达到重用的目的。 2、一定程度上缩短项目的周期，利用软件架构提供的框架或重用组件，缩短 项目开发的周期。 3、降低开发和维护的成本，大量的重用和抽象，可以提取出一些开发人员不 用关心的公共部分，这样便可以使开发人员仅仅关注于业务逻辑的实现，从而 减少了很多工作量，提高了开发效率。 4、提高产品的质量，好的软件架构设计是产品质量的保证，特别是对于客户 常常提出的非功能性需求的满足。 软件架构设计的原则 软件架构设计必须遵循以下原则： 1、满足功能性需求和非功能需求。这是一个软件系统最基本的要求，也是架 构设计时应该遵循的最基本的原则。 2、实用性原则，就像每一个软件系统交付给用户使用时必须实用，能解决用 户的问题一样，架构设计也必须实用，否则就会“高来高去”或“过度设计”。 3、满足复用的要求，最大程度的提高开发人员的工作效率。 软件架构设计的几种视图 我们常常在讨论架构设计该做些什么的时候，或是在架构设计评审的会议上， 会提出各种各样的问题，例如开发人员该如何记录Log，事务如何控制？怎样 才能提高我们的开发人员的工作效率，即在单位时间内更有品质的完成更多的 功能？怎样满足客户的非功能性需求？怎样让生产环境的平台管理人员更好的 维护系统？ 上面这些问题，实际上是软件系统的不同的干系人站在不同的角度上提出的问 题，要回答上面这些问题，我们就得从不同的视角来看待软件架构设计这项工 作。 1、逻辑架构视角，从系统用户的角度考虑问题，设计出来的软件架构能够满 足业务逻辑的需求，能够处理现在越来越复杂的业务逻辑需求。 2、开发架构视角，从系统开发人员的角度来考虑问题，设计的架构要易于理 解，易于开发，易于单元测试，最好做到让开发人员可以用最少的代码行数完 成功能的开发。...
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">01 Jan 2013</h5>
+	  </div>
+	  <div >
+		<h3><a href="/2013/01/01/java-class-forName.html">理解class.forName()</a></h3>
+		
+		使用jdbc方式连接数据库时会使用一句代码Class.forName(String className).这句话是什么意思呢？首先说一点Class.forName(String className)这个方法的作用是装载className这个字符串指定的类。 Table of Contents 1 官方文档 2 类装载 3 两种装载方法的区别： 4 参考资料 官方文档 返回与带有给定字符串名的类或接口相关联的 Class 对象。调用此方法等效于： Class.forName(className, true, currentLoader) 其中 currentLoader 表示此类的定义类加载器。 例如，以下代码片段返回 java.lang.Thread 类的运行时 Class 描述符。 Class t = Class.forName("java.lang.Thread") 调用 forName("X") 将导致名为 X 的类被初始化。 参数： className - 所需类的完全限定名。 返回： 具有指定名的类的 Class 对象。 通俗的说就是：获得字符串参数中指定的类，并初始化该类 类装载 类装载就是把一个类或是一个接口的字节码文件，通过解析该字节码来构建代 表这个类或是这个接口的实例的过程。...
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">01 Jan 2012</h5>
+	  </div>
+	  <div >
+		<h3><a href="/2012/01/01/jqgrid-notes.html">Jqgrid 笔记</a></h3>
+		
+		
 Table of Contents
 
 
@@ -254,42 +316,11 @@ var rowid = $("#table_${uuid}").jqGrid('getGridParam', "selrow" );
 
 
 
-	  
-	  
-	  <h3><a href="/java/2012/01/01/java-properties.html">Java获取properties资源文件路径问题</a></h3>
-	  
-	  
-1.方法一
+		
+		
 
+	  </div>
 
-
-InputStream fis =TestProperties.class.getClassLoader().getResourceAsStream("init.properties")
-
-
-
-
-
-2.方法二(要求TestProperties和init.properties在同一目录下)
-
-
-
-InputStream fis =TestProperties.class.getResourceAsStream("init.properties")
-
-
-
-
-3.方法三，对于Web工程也可以这样。
-先获取ServletContext,然后
-
-
-
-InputStream in=context.getResourceAsStream("/WEB-INF/classes/init.properties");
-
-
-
-
-	  
-	  
 
 
 	  <!-- Pagination links -->
@@ -300,10 +331,10 @@ InputStream in=context.getResourceAsStream("/WEB-INF/classes/init.properties");
 		<a class="btn btn-primary btn-sm" href="/blog/page3/">&laquo; Prev</a>
 		
 		
-		<span><a class="btn btn-primary btn-sm disabled">Page: 4 of 4</a></span>
+		<span><a class="btn btn-primary btn-sm disabled">Page: 4 of 5</a></span>
 		
-		<span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
-		<span><a class="btn btn-primary btn-sm disabled">Last</a></span>
+		<a class="btn btn-primary btn-sm" href="/blog/page5/">Next &raquo;</a>
+		<a class="btn btn-primary btn-sm" href="/blog/page5/">Last</a>
 		
 	  </div>
 	</div>

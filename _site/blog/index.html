@@ -2,15 +2,24 @@
 <html>
 <head>
 　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-　<title>Geek 41|Keep it simple stupid</title>
+　<title>Geek 41|Don't repeat yourself</title>
   <link rel="stylesheet" href="/assets/stylesheets/list.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="/assets/stylesheets/index.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
   <style type="text/css" media="screen">
 	*{font-size:14px;}
+	body{background-color:#fbfaf7}
 	#content{width:1170px;margin: 10px auto;}
 	.main{padding-left:10px;color:#666;}
-	.main h3 a{font-size:16px;color:#000;font-family:"微软雅黑"}
+	.main h3{border-bottom: 1px solid #ccc;}
+	.main h3 a{font-size:20px;color:#c30000;font-family:"微软雅黑","Arvo",Monaco,serif;}
+	.main h5{
+
+	font-family: "Arvo",Monaco,serif;
+    font-weight: 700;
+
+	color: #232323;
+    margin: 36px 0 10px;}
 	.panel{padding-right:5px;border-right:1px solid #000;}
 	.panel h3{font-family: "Electrolize",sans-serif;text-transform: uppercase;font-size: 1.1em;}
 	.panel ul{margin:0 0 10px 15px;}
@@ -24,7 +33,7 @@
 
 <body>
 <div id="content">
-  <h1 class="title">Keep it simple stupid</h1>
+  <h1 class="title">Don't repeat yourself</h1>
 　<div class="row-fluid">
 
   <div class="span3">
@@ -61,6 +70,8 @@
 <h3>Recently Posts</h3>
 <ul>
 
+<li><a href="/2019/12/16/ubuntu-qq.html" title="Ubuntu Qq">Ubuntu Qq</a></li>
+
 <li><a href="/%E6%8A%98%E8%85%BEubuntu/2014/12/16/ubuntu-qq.html" title="Ubuntu下安装qq">Ubuntu下安装qq</a></li>
 
 <li><a href="/%E6%8A%98%E8%85%BEemacs/2014/12/16/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
@@ -79,8 +90,6 @@
 
 <li><a href="/2014/12/11/ooo.html" title="ooo">ooo</a></li>
 
-<li><a href="/2014/10/22/hello.html" title="你好，世界">你好，世界</a></li>
-
 </ul>
 </section>
 </div>
@@ -89,19 +98,49 @@
   <div class="span9">  
 	<div class="main">
 	  
-	  <h3><a href="/%E6%8A%98%E8%85%BEubuntu/2014/12/16/ubuntu-qq.html">Ubuntu下安装qq</a></h3>
-	  
-	  <p>
+
+	  <div >
+		<h5 class="post-date" align="right">16 Dec 2019</h5>
+	  </div>
+	  <div >
+		<h3><a href="/2019/12/16/ubuntu-qq.html">Ubuntu Qq</a></h3>
+		
+		&#8212;
+layout: view_simple
+title: Ubuntu下安装qq
+excerpt: 
+keywords: &#8220;&#8221;
+categories: [折腾Ubuntu]
+tags: [ubuntu,linuxqq]
+&#8212;
+
+<p>在Ubuntu下装QQ一直是个非常折腾人的事，试过很多方法。webqq,pidgin,longne qq,winestrick,要么不成功要么效果不好。无意间发现deepin qq（qq2012 international），安装容易，还算好用。</p>
+
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">16 Dec 2014</h5>
+	  </div>
+	  <div >
+		<h3><a href="/%E6%8A%98%E8%85%BEubuntu/2014/12/16/ubuntu-qq.html">Ubuntu下安装qq</a></h3>
+		
+		<p>
 在Ubuntu下装QQ一直是个非常折腾人的事，试过很多方法。webqq,pidgin,longne qq,winestrick,要么不成功要么效果不好。无意间发现deepin qq（qq2012 international），安装容易，还算好用。
 </p>
 
 
 
-	  
-	  
-	  <h3><a href="/%E6%8A%98%E8%85%BEemacs/2014/12/16/emacs-fcitx.html">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></h3>
-	  
-	  
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">16 Dec 2014</h5>
+	  </div>
+	  <div >
+		<h3><a href="/%E6%8A%98%E8%85%BEemacs/2014/12/16/emacs-fcitx.html">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></h3>
+		
+		
 Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系统环境为英文，ubuntu启动先加载gonme-settings-daemon，后加载fcitx。
 
 
@@ -127,11 +166,16 @@ env LANG=zh_CN.utf-8 emacs
 
 先起动输入法fcitx，接着起动gnome-settings-daemon。
 
-	  
-	  
-	  <h3><a href="/linux/2014/12/15/sqldeveloper.html">解决linux下sqldeveloper 中文环境显示乱码的问题</a></h3>
-	  
-	  
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">15 Dec 2014</h5>
+	  </div>
+	  <div >
+		<h3><a href="/linux/2014/12/15/sqldeveloper.html">解决linux下sqldeveloper 中文环境显示乱码的问题</a></h3>
+		
+		
 在linux环境下装sql developer,选择中文的字体时出现乱码。由于SQL Developer使用了JDK，java环境当中缺少中文字体造成了乱码，我安装的是JDK1.6u21，因此我的JAVA的PATH是 usr/lib/jvm/java/jdk1.6.021/jre/lib/fonts ，进入之后创建一个目录
 
 
@@ -157,16 +201,26 @@ mkfontscale
 
 然后再打开SQL Developer 就可以选择中文字体了。
 
-	  
-	  
-	  <h3><a href="/oracle/2014/12/15/oracle-procedure.html">Oracle存储过程书写规范和技巧</a></h3>
-	  
-	  Table of Contents 1 变量规范 2 包规范 3 游标规范 4 事务处理规范 5 数据封装规范 6 数据访问规范 7 日志书写规范 8 错误处理规范 9 书写规范 10 书写优化性能建议 11 其他经验规则 变量规范 1.变量名全部采用小写，局部变量名使用“v”开头，输入参数以“i开头，输出参数以“o”开头，输入输出参数用io开头。所有输入参数必须显示声明 2.游标的命名：游标统一用后缀 “cur” 命名 3.使用命名的常量以避免硬编码，使用常量包,常量统一用 cn_ 的前缀命名 4.当变量代表列时，使用%TYPE属性，当变量实际上表示数据库表的某列数据时，为避免数据库结构修改对变量的影响，应统一使用%TYPE属性对变量命名 5.使用%TYPE以标准化非数据库变量的声明 包规范 1.按照项目制定的文件组织划分包内容 2.包内的存储过程及函数的命名必须遵循CPIC制订的相关规范 游标规范 1.外部查询的多行数据返回使用游标进行处理，通过传递游标变量的形式返回数据到外部接口,由外部程序自行FETCH数据。 2.打开游标前，必须显式检查游标的%ISOPEN属性。 3.使用FETCH语句后，要立即检查%NOTFOUND属性，以便正常终止游标FETCH循环。 4.无论PL/SQL程序是正常终止还是出错退出，都要关闭所有已打开的游标。在出错退出时，应该在其异常处理部分管理所有游标，这可以释放一部分的系统资源 5.尽可能使用显示游标，避免使用隐式游标。 事务处理规范 1.在需要分割事务以使主事务的提交或者回滚独立于子事务的提交及回滚时，应使用自治事务 2.所有的存储过程均统一在结束处统一COMMIT或者ROLLBACK 数据封装规范 1.按照业务逻辑实现功能模块的封装，将业务规则逻辑集中在更少量的、良好设计的、易于维护的函数或者过程中，不必在每条SQL语句或者每天PL/SQL程序中重复这些逻辑 2.基于单一数据表的增、删、改、查采用标准SP进行封装，不允许相同逻辑的处理出现在多个SP中...
-	  
-	  
-	  <h3><a href="/jquery/2014/12/15/jquery-ui.html">Jquery-ui datepicker z-index问题</a></h3>
-	  
-	  
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">15 Dec 2014</h5>
+	  </div>
+	  <div >
+		<h3><a href="/oracle/2014/12/15/oracle-procedure.html">Oracle存储过程书写规范和技巧</a></h3>
+		
+		Table of Contents 1 变量规范 2 包规范 3 游标规范 4 事务处理规范 5 数据封装规范 6 数据访问规范 7 日志书写规范 8 错误处理规范 9 书写规范 10 书写优化性能建议 11 其他经验规则 变量规范 1.变量名全部采用小写，局部变量名使用“v”开头，输入参数以“i开头，输出参数以“o”开头，输入输出参数用io开头。所有输入参数必须显示声明 2.游标的命名：游标统一用后缀 “cur” 命名 3.使用命名的常量以避免硬编码，使用常量包,常量统一用 cn_ 的前缀命名 4.当变量代表列时，使用%TYPE属性，当变量实际上表示数据库表的某列数据时，为避免数据库结构修改对变量的影响，应统一使用%TYPE属性对变量命名 5.使用%TYPE以标准化非数据库变量的声明 包规范 1.按照项目制定的文件组织划分包内容 2.包内的存储过程及函数的命名必须遵循CPIC制订的相关规范 游标规范 1.外部查询的多行数据返回使用游标进行处理，通过传递游标变量的形式返回数据到外部接口,由外部程序自行FETCH数据。 2.打开游标前，必须显式检查游标的%ISOPEN属性。 3.使用FETCH语句后，要立即检查%NOTFOUND属性，以便正常终止游标FETCH循环。 4.无论PL/SQL程序是正常终止还是出错退出，都要关闭所有已打开的游标。在出错退出时，应该在其异常处理部分管理所有游标，这可以释放一部分的系统资源 5.尽可能使用显示游标，避免使用隐式游标。 事务处理规范 1.在需要分割事务以使主事务的提交或者回滚独立于子事务的提交及回滚时，应使用自治事务 2.所有的存储过程均统一在结束处统一COMMIT或者ROLLBACK 数据封装规范 1.按照业务逻辑实现功能模块的封装，将业务规则逻辑集中在更少量的、良好设计的、易于维护的函数或者过程中，不必在每条SQL语句或者每天PL/SQL程序中重复这些逻辑 2.基于单一数据表的增、删、改、查采用标准SP进行封装，不允许相同逻辑的处理出现在多个SP中...
+		
+		
+
+	  <div >
+		<h5 class="post-date" align="right">15 Dec 2014</h5>
+	  </div>
+	  <div >
+		<h3><a href="/jquery/2014/12/15/jquery-ui.html">Jquery-ui datepicker z-index问题</a></h3>
+		
+		
 场景:有时在页面弹出层的界面调用jquery-ui的datepicker,控件显示在了遮照层下面。这是因为jquery-ui datepicker的源码实现为:
 
 
@@ -197,13 +251,11 @@ $('#ui-datepicker-div').css("z-index", 15);
 
 
 
-	  
-	  
-	  <h3><a href="/jekyll/2014/12/15/jekyll.html">Jekyll折腾笔记</a></h3>
-	  
-	  记录折腾Jekyll静态博客到github的一些心路历程，空闲的时间会持续更新 Table of Contents 1 Official documents 1.1 Working with drafts 1.2 Writing posts 1.2.1 The Posts Folder 1.2.2 Creating Post Files 1.2.3 Including images and resources 1.2.4 Displaying an index of posts Official documents 截取一些官方的文档以便折腾的时候查阅，以为官网每次要加载googleapis.com的内容，国内又访问不了，所以加载时间比较慢，所以放在这里。 Working with drafts Drafts are posts without a date. They’re posts you’re still working...
-	  
-	  
+		
+		
+
+	  </div>
+
 
 
 	  <!-- Pagination links -->
@@ -212,10 +264,10 @@ $('#ui-datepicker-div').css("z-index", 15);
 		<span><a class="btn btn-primary btn-sm disabled" href="/blog">Home</a></span>
 		<span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
 		
-		<span><a class="btn btn-primary btn-sm disabled">Page: 1 of 4</a></span>
+		<span><a class="btn btn-primary btn-sm disabled">Page: 1 of 5</a></span>
 		
 		<a class="btn btn-primary btn-sm" href="/blog/page2/">Next &raquo;</a>
-		<a class="btn btn-primary btn-sm" href="/blog/page4/">Last</a>
+		<a class="btn btn-primary btn-sm" href="/blog/page5/">Last</a>
 		
 	  </div>
 	</div>
