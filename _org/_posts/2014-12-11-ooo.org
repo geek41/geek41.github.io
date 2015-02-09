@@ -1,0 +1,29 @@
+#+BEGIN_HTML
+---
+layout: view_simple
+title: ooo
+excerpt: 
+keywords: ""
+categories: 
+tags: []
+---
+
+#+END_HTML
+
+* 
+
+
+#+BEGIN_HTML
+<!-- more-forword -->
+#+END_HTML
+
+
+#+BEGIN_HTML
+<!-- more -->
+#+END_HTML
+
+
+* fwefj
+
+
+.....

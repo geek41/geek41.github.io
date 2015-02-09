@@ -1,0 +1,39 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: ^:{}
+#+BEGIN_HTML
+---
+layout: view_simple
+title: Maven jar 包问题汇总
+excerpt: excerpt
+keywords: keywords
+categories: [maven]
+tags: [maven]
+---
+
+#+END_HTML
+
+整理一些maven jar的问题,例如missiong artifact等..
+
+#+BEGIN_HTML
+
+<!-- more -->
+
+#+END_HTML
+
+
+* missing artifact com.oracle:ojdbc14:jar:10.2.0.2.0
+
+下载jar，导入到maven中
+
+下载：http://download.csdn.net/detail/spring123tt/6991897
+
+cmd中输入：
+
+#+begin_src shell
+
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.2.0 -Dpackaging=jar -Dfile=C:\Users\Administrator\Desktop\ojdbc14-10.2.0.2.0.jar
+
+#+end_src
+
+导入到maven本地库中。重新运行下maven update就OK了。

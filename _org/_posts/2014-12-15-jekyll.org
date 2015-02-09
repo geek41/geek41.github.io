@@ -1,0 +1,108 @@
+#+STARTUP:showall
+
+#+BEGIN_HTML
+---
+layout: view_simple
+title: Jekyll折腾笔记
+excerpt: 
+keywords: ""
+categories: [Jekyll]
+tags: [jekyll,github pages]
+---
+
+#+END_HTML
+
+记录折腾Jekyll静态博客到github的一些心路历程，空闲的时间会持续更新
+
+
+* Official documents
+
+  截取一些官方的文档以便折腾的时候查阅，以为官网每次要加载googleapis.com的内容，国内又访问不了，所以加载时间比较慢，所以放在这里。
+
+** Working with drafts
+
+  Drafts are posts without a date. They’re posts you’re still working on and don’t want to publish yet. To get up and running with drafts, create a _drafts folder in your site’s root (as described in the site structure section) and create your first draft:
+
+
+#+begin_example 
+
+|-- _drafts/
+|   |-- a-draft-post.md
+
+#+end_example
+
+To preview your site with drafts, simply run jekyll serve or jekyll build with the --drafts switch. Each will be assigned the value modification time of the draft file for its date, and thus you will see currently edited drafts as the latest posts.
+
+上面是官网对于drafts的解释，但是github貌似不支持，不会加载drafts中的文档，想用drafts只能选择折中的方法。
+
+** Writing posts
+
+One of Jekyll’s best aspects is that it is “blog aware”. What does this mean, exactly? Well, simply put, it means that blogging is baked into Jekyll’s functionality. If you write articles and publish them online, this means that you can publish and maintain a blog simply by managing a folder of text-files on your computer. Compared to the hassle of configuring and maintaining databases and web-based CMS systems, this will be a welcome change!
+
+*** The Posts Folder
+
+​As explained on the directory structure page, the _posts folder is where your blog posts will live. These files can be either Markdown or Textile formatted text files, and as long as they have YAML Front Matter, they will be converted from their source format into an HTML page that is part of your static site.
+
+*** Creating Post Files
+
+To create a new post, all you need to do is create a new file in the _posts directory. How you name files in this folder is important. Jekyll requires blog post files to be named according to the following format:
+
+#+BEGIN_EXAMPLE
+YEAR-MONTH-DAY-title.MARKUP
+#+END_EXAMPLE
+
+Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and MARKUP is the file extension representing the format used in the file. For example, the following are examples of valid post filenames:
+
+#+BEGIN_EXAMPLE
+2011-12-31-new-years-eve-is-awesome.md
+2012-09-12-how-to-write-a-blog.textile
+#+END_EXAMPLE
+
+*ProTip™: Link to other posts*
+#+BEGIN_EXAMPLE
+​ Use the post_url tag to link to other posts without having to worry about the URL's breaking when the site permalink style changes.
+#+END_EXAMPLE
+
+-​Content Formats
+
+All blog post files must begin with YAML Front Matter. After that, it’s simply a matter of deciding which format you prefer. Jekyll supports two popular content markup formats: Markdown and Textile. These formats each have their own way of marking up different types of content within a post, so you should familiarize yourself with these formats and decide which one best suits your needs.
+
+-Be aware of character sets
+
+Content processors can modify certain characters to make them look nicer. For example, the smart extension in Redcarpet converts standard, ASCII quotation characters to curly, Unicode ones. In order for the browser to display those characters properly, define the charset meta value by including <meta charset="utf-8"> in the <head> of your layout.
+
+*** Including images and resources
+
+Chances are, at some point, you’ll want to include images, downloads, or other digital assets along with your text content. While the syntax for linking to these resources differs between Markdown and Textile, the problem of working out where to store these files in your site is something everyone will face.
+Because of Jekyll’s flexibility, there are many solutions to how to do this. One common solution is to create a folder in the root of the project directory called something like assets or downloads, into which any images, downloads or other resources are placed. Then, from within any post, they can be linked to using the site’s root as the path for the asset to include. Again, this will depend on the way your site’s (sub)domain and path are configured, but here some examples (in Markdown) of how you could do this using the site.url variable in a post.
+Including an image asset in a post:
+
+#+BEGIN_EXAMPLE
+… which is shown in the screenshot below:
+![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+#+END_EXAMPLE
+
+Linking to a PDF for readers to download:
+
+#+BEGIN_EXAMPLE
+… you can [get the PDF]({{ site.url }}/assets/mydoc.pdf) directly.
+#+END_EXAMPLE
+
+
+ProTip™: Link using just the site root URL
+
+You can skip the {{ site.url }} variable if you know your site will only ever be displayed at the root URL of your domain. In this case you can reference assets directly with just /path/file.jpg.
+
+*** Displaying an index of posts
+
+It’s all well and good to have posts in a folder, but a blog is no use unless you have a list of posts somewhere. Creating an index of posts on another page (or in a template) is easy, thanks to the Liquid template language and its tags. Here’s a basic example of how to create a list of links to your blog posts:
+
+#+begin_src html
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+#+end_src

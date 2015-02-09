@@ -1,0 +1,23 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: ^:{}
+#+BEGIN_HTML
+---
+layout: view_simple
+title: Maven jar 包问题汇总
+excerpt: excerpt
+keywords: keywords
+categories: [maven]
+tags: [maven]
+---
+
+#+END_HTML
+
+
+
+
+#+BEGIN_SRC html
+
+<!-- more -->
+
+#+END_SRC

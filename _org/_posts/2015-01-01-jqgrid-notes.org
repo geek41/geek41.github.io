@@ -1,0 +1,50 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: ^:{}
+#+BEGIN_HTML
+---
+layout: view_simple
+title: Jqgrid 笔记
+excerpt: 
+keywords:""
+categories: [JS&JQuery]
+tags: [jqgrid]
+---
+
+#+END_HTML
+
+#+BEGIN_SRC html
+
+<!-- more -->
+
+#+END_SRC
+
+
+* saveRow() -保存一行记录
+  
+方法定义:
+
+#+BEGIN_SRC javascript
+jQuery("#grid_id").saveRow(rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);
+#+END_SRC
+或者新的API
+#+BEGIN_SRC javascript
+jQuery("#grid_id").jqGrid('saveRow',rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);
+#+END_SRC
+
+例子:
+#+BEGIN_SRC javascript
+jQuery("#grid_id").jqGrid('saveRow',rowid, 
+{ 
+    successfunc: function( response ) {
+        return true; 
+    }
+});
+#+END_SRC
+
+* selrow - 获取当前选中行的id
+
+方法定义:
+#+BEGIN_SRC javascript
+var rowid = $("#table_${uuid}").jqGrid('getGridParam', "selrow" );
+#+END_SRC

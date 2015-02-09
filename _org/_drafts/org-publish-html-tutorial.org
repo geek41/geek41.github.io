@@ -1,0 +1,28 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: ^:{}
+#+BEGIN_HTML
+---
+layout: view_simple
+title: Publishing Org-mode files to HTML
+excerpt: excerpt
+keywords: keywords
+categories: [categories]
+tags: [tags]
+---
+
+#+END_HTML
+
+#+BEGIN_SRC html
+
+<!-- more -->
+
+#+END_SRC
+
+* More Projects
+
+  当我们用org来记笔记时，可以添加一个org目录到大部分项目中。这些项目都可以很好的发布。例如，项目“～/B/” 发布到"~/public_html/B/" ,项目“~/C/” 发布到“~/public_html/C/” 等等。这就导致了我们共用的样式和脚本被当作一个新的组件被创建了。
+
+** 继承组件
+
+   当我们厌倦了从一个项目拷贝static files 到另一个项目，下面的配置可以很好打解决我们的问题。
