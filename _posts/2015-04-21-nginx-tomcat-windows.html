@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>title</title>
+<!-- 2015-04-21 二 10:13 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Sylvan.Li" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">title</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Nginx 简介</a></li>
+<li><a href="#sec-2">2. 下载地址</a></li>
+<li><a href="#sec-3">3. 目录结构</a></li>
+<li><a href="#sec-4">4. nginx.conf配置</a></li>
+<li><a href="#sec-5">5. Tomcat配置</a></li>
+<li><a href="#sec-6">6. 验证配置与测试负载均衡</a></li>
+</ul>
+</div>
+</div>
+---
+layout: default
+title: Nginx+tomcat+windows配置负载均衡
+---
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Nginx 简介</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电
+子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。  其特点是
+占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器
+中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名
+的微网志Plurk也使用nginx。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 下载地址</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a> 这里我们推荐下载稳定版（stable
+versions），本文采用nginx-0.8.20。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 目录结构</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Nginx-
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">_  conf   配置目录</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">_  contrib</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">_  docs 文档目录</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">_  logs  日志目录</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">_  temp 临时文件目录</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">_  html 静态页面目录</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">_  nginx.exe 主程序</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+window下安装Nginx极其简单，解压缩到一个无空格的英文目录即可（个
+人习惯，担心中文出问题），双击nginx启动，这里我安装到：D:\server
+目录，下面涉及到的tomcat也安装在此目录。
+</p>
+
+<p>
+DOS环境启动
+</p>
+
+<p>
+若果想停止nginx，dos环境运行命令：nginx -s stop
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> nginx.conf配置</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Nginx配置文件默认在conf目录，主要配置文件为nginx.conf，我们安装在
+D:\server\nginx-0.8.20、默认主配置文件为
+D:\server\nginx-0.8.20\nginx.conf。下面是nginx作为前端反向代理服务器的
+配置。
+</p>
+
+<p>
+Nginx.conf代码 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-org">#Nginx所用用户和组，window下不指定  
+#user  niumd niumd;  
+
+#工作的子进程数量（通常等于CPU数量或者2倍于CPU）  
+worker_processes  2;  
+
+#错误日志存放路径  
+#error_log  logs/error.log;  
+#error_log  logs/error.log  notice;  
+error_log  logs/error.log  info;  
+
+#指定pid存放文件  
+pid        logs/nginx.pid;  
+
+events {  
+	#使用网络IO模型linux建议epoll，FreeBSD建议采用kqueue，window下不指定。  
+	#use epoll;  
+
+	#允许最大连接数  
+	worker_connections  2048;  
+}  
+
+http {  
+	include       mime.types;  
+	default_type  application/octet-stream;  
+
+		#定义日志格式  
+	#log_format  main  '$remote_addr - $remote_user [$time_local] $request '  
+	#                  '"$status" $body_bytes_sent "$http_referer" '  
+	#                  '"$http_user_agent" "$http_x_forwarded_for"';  
+
+	#access_log  off;  
+	access_log  logs/access.log;  
+
+	client_header_timeout  3m;  
+	client_body_timeout    3m;  
+	send_timeout           3m;  
+
+	client_header_buffer_size    1k;  
+	large_client_header_buffers  4 4k;  
+
+	sendfile        on;  
+	tcp_nopush      on;  
+	tcp_nodelay     on;  
+
+	#keepalive_timeout  75 20;  
+
+	include    gzip.conf;  
+	upstream localhost {  
+	  #根据ip计算将请求分配各那个后端tomcat，许多人误认为可以解决session问题，其实并不能。  
+	  #同一机器在多网情况下，路由切换，ip可能不同  
+	  #ip_hash;   
+	  server localhost:18081;  
+	  server localhost:18080;  
+	 }  
+
+	server {  
+			listen       80;  
+			server_name  localhost;     
+
+			location / {  
+					proxy_connect_timeout   3;  
+					proxy_send_timeout      30;  
+					proxy_read_timeout      30;  
+						proxy_pass http://localhost;  
+			}  
+
+   }  
+}
+</pre>
+</div>
+
+<p>
+代理设置如下：
+Proxy.conf代码 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">proxy_redirect          off;  
+proxy_set_header        Host $host;  
+proxy_set_header        X-Real-IP $remote_addr;  
+proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;  
+client_max_body_size    10m;  
+client_body_buffer_size 128k;  
+proxy_connect_timeout   300;  
+proxy_send_timeout      300;  
+proxy_read_timeout      300;  
+proxy_buffer_size       4k;  
+proxy_buffers           4 32k;  
+proxy_busy_buffers_size 64k;  
+proxy_temp_file_write_size 64k;
+</pre>
+</div>
+
+<p>
+gzip压缩相关配置如下：
+Gzip.conf代码 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">gzip              on;  
+gzip_min_length      1000;  
+gzip_types         text/plain text/css application/x-javascript;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Tomcat配置</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+对于tomcat大家都很熟悉，只需要修改server.xml配置文件即可，这里我们以
+apache-tomcat-6.0.14为例，分别在server目录，解压缩并命名为：
+apache-tomcat-6.0.14_1、apache-tomcat-6.0.14_2。
+</p>
+
+<p>
+第一处端口修改：
+xml 代码:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;!--&amp;nbsp;&amp;nbsp;修改port端口：18006&amp;nbsp;俩个tomcat不能重复，端口随意，别太小--&gt;  
+&lt;Server port="18006" shutdown="SHUTDOWN"&gt;
+</pre>
+</div>
+
+<p>
+第二处端口修改：
+Xml代码 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-xml"> &lt;!--&amp;nbsp;port="18081"&amp;nbsp;tomcat监听端口，随意设置，别太小&amp;nbsp;--&gt;  
+&lt;Connector port="18081" protocol="HTTP/1.1"   
+			   connectionTimeout="20000"   
+			   redirectPort="8443" /&gt;
+</pre>
+</div>
+
+<p>
+第三处端口修改：
+Java代码 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-xml">"8009" protocol="AJP/1.3" redirectPort="8443" /&gt;
+</pre>
+</div>
+
+<p>
+Engine元素增加jvmRoute属性：
+Xml代码 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;Engine name="Catalina" defaultHost="localhost" jvmRoute="tomcat1"&gt;
+</pre>
+</div>
+
+<p>
+两个tomcat的端口别重复，保证能启动起来，另一个tomcat配置希捷省略，监听
+端口为18080，附件中我们将上传所有的配置信息
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 验证配置与测试负载均衡</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+首先测试nginx配置是否正确，测试命令：nginx -t  (默认验
+证:conf\nginx.conf),也可以指定配置文件路径。
+</p>
+
+
+<p>
+此例nginx安装目录：D:\server\nginx-0.8.20，dos环境下图画面成功示例：
+</p>
+
+<p>
+其次验证tomcat，启动两个tomcat，不出现端口冲突即为成功（tomcat依赖
+的java等搞“挨踢”的就废话不说了）；
+</p>
+
+<p>
+最后验证配置负载均衡设置，<a href="http://localhost/">http://localhost/</a> 或
+<a href="http://localhost/index.jsp">http://localhost/index.jsp</a> 。我修改了index.jsp页面，增加日志输出信息，
+便于观察。注意：左上角小猫头上的：access tomcat2、access tomcat1。
+说明访问了不同的tomcat。
+</p>
+
+<p>
+至此window下nginx+tomcat负载均衡配置结束，关于tomcat Session的问题
+通常是采用memcached，或者采用nginx_upstream_jvm_route ，他是一
+个 Nginx 的扩展模块，用来实现基于 Cookie 的 Session Sticky 的功能。
+如果tomcat过多不建议session同步，server间相互同步session很耗资源，
+高并发环境容易引起Session风暴。请根据自己应用情况合理采纳session
+解决方案。
+</p>
+
+<p>
+原文连接:<a href="http://xjtom78.iteye.com/blog/1107844">http://xjtom78.iteye.com/blog/1107844</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: date</p>
+<p class="author">Author: Sylvan.Li</p>
+<p class="date">Created: 2015-04-21 二 10:13</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

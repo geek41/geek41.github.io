@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>2014年度个人总结</title>
+<!-- 2015-04-21 二 10:13 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="生产MIS-李松伟" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">2014年度个人总结</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 关于JHOP平台快速开发</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 何谓平台？</a></li>
+<li><a href="#sec-1-2">1.2. 耦合性&amp;拓展性</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. 现状</a></li>
+<li><a href="#sec-1-2-2">1.2.2. maven 的使用</a>
+<ul>
+<li><a href="#sec-1-2-2-1">1.2.2.1. jar包管理</a></li>
+<li><a href="#sec-1-2-2-2">1.2.2.2. 打包和自动化测试</a></li>
+<li><a href="#sec-1-2-2-3">1.2.2.3. 项目生成</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3. 性能问题</a></li>
+<li><a href="#sec-1-4">1.4. 安全性</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 关于JHOP平台快速开发</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+因为MIS线的产品多基于JHOP开发，但是我觉得JHOP有很多问题需要完善，当然这都是个人建议，而且已经多次被‘少数服从多数‘打败。
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 何谓平台？</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+开发平台=框架搭建?当然我对于平台的概念并不十分清楚，但是就目前来看，JHOP很像是框架搭建用以复用的一套脚手架程序。因为我也能用框架开源的框架搭起来一套，并不一定比这差太多，而且我之前也一直是这么做的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 耦合性&amp;拓展性</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 现状</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>现在开发的模式是，一个新项目就从svn clone一个JHOP example程序，我无法选择不要那些功能，像一些jhop-core,jhop-shiro,jhop-mail等等组建统统被加进来，而且是jar包加载。这不像一个高复用性、低耦合的工厂，当然你可以说我可以在配置文件中删除这些配置和jar包，但是这么做太笨了，而且core里面有shiro的东西，这可能会造成依赖故障。
+</li>
+
+<li>系统的大多数组件都是硬编码的,如果我想用spring security代替apache shiro 这非常困难。如果我想弃用jqgrid，这几乎不可能，因为它贯穿了整个系统的JSP页面，使得每个页面都有js脚本，难以维护不美观，甚至弹窗等功能也拓展自jqgrid，这真的很糟糕，人家就是做表格的，无法形容对此之烦感。
+</li>
+<li>JHOP里面稀有的注释和JAR包的封装使得拓展变得非常困难，如果我想看JHOP-core里面某个类怎么实现的，需要去别的项目里找或者反编译JAR里面的class（这肯定没有注释了）,这样让一个新手在JHOP上开发变得困难重重啊。 
+</li>
+<li>就海运项目来说，用到了一套WEB前端框架virgo，里面加载了几个css,20个js脚本，加上本身JHOP的jqgrid,workflow等等，大约每个页面需要加载30多个脚本，7个样式，导致最终页面样式看起来很遭。就依赖关系很难将30个JS剔除大部分，而且没人知道这些JS是做什么的究竟有没有用。
+</li>
+<li>页面程序分离。想在有很多技术像sitemesh,ajax都可以使得加载部分请求，现在的程序都是全加载，真的很浪费资源。
+</li>
+<li>数据源的使用。我们有很多功能是要依赖oracle的存储过程，oracle提供的bi算法等。大体来说大多数公司都推荐用存储过程来完成业务逻辑的，这让开发变得难以维护，而且跨平台变得困难，我换成mysql就肯定无法跑起来了。
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> maven 的使用</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+JHOP平台里面有maven技术，但是几乎没有使用到
+</p>
+</div>
+<div id="outline-container-sec-1-2-2-1" class="outline-5">
+<h5 id="sec-1-2-2-1"><span class="section-number-5">1.2.2.1</span> jar包管理</h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+<p>
+JHOP开发程序的jar包并没有交给maven来管理，虽然我们有私服。合理的jar包管理使得一个程序源码以除了jar在内的更小的子集，也就是说我svn的迁出过程只要几M而已。这是最显而易见的好处，还有就是jar包升级，当然这个离我们比较远就不说了。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2-2-2" class="outline-5">
+<h5 id="sec-1-2-2-2"><span class="section-number-5">1.2.2.2</span> 打包和自动化测试</h5>
+<div class="outline-text-5" id="text-1-2-2-2">
+<p>
+目前的程序打包方式是eclipse exprot war,这很老土。离开了eclipse我们怎么打包呢，测试人员不装eclipse就没法打包了吗？为什么我们maven里面没有配置打包的细节，而且还有ant.xml，但是里面也没有打包的脚本。我觉得这个是最需要完善的，能节省很多时间和变得敏捷。
+最近公司也在谈自动化测试，但是我从任何人的身上没有了解到任何信息。我为了使自己的程序变得敏捷很早就研究过。maven打包的时候是会自动化测试的，当然前提是你要写了测试方法和你的测试覆盖率是多少。这里也引出一个概念TDD-测试驱动开发，这个简单讲是我在test包里面写测试接口，系统的具体业务来实现，最终用以所有测试接口测试通过来定义系统的完成情况，这是一个测试先行的敏捷开发流程，虽然用的人太少了，但是也会是未来的趋势，但也反映了没有扎实的编程功底做自动化测试是一件不靠普的事。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-2-3" class="outline-5">
+<h5 id="sec-1-2-2-3"><span class="section-number-5">1.2.2.3</span> 项目生成</h5>
+<div class="outline-text-5" id="text-1-2-2-3">
+<p>
+maven可以自定义原型（archetype),这样我们把每一类项目都分别打成一个原型，这样我们在特定的项目里只需要根据需要的原型来生成项目，降低耦合性
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 性能问题</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+做传统行业开发，对性能，并发，大数据处理上面要求相对较低，但是我们不能不做重视。一套JHOP checkout，至少要1g的堆内存才能保证不溢出，这很怪，因为我们的项目真的没有庞大到这种状态。因为系统硬件，oracle的性能，使得我们的程序能够提升很高的效率水平，但是单位时间单位内存可以优化出很多资源的，当真的面临有限资源的庞大系统时JHOP将不足以支撑了。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 安全性</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+因为之前做过第三方测试，测前整个系统全线失败，到处是xss，cxfs等，当然这不是什么技术难题，需要完善到平台里面。目前海运项目的密码加密方式是rsa，我对此也有异议，虽然rsa基数大了很难被破解，但是如果攻破程序就可以通过密钥文件解密了，我还是觉得非可逆的比较好。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-01-07 三&gt;</span></span></p>
+<p class="author">Author: 生产MIS-李松伟</p>
+<p class="date">Created: 2015-04-21 二 10:13</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

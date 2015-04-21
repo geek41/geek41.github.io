@@ -70,248 +70,61 @@
 		
 <!--
 		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+		  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
 		<div >
-		  <h3><a href="/2015/04/21/oracle.html">[21 Apr 2015] oracle</a></h3>
+		  <h3><a href="/2015/01/01/software-architecture-design.html">[01 Jan 2015] Software Architecture Design</a></h3>
 		  
-		  
-BULK COLLECT
-
-
-
-procedure testList is
-
-	type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype;
-	listcc table_gwgjzy;
-
-  begin
-
-	select * bulk collect into listcc from z_gwgjyj_visu_gather_value;
-	dbms_output.put_line(listcc.count);
-  exception
-	when others then
-	  dbms_output.put_line(sqlcode || '' || sqlerrm);
-  end;
-
-
-
-
-
-
-22
-
-
+		  title title Table of Contents 1. 软件架构设计的目的 2. 软件架构设计的原则 3. 软件架构设计的几种视图 4. 软件架构设计路程 5. 软件架构设计的常见误区及解决办法 6. 关于架构设计的一点通用技巧 --- layout: default title: 如何进行软件架构设计? --- 1 软件架构设计的目的 对于外包业务类型的项目，软件架构设计的目的与产品类型的项目有所不同， 在这里主要讨论外包类型项目的软件架构设计目的。 1、为大规模开发提供基础和规范，并提供可重用的资产，软件系统的大规模 开发，必须要有一定的基础和遵循一定的规范，这既是软件工程本身的要求， 也是客户的要求。架构设计的过程中可以将一些公共部分抽象提取出来，形成 公共类和工具类，以达到重用的目的。 2、一定程度上缩短项目的周期，利用软件架构提供的框架或重用组件，缩短 项目开发的周期。 3、降低开发和维护的成本，大量的重用和抽象，可以提取出一些开发人员不 用关心的公共部分，这样便可以使开发人员仅仅关注于业务逻辑的实现，从而 减少了很多工作量，提高了开发效率。 4、提高产品的质量，好的软件架构设计是产品质量的保证，特别是对于客户 常常提出的非功能性需求的满足。 2 软件架构设计的原则 软件架构设计必须遵循以下原则： 1、满足功能性需求和非功能需求。这是一个软件系统最基本的要求，也是架 构设计时应该遵循的最基本的原则。 2、实用性原则，就像每一个软件系统交付给用户使用时必须实用，能解决用 户的问题一样，架构设计也必须实用，否则就会“高来高去”或“过度设计”。 3、满足复用的要求，最大程度的提高开发人员的工作效率。 3 软件架构设计的几种视图 我们常常在讨论架构设计该做些什么的时候，或是在架构设计评审的会议上， 会提出各种各样的问题，例如开发人员该如何记录Log，事务如何控制？怎样...
 		  
 		  
 <!--
 		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+		  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
 		<div >
-		  <h3><a href="/2015/04/21/nohup.html">[21 Apr 2015] Nohup</a></h3>
+		  <h3><a href="/2015/01/01/org-mode-subscripter-setting.html">[01 Jan 2015] Org Mode Subscripter Setting</a></h3>
 		  
-		  shell后台运行与nohup shell后台运行与nohup Table of Contents 1. 语法12 2. 描述 3. 退出状态 nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。 用途：LINUX命令用法，不挂断地运行命令。 1 语法12 nohup Command [ Arg &#x2026; ] [　&amp; ] 2 描述 nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。 如果不将 nohup 命令的输出重定向，输出将附加到当前目录的 nohup.out...
+		  title title --- layout: default title: Org-mode 不让下划线_转义 --- 在 Emacs Org Mode 里，默认情况下 _ 这种字符会被当成标记语言来进行转义。 有的时候，如果你只是写写文章，这种默认的转义，会让你很不方便，尤其是你 在写一篇介绍技术的文章，里面出现的变量名有很多的下划线。这时，你会 说：”Oh, my god! 难道要我一个一个去标记不让 _ 转义么？” 如何设置让 Org Mode 在默认情况下，不转义 _ 字符呢？ 单个 org 文件的解决办法 你可以在一个 org 文件的开头，用下面的设置来关闭这个功能。 #+OPTIONS: ^:nil 如果你需要更方便的设置，可以把上面这个改为 #+OPTIONS: ^:{} 这样，当你写 a_{b} 时，_ 后被 {} 括起来的内容就会被转义，而写 a_b 时，就按普通的方式来显示。 org...
 		  
 		  
 <!--
 		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+		  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
 		<div >
-		  <h3><a href="/2015/04/21/nginx-tomcat-windows.html">[21 Apr 2015] Nginx Tomcat Windows</a></h3>
+		  <h3><a href="/2015/01/01/oracle.html">[01 Jan 2015] Oracle</a></h3>
+		  
+		  Oracle Oracle Table of Contents 1. BULK COLLECT 1 BULK COLLECT procedure testList is type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype; listcc table_gwgjzy; begin select * bulk collect into listcc from z_gwgjyj_visu_gather_value; dbms_output.put_line(listcc.count); exception when others then dbms_output.put_line(sqlcode || '' || sqlerrm); end; Created: 2015-04-21 二 10:13 Emacs 24.4.1 (Org mode...
+		  
+		  
+<!--
+		<div >
+		  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
+		<div >
+		  <h3><a href="/2015/01/01/nginx-tomcat-windows.html">[01 Jan 2015] Nginx Tomcat Windows</a></h3>
 		  
 		  title title Table of Contents 1. Nginx 简介 2. 下载地址 3. 目录结构 4. nginx.conf配置 5. Tomcat配置 6. 验证配置与测试负载均衡 --- layout: default title: Nginx+tomcat+windows配置负载均衡 --- 1 Nginx 简介 Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电 子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。 其特点是 占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器 中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名 的微网志Plurk也使用nginx。 2 下载地址 http://nginx.org/en/download.html 这里我们推荐下载稳定版（stable versions），本文采用nginx-0.8.20。 3 目录结构 Nginx- _ conf 配置目录...
 		  
 		  
 <!--
 		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+		  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
 		<div >
-		  <h3><a href="/2015/04/21/maven-jar.html">[21 Apr 2015] Maven Jar</a></h3>
-		  
-		  <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>maven-jar</title>
-<!-- 2015-04-21 二 10:13 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  /*]]>*/-->
-</style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-</head>
-<body>
-<div id="content">
-<h1 class="title">maven-jar</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. missing artifact com.oracle:ojdbc14:jar:10.2.0.2.0</a></li>
-</ul>
-</div>
-</div>
----
-layout: view_simple
-title: Maven jar 包问题汇总
-excerpt: excerpt
-keywords: keywords
-categories: [maven]
-tags: [maven]
----
-
-<p>
-整理一些maven jar的问题,例如missiong artifact等..
-</p>
-
-
-
-		  
-		  
-<!--
-		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
-		<div >
-		  <h3><a href="/2015/04/21/maven-exception.html">[21 Apr 2015] Maven Exception</a></h3>
+		  <h3><a href="/2015/01/01/maven-exception.html">[01 Jan 2015] Maven Exception</a></h3>
 		  
 		  Maven 常见异常总结 Maven 常见异常总结 Table of Contents 1. Could not find artifact com.sun:tools:jar:1.5.0 --- layout: default title: Maven 常见异常总结 --- 1 Could not find artifact com.sun:tools:jar:1.5.0 Could not find artifact com.sun:tools:jar:1.5.0 at specified path D:\Program Files\Java\jre/../lib/tools.jar 查看项目中的JRE设置是否由JDK换成了JRE，解决方案:在POM文件中加入 &lt;properties&gt; &lt;java.home&gt;D:\Program Files\Java\jdk1.6.0_10&lt;/java.home&gt; &lt;!-- 指定使用的JDK的安装目录 --&gt; &lt;/properties&gt; &lt;dependency&gt; &lt;groupId&gt;com.sun&lt;/groupId&gt; &lt;artifactId&gt;tools&lt;/artifactId&gt; &lt;version&gt;1.6.0&lt;/version&gt; &lt;scope&gt;system&lt;/scope&gt; &lt;systemPath&gt;${java.home}/lib/tools.jar&lt;/systemPath&gt;...
 		  
 		  
 <!--
 		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+		  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
 		<div >
-		  <h3><a href="/2015/04/21/maven.html">[21 Apr 2015] Maven</a></h3>
+		  <h3><a href="/2015/01/01/maven.html">[01 Jan 2015] Maven</a></h3>
 		  
 		  <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>maven</title>
+<title>2015-01-01-maven</title>
 <!-- 2015-04-21 二 10:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
@@ -444,7 +257,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">maven</h1>
+<h1 class="title">2015-01-01-maven</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -485,12 +298,12 @@ tags: [maven,javaee]
 		  
 		  
 		  <a class="btn btn-primary btn-sm" href="/">Home</a>
-		  <a class="btn btn-primary btn-sm" href="/blog/page2/">&laquo; Prev</a>
+		  <a class="btn btn-primary btn-sm" href="/blog/page5/">&laquo; Prev</a>
 		  
 		  
-		  <span><a class="btn btn-primary btn-sm disabled">Page: 3 of 8</a></span>
+		  <span><a class="btn btn-primary btn-sm disabled">Page: 6 of 8</a></span>
 		  
-		  <a class="btn btn-primary btn-sm" href="/blog/page4/">Next &raquo;</a>
+		  <a class="btn btn-primary btn-sm" href="/blog/page7/">Next &raquo;</a>
 		  <a class="btn btn-primary btn-sm" href="/blog/page8/">Last</a>
 		  
 		</div>

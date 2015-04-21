@@ -1,0 +1,59 @@
+jekyll 2.5.3 -- Jekyll is a blog-aware, static site generator in Ruby
+
+Usage:
+
+  jekyll <subcommand> [options]
+
+Options:
+        -s, --source [DIR]  Source directory (defaults to ./)
+        -d, --destination [DIR]  Destination directory (defaults to ./_site)
+            --safe         Safe mode (defaults to false)
+        -p, --plugins PLUGINS_DIR1[,PLUGINS_DIR2[,...]]  Plugins directory (defaults to ./_plugins)
+            --layouts DIR  Layouts directory (defaults to ./_layouts)
+        -h, --help         Show this message
+        -v, --version      Print the name and version
+        -t, --trace        Show the full backtrace when an error occurs
+
+Subcommands:
+  docs                  Launch local server with docs for Jekyll v2.5.3
+  serve, server, s      Serve your site locally
+  new                   Creates a new Jekyll site scaffold in PATH
+  doctor, hyde          Search site and print specific deprecation warnings
+  build, b              Build your site
+  help                  Show the help message, optionally for a given subcommand.
+Configuration file: /home/sylvan/app/git/geek41.github.io/_config.yml
+/usr/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- org-ruby (LoadError)
+	from /usr/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/sylvan/app/git/geek41.github.io/_plugins/org_converter.rb:3:in `<module:Jekyll>'
+	from /home/sylvan/app/git/geek41.github.io/_plugins/org_converter.rb:1:in `<top (required)>'
+	from /usr/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /usr/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:74:in `block (2 levels) in require_plugin_files'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:73:in `each'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:73:in `block in require_plugin_files'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:72:in `each'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:72:in `require_plugin_files'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:18:in `conscientious_require'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/site.rb:79:in `setup'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/site.rb:41:in `initialize'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/commands/build.rb:29:in `new'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/commands/build.rb:29:in `process'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/lib/jekyll/commands/serve.rb:26:in `block (2 levels) in init_with_program'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `call'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `block in execute'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `each'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `execute'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/mercenary-0.3.5/lib/mercenary/program.rb:42:in `go'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/mercenary-0.3.5/lib/mercenary.rb:19:in `program'
+	from /home/sylvan/.gem/ruby/2.2.0/gems/jekyll-2.5.3/bin/jekyll:20:in `<top (required)>'
+	from /home/sylvan/.gem/ruby/2.2.0/bin/jekyll:23:in `load'
+	from /home/sylvan/.gem/ruby/2.2.0/bin/jekyll:23:in `<main>'
+Configuration file: /home/sylvan/app/git/geek41.github.io/_config.yml
+            Source: /home/sylvan/app/git/geek41.github.io
+       Destination: /home/sylvan/app/git/geek41.github.io/_site
+      Generating... 
+                    done.
+ Auto-regeneration: enabled for '/home/sylvan/app/git/geek41.github.io'
+Configuration file: /home/sylvan/app/git/geek41.github.io/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
