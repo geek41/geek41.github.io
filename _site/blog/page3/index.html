@@ -51,8 +51,6 @@
 
 <li><a href="/2015/04/21/test-concurrency.html" title="Test Concurrency">Test Concurrency</a></li>
 
-<li><a href="/2015/04/21/summary.html" title="Summary">Summary</a></li>
-
 <li><a href="/2015/04/21/ssh-commond.html" title="Ssh Commond">Ssh Commond</a></li>
 
 <li><a href="/2015/04/21/spring-data.html" title="Spring Data">Spring Data</a></li>
@@ -61,6 +59,8 @@
 
 <li><a href="/2015/04/21/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
 
+<li><a href="/2015/04/21/org-mode-subscripter-setting.html" title="Org Mode Subscripter Setting">Org Mode Subscripter Setting</a></li>
+
 </ul>
 </section>
 </div>
@@ -68,41 +68,6 @@
 	<div class="col-md-9">  
 	  <div class="main">
 		
-<!--
-		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
-		<div >
-		  <h3><a href="/2015/04/21/oracle.html">[21 Apr 2015] oracle</a></h3>
-		  
-		  
-BULK COLLECT
-
-
-
-procedure testList is
-
-	type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype;
-	listcc table_gwgjzy;
-
-  begin
-
-	select * bulk collect into listcc from z_gwgjyj_visu_gather_value;
-	dbms_output.put_line(listcc.count);
-  exception
-	when others then
-	  dbms_output.put_line(sqlcode || '' || sqlerrm);
-  end;
-
-
-
-
-
-
-22
-
-
-		  
-		  
 <!--
 		<div >
 		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
@@ -473,6 +438,15 @@ tags: [maven,javaee]
 </p>
 
 
+		  
+		  
+<!--
+		<div >
+		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+		<div >
+		  <h3><a href="/2015/04/21/jqgrid-notes.html">[21 Apr 2015] Jqgrid Notes</a></h3>
+		  
+		  jqgrid-notes jqgrid-notes Table of Contents 1. saveRow() -保存一行记录 2. selrow - 获取当前选中行的id --- layout: view_simple title: Jqgrid 笔记 excerpt: keywords:"" categories: [JS&JQuery] tags: [jqgrid] --- &lt;!-- more --&gt; 1 saveRow() -保存一行记录 方法定义: jQuery("#grid_id").saveRow(rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); 或者新的API jQuery("#grid_id").jqGrid('saveRow',rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); 例子: jQuery("#grid_id").jqGrid('saveRow',rowid, { successfunc: function(...
 		  
 		  
 

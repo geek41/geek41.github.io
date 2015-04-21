@@ -51,8 +51,6 @@
 
 <li><a href="/2015/04/21/test-concurrency.html" title="Test Concurrency">Test Concurrency</a></li>
 
-<li><a href="/2015/04/21/summary.html" title="Summary">Summary</a></li>
-
 <li><a href="/2015/04/21/ssh-commond.html" title="Ssh Commond">Ssh Commond</a></li>
 
 <li><a href="/2015/04/21/spring-data.html" title="Spring Data">Spring Data</a></li>
@@ -61,6 +59,8 @@
 
 <li><a href="/2015/04/21/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
 
+<li><a href="/2015/04/21/org-mode-subscripter-setting.html" title="Org Mode Subscripter Setting">Org Mode Subscripter Setting</a></li>
+
 </ul>
 </section>
 </div>
@@ -68,15 +68,6 @@
 	<div class="col-md-9">  
 	  <div class="main">
 		
-<!--
-		<div >
-		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
-		<div >
-		  <h3><a href="/2015/04/21/ssh-commond.html">[21 Apr 2015] Ssh Commond</a></h3>
-		  
-		  SSH命令详解 SSH命令详解 Table of Contents 1. SSH 的详细使用方法如下： --- layout: view_simple title: SSH 命令详解 --- 1 SSH 的详细使用方法如下： ssh [-l login_name] [hostname | user@hostname] [command] ssh [-afgknqtvxCPX246] [-c blowfish | 3des] [-e escape_char] [-i identity_file] [-l login_name] [-o option] [-p port] [-L port:host:hostport] [-R port:host:hostport] [hostname | user@hostname] [command] sshd...
-		  
-		  
 <!--
 		<div >
 		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
@@ -120,6 +111,41 @@
 		  <h3><a href="/2015/04/21/org-manual.html">[21 Apr 2015] Org Manual</a></h3>
 		  
 		  org manual org manual Table of Contents 1. Publishing 1.1. org-publish-project-alist变量 1.2. 源文件及发布目录 1 Publishing 1.1 org-publish-project-alist变量 通过为每一个变量配置来定义发布，成为org-publish-project-alist 1.2 源文件及发布目录 大多数属性都是可选的，但有些应始终设置。 特别是，org需要知道到哪里寻找源文件，并放在哪里发布文件。 :base-directory 含目录发布源文件 :publishing-directory 目录下的输出文件将予以公布。 您可以使用适合于Emacs的流浪汉包文件名 ​​语法直接发布到Web服务器。 或者你可以发布到本地目录，并用它来 ​​上传您的网站（见外部工具上传文件 ）。 :preparation-function 功能或功能列表中被称为起始发布过程，例如之前，要运行make的更新文件被出版。 该项目的属性列表的范围限定到这个电话作为变量project-plist 。 :completion-function 函数或函数调用整理出版过程，例如后，改变结果文件的权限列表。 该项目的属性列表的范围限定到这个电话作为变量project-plist 。 Date: &lt;2015-04-15 三&gt; Author: sylvan Created: 2015-04-21 二 10:13 Emacs 24.4.1...
+		  
+		  
+<!--
+		<div >
+		  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+		<div >
+		  <h3><a href="/2015/04/21/oracle.html">[21 Apr 2015] oracle</a></h3>
+		  
+		  
+BULK COLLECT
+
+
+
+procedure testList is
+
+	type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype;
+	listcc table_gwgjzy;
+
+  begin
+
+	select * bulk collect into listcc from z_gwgjyj_visu_gather_value;
+	dbms_output.put_line(listcc.count);
+  exception
+	when others then
+	  dbms_output.put_line(sqlcode || '' || sqlerrm);
+  end;
+
+
+
+
+
+
+22
+
+
 		  
 		  
 
