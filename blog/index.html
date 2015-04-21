@@ -1,13 +1,14 @@
 ---
 layout: blog
-title: Don't repeat yourself
+title: Geek 41
 ---
 
-<div class="row-fluid">
+<div class="container">
+  <div><h1 class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:72;">{{ page.title }}	<span> 老板，给我来一碗泪流满面..</span></h1>
 
-  <div class="span3">
-	<div class="panel">
-	  
+  </div>
+  <div class="row">
+	<div class="col-md-3">
 	  <span>
 		<a href="#">BLOG</a>/<a href="/">HOME</a>
 	  </span>
@@ -22,53 +23,51 @@ title: Don't repeat yourself
 	  </ul>
 
 	  {% include recently_posts.html %}</div>
-  </div>
 
-  <div class="span9">  
-	<div class="main">
-	  {% for post in paginator.posts %}
+	<div class="col-md-9">  
+	  <div class="main">
+		{% for post in paginator.posts %}
+<!--
+		<div >
+		  <h5 class="post-date" align="right">{{ post.date | date_to_string}}</h5>		</div> -->
+		<div >
+		  <h3><a href="{{ post.url }}">[{{ post.date | date_to_string}}] {{ post.title }}</a></h3>
+		  {% if post.content contains "<!-- more -->" %}
+		  {{ post.content | split:'<!-- more -->' | first }}
+		  {% else %}
+		  {{ post.content | strip_html | truncatewords:50 }}
+		  {% endif %}
+		  {% endfor %}
 
-	  <div >
-		<h5 class="post-date" align="right">{{ post.date | date_to_string}}</h5>
+		</div>
+
+
+
+		<!-- Pagination links -->
+		<div class="pull-right">
+		  {% if paginator.previous_page %}
+		  {% if paginator.previous_page == 1 %}
+		  <a class="btn btn-primary btn-sm" href="/">Home</a>
+		  <a class="btn btn-primary btn-sm" href="/blog">&laquo; Prev</a>
+		  {% else %}
+		  <a class="btn btn-primary btn-sm" href="/">Home</a>
+		  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.previous_page}}/">&laquo; Prev</a>
+		  {% endif %}
+		  {% else %}
+		  <span><a class="btn btn-primary btn-sm disabled" href="/blog">Home</a></span>
+		  <span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
+		  {% endif %}
+		  <span><a class="btn btn-primary btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
+		  {% if paginator.next_page %}
+		  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.next_page}}/">Next &raquo;</a>
+		  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.total_pages}}/">Last</a>
+		  {% else if paginator.page == paginator.total_pages %}
+		  <span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
+		  <span><a class="btn btn-primary btn-sm disabled">Last</a></span>
+		  {% endif %}
+		</div>
 	  </div>
-	  <div >
-		<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-		{% if post.content contains "<!-- more -->" %}
-		{{ post.content | split:'<!-- more -->' | first }}
-		{% else %}
-		{{ post.content | strip_html | truncatewords:50 }}
-		{% endif %}
-		{% endfor %}
-
-	  </div>
-
-
-
-	  <!-- Pagination links -->
-	  <div class="pull-right">
-		{% if paginator.previous_page %}
-		{% if paginator.previous_page == 1 %}
-		<a class="btn btn-primary btn-sm" href="/">Home</a>
-		<a class="btn btn-primary btn-sm" href="/blog">&laquo; Prev</a>
-		{% else %}
-		<a class="btn btn-primary btn-sm" href="/">Home</a>
-		<a class="btn btn-primary btn-sm" href="/blog/page{{paginator.previous_page}}/">&laquo; Prev</a>
-		{% endif %}
-		{% else %}
-		<span><a class="btn btn-primary btn-sm disabled" href="/blog">Home</a></span>
-		<span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
-		{% endif %}
-		<span><a class="btn btn-primary btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
-		{% if paginator.next_page %}
-		<a class="btn btn-primary btn-sm" href="/blog/page{{paginator.next_page}}/">Next &raquo;</a>
-		<a class="btn btn-primary btn-sm" href="/blog/page{{paginator.total_pages}}/">Last</a>
-		{% else if paginator.page == paginator.total_pages %}
-		<span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
-		<span><a class="btn btn-primary btn-sm disabled">Last</a></span>
-		{% endif %}
-	  </div>
-	</div>
-  </div>
+  </div></div>
 </div>
 
 

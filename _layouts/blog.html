@@ -1,51 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-　<title>Geek 41|{{ page.title }}</title>
-  <link rel="stylesheet" href="/assets/stylesheets/list.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="/assets/stylesheets/index.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
-  <style type="text/css" media="screen">
-	*{font-size:14px;}
-	body{background-color:#fbfaf7}
-	#content{width:1170px;margin: 10px auto;}
-	.main{padding-left:10px;color:#666;}
-	.main h3{border-bottom: 1px solid #ccc;}
-	.main h3 a{font-size:20px;color:#c30000;font-family:"微软雅黑","Arvo",Monaco,serif;}
-	.main h5{
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|{{ page.title }}</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:14px;}
+	  h1 span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;vertical-align: bottom; }
+	</style>
+  </head>
 
-	font-family: "Arvo",Monaco,serif;
-    font-weight: 700;
+  <body>
+	<div id="content">
+	  　{{ content }}
+	</div>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	color: #232323;
-    margin: 36px 0 10px;}
-	.panel{padding-right:5px;border-right:1px solid #000;}
-	.panel h3{font-family: "Electrolize",sans-serif;text-transform: uppercase;font-size: 1.1em;}
-	.panel ul{margin:0 0 10px 15px;}
-	.panel ul li {list-style:none;}
-	.title{margin-bottom:0;padding-bottom:30px;}
-	a{color:#005580}
-	a:visited{color:#005580}
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
 
-  </style>
-</head>
-
-<body>
-<div id="content">
-  <h1 class="title">{{ page.title }}</h1>
-　{{ content }}
-</div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-47157282-1', 'geek41.github.io');
-  ga('send', 'pageview');
-
-</script>
-</body>
+	</script>
+  </body>
 
 </html>
