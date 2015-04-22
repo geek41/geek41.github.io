@@ -1,0 +1,100 @@
+---
+layout: default
+title: Org-mode 不让下划线_转义
+---
+
+
+<p>
+在 Emacs Org Mode 里，默认情况下 _ 这种字符会被当成标记语言来进行转义。
+有的时候，如果你只是写写文章，这种默认的转义，会让你很不方便，尤其是你
+在写一篇介绍技术的文章，里面出现的变量名有很多的下划线。这时，你会
+说：”Oh, my god! 难道要我一个一个去标记不让 _ 转义么？”
+</p>
+
+
+<p>
+如何设置让 Org Mode 在默认情况下，不转义 _ 字符呢？
+</p>
+
+<p>
+单个 org 文件的解决办法
+</p>
+
+<p>
+你可以在一个 org 文件的开头，用下面的设置来关闭这个功能。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-octave">#+OPTIONS: ^:nil
+</pre>
+</div>
+
+<p>
+如果你需要更方便的设置，可以把上面这个改为
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-octave">#+OPTIONS: ^:{}
+</pre>
+</div>
+
+<p>
+这样，当你写
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">a_{b}
+</pre>
+</div>
+<p>
+时，_ 后被 {} 括起来的内容就会被转义，而写 a_b 时，就按普通的方式来显示。
+</p>
+
+<p>
+org sites 的解决办法
+</p>
+
+<p>
+如果你是用 org sites 来写笔记，想让某个 site 的所有 org 文件不转义 _
+字符，则也可以直接在 org sites 配置文件里，配置下面这么一句，一了百了：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-octave">(setq org-export-with-sub-superscripts nil)
+</pre>
+</div>
+<p>
+也可以在 org sites 里设置这个属性，只作用于某一个 site：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">:sub-superscript nil
+</pre>
+</div>
+<p>
+如果需要像上面一样，采用相对智能的 {} 方式，可以设置成
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">:sub-superscript {}
+</pre>
+</div>
+<p>
+或是直接用 elisp 来设置全局的属性：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">(setq org-export-with-sub-superscripts '{})
+</pre>
+</div>
+
+<p>
+这样就会用 {} 来转义了。
+</p>
+
+<p>
+原文连接:<a href="http://blog.waterlin.org/articles/emacs-org-mode-subscripter-setting.html">http://blog.waterlin.org/articles/emacs-org-mode-subscripter-setting.html</a>
+</p>

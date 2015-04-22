@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|Geek 41</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:13px;}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+	</style>
+  </head>
+
+  <body>
+
+	  　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+	  
+	  <span>
+		<a href="#">BLOG</a>/<a href="/">HOME</a>
+	  </span>
+	  
+	  <h4>Category</h4>
+	  
+	  <!-- category list-->
+	  <ul>
+		
+		<li><a href="/blog/categories.html#java">java(1)</a></li>
+		
+		<li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
+		
+		<li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
+		
+		<li><a href="/blog/categories.html#linux">linux(1)</a></li>
+		
+		<li><a href="/blog/categories.html#折腾emacs">折腾emacs(1)</a></li>
+		
+		<li><a href="/blog/categories.html#linux&unix">linux&unix(1)</a></li>
+		
+		<li><a href="/blog/categories.html#windows">windows(1)</a></li>
+		
+	  </ul>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/emacs/2015/04/22/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a></li>
+
+<li><a href="/windows/2015/04/22/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
+
+<li><a href="/linux&unix/2015/04/22/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
+
+<li><a href="/2015/04/22/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a></li>
+
+<li><a href="/2015/04/22/ssh-commond.html" title="Ssh Commond">Ssh Commond</a></li>
+
+<li><a href="/2015/04/22/spring-data.html" title="Spring Data">Spring Data</a></li>
+
+<li><a href="/2015/04/22/software-architecture-design.html" title="Software Architecture Design">Software Architecture Design</a></li>
+
+<li><a href="/2015/04/22/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
+
+<li><a href="/2015/04/22/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a></li>
+
+<li><a href="/2015/04/22/org-manual.html" title="Org Manual">Org Manual</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+<div>	   
+    <a href="#emacs" 
+        title="emacs" 
+        style="font-size: 100%;">emacs(3)</a>
+	
+    <a href="#jquery" 
+        title="jquery" 
+        style="font-size: 100%;">jquery(1)</a>
+	
+    <a href="#datepicker" 
+        title="datepicker" 
+        style="font-size: 100%;">datepicker(1)</a>
+	
+    <a href="#web前端" 
+        title="web前端" 
+        style="font-size: 100%;">web前端(1)</a>
+	
+    <a href="#linux" 
+        title="linux" 
+        style="font-size: 100%;">linux(1)</a>
+	
+    <a href="#sqldeveloper" 
+        title="sqldeveloper" 
+        style="font-size: 100%;">sqldeveloper(1)</a>
+	
+    <a href="#windows" 
+        title="windows" 
+        style="font-size: 100%;">windows(1)</a>
+	
+    <a href="#yasinppet" 
+        title="yasinppet" 
+        style="font-size: 100%;">yasinppet(1)</a>
+	</div>
+	
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/01/01/test-concurrency.html">[2015-01-01] java模拟并发操作进行压力测试</a></h3>
+  
+  import java.io.BufferedReader; 　　import java.io.File; 　　import java.io.FileInputStream; 　　import java.io.InputStreamReader; 　　import java.io.PrintWriter; 　　import java.net.HttpURLConnection; 　　import java.net.URL; 　　import java.util.HashMap; 　　import java.util.Map; 　　import java.util.concurrent.ExecutorService; 　　import java.util.concurrent.Executors; 　　import java.util.concurrent.Semaphore; 　　public class ConcurrentTest { 　　private static int thread_num = 200; 　　private static int client_num = 460; 　　private static Map keywordMap = new HashMap(); 　　static { 　　try...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/01/01/test-concurrency.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2015/01/01/test-concurrency.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/01/01/ssh-commond.html">[2015-01-01] Ssh Commond</a></h3>
+  
+  Table of Contents 1. SSH 的详细使用方法如下： --- layout: view_simple title: SSH 命令详解 --- 1 SSH 的详细使用方法如下： ssh [-l login_name] [hostname | user@hostname] [command] ssh [-afgknqtvxCPX246] [-c blowfish | 3des] [-e escape_char] [-i identity_file] [-l login_name] [-o option] [-p port] [-L port:host:hostport] [-R port:host:hostport] [hostname | user@hostname] [command] sshd 为执行 ssh...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/01/01/ssh-commond.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2015/01/01/ssh-commond.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/01/01/software-architecture-design.html">[2015-01-01] Software Architecture Design</a></h3>
+  
+  Table of Contents 1. 软件架构设计的目的 2. 软件架构设计的原则 3. 软件架构设计的几种视图 4. 软件架构设计路程 5. 软件架构设计的常见误区及解决办法 6. 关于架构设计的一点通用技巧 --- layout: default title: 如何进行软件架构设计? --- 1 软件架构设计的目的 对于外包业务类型的项目，软件架构设计的目的与产品类型的项目有所不同， 在这里主要讨论外包类型项目的软件架构设计目的。 1、为大规模开发提供基础和规范，并提供可重用的资产，软件系统的大规模 开发，必须要有一定的基础和遵循一定的规范，这既是软件工程本身的要求， 也是客户的要求。架构设计的过程中可以将一些公共部分抽象提取出来，形成 公共类和工具类，以达到重用的目的。 2、一定程度上缩短项目的周期，利用软件架构提供的框架或重用组件，缩短 项目开发的周期。 3、降低开发和维护的成本，大量的重用和抽象，可以提取出一些开发人员不 用关心的公共部分，这样便可以使开发人员仅仅关注于业务逻辑的实现，从而 减少了很多工作量，提高了开发效率。 4、提高产品的质量，好的软件架构设计是产品质量的保证，特别是对于客户 常常提出的非功能性需求的满足。 2 软件架构设计的原则 软件架构设计必须遵循以下原则： 1、满足功能性需求和非功能需求。这是一个软件系统最基本的要求，也是架 构设计时应该遵循的最基本的原则。 2、实用性原则，就像每一个软件系统交付给用户使用时必须实用，能解决用 户的问题一样，架构设计也必须实用，否则就会“高来高去”或“过度设计”。 3、满足复用的要求，最大程度的提高开发人员的工作效率。 3 软件架构设计的几种视图 我们常常在讨论架构设计该做些什么的时候，或是在架构设计评审的会议上， 会提出各种各样的问题，例如开发人员该如何记录Log，事务如何控制？怎样 才能提高我们的开发人员的工作效率，即在单位时间内更有品质的完成更多的 功能？怎样满足客户的非功能性需求？怎样让生产环境的平台管理人员更好的...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/01/01/software-architecture-design.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2015/01/01/software-architecture-design.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/01/01/org-mode-subscripter-setting.html">[2015-01-01] Org-mode 不让下划线_转义</a></h3>
+  
+  在 Emacs Org Mode 里，默认情况下 _ 这种字符会被当成标记语言来进行转义。 有的时候，如果你只是写写文章，这种默认的转义，会让你很不方便，尤其是你 在写一篇介绍技术的文章，里面出现的变量名有很多的下划线。这时，你会 说：”Oh, my god! 难道要我一个一个去标记不让 _ 转义么？” 如何设置让 Org Mode 在默认情况下，不转义 _ 字符呢？ 单个 org 文件的解决办法 你可以在一个 org 文件的开头，用下面的设置来关闭这个功能。 #+OPTIONS: ^:nil 如果你需要更方便的设置，可以把上面这个改为 #+OPTIONS: ^:{} 这样，当你写 a_{b} 时，_ 后被 {} 括起来的内容就会被转义，而写 a_b 时，就按普通的方式来显示。 org sites 的解决办法 如果你是用 org sites 来写笔记，想让某个 site 的所有 org...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/01/01/org-mode-subscripter-setting.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2015/01/01/org-mode-subscripter-setting.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/01/01/oracle.html">[2015-01-01] Oracle</a></h3>
+  
+  
+Table of Contents
+
+
+1. BULK COLLECT
+
+
+
+
+
+1 BULK COLLECT
+
+
+
+procedure testList is
+
+	type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype;
+	listcc table_gwgjzy;
+
+  begin
+
+	select * bulk collect into listcc from z_gwgjyj_visu_gather_value;
+	dbms_output.put_line(listcc.count);
+  exception
+	when others then
+	  dbms_output.put_line(sqlcode || '' || sqlerrm);
+  end;
+
+
+
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/01/01/oracle.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2015/01/01/oracle.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Jan 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/01/01/nginx-tomcat-windows.html">[2015-01-01] Nginx Tomcat Windows</a></h3>
+  
+  Table of Contents 1. Nginx 简介 2. 下载地址 3. 目录结构 4. nginx.conf配置 5. Tomcat配置 6. 验证配置与测试负载均衡 --- layout: default title: Nginx+tomcat+windows配置负载均衡 --- 1 Nginx 简介 Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电 子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。 其特点是 占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器 中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名 的微网志Plurk也使用nginx。 2 下载地址 http://nginx.org/en/download.html 这里我们推荐下载稳定版（stable versions），本文采用nginx-0.8.20。 3 目录结构 Nginx- _ conf 配置目录 _ contrib...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/01/01/nginx-tomcat-windows.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2015/01/01/nginx-tomcat-windows.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Pagination links -->
+<div class="pull-right">
+  
+  
+  <a class="btn btn-primary btn-sm" href="/">Home</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page8/">&laquo; Prev</a>
+  
+  
+  <span><a class="btn btn-primary btn-sm disabled">Page: 9 of 12</a></span>
+  
+  <a class="btn btn-primary btn-sm" href="/blog/page10/">Next &raquo;</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page12/">Last</a>
+  
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

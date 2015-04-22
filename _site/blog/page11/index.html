@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|Geek 41</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:13px;}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+	</style>
+  </head>
+
+  <body>
+
+	  　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+	  
+	  <span>
+		<a href="#">BLOG</a>/<a href="/">HOME</a>
+	  </span>
+	  
+	  <h4>Category</h4>
+	  
+	  <!-- category list-->
+	  <ul>
+		
+		<li><a href="/blog/categories.html#java">java(1)</a></li>
+		
+		<li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
+		
+		<li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
+		
+		<li><a href="/blog/categories.html#linux">linux(1)</a></li>
+		
+		<li><a href="/blog/categories.html#折腾emacs">折腾emacs(1)</a></li>
+		
+		<li><a href="/blog/categories.html#linux&unix">linux&unix(1)</a></li>
+		
+		<li><a href="/blog/categories.html#windows">windows(1)</a></li>
+		
+	  </ul>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/emacs/2015/04/22/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a></li>
+
+<li><a href="/windows/2015/04/22/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
+
+<li><a href="/linux&unix/2015/04/22/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
+
+<li><a href="/2015/04/22/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a></li>
+
+<li><a href="/2015/04/22/ssh-commond.html" title="Ssh Commond">Ssh Commond</a></li>
+
+<li><a href="/2015/04/22/spring-data.html" title="Spring Data">Spring Data</a></li>
+
+<li><a href="/2015/04/22/software-architecture-design.html" title="Software Architecture Design">Software Architecture Design</a></li>
+
+<li><a href="/2015/04/22/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
+
+<li><a href="/2015/04/22/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a></li>
+
+<li><a href="/2015/04/22/org-manual.html" title="Org Manual">Org Manual</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+<div>	   
+    <a href="#emacs" 
+        title="emacs" 
+        style="font-size: 100%;">emacs(3)</a>
+	
+    <a href="#jquery" 
+        title="jquery" 
+        style="font-size: 100%;">jquery(1)</a>
+	
+    <a href="#datepicker" 
+        title="datepicker" 
+        style="font-size: 100%;">datepicker(1)</a>
+	
+    <a href="#web前端" 
+        title="web前端" 
+        style="font-size: 100%;">web前端(1)</a>
+	
+    <a href="#linux" 
+        title="linux" 
+        style="font-size: 100%;">linux(1)</a>
+	
+    <a href="#sqldeveloper" 
+        title="sqldeveloper" 
+        style="font-size: 100%;">sqldeveloper(1)</a>
+	
+    <a href="#windows" 
+        title="windows" 
+        style="font-size: 100%;">windows(1)</a>
+	
+    <a href="#yasinppet" 
+        title="yasinppet" 
+        style="font-size: 100%;">yasinppet(1)</a>
+	</div>
+	
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		
+<!--
+	<div >
+	  <h5 class="post-date" align="right">16 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/%E6%8A%98%E8%85%BEemacs/2014/12/16/emacs-fcitx.html">[2014-12-16] Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></h3>
+  
+  
+Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系统环境为英文，ubuntu启动先加载gonme-settings-daemon，后加载fcitx。
+
+
+
+&lt;!&#x2013; more &#x2013;&gt;
+
+
+
+解决办法:
+
+
+
+1.在终端启动,亲测可用
+
+
+
+
+env LANG=zh_CN.utf-8 emacs
+
+
+
+
+
+2.改变gonme-settings-daemon和fcitx的启动顺序，网上看的，我没试。
+
+
+
+先起动输入法fcitx，接着起动gnome-settings-daemon。
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 折腾emacs</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> emacs </a>
+
+	<a href="/%E6%8A%98%E8%85%BEemacs/2014/12/16/emacs-fcitx.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/%E6%8A%98%E8%85%BEemacs/2014/12/16/emacs-fcitx.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">15 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/linux/2014/12/15/sqldeveloper.html">[2014-12-15] 解决linux下sqldeveloper 中文环境显示乱码的问题</a></h3>
+  
+  
+在linux环境下装sql developer,选择中文的字体时出现乱码。由于SQL Developer使用了JDK，java环境当中缺少中文字体造成了乱码，我安装的是JDK1.6u21，因此我的JAVA的PATH是 usr/lib/jvm/java/jdk1.6.021/jre/lib/fonts ，进入之后创建一个目录
+
+
+
+
+mkdir fallback
+cd fallback
+
+
+
+
+然后在fallback目录下 使用ln创建符号链接文件，告诉SQL Developer中文字体的路径。我这里用的consolas+微软雅黑。
+
+
+
+
+ln -s /usr/share/fonts/win7/Yahei.Consolas.1.11b.ttf YaHei.Consolas.1.11b.ttf
+mkfontdir
+mkfontscale
+
+
+
+
+然后再打开SQL Developer 就可以选择中文字体了。
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> linux</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> linux and sqldeveloper </a>
+
+	<a href="/linux/2014/12/15/sqldeveloper.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/linux/2014/12/15/sqldeveloper.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">15 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2014/12/15/oracle-procedure.html">[2014-12-15] Oracle Procedure</a></h3>
+  
+  Table of Contents 1. 变量规范 2. 包规范 3. 游标规范 4. 事务处理规范 5. 数据封装规范 6. 数据访问规范 7. 日志书写规范 8. 错误处理规范 9. 书写规范 10. 书写优化性能建议 11. 其他经验规则 --- layout: view_simple title: Oracle存储过程书写规范和技巧 excerpt: keywords: "" categories: [Oracle] tags: [oracle,procedure] --- 1 变量规范 1.变量名全部采用小写，局部变量名使用“v”开头，输入参数以“i开头，输出参数以“o”开头，输入输出参数用io开头。所有输入参数必须显示声明 2.游标的命名：游标统一用后缀 “cur” 命名 3.使用命名的常量以避免硬编码，使用常量包,常量统一用 cn_ 的前缀命名 4.当变量代表列时，使用%TYPE属性，当变量实际上表示数据库表的某列数据时，为避免数据库结构修改对变量的影响，应统一使用%TYPE属性对变量命名 5.使用%TYPE以标准化非数据库变量的声明 2...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2014/12/15/oracle-procedure.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2014/12/15/oracle-procedure.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">15 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/jquery/2014/12/15/jquery-ui.html">[2014-12-15] Jquery-ui datepicker z-index问题</a></h3>
+  
+  
+场景:有时在页面弹出层的界面调用jquery-ui的datepicker,控件显示在了遮照层下面。这是因为jquery-ui datepicker的源码实现为:
+
+
+
+
+$(input).zIndex() + 1
+
+
+
+
+解决方法1:
+
+
+
+
+$("#txtFillInDate").datepicker({
+monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
+dateFormat: 'yy-mm-dd',
+beforeShow: function () {
+setTimeout(
+function () {
+$('#ui-datepicker-div').css("z-index", 15);
+}, 100
+);
+}
+});
+
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> jquery</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> jquery, datepicker, and web前端 </a>
+
+	<a href="/jquery/2014/12/15/jquery-ui.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/jquery/2014/12/15/jquery-ui.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">15 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2014/12/15/jekyll.html">[2014-12-15] Jekyll</a></h3>
+  
+  Table of Contents 1. Official documents 1.1. Working with drafts 1.2. Writing posts 1.2.1. The Posts Folder 1.2.2. Creating Post Files 1.2.3. Including images and resources 1.2.4. Displaying an index of posts --- layout: view_simple title: Jekyll折腾笔记 excerpt: keywords: "" categories: [Jekyll] tags: [jekyll,github pages] --- 记录折腾Jekyll静态博客到github的一些心路历程，空闲的时间会持续更新 1 Official documents...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2014/12/15/jekyll.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2014/12/15/jekyll.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">15 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/emacs/2014/12/15/emacs-collection.html">[2014-12-15] emacs配置收集</a></h3>
+  
+  收藏一些emacs的配置，有时间的时候查阅和调整 1.来源 http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html ;; author: chinazhangjie ;; e-mail: chinajiezhang@gmail.com ;; 指针颜色设置为白色 (set-cursor-color "white") ;; 鼠标颜色设置为白色 (set-mouse-color "white") ;; 从color-theme中获取 ;; 网上下载color-theme.el，放到加载路径(／usr/share/emacs/site-lisp )下 ;; M-x color-theme-select,鼠标左键选中，回车查看效果 ;; d查看信息，将出现如下信息: ;; color-theme-matrix is an interactive Lisp function in `color-theme.el'. ;; (color-theme-matrix) ;; Color theme by walterh@rocketmail.com, created 2003-10-16. ;; 选择(color-theme-blue-mood)即可 (require 'color-theme) (setq...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> emacs</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> emacs </a>
+
+	<a href="/emacs/2014/12/15/emacs-collection.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/emacs/2014/12/15/emacs-collection.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Pagination links -->
+<div class="pull-right">
+  
+  
+  <a class="btn btn-primary btn-sm" href="/">Home</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page10/">&laquo; Prev</a>
+  
+  
+  <span><a class="btn btn-primary btn-sm disabled">Page: 11 of 12</a></span>
+  
+  <a class="btn btn-primary btn-sm" href="/blog/page12/">Next &raquo;</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page12/">Last</a>
+  
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

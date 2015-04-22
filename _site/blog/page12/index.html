@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|Geek 41</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:13px;}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+	</style>
+  </head>
+
+  <body>
+
+	  　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+	  
+	  <span>
+		<a href="#">BLOG</a>/<a href="/">HOME</a>
+	  </span>
+	  
+	  <h4>Category</h4>
+	  
+	  <!-- category list-->
+	  <ul>
+		
+		<li><a href="/blog/categories.html#java">java(1)</a></li>
+		
+		<li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
+		
+		<li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
+		
+		<li><a href="/blog/categories.html#linux">linux(1)</a></li>
+		
+		<li><a href="/blog/categories.html#折腾emacs">折腾emacs(1)</a></li>
+		
+		<li><a href="/blog/categories.html#linux&unix">linux&unix(1)</a></li>
+		
+		<li><a href="/blog/categories.html#windows">windows(1)</a></li>
+		
+	  </ul>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/emacs/2015/04/22/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a></li>
+
+<li><a href="/windows/2015/04/22/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
+
+<li><a href="/linux&unix/2015/04/22/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
+
+<li><a href="/2015/04/22/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a></li>
+
+<li><a href="/2015/04/22/ssh-commond.html" title="Ssh Commond">Ssh Commond</a></li>
+
+<li><a href="/2015/04/22/spring-data.html" title="Spring Data">Spring Data</a></li>
+
+<li><a href="/2015/04/22/software-architecture-design.html" title="Software Architecture Design">Software Architecture Design</a></li>
+
+<li><a href="/2015/04/22/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
+
+<li><a href="/2015/04/22/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a></li>
+
+<li><a href="/2015/04/22/org-manual.html" title="Org Manual">Org Manual</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+<div>	   
+    <a href="#emacs" 
+        title="emacs" 
+        style="font-size: 100%;">emacs(3)</a>
+	
+    <a href="#jquery" 
+        title="jquery" 
+        style="font-size: 100%;">jquery(1)</a>
+	
+    <a href="#datepicker" 
+        title="datepicker" 
+        style="font-size: 100%;">datepicker(1)</a>
+	
+    <a href="#web前端" 
+        title="web前端" 
+        style="font-size: 100%;">web前端(1)</a>
+	
+    <a href="#linux" 
+        title="linux" 
+        style="font-size: 100%;">linux(1)</a>
+	
+    <a href="#sqldeveloper" 
+        title="sqldeveloper" 
+        style="font-size: 100%;">sqldeveloper(1)</a>
+	
+    <a href="#windows" 
+        title="windows" 
+        style="font-size: 100%;">windows(1)</a>
+	
+    <a href="#yasinppet" 
+        title="yasinppet" 
+        style="font-size: 100%;">yasinppet(1)</a>
+	</div>
+	
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		
+<!--
+	<div >
+	  <h5 class="post-date" align="right">12 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/12/12/properties.html">[2014-12-12] Java获取properties资源文件路径问题</a></h3>
+  
+  
+1.方法一
+
+
+
+InputStream fis =TestProperties.class.getClassLoader().getResourceAsStream("init.properties")
+
+
+
+
+
+2.方法二(要求TestProperties和init.properties在同一目录下)
+
+
+
+InputStream fis =TestProperties.class.getResourceAsStream("init.properties")
+
+
+
+
+3.方法三，对于Web工程也可以这样。
+先获取ServletContext,然后
+
+
+
+InputStream in=context.getResourceAsStream("/WEB-INF/classes/init.properties");
+
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/java/2014/12/12/properties.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/java/2014/12/12/properties.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">11 Dec 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2014/12/11/ooo.html">[2014-12-11] Ooo</a></h3>
+  
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. </a></li>
+<li><a href="#sec-2">2. fwefj</a></li>
+</ul>
+</div>
+</div>
+---
+layout: view_simple
+title: ooo
+excerpt: 
+keywords: ""
+categories: 
+tags: []
+---
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> </h2>
+<div class="outline-text-2" id="text-1">
+<!-- more-forword -->
+
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2014/12/11/ooo.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+		 <a href="/2014/12/11/ooo.html#disqus_thread"></a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Pagination links -->
+<div class="pull-right">
+  
+  
+  <a class="btn btn-primary btn-sm" href="/">Home</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page11/">&laquo; Prev</a>
+  
+  
+  <span><a class="btn btn-primary btn-sm disabled">Page: 12 of 12</a></span>
+  
+  <span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
+  <span><a class="btn btn-primary btn-sm disabled">Last</a></span>
+  
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

@@ -1,0 +1,164 @@
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. URL</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> URL</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+URL即统一资源定位符 (Uniform Resource Locator, URL)，完整的URL由这几个部分构成：
+</p>
+
+<pre class="example">
+scheme://host:port/path?query#fragment
+</pre>
+
+<ul class="org-ul">
+<li>scheme:通信协议，常用的http,ftp,maito等。
+</li>
+<li>host:主机，服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。
+</li>
+<li>port:端口号，整数，可选，省略时使用方案的默认端口，如http的默认端口为80。
+</li>
+<li>path:路径，由零或多个"/"符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。
+</li>
+<li>query:查询，可选，用于给动态网页（如使用CGI、ISAPI、PHP/JSP/ASP/ASP.NET等技术制作的网页）传递参数，可有多个参数，用"&amp;"符号隔开，每个参数的名和值用"="符号隔开。
+</li>
+<li>fragment:信息片断，字符串，用于指定网络资源中的片断。例如一个网页中有多个名词解释，可使用fragment直接定位到某一名词解释。(也称为锚点)
+</li>
+</ul>
+
+<p>
+下面我们举例一个URL，然后获得它的各个组成部分。
+</p>
+
+<pre class="example">
+http://www.nowamagic.net/newsDetail.php?id=65
+</pre>
+
+<p>
+<b>window.location.href</b>
+</p>
+
+<p>
+可以获得整个URL字符串（在浏览器中就是完整的地址栏）。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">var test = window.location.href;
+alert(test);
+</pre>
+</div>
+
+<p>
+程序返回 <a href="http://www.nowamagic.net/newsDetail.php?id=65">http://www.nowamagic.net/newsDetail.php?id=65</a>
+</p>
+
+<p>
+<b>window.location.protocol</b>
+</p>
+
+<p>
+可以获得 URL 的协议部分
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">var test = window.location.protocol;
+alert(test);
+</pre>
+</div>
+
+<p>
+程序返回 http:
+</p>
+
+<p>
+<b>window.location.host</b>
+</p>
+
+<p>
+可以获得 URL 的主机部分
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">var test = window.location.host;
+alert(test);
+</pre>
+</div>
+
+<p>
+程序返回 www.nowamagic.net
+</p>
+
+<p>
+<b>window.location.port</b>
+</p>
+
+<p>
+可以获得 URL 的端口部分
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">var test = window.location.port;
+alert(test);
+</pre>
+</div>
+<p>
+如果采用默认的80端口(update:即使添加了:80)，那么返回值并不是默认的80而是空字符。
+</p>
+
+<p>
+<b>window.location.pathname</b>
+</p>
+
+<p>
+获得 URL 的路径部分（就是文件地址）
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">var test = window.location.pathname;
+alert(test);
+</pre>
+</div>
+
+<p>
+<b>window.location.search</b>
+</p>
+
+<p>
+获得查询（参数）部分，除了给动态语言赋值以外，我们同样可以给静态页面，并使用javascript来获得相信应的参数值。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">var test = window.location.search;
+alert(test);
+</pre>
+</div>
+
+<p>
+<b>window.location.hash</b>
+</p>
+
+<p>
+获得锚点。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">var test = window.location.hash;
+alert(test);
+</pre>
+</div>
+</div>
+</div>
