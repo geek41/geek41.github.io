@@ -17,15 +17,99 @@
 	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
 	  .title-block{border-bottom: 1px dotted #ccc;}
 	  .commit{padding:5px;}
+
+	  .bs-glyphicons {
+      overflow: hidden;
+	  }
+
+	  .bs-glyphicons li {
+      font-size: 12px;
+      width: 12.5%;
+	  }
+	  .bs-glyphicons li {
+      border: 1px solid #fff;
+      float: left;
+      font-size: 10px;
+      line-height: 1.4;
+	  padding: 10px 10px 10px 0;
+      text-align: center;
+      width: 25%;
+	  }
+	  .bs-glyphicons-list {
+	  padding:0;
+      list-style: outside none none;
+	  }
+
+	  .bs-glyphicons-list a{
+	  color:#000;
+	  }
+	  .bs-glyphicons-list a:hover{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+
+
+	  .bs-glyphicons .glyphicon {
+      font-size: 24px;
+      margin-top: 5px;
+	  }
+
+	  .pagination a.btn{border:1px solid #337ab7;border-radius: 2px;font-style: italic;color:#337ab7}
+	  .pagination a.btn:hover{color:#fff;background-color: #337ab7;
+	  }
+  	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
+	  }
+
+
 	</style>
   </head>
 
   <body>
 
-	  　<section class="post">
+	　<section class="post">
 <div id='tag_cloud'>
 
-<a href="#emacs" title="emacs" rel="3">emacs</a>
+<a href="#java" title="java" rel="4">java</a>
+
+<a href="#http server" title="http server" rel="1">http server</a>
+
+<a href="#nginx" title="nginx" rel="1">nginx</a>
+
+<a href="#tomcat" title="tomcat" rel="1">tomcat</a>
+
+<a href="#负载均衡" title="负载均衡" rel="1">负载均衡</a>
+
+<a href="#test" title="test" rel="1">test</a>
+
+<a href="#linux" title="linux" rel="3">linux</a>
+
+<a href="#ssh" title="ssh" rel="1">ssh</a>
+
+<a href="#emacs" title="emacs" rel="6">emacs</a>
+
+<a href="#yasinppet" title="yasinppet" rel="2">yasinppet</a>
+
+<a href="#org-mode" title="org-mode" rel="2">org-mode</a>
+
+<a href="#软件架构" title="软件架构" rel="1">软件架构</a>
+
+<a href="#jar" title="jar" rel="1">jar</a>
+
+<a href="#maven" title="maven" rel="1">maven</a>
+
+<a href="#oracle" title="oracle" rel="1">oracle</a>
+
+<a href="#sql" title="sql" rel="1">sql</a>
+
+<a href="#spring" title="spring" rel="1">spring</a>
+
+<a href="#spring-data-jpa" title="spring-data-jpa" rel="1">spring-data-jpa</a>
+
+<a href="#orm" title="orm" rel="1">orm</a>
+
+<a href="#nohup" title="nohup" rel="1">nohup</a>
+
+<a href="#shell" title="shell" rel="1">shell</a>
 
 <a href="#jquery" title="jquery" rel="1">jquery</a>
 
@@ -33,13 +117,9 @@
 
 <a href="#web前端" title="web前端" rel="1">web前端</a>
 
-<a href="#linux" title="linux" rel="1">linux</a>
-
 <a href="#sqldeveloper" title="sqldeveloper" rel="1">sqldeveloper</a>
 
-<a href="#windows" title="windows" rel="1">windows</a>
-
-<a href="#yasinppet" title="yasinppet" rel="1">yasinppet</a>
+<a href="#windows" title="windows" rel="2">windows</a>
 
 </div>
 
@@ -47,6 +127,95 @@
 
 
 <ul class="listing">
+
+  <li class="listing-seperator" id="java">java</li>
+
+  <li class="listing-item">
+  <time datetime="2014-03-12">2014-03-12</time>
+  <a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-09-14">2013-09-14</time>
+  <a href="/java/2013/09/14/maven-exception.html" title="Maven jar exceptions">Maven jar exceptions</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-01-10">2013-01-10</time>
+  <a href="/java/test/2013/01/10/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2012-12-10">2012-12-10</time>
+  <a href="/webserver/2012/12/10/nginx-tomcat-windows.html" title="Nginx+tomcat+windows配置负载均衡">Nginx+tomcat+windows配置负载均衡</a>
+  </li>
+
+
+  <li class="listing-seperator" id="http server">http server</li>
+
+  <li class="listing-item">
+  <time datetime="2012-12-10">2012-12-10</time>
+  <a href="/webserver/2012/12/10/nginx-tomcat-windows.html" title="Nginx+tomcat+windows配置负载均衡">Nginx+tomcat+windows配置负载均衡</a>
+  </li>
+
+
+  <li class="listing-seperator" id="nginx">nginx</li>
+
+  <li class="listing-item">
+  <time datetime="2012-12-10">2012-12-10</time>
+  <a href="/webserver/2012/12/10/nginx-tomcat-windows.html" title="Nginx+tomcat+windows配置负载均衡">Nginx+tomcat+windows配置负载均衡</a>
+  </li>
+
+
+  <li class="listing-seperator" id="tomcat">tomcat</li>
+
+  <li class="listing-item">
+  <time datetime="2012-12-10">2012-12-10</time>
+  <a href="/webserver/2012/12/10/nginx-tomcat-windows.html" title="Nginx+tomcat+windows配置负载均衡">Nginx+tomcat+windows配置负载均衡</a>
+  </li>
+
+
+  <li class="listing-seperator" id="负载均衡">负载均衡</li>
+
+  <li class="listing-item">
+  <time datetime="2012-12-10">2012-12-10</time>
+  <a href="/webserver/2012/12/10/nginx-tomcat-windows.html" title="Nginx+tomcat+windows配置负载均衡">Nginx+tomcat+windows配置负载均衡</a>
+  </li>
+
+
+  <li class="listing-seperator" id="test">test</li>
+
+  <li class="listing-item">
+  <time datetime="2013-01-10">2013-01-10</time>
+  <a href="/java/test/2013/01/10/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a>
+  </li>
+
+
+  <li class="listing-seperator" id="linux">linux</li>
+
+  <li class="listing-item">
+  <time datetime="2014-12-15">2014-12-15</time>
+  <a href="/linux/2014/12/15/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2014-07-01">2014-07-01</time>
+  <a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-02-01">2013-02-01</time>
+  <a href="/linux&unix/2013/02/01/ssh-commond.html" title="SSH 命令笔记">SSH 命令笔记</a>
+  </li>
+
+
+  <li class="listing-seperator" id="ssh">ssh</li>
+
+  <li class="listing-item">
+  <time datetime="2013-02-01">2013-02-01</time>
+  <a href="/linux&unix/2013/02/01/ssh-commond.html" title="SSH 命令笔记">SSH 命令笔记</a>
+  </li>
+
 
   <li class="listing-seperator" id="emacs">emacs</li>
 
@@ -63,6 +232,127 @@
   <li class="listing-item">
   <time datetime="2014-12-15">2014-12-15</time>
   <a href="/emacs/2014/12/15/emacs-collection.html" title="emacs配置收集">emacs配置收集</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-05-12">2013-05-12</time>
+  <a href="/%E6%8A%98%E8%85%BEemacs/2013/05/12/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-04-09">2013-04-09</time>
+  <a href="/%E6%8A%98%E8%85%BEemacs/2013/04/09/org-manual.html" title="Org manual 整理">Org manual 整理</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-02-09">2013-02-09</time>
+  <a href="/%E6%8A%98%E8%85%BEemacs/2013/02/09/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a>
+  </li>
+
+
+  <li class="listing-seperator" id="yasinppet">yasinppet</li>
+
+  <li class="listing-item">
+  <time datetime="2015-04-22">2015-04-22</time>
+  <a href="/emacs/2015/04/22/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-02-09">2013-02-09</time>
+  <a href="/%E6%8A%98%E8%85%BEemacs/2013/02/09/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a>
+  </li>
+
+
+  <li class="listing-seperator" id="org-mode">org-mode</li>
+
+  <li class="listing-item">
+  <time datetime="2013-05-12">2013-05-12</time>
+  <a href="/%E6%8A%98%E8%85%BEemacs/2013/05/12/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a>
+  </li>
+
+  <li class="listing-item">
+  <time datetime="2013-04-09">2013-04-09</time>
+  <a href="/%E6%8A%98%E8%85%BEemacs/2013/04/09/org-manual.html" title="Org manual 整理">Org manual 整理</a>
+  </li>
+
+
+  <li class="listing-seperator" id="软件架构">软件架构</li>
+
+  <li class="listing-item">
+  <time datetime="2013-05-12">2013-05-12</time>
+  <a href="/architecture/2013/05/12/software-architecture-design.html" title="如何进行软件架构设计?">如何进行软件架构设计?</a>
+  </li>
+
+
+  <li class="listing-seperator" id="jar">jar</li>
+
+  <li class="listing-item">
+  <time datetime="2013-09-14">2013-09-14</time>
+  <a href="/java/2013/09/14/maven-exception.html" title="Maven jar exceptions">Maven jar exceptions</a>
+  </li>
+
+
+  <li class="listing-seperator" id="maven">maven</li>
+
+  <li class="listing-item">
+  <time datetime="2013-09-14">2013-09-14</time>
+  <a href="/java/2013/09/14/maven-exception.html" title="Maven jar exceptions">Maven jar exceptions</a>
+  </li>
+
+
+  <li class="listing-seperator" id="oracle">oracle</li>
+
+  <li class="listing-item">
+  <time datetime="2013-10-02">2013-10-02</time>
+  <a href="/oracle/2013/10/02/oracle.html" title="Oracle 使用笔记">Oracle 使用笔记</a>
+  </li>
+
+
+  <li class="listing-seperator" id="sql">sql</li>
+
+  <li class="listing-item">
+  <time datetime="2013-10-02">2013-10-02</time>
+  <a href="/oracle/2013/10/02/oracle.html" title="Oracle 使用笔记">Oracle 使用笔记</a>
+  </li>
+
+
+  <li class="listing-seperator" id="spring">spring</li>
+
+  <li class="listing-item">
+  <time datetime="2014-03-12">2014-03-12</time>
+  <a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a>
+  </li>
+
+
+  <li class="listing-seperator" id="spring-data-jpa">spring-data-jpa</li>
+
+  <li class="listing-item">
+  <time datetime="2014-03-12">2014-03-12</time>
+  <a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a>
+  </li>
+
+
+  <li class="listing-seperator" id="orm">orm</li>
+
+  <li class="listing-item">
+  <time datetime="2014-03-12">2014-03-12</time>
+  <a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a>
+  </li>
+
+
+  <li class="listing-seperator" id="nohup">nohup</li>
+
+  <li class="listing-item">
+  <time datetime="2014-07-01">2014-07-01</time>
+  <a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a>
+  </li>
+
+
+  <li class="listing-seperator" id="shell">shell</li>
+
+  <li class="listing-item">
+  <time datetime="2014-07-01">2014-07-01</time>
+  <a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a>
   </li>
 
 
@@ -90,14 +380,6 @@
   </li>
 
 
-  <li class="listing-seperator" id="linux">linux</li>
-
-  <li class="listing-item">
-  <time datetime="2014-12-15">2014-12-15</time>
-  <a href="/linux/2014/12/15/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a>
-  </li>
-
-
   <li class="listing-seperator" id="sqldeveloper">sqldeveloper</li>
 
   <li class="listing-item">
@@ -109,16 +391,13 @@
   <li class="listing-seperator" id="windows">windows</li>
 
   <li class="listing-item">
-  <time datetime="2015-04-22">2015-04-22</time>
-  <a href="/windows/2015/04/22/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a>
+  <time datetime="2015-04-23">2015-04-23</time>
+  <a href="/windows/2015/04/23/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a>
   </li>
-
-
-  <li class="listing-seperator" id="yasinppet">yasinppet</li>
 
   <li class="listing-item">
   <time datetime="2015-04-22">2015-04-22</time>
-  <a href="/emacs/2015/04/22/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a>
+  <a href="/windows/2015/04/22/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a>
   </li>
 
 

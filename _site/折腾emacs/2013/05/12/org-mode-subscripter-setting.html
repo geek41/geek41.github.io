@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|Org-mode 不让下划线_转义</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:13px;}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+
+	  .bs-glyphicons {
+      overflow: hidden;
+	  }
+
+	  .bs-glyphicons li {
+      font-size: 12px;
+      width: 12.5%;
+	  }
+	  .bs-glyphicons li {
+      border: 1px solid #fff;
+      float: left;
+      font-size: 10px;
+      line-height: 1.4;
+	  padding: 10px 10px 10px 0;
+      text-align: center;
+      width: 25%;
+	  }
+	  .bs-glyphicons-list {
+	  padding:0;
+      list-style: outside none none;
+	  }
+
+	  .bs-glyphicons-list a{
+	  color:#000;
+	  }
+	  .bs-glyphicons-list a:hover{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+
+
+	  .bs-glyphicons .glyphicon {
+      font-size: 24px;
+      margin-top: 5px;
+	  }
+
+	  .pagination a.btn{border:1px solid #337ab7;border-radius: 2px;font-style: italic;color:#337ab7}
+	  .pagination a.btn:hover{color:#fff;background-color: #337ab7;
+	  }
+  	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
+	  }
+
+
+	</style>
+  </head>
+
+  <body>
+
+	　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+
+	  <div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		  <li>
+			<a href="/">
+			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Home</span></a>
+		  </li>
+
+		  <li>
+			<a href="/blog">
+			  <span class="glyphicon glyphicon glyphicon-console" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Notes</span></a>
+		  </li>
+
+		  <li>
+			<a href="/about">
+			  <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+			  <span class="glyphicon-class">About</span></a>
+		  </li>
+
+		  <li>
+			<a href="/rss">
+			  <span class="glyphicon glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Rss</span></a>
+		  </li>
+		</ul>
+		
+	  </div>
+
+	  <div class="">
+		<h4>Category</h4>
+		
+		<!-- category list-->
+		<ul>
+		  
+		  <li><a href="/blog/categories.html#webserver">webserver(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#java">java(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#test">test(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
+		  
+		  <li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux">linux(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#windows">windows(2)</a></li>
+		  
+	  </ul></div>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/windows/2015/04/23/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
+
+<li><a href="/linux&unix/2015/04/23/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
+
+<li><a href="/2015/04/23/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
+
+<li><a href="/2015/04/23/maven-jar.html" title="Maven Jar">Maven Jar</a></li>
+
+<li><a href="/2015/04/23/maven.html" title="Maven">Maven</a></li>
+
+<li><a href="/2015/04/23/jqgrid-notes.html" title="Jqgrid Notes">Jqgrid Notes</a></li>
+
+<li><a href="/2015/04/23/javascript-url.html" title="Javascript Url">Javascript Url</a></li>
+
+<li><a href="/2015/04/23/javascript-array.html" title="Javascript Array">Javascript Array</a></li>
+
+<li><a href="/2015/04/23/java-path.html" title="java设置环境变量">java设置环境变量</a></li>
+
+<li><a href="/2015/04/23/java-class-forName.html" title="Java Class Forname">Java Class Forname</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+	  <div>	   
+		<a href="#java" 
+           title="java" 
+           style="font-size: 100%;">java(4)</a>
+		
+		<a href="#http server" 
+           title="http server" 
+           style="font-size: 100%;">http server(1)</a>
+		
+		<a href="#nginx" 
+           title="nginx" 
+           style="font-size: 100%;">nginx(1)</a>
+		
+		<a href="#tomcat" 
+           title="tomcat" 
+           style="font-size: 100%;">tomcat(1)</a>
+		
+		<a href="#负载均衡" 
+           title="负载均衡" 
+           style="font-size: 100%;">负载均衡(1)</a>
+		
+		<a href="#test" 
+           title="test" 
+           style="font-size: 100%;">test(1)</a>
+		
+		<a href="#linux" 
+           title="linux" 
+           style="font-size: 100%;">linux(3)</a>
+		
+		<a href="#ssh" 
+           title="ssh" 
+           style="font-size: 100%;">ssh(1)</a>
+		
+		<a href="#emacs" 
+           title="emacs" 
+           style="font-size: 120%;">emacs(6)</a>
+		
+		<a href="#yasinppet" 
+           title="yasinppet" 
+           style="font-size: 100%;">yasinppet(2)</a>
+		
+		<a href="#org-mode" 
+           title="org-mode" 
+           style="font-size: 100%;">org-mode(2)</a>
+		
+		<a href="#软件架构" 
+           title="软件架构" 
+           style="font-size: 100%;">软件架构(1)</a>
+		
+		<a href="#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
+		
+		<a href="#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(1)</a>
+		
+		<a href="#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(1)</a>
+		
+		<a href="#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(1)</a>
+		
+		<a href="#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(1)</a>
+		
+		<a href="#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="#jquery" 
+           title="jquery" 
+           style="font-size: 100%;">jquery(1)</a>
+		
+		<a href="#datepicker" 
+           title="datepicker" 
+           style="font-size: 100%;">datepicker(1)</a>
+		
+		<a href="#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="#sqldeveloper" 
+           title="sqldeveloper" 
+           style="font-size: 100%;">sqldeveloper(1)</a>
+		
+		<a href="#windows" 
+           title="windows" 
+           style="font-size: 100%;">windows(2)</a>
+		</div>
+	  
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		<section class="post">
+  <h3>Org-mode 不让下划线_转义	</h3>
+  　<p>
+在 Emacs Org Mode 里，默认情况下 _ 这种字符会被当成标记语言来进行转义。
+有的时候，如果你只是写写文章，这种默认的转义，会让你很不方便，尤其是你
+在写一篇介绍技术的文章，里面出现的变量名有很多的下划线。这时，你会
+说：”Oh, my god! 难道要我一个一个去标记不让 _ 转义么？”
+</p>
+
+
+<!-- more -->
+
+
+<p>
+如何设置让 Org Mode 在默认情况下，不转义 _ 字符呢？
+</p>
+
+<p>
+单个 org 文件的解决办法
+</p>
+
+<p>
+你可以在一个 org 文件的开头，用下面的设置来关闭这个功能。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-octave">#+OPTIONS: ^:nil
+</pre>
+</div>
+
+<p>
+如果你需要更方便的设置，可以把上面这个改为
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-octave">#+OPTIONS: ^:{}
+</pre>
+</div>
+
+<p>
+这样，当你写
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">a_{b}
+</pre>
+</div>
+<p>
+时，_ 后被 {} 括起来的内容就会被转义，而写 a_b 时，就按普通的方式来显示。
+</p>
+
+<p>
+org sites 的解决办法
+</p>
+
+<p>
+如果你是用 org sites 来写笔记，想让某个 site 的所有 org 文件不转义 _
+字符，则也可以直接在 org sites 配置文件里，配置下面这么一句，一了百了：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-octave">(setq org-export-with-sub-superscripts nil)
+</pre>
+</div>
+<p>
+也可以在 org sites 里设置这个属性，只作用于某一个 site：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">:sub-superscript nil
+</pre>
+</div>
+<p>
+如果需要像上面一样，采用相对智能的 {} 方式，可以设置成
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">:sub-superscript {}
+</pre>
+</div>
+<p>
+或是直接用 elisp 来设置全局的属性：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-octave">(setq org-export-with-sub-superscripts '{})
+</pre>
+</div>
+
+<p>
+这样就会用 {} 来转义了。
+</p>
+
+<p>
+原文连接:<a href="http://blog.waterlin.org/articles/emacs-org-mode-subscripter-setting.html">http://blog.waterlin.org/articles/emacs-org-mode-subscripter-setting.html</a>
+</p>
+
+</section>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

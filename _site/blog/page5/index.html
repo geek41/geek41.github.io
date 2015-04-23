@@ -2,7 +2,7 @@
 <html>
   <head>
 	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	　<title>Geek 41|Geek 41</title>
+	　<title>Geek 41|Don't repeat yourself</title>
 	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
 	
@@ -17,12 +17,56 @@
 	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
 	  .title-block{border-bottom: 1px dotted #ccc;}
 	  .commit{padding:5px;}
+
+	  .bs-glyphicons {
+      overflow: hidden;
+	  }
+
+	  .bs-glyphicons li {
+      font-size: 12px;
+      width: 12.5%;
+	  }
+	  .bs-glyphicons li {
+      border: 1px solid #fff;
+      float: left;
+      font-size: 10px;
+      line-height: 1.4;
+	  padding: 10px 10px 10px 0;
+      text-align: center;
+      width: 25%;
+	  }
+	  .bs-glyphicons-list {
+	  padding:0;
+      list-style: outside none none;
+	  }
+
+	  .bs-glyphicons-list a{
+	  color:#000;
+	  }
+	  .bs-glyphicons-list a:hover{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+
+
+	  .bs-glyphicons .glyphicon {
+      font-size: 24px;
+      margin-top: 5px;
+	  }
+
+	  .pagination a.btn{border:1px solid #337ab7;border-radius: 2px;font-style: italic;color:#337ab7}
+	  .pagination a.btn:hover{color:#fff;background-color: #337ab7;
+	  }
+  	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
+	  }
+
+
 	</style>
   </head>
 
   <body>
 
-	  　<div class="container">
+	　<div class="container">
   <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
 
   </div>
@@ -30,95 +74,201 @@
 	<div class="col-md-3">
 
 	  <div style="padding:10px"></div>
-	  
-	  <span>
-		<a href="#">BLOG</a>/<a href="/">HOME</a>
-	  </span>
-	  
-	  <h4>Category</h4>
-	  
-	  <!-- category list-->
-	  <ul>
+
+	  <div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		  <li>
+			<a href="/">
+			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Home</span></a>
+		  </li>
+
+		  <li>
+			<a href="/blog">
+			  <span class="glyphicon glyphicon glyphicon-console" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Notes</span></a>
+		  </li>
+
+		  <li>
+			<a href="/about">
+			  <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+			  <span class="glyphicon-class">About</span></a>
+		  </li>
+
+		  <li>
+			<a href="/rss">
+			  <span class="glyphicon glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Rss</span></a>
+		  </li>
+		</ul>
 		
-		<li><a href="/blog/categories.html#java">java(1)</a></li>
+	  </div>
+
+	  <div class="">
+		<h4>Category</h4>
 		
-		<li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
-		
-		<li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
-		
-		<li><a href="/blog/categories.html#linux">linux(1)</a></li>
-		
-		<li><a href="/blog/categories.html#折腾emacs">折腾emacs(1)</a></li>
-		
-		<li><a href="/blog/categories.html#linux&unix">linux&unix(1)</a></li>
-		
-		<li><a href="/blog/categories.html#windows">windows(1)</a></li>
-		
-	  </ul>
+		<!-- category list-->
+		<ul>
+		  
+		  <li><a href="/blog/categories.html#webserver">webserver(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#java">java(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#test">test(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
+		  
+		  <li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux">linux(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#windows">windows(2)</a></li>
+		  
+	  </ul></div>
 
 	  <section>
 <h4>Recently Posts</h4>
 <ul>
 
-<li><a href="/emacs/2015/04/22/yasnippet.html" title="Emacs-Yasnippet代码模板">Emacs-Yasnippet代码模板</a></li>
+<li><a href="/windows/2015/04/23/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
 
-<li><a href="/windows/2015/04/22/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
+<li><a href="/linux&unix/2015/04/23/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
 
-<li><a href="/linux&unix/2015/04/22/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
+<li><a href="/2015/04/23/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
 
-<li><a href="/2015/04/22/test-concurrency.html" title="java模拟并发操作进行压力测试">java模拟并发操作进行压力测试</a></li>
+<li><a href="/2015/04/23/maven-jar.html" title="Maven Jar">Maven Jar</a></li>
 
-<li><a href="/2015/04/22/ssh-commond.html" title="Ssh Commond">Ssh Commond</a></li>
+<li><a href="/2015/04/23/maven.html" title="Maven">Maven</a></li>
 
-<li><a href="/2015/04/22/spring-data.html" title="Spring Data">Spring Data</a></li>
+<li><a href="/2015/04/23/jqgrid-notes.html" title="Jqgrid Notes">Jqgrid Notes</a></li>
 
-<li><a href="/2015/04/22/software-architecture-design.html" title="Software Architecture Design">Software Architecture Design</a></li>
+<li><a href="/2015/04/23/javascript-url.html" title="Javascript Url">Javascript Url</a></li>
 
-<li><a href="/2015/04/22/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
+<li><a href="/2015/04/23/javascript-array.html" title="Javascript Array">Javascript Array</a></li>
 
-<li><a href="/2015/04/22/org-mode-subscripter-setting.html" title="Org-mode 不让下划线_转义">Org-mode 不让下划线_转义</a></li>
+<li><a href="/2015/04/23/java-path.html" title="java设置环境变量">java设置环境变量</a></li>
 
-<li><a href="/2015/04/22/org-manual.html" title="Org Manual">Org Manual</a></li>
+<li><a href="/2015/04/23/java-class-forName.html" title="Java Class Forname">Java Class Forname</a></li>
 
 </ul>
 </section>
 
 
 	  <h4>Tags</h4>
-<div>	   
-    <a href="#emacs" 
-        title="emacs" 
-        style="font-size: 100%;">emacs(3)</a>
-	
-    <a href="#jquery" 
-        title="jquery" 
-        style="font-size: 100%;">jquery(1)</a>
-	
-    <a href="#datepicker" 
-        title="datepicker" 
-        style="font-size: 100%;">datepicker(1)</a>
-	
-    <a href="#web前端" 
-        title="web前端" 
-        style="font-size: 100%;">web前端(1)</a>
-	
-    <a href="#linux" 
-        title="linux" 
-        style="font-size: 100%;">linux(1)</a>
-	
-    <a href="#sqldeveloper" 
-        title="sqldeveloper" 
-        style="font-size: 100%;">sqldeveloper(1)</a>
-	
-    <a href="#windows" 
-        title="windows" 
-        style="font-size: 100%;">windows(1)</a>
-	
-    <a href="#yasinppet" 
-        title="yasinppet" 
-        style="font-size: 100%;">yasinppet(1)</a>
-	</div>
-	
+	  <div>	   
+		<a href="#java" 
+           title="java" 
+           style="font-size: 100%;">java(4)</a>
+		
+		<a href="#http server" 
+           title="http server" 
+           style="font-size: 100%;">http server(1)</a>
+		
+		<a href="#nginx" 
+           title="nginx" 
+           style="font-size: 100%;">nginx(1)</a>
+		
+		<a href="#tomcat" 
+           title="tomcat" 
+           style="font-size: 100%;">tomcat(1)</a>
+		
+		<a href="#负载均衡" 
+           title="负载均衡" 
+           style="font-size: 100%;">负载均衡(1)</a>
+		
+		<a href="#test" 
+           title="test" 
+           style="font-size: 100%;">test(1)</a>
+		
+		<a href="#linux" 
+           title="linux" 
+           style="font-size: 100%;">linux(3)</a>
+		
+		<a href="#ssh" 
+           title="ssh" 
+           style="font-size: 100%;">ssh(1)</a>
+		
+		<a href="#emacs" 
+           title="emacs" 
+           style="font-size: 120%;">emacs(6)</a>
+		
+		<a href="#yasinppet" 
+           title="yasinppet" 
+           style="font-size: 100%;">yasinppet(2)</a>
+		
+		<a href="#org-mode" 
+           title="org-mode" 
+           style="font-size: 100%;">org-mode(2)</a>
+		
+		<a href="#软件架构" 
+           title="软件架构" 
+           style="font-size: 100%;">软件架构(1)</a>
+		
+		<a href="#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
+		
+		<a href="#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(1)</a>
+		
+		<a href="#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(1)</a>
+		
+		<a href="#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(1)</a>
+		
+		<a href="#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(1)</a>
+		
+		<a href="#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="#jquery" 
+           title="jquery" 
+           style="font-size: 100%;">jquery(1)</a>
+		
+		<a href="#datepicker" 
+           title="datepicker" 
+           style="font-size: 100%;">datepicker(1)</a>
+		
+		<a href="#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="#sqldeveloper" 
+           title="sqldeveloper" 
+           style="font-size: 100%;">sqldeveloper(1)</a>
+		
+		<a href="#windows" 
+           title="windows" 
+           style="font-size: 100%;">windows(2)</a>
+		</div>
+	  
 	</div>
 
 	<div class="col-md-9">  
@@ -126,61 +276,18 @@
 		
 <!--
 	<div >
-	  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/21/wifi-lan-coexist.html">[2015-04-21] Wifi Lan Coexist</a></h3>
+  <h3><a href="/2015/04/22/nohup.html">[2015-04-22] Nohup</a></h3>
   
-  
-
-
-
-无线与有线网络共存问题
-
-
-
-
-
-
-
-
-无线与有线网络共存问题
-
-有线网络和无线网络使用了不同的网关，在你的PC机上默认路由应该是指向了你有线网络的网关，如果需要二个网络同时可以使用，那么就必须在你的PC机上调整路由表。
-比如：
-
-
-
-1、有线网络的网关是171.171.1.1，你的PC机连有线网络的网卡地址为171.171.1.100，子网掩码255.255.255.0，网关是171.171.1.1，
-2、连接无线上网后PC自动获取IP，假设IP地址网关为202.102.111.1
-
-
-
-那么你在本机的dos下调整为以下两条路由
-
-
-
-route ADD 0.0.0.0 MASK 0.0.0.0  202.102.111.1
-route ADD 171.0.0.0 MASK 255.0.0.0  171.171.111.1
-
-
-意思为所有的默认数据都发往无线网卡的网关，以171开头的数据包都发往有线网卡的网关。这样你就可以两个网络同时使用了
-
-
-
-Created: 2015-04-21 二 10:13
-Emacs 24.4.1 (Org mode 8.2.10)
-Validate
-
-
-
-
+  Table of Contents 1. 语法12 2. 描述 3. 退出状态 nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。 用途：LINUX命令用法，不挂断地运行命令。 1 语法12 nohup Command [ Arg &#x2026; ] [　&amp; ] 2 描述 nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。 如果不将 nohup 命令的输出重定向，输出将附加到当前目录的 nohup.out 文件中。如果当前目录的 nohup.out...
   
   <div class="commit">
 	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
 	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
 
-	<a href="/2015/04/21/wifi-lan-coexist.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-		 <a href="/2015/04/21/wifi-lan-coexist.html#disqus_thread">0 comment</a>
+	<a href="/2015/04/22/nohup.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/04/22/nohup.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -189,53 +296,111 @@ Validate
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/21/wget.html">[2015-04-21] Wget</a></h3>
+  <h3><a href="/2015/04/22/nginx-tomcat-windows.html">[2015-04-22] Nginx Tomcat Windows</a></h3>
+  
+  Table of Contents 1. Nginx 简介 2. 下载地址 3. 目录结构 4. nginx.conf配置 5. Tomcat配置 6. 验证配置与测试负载均衡 --- layout: default title: Nginx+tomcat+windows配置负载均衡 --- 1 Nginx 简介 Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电 子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。 其特点是 占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器 中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名 的微网志Plurk也使用nginx。 2 下载地址 http://nginx.org/en/download.html 这里我们推荐下载稳定版（stable versions），本文采用nginx-0.8.20。 3 目录结构 Nginx- _ conf 配置目录 _ contrib...
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/04/22/nginx-tomcat-windows.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/04/22/nginx-tomcat-windows.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/04/22/maven-jar.html">[2015-04-22] Maven Jar</a></h3>
+  
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. missing artifact com.oracle:ojdbc14:jar:10.2.0.2.0</a></li>
+</ul>
+</div>
+</div>
+---
+layout: view_simple
+title: Maven jar 包问题汇总
+excerpt: excerpt
+keywords: keywords
+categories: [maven]
+tags: [maven]
+---
+
+<p>
+整理一些maven jar的问题,例如missiong artifact等..
+</p>
+
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/04/22/maven-jar.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/04/22/maven-jar.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/04/22/maven-exception.html">[2015-04-22] Maven Exception</a></h3>
   
   
-
-
-
-wget
-
-
-
-
-
-
-
-
-wget
-
 Table of Contents
 
 
-1. Download html by using wget
+1. Could not find artifact com.sun:tools:jar:1.5.0
+
+
+
+---
+layout: default
+title: Maven 常见异常总结
+---
+
+
+
+1 Could not find artifact com.sun:tools:jar:1.5.0
+
+
+Could not find artifact com.sun:tools:jar:1.5.0 at specified path
+D:\Program Files\Java\jre/../lib/tools.jar 
+
+
+
+查看项目中的JRE设置是否由JDK换成了JRE，解决方案:在POM文件中加入
 
 
 
 
-1 Download html by using wget
+&lt;properties&gt;  
+	&lt;java.home&gt;D:\Program Files\Java\jdk1.6.0_10&lt;/java.home&gt; &lt;!-- 指定使用的JDK的安装目录 --&gt; 
+&lt;/properties&gt;  
+  &lt;dependency&gt;  
+		&lt;groupId&gt;com.sun&lt;/groupId&gt;  
+		&lt;artifactId&gt;tools&lt;/artifactId&gt;  
+		&lt;version&gt;1.6.0&lt;/version&gt;  
+		&lt;scope&gt;system&lt;/scope&gt;  
+		&lt;systemPath&gt;${java.home}/lib/tools.jar&lt;/systemPath&gt;  
+	&lt;/dependency&gt;
 
-
-
-wget -mxnp -N http://docs.spring.io/spring/docs/4.2.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/
-
--m wget会自动判断合适的参数来制作镜像站点。此时，wget会登录到服务器上，读入robots.txt并按robots.txt的规定来执行
--x –force-directories 强制建立服务器上一模一样的目录
--np --no-parent 仅下载html/文件夹下的网页。
--N –timestamping 只下载比本地新的文件
--nc, –no-clobber 不要覆盖已经存在的文件
-
-
-
-
-
-
-Created: 2015-04-21 二 10:13
-Emacs 24.4.1 (Org mode 8.2.10)
-Validate
 
 
 
@@ -245,8 +410,8 @@ Validate
 	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
 	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
 
-	<a href="/2015/04/21/wget.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-		 <a href="/2015/04/21/wget.html#disqus_thread">0 comment</a>
+	<a href="/2015/04/22/maven-exception.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/04/22/maven-exception.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -255,18 +420,45 @@ Validate
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/21/test-concurrency.html">[2015-04-21] Test Concurrency</a></h3>
+  <h3><a href="/2015/04/22/maven.html">[2015-04-22] Maven</a></h3>
   
-  java模拟并发操作进行压力测试 java模拟并发操作进行压力测试 --- layout: default title: java模拟并发操作进行压力测试 --- import java.io.BufferedReader; 　　import java.io.File; 　　import java.io.FileInputStream; 　　import java.io.InputStreamReader; 　　import java.io.PrintWriter; 　　import java.net.HttpURLConnection; 　　import java.net.URL; 　　import java.util.HashMap; 　　import java.util.Map; 　　import java.util.concurrent.ExecutorService; 　　import java.util.concurrent.Executors; 　　import java.util.concurrent.Semaphore; 　　public class ConcurrentTest { 　　private static int thread_num = 200; 　　private static int client_num = 460; 　　private static...
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. maven安装&amp;配置</a></li>
+<li><a href="#sec-2">2. maven 常用命令</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 创建项目 mvn archetype:create</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. maven&amp;eclipse</a></li>
+</ul>
+</div>
+</div>
+---
+layout: view_simple
+title: Maven笔记
+excerpt: 
+keywords: ""
+categories: [JavaEE]
+tags: [maven,javaee]
+---
+
+<p>
+记录一些maven的使用和配置
+</p>
+
+
   
   <div class="commit">
 	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
 	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
 
-	<a href="/2015/04/21/test-concurrency.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-		 <a href="/2015/04/21/test-concurrency.html#disqus_thread">0 comment</a>
+	<a href="/2015/04/22/maven.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/04/22/maven.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -275,58 +467,18 @@ Validate
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/21/ssh-commond.html">[2015-04-21] Ssh Commond</a></h3>
+  <h3><a href="/2015/04/22/jqgrid-notes.html">[2015-04-22] Jqgrid Notes</a></h3>
   
-  SSH命令详解 SSH命令详解 Table of Contents 1. SSH 的详细使用方法如下： --- layout: view_simple title: SSH 命令详解 --- 1 SSH 的详细使用方法如下： ssh [-l login_name] [hostname | user@hostname] [command] ssh [-afgknqtvxCPX246] [-c blowfish | 3des] [-e escape_char] [-i identity_file] [-l login_name] [-o option] [-p port] [-L port:host:hostport] [-R port:host:hostport] [hostname | user@hostname] [command] sshd...
+  Table of Contents 1. saveRow() -保存一行记录 2. selrow - 获取当前选中行的id --- layout: view_simple title: Jqgrid 笔记 excerpt: keywords:"" categories: [JS&JQuery] tags: [jqgrid] --- &lt;!-- more --&gt; 1 saveRow() -保存一行记录 方法定义: jQuery("#grid_id").saveRow(rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); 或者新的API jQuery("#grid_id").jqGrid('saveRow',rowid, successfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc); 例子: jQuery("#grid_id").jqGrid('saveRow',rowid, { successfunc: function( response )...
   
   <div class="commit">
 	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
 	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
 
-	<a href="/2015/04/21/ssh-commond.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-		 <a href="/2015/04/21/ssh-commond.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/2015/04/21/spring-data.html">[2015-04-21] Spring Data</a></h3>
-  
-  spring-data spring-data Table of Contents 1. Example 25. Using Pageable as controller method argument 1 Example 25. Using Pageable as controller method argument Table 1. Request parameters evaluated for Pageable instances page Page you want to retrieve. size Size of the page you want to retrieve. sort &#xa0; &#xa0; &#xa0;...
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
-
-	<a href="/2015/04/21/spring-data.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-		 <a href="/2015/04/21/spring-data.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">21 Apr 2015</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/2015/04/21/software-architecture-design.html">[2015-04-21] Software Architecture Design</a></h3>
-  
-  title title Table of Contents 1. 软件架构设计的目的 2. 软件架构设计的原则 3. 软件架构设计的几种视图 4. 软件架构设计路程 5. 软件架构设计的常见误区及解决办法 6. 关于架构设计的一点通用技巧 --- layout: default title: 如何进行软件架构设计? --- 1 软件架构设计的目的 对于外包业务类型的项目，软件架构设计的目的与产品类型的项目有所不同， 在这里主要讨论外包类型项目的软件架构设计目的。 1、为大规模开发提供基础和规范，并提供可重用的资产，软件系统的大规模 开发，必须要有一定的基础和遵循一定的规范，这既是软件工程本身的要求， 也是客户的要求。架构设计的过程中可以将一些公共部分抽象提取出来，形成 公共类和工具类，以达到重用的目的。 2、一定程度上缩短项目的周期，利用软件架构提供的框架或重用组件，缩短 项目开发的周期。 3、降低开发和维护的成本，大量的重用和抽象，可以提取出一些开发人员不 用关心的公共部分，这样便可以使开发人员仅仅关注于业务逻辑的实现，从而 减少了很多工作量，提高了开发效率。 4、提高产品的质量，好的软件架构设计是产品质量的保证，特别是对于客户 常常提出的非功能性需求的满足。 2 软件架构设计的原则 软件架构设计必须遵循以下原则： 1、满足功能性需求和非功能需求。这是一个软件系统最基本的要求，也是架 构设计时应该遵循的最基本的原则。 2、实用性原则，就像每一个软件系统交付给用户使用时必须实用，能解决用 户的问题一样，架构设计也必须实用，否则就会“高来高去”或“过度设计”。 3、满足复用的要求，最大程度的提高开发人员的工作效率。 3 软件架构设计的几种视图 我们常常在讨论架构设计该做些什么的时候，或是在架构设计评审的会议上， 会提出各种各样的问题，例如开发人员该如何记录Log，事务如何控制？怎样...
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
-
-	<a href="/2015/04/21/software-architecture-design.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-		 <a href="/2015/04/21/software-architecture-design.html#disqus_thread">0 comment</a>
+	<a href="/2015/04/22/jqgrid-notes.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/04/22/jqgrid-notes.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -335,35 +487,70 @@ Validate
 
 
 
+
+<div class="pagination pull-right">
+
+  <span><a class="btn  btn-sm disabled">Page: 5 of 16</a></span>
+
+  
+  
+  <a class="btn btn-sm" href="/blog">First</a>
+  <a class="btn btn-sm" href="/blog/page4/">&laquo;</a>
+  
+  
+
+  
+  
+   
+   
+  
+																	   
+  
+   
+ <a href="/blog/page3/" class="btn  btn-sm">3</a>
+   
+ 
+   
+ <a href="/blog/page4/" class="btn  btn-sm">4</a>
+   
+ 
+   
+   <a class="btn  btn-sm disabled" >5</a>
+   
+ 
+   
+ <a href="/blog/page6/" class="btn  btn-sm">6</a>
+   
+ 
+   
+ <a href="/blog/page7/" class="btn  btn-sm">7</a>
+   
+ 
+
+
+   
+  <a class="btn  btn-sm" href="/blog/page6/">&raquo;</a>
+  <a class="btn btn-sm" href="/blog/page16/">Last</a>
+  
+
+</div>
 
 
 
 <!-- Pagination links -->
-<div class="pull-right">
-  
-  
-  <a class="btn btn-primary btn-sm" href="/">Home</a>
-  <a class="btn btn-primary btn-sm" href="/blog/page4/">&laquo; Prev</a>
-  
-  
-  <span><a class="btn btn-primary btn-sm disabled">Page: 5 of 12</a></span>
-  
-  <a class="btn btn-primary btn-sm" href="/blog/page6/">Next &raquo;</a>
-  <a class="btn btn-primary btn-sm" href="/blog/page12/">Last</a>
-  
-</div>
+
 
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'geek41';
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname = 'geek41';
+  
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
 </script>
 
 	  </div>

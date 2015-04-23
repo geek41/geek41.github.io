@@ -10,29 +10,55 @@ layout: default
 	<div class="col-md-3">
 
 	  <div style="padding:10px"></div>
-	  
-	  <span>
-		<a href="#">BLOG</a>/<a href="/">HOME</a>
-	  </span>
-	  
-	  <h4>Category</h4>
-	  
-	  <!-- category list-->
-	  <ul>
-		{% for category in site.categories %}
-		<li><a href="/blog/categories.html#{{ category | first }}">{{ category | first }}({{ category | last | size }})</a></li>
-		{% endfor %}
-	  </ul>
+
+	  <div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		  <li>
+			<a href="/">
+			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Home</span></a>
+		  </li>
+
+		  <li>
+			<a href="/blog">
+			  <span class="glyphicon glyphicon glyphicon-console" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Notes</span></a>
+		  </li>
+
+		  <li>
+			<a href="/about">
+			  <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+			  <span class="glyphicon-class">About</span></a>
+		  </li>
+
+		  <li>
+			<a href="/rss">
+			  <span class="glyphicon glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Rss</span></a>
+		  </li>
+		</ul>
+		
+	  </div>
+
+	  <div class="">
+		<h4>Category</h4>
+		
+		<!-- category list-->
+		<ul>
+		  {% for category in site.categories %}
+		  <li><a href="/blog/categories.html#{{ category | first }}">{{ category | first }}({{ category | last | size }})</a></li>
+		  {% endfor %}
+	  </ul></div>
 
 	  {% include recently_posts.html %}
 
 	  <h4>Tags</h4>
-<div>	   {% for tag in site.tags %}
-    <a href="#{{ tag[0] }}" 
-        title="{{ tag[0] }}" 
-        style="font-size: {{ tag[1].size | divided_by:5 | times:20 | plus:100 }}%;">{{ tag[0] }}({{ tag[1].size }})</a>
-	{% endfor %}</div>
-	
+	  <div>	   {% for tag in site.tags %}
+		<a href="#{{ tag[0] }}" 
+           title="{{ tag[0] }}" 
+           style="font-size: {{ tag[1].size | divided_by:5 | times:20 | plus:100 }}%;">{{ tag[0] }}({{ tag[1].size }})</a>
+		{% endfor %}</div>
+	  
 	</div>
 
 	<div class="col-md-9">  
