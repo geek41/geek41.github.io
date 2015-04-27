@@ -4,6 +4,7 @@
 	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	　<title>Geek 41|{{ page.title }}</title>
 	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/assets/stylesheets/pygments.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
 	
 	<style type="text/css" media="screen">
@@ -11,7 +12,7 @@
       font-family: monaco;
       src: url('/assets/fonts/Monaco_Linux.ttf');
 	  }
-	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:13px;}
+	  * {font-family:monaco,"微软雅黑";font-size:13px;}
 	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
 	  .h2 h2{font-size:20px;}
 	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
@@ -19,7 +20,7 @@
 	  .commit{padding:5px;}
 
 	  .bs-glyphicons {
-      overflow: hidden;
+/**      overflow: hidden;*/
 	  }
 
 	  .bs-glyphicons li {
@@ -47,6 +48,10 @@
 	  color:#337ab7;
 	  text-decoration:none;
 	  }
+	  .bs-glyphicons-list a.active{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
 
 
 	  .bs-glyphicons .glyphicon {
@@ -59,8 +64,23 @@
 	  }
   	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
 	  }
+.title-block h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0 15px;font-weight:bold;
+}
+	  .commit a{color:#999;}
+	  .title-block p{color:#999;}
+	  .bs-glyphicons .dropdown li {
+      border: none;
+      float: left;
+      line-height: 1.4;
+	  padding: 0;
+      text-align: center;
+      width: 100%;
+	  }
 
-
+	  #footer{text-align:center;padding:10px;}
 	</style>
   </head>
 
@@ -68,6 +88,12 @@
 
 	　{{ content }}
 
+	<div id="footer">
+	  <p>© Geek41 2014 with help from <a href="#">Jekyll</a> and <a href="">Twitter Bootstrap</a></p>
+	</div>
+	
+	<script type="text/javascript" src="/assets/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

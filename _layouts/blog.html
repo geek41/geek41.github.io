@@ -32,14 +32,27 @@ layout: default
 		  </li>
 
 		  <li>
-			<a href="/rss">
-			  <span class="glyphicon glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
-			  <span class="glyphicon-class">Rss</span></a>
+			<div class="dropdown">
+  			  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+				<span class="glyphicon-class">Contact</span>			  
+			  </a>
+
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>
+				  <a href="#">Gmail</a>
+				</li>
+				<li>
+				  <a href="#">Weibo</a>
+				</li>
+			  </ul>
+			</div>
 		  </li>
 		</ul>
 		
 	  </div>
 
+	  
 	  <div class="">
 		<h4>Category</h4>
 		
@@ -54,7 +67,7 @@ layout: default
 
 	  <h4>Tags</h4>
 	  <div>	   {% for tag in site.tags %}
-		<a href="#{{ tag[0] }}" 
+		<a href="/blog/tags.html#{{ tag[0] }}" 
            title="{{ tag[0] }}" 
            style="font-size: {{ tag[1].size | divided_by:5 | times:20 | plus:100 }}%;">{{ tag[0] }}({{ tag[1].size }})</a>
 		{% endfor %}</div>

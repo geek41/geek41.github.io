@@ -4,6 +4,7 @@
 	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	　<title>Geek 41|Don't repeat yourself</title>
 	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/assets/stylesheets/pygments.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
 	
 	<style type="text/css" media="screen">
@@ -11,7 +12,7 @@
       font-family: monaco;
       src: url('/assets/fonts/Monaco_Linux.ttf');
 	  }
-	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:13px;}
+	  * {font-family:monaco,"微软雅黑";font-size:13px;}
 	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
 	  .h2 h2{font-size:20px;}
 	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
@@ -19,7 +20,7 @@
 	  .commit{padding:5px;}
 
 	  .bs-glyphicons {
-      overflow: hidden;
+/**      overflow: hidden;*/
 	  }
 
 	  .bs-glyphicons li {
@@ -47,6 +48,10 @@
 	  color:#337ab7;
 	  text-decoration:none;
 	  }
+	  .bs-glyphicons-list a.active{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
 
 
 	  .bs-glyphicons .glyphicon {
@@ -59,8 +64,23 @@
 	  }
   	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
 	  }
+.title-block h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0 15px;font-weight:bold;
+}
+	  .commit a{color:#999;}
+	  .title-block p{color:#999;}
+	  .bs-glyphicons .dropdown li {
+      border: none;
+      float: left;
+      line-height: 1.4;
+	  padding: 0;
+      text-align: center;
+      width: 100%;
+	  }
 
-
+	  #footer{text-align:center;padding:10px;}
 	</style>
   </head>
 
@@ -96,41 +116,56 @@
 		  </li>
 
 		  <li>
-			<a href="/rss">
-			  <span class="glyphicon glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
-			  <span class="glyphicon-class">Rss</span></a>
+			<div class="dropdown">
+  			  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+				<span class="glyphicon-class">Contact</span>			  
+			  </a>
+
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>
+				  <a href="#">Gmail</a>
+				</li>
+				<li>
+				  <a href="#">Weibo</a>
+				</li>
+			  </ul>
+			</div>
 		  </li>
 		</ul>
 		
 	  </div>
 
+	  
 	  <div class="">
 		<h4>Category</h4>
 		
 		<!-- category list-->
 		<ul>
 		  
-		  <li><a href="/blog/categories.html#webserver">webserver(1)</a></li>
+		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(4)</a></li>
+		  <li><a href="/blog/categories.html#java">java(7)</a></li>
+		  
+		  <li><a href="/blog/categories.html#server">server(2)</a></li>
 		  
 		  <li><a href="/blog/categories.html#test">test(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#linux&unix">linux&unix(4)</a></li>
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(6)</a></li>
 		  
-		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(4)</a></li>
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(5)</a></li>
+		  
+		  <li><a href="/blog/categories.html#web前端">web前端(4)</a></li>
 		  
 		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
 		  
 		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
+		  <li><a href="/blog/categories.html#spring">spring(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
+		  <li><a href="/blog/categories.html#ruby">ruby(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#linux">linux(1)</a></li>
-		  
-		  <li><a href="/blog/categories.html#windows">windows(2)</a></li>
+		  <li><a href="/blog/categories.html#database">database(1)</a></li>
 		  
 	  </ul></div>
 
@@ -138,25 +173,25 @@
 <h4>Recently Posts</h4>
 <ul>
 
-<li><a href="/windows/2015/04/23/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
+<li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
 
-<li><a href="/linux&unix/2015/04/23/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
+<li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
 
-<li><a href="/2015/04/23/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
+<li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
 
-<li><a href="/2015/04/23/maven-jar.html" title="Maven Jar">Maven Jar</a></li>
+<li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
 
-<li><a href="/2015/04/23/maven.html" title="Maven">Maven</a></li>
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
 
-<li><a href="/2015/04/23/jqgrid-notes.html" title="Jqgrid Notes">Jqgrid Notes</a></li>
+<li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
 
-<li><a href="/2015/04/23/javascript-url.html" title="Javascript Url">Javascript Url</a></li>
+<li><a href="/linux&unix/2014/04/04/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a></li>
 
-<li><a href="/2015/04/23/javascript-array.html" title="Javascript Array">Javascript Array</a></li>
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html" title="Emacs configuration collection">Emacs configuration collection</a></li>
 
-<li><a href="/2015/04/23/java-path.html" title="java设置环境变量">java设置环境变量</a></li>
+<li><a href="/database/2014/04/01/oracle-procedure.html" title="Oracle存储过程书写规范和技巧">Oracle存储过程书写规范和技巧</a></li>
 
-<li><a href="/2015/04/23/java-class-forName.html" title="Java Class Forname">Java Class Forname</a></li>
+<li><a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a></li>
 
 </ul>
 </section>
@@ -164,109 +199,161 @@
 
 	  <h4>Tags</h4>
 	  <div>	   
-		<a href="#java" 
+		<a href="/blog/tags.html#java" 
            title="java" 
-           style="font-size: 100%;">java(4)</a>
+           style="font-size: 120%;">java(8)</a>
 		
-		<a href="#http server" 
+		<a href="/blog/tags.html#http server" 
            title="http server" 
-           style="font-size: 100%;">http server(1)</a>
+           style="font-size: 100%;">http server(2)</a>
 		
-		<a href="#nginx" 
+		<a href="/blog/tags.html#nginx" 
            title="nginx" 
            style="font-size: 100%;">nginx(1)</a>
 		
-		<a href="#tomcat" 
+		<a href="/blog/tags.html#tomcat" 
            title="tomcat" 
            style="font-size: 100%;">tomcat(1)</a>
 		
-		<a href="#负载均衡" 
+		<a href="/blog/tags.html#负载均衡" 
            title="负载均衡" 
            style="font-size: 100%;">负载均衡(1)</a>
 		
-		<a href="#test" 
+		<a href="/blog/tags.html#test" 
            title="test" 
            style="font-size: 100%;">test(1)</a>
 		
-		<a href="#linux" 
+		<a href="/blog/tags.html#linux" 
            title="linux" 
-           style="font-size: 100%;">linux(3)</a>
+           style="font-size: 120%;">linux(6)</a>
 		
-		<a href="#ssh" 
+		<a href="/blog/tags.html#ssh" 
            title="ssh" 
            style="font-size: 100%;">ssh(1)</a>
 		
-		<a href="#emacs" 
+		<a href="/blog/tags.html#emacs" 
            title="emacs" 
-           style="font-size: 120%;">emacs(6)</a>
+           style="font-size: 120%;">emacs(5)</a>
 		
-		<a href="#yasinppet" 
+		<a href="/blog/tags.html#yasinppet" 
            title="yasinppet" 
-           style="font-size: 100%;">yasinppet(2)</a>
+           style="font-size: 100%;">yasinppet(1)</a>
 		
-		<a href="#org-mode" 
+		<a href="/blog/tags.html#javascript" 
+           title="javascript" 
+           style="font-size: 100%;">javascript(3)</a>
+		
+		<a href="/blog/tags.html#url" 
+           title="url" 
+           style="font-size: 100%;">url(1)</a>
+		
+		<a href="/blog/tags.html#org-mode" 
            title="org-mode" 
            style="font-size: 100%;">org-mode(2)</a>
 		
-		<a href="#软件架构" 
+		<a href="/blog/tags.html#软件架构" 
            title="软件架构" 
            style="font-size: 100%;">软件架构(1)</a>
 		
-		<a href="#jar" 
-           title="jar" 
-           style="font-size: 100%;">jar(1)</a>
+		<a href="/blog/tags.html#apache" 
+           title="apache" 
+           style="font-size: 100%;">apache(1)</a>
 		
-		<a href="#maven" 
-           title="maven" 
-           style="font-size: 100%;">maven(1)</a>
-		
-		<a href="#oracle" 
-           title="oracle" 
-           style="font-size: 100%;">oracle(1)</a>
-		
-		<a href="#sql" 
-           title="sql" 
-           style="font-size: 100%;">sql(1)</a>
-		
-		<a href="#spring" 
-           title="spring" 
-           style="font-size: 100%;">spring(1)</a>
-		
-		<a href="#spring-data-jpa" 
-           title="spring-data-jpa" 
-           style="font-size: 100%;">spring-data-jpa(1)</a>
-		
-		<a href="#orm" 
-           title="orm" 
-           style="font-size: 100%;">orm(1)</a>
-		
-		<a href="#nohup" 
-           title="nohup" 
-           style="font-size: 100%;">nohup(1)</a>
-		
-		<a href="#shell" 
-           title="shell" 
-           style="font-size: 100%;">shell(1)</a>
-		
-		<a href="#jquery" 
-           title="jquery" 
-           style="font-size: 100%;">jquery(1)</a>
-		
-		<a href="#datepicker" 
+		<a href="/blog/tags.html#datepicker" 
            title="datepicker" 
            style="font-size: 100%;">datepicker(1)</a>
 		
-		<a href="#web前端" 
-           title="web前端" 
-           style="font-size: 100%;">web前端(1)</a>
+		<a href="/blog/tags.html#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
 		
-		<a href="#sqldeveloper" 
+		<a href="/blog/tags.html#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(2)</a>
+		
+		<a href="/blog/tags.html#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(2)</a>
+		
+		<a href="/blog/tags.html#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(2)</a>
+		
+		<a href="/blog/tags.html#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(2)</a>
+		
+		<a href="/blog/tags.html#aop" 
+           title="aop" 
+           style="font-size: 100%;">aop(1)</a>
+		
+		<a href="/blog/tags.html#jekyll" 
+           title="jekyll" 
+           style="font-size: 100%;">jekyll(1)</a>
+		
+		<a href="/blog/tags.html#github pages" 
+           title="github pages" 
+           style="font-size: 100%;">github pages(1)</a>
+		
+		<a href="/blog/tags.html#static blog" 
+           title="static blog" 
+           style="font-size: 100%;">static blog(1)</a>
+		
+		<a href="/blog/tags.html#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="/blog/tags.html#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="/blog/tags.html#procedure" 
+           title="procedure" 
+           style="font-size: 100%;">procedure(1)</a>
+		
+		<a href="/blog/tags.html#sqldeveloper" 
            title="sqldeveloper" 
            style="font-size: 100%;">sqldeveloper(1)</a>
 		
-		<a href="#windows" 
-           title="windows" 
-           style="font-size: 100%;">windows(2)</a>
+		<a href="/blog/tags.html#font" 
+           title="font" 
+           style="font-size: 100%;">font(2)</a>
+		
+		<a href="/blog/tags.html#ubuntu" 
+           title="ubuntu" 
+           style="font-size: 100%;">ubuntu(1)</a>
+		
+		<a href="/blog/tags.html#linux qq" 
+           title="linux qq" 
+           style="font-size: 100%;">linux qq(1)</a>
+		
+		<a href="/blog/tags.html#fcitx" 
+           title="fcitx" 
+           style="font-size: 100%;">fcitx(1)</a>
+		
+		<a href="/blog/tags.html#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="/blog/tags.html#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="/blog/tags.html#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="/blog/tags.html#archlinux" 
+           title="archlinux" 
+           style="font-size: 100%;">archlinux(1)</a>
+		
+		<a href="/blog/tags.html#xcompmgr" 
+           title="xcompmgr" 
+           style="font-size: 100%;">xcompmgr(1)</a>
+		
+		<a href="/blog/tags.html#wget" 
+           title="wget" 
+           style="font-size: 100%;">wget(1)</a>
 		</div>
 	  
 	</div>
@@ -276,18 +363,22 @@
 		
 <!--
 	<div >
-	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">10 Jan 2013</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/22/spring-data.html">[2015-04-22] Spring Data</a></h3>
+  <h3><a href="/java/test/2013/01/10/test-concurrency.html">[2013-01-10] java模拟并发操作进行压力测试</a></h3>
   
-  Table of Contents 1. Example 25. Using Pageable as controller method argument 1 Example 25. Using Pageable as controller method argument Table 1. Request parameters evaluated for Pageable instances page Page you want to retrieve. size Size of the page you want to retrieve. sort &#xa0; &#xa0; &#xa0; sort:Properties that...
+  <p>
+java 压力测试.
+</p>
+
+
   
   <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> javatest</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java and test </a>
 
-	<a href="/2015/04/22/spring-data.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/2015/04/22/spring-data.html#disqus_thread">0 comment</a>
+	<a href="/java/test/2013/01/10/test-concurrency.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/test/2013/01/10/test-concurrency.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -296,18 +387,29 @@
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">10 Dec 2012</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/22/software-architecture-design.html">[2015-04-22] Software Architecture Design</a></h3>
+  <h3><a href="/server/2012/12/10/nginx-tomcat-windows.html">[2012-12-10] Nginx+tomcat+windows配置负载均衡</a></h3>
   
-  Table of Contents 1. 软件架构设计的目的 2. 软件架构设计的原则 3. 软件架构设计的几种视图 4. 软件架构设计路程 5. 软件架构设计的常见误区及解决办法 6. 关于架构设计的一点通用技巧 --- layout: default title: 如何进行软件架构设计? --- 1 软件架构设计的目的 对于外包业务类型的项目，软件架构设计的目的与产品类型的项目有所不同， 在这里主要讨论外包类型项目的软件架构设计目的。 1、为大规模开发提供基础和规范，并提供可重用的资产，软件系统的大规模 开发，必须要有一定的基础和遵循一定的规范，这既是软件工程本身的要求， 也是客户的要求。架构设计的过程中可以将一些公共部分抽象提取出来，形成 公共类和工具类，以达到重用的目的。 2、一定程度上缩短项目的周期，利用软件架构提供的框架或重用组件，缩短 项目开发的周期。 3、降低开发和维护的成本，大量的重用和抽象，可以提取出一些开发人员不 用关心的公共部分，这样便可以使开发人员仅仅关注于业务逻辑的实现，从而 减少了很多工作量，提高了开发效率。 4、提高产品的质量，好的软件架构设计是产品质量的保证，特别是对于客户 常常提出的非功能性需求的满足。 2 软件架构设计的原则 软件架构设计必须遵循以下原则： 1、满足功能性需求和非功能需求。这是一个软件系统最基本的要求，也是架 构设计时应该遵循的最基本的原则。 2、实用性原则，就像每一个软件系统交付给用户使用时必须实用，能解决用 户的问题一样，架构设计也必须实用，否则就会“高来高去”或“过度设计”。 3、满足复用的要求，最大程度的提高开发人员的工作效率。 3 软件架构设计的几种视图 我们常常在讨论架构设计该做些什么的时候，或是在架构设计评审的会议上， 会提出各种各样的问题，例如开发人员该如何记录Log，事务如何控制？怎样 才能提高我们的开发人员的工作效率，即在单位时间内更有品质的完成更多的 功能？怎样满足客户的非功能性需求？怎样让生产环境的平台管理人员更好的...
+  <div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Nginx 简介</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Nginx （发音同 engine x）是一款轻量级的Web 服务器／反向代理服务器及电
+子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。  其特点是
+占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页伺服器
+中表现较好.目前中国大陆使用nginx网站用户有：新浪、网易、 腾讯,另外知名
+的微网志Plurk也使用nginx。
+</p>
+
+
   
   <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> server</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java, http server, nginx, tomcat, and 负载均衡 </a>
 
-	<a href="/2015/04/22/software-architecture-design.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/2015/04/22/software-architecture-design.html#disqus_thread">0 comment</a>
+	<a href="/server/2012/12/10/nginx-tomcat-windows.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/server/2012/12/10/nginx-tomcat-windows.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -316,62 +418,25 @@
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">03 Oct 2012</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/22/org-publish-html-tutorial.html">[2015-04-22] Org Publish Html Tutorial</a></h3>
+  <h3><a href="/java/2012/10/03/java-class-forName.html">[2012-10-03] 理解Class.forName()</a></h3>
   
-  
-Table of Contents
-
-
-1. More Projects
-
-1.1. 继承组件
-
-
-
-
-
----
-layout: view_simple
-title: Publishing Org-mode files to HTML
-excerpt: excerpt
-keywords: keywords
-categories: [categories]
-tags: [tags]
----
-
-
-
-&lt;!-- more --&gt;
-
-
-
-
-1 More Projects
-
-
-当我们用org来记笔记时，可以添加一个org目录到大部分项目中。这些项目都可以很好的发布。例如，项目“～/B/” 发布到"~/public_html/B/" ,项目“~/C/” 发布到“~/public_html/C/” 等等。这就导致了我们共用的样式和脚本被当作一个新的组件被创建了。
-
-
-
-
-1.1 继承组件
-
-
-当我们厌倦了从一个项目拷贝static files 到另一个项目，下面的配置可以很好打解决我们的问题。
-
-
+  <p>
+使用jdbc方式连接数据库时会使用一句代码Class.forName(String
+className).这句话是什么意思呢？首先说一点Class.forName(String
+className)这个方法的作用是装载className这个字符串指定的类。
+</p>
 
 
 
   
   <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
 
-	<a href="/2015/04/22/org-publish-html-tutorial.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/2015/04/22/org-publish-html-tutorial.html#disqus_thread">0 comment</a>
+	<a href="/java/2012/10/03/java-class-forName.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2012/10/03/java-class-forName.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -380,18 +445,22 @@ tags: [tags]
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">12 Feb 2012</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/22/org-mode-subscripter-setting.html">[2015-04-22] Org-mode 不让下划线_转义</a></h3>
+  <h3><a href="/java/2012/02/12/properties.html">[2012-02-12] Java获取properties资源文件路径问题</a></h3>
   
-  在 Emacs Org Mode 里，默认情况下 _ 这种字符会被当成标记语言来进行转义。 有的时候，如果你只是写写文章，这种默认的转义，会让你很不方便，尤其是你 在写一篇介绍技术的文章，里面出现的变量名有很多的下划线。这时，你会 说：”Oh, my god! 难道要我一个一个去标记不让 _ 转义么？” 如何设置让 Org Mode 在默认情况下，不转义 _ 字符呢？ 单个 org 文件的解决办法 你可以在一个 org 文件的开头，用下面的设置来关闭这个功能。 #+OPTIONS: ^:nil 如果你需要更方便的设置，可以把上面这个改为 #+OPTIONS: ^:{} 这样，当你写 a_{b} 时，_ 后被 {} 括起来的内容就会被转义，而写 a_b 时，就按普通的方式来显示。 org sites 的解决办法 如果你是用 org sites 来写笔记，想让某个 site 的所有 org...
+  <p>
+Java获取properties资源文件路径问题
+</p>
+
+
   
   <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
 
-	<a href="/2015/04/22/org-mode-subscripter-setting.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/2015/04/22/org-mode-subscripter-setting.html#disqus_thread">0 comment</a>
+	<a href="/java/2012/02/12/properties.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2012/02/12/properties.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -400,88 +469,22 @@ tags: [tags]
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">03 Feb 2011</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/22/org-manual.html">[2015-04-22] Org Manual</a></h3>
+  <h3><a href="/java/2011/02/03/java-path.html">[2011-02-03] Java path config</a></h3>
   
-  
-Table of Contents
-
-
-1. Publishing
-
-1.1. org-publish-project-alist变量
-1.2. 源文件及发布目录
-
-
-
-
-
-
-
-
-1 Publishing
-
-
-1.1 org-publish-project-alist变量
-
-
-通过为每一个变量配置来定义发布，成为org-publish-project-alist
-
-
-
-
-
-
-
-1.2 源文件及发布目录
-
-
-大多数属性都是可选的，但有些应始终设置。 特别是，org需要知道到哪里寻找源文件，并放在哪里发布文件。
-
-
-
-:base-directory     
-
-
-
-含目录发布源文件
-
-
-
-:publishing-directory     
-
-
-
-目录下的输出文件将予以公布。 您可以使用适合于Emacs的流浪汉包文件名 ​​语法直接发布到Web服务器。 或者你可以发布到本地目录，并用它来 ​​上传您的网站（见外部工具上传文件 ）。
-
-
-
-:preparation-function     
-
-
-
-功能或功能列表中被称为起始发布过程，例如之前，要运行make的更新文件被出版。 该项目的属性列表的范围限定到这个电话作为变量project-plist 。
-
-
-
-:completion-function     
-
-
-
-函数或函数调用整理出版过程，例如后，改变结果文件的权限列表。 该项目的属性列表的范围限定到这个电话作为变量project-plist 。 
-
-
-
+  <p>
+java 环境变量配置
+</p>
 
 
   
   <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
 
-	<a href="/2015/04/22/org-manual.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/2015/04/22/org-manual.html#disqus_thread">0 comment</a>
+	<a href="/java/2011/02/03/java-path.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2011/02/03/java-path.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -490,44 +493,22 @@ Table of Contents
 
 <!--
 	<div >
-	  <h5 class="post-date" align="right">22 Apr 2015</h5>		</div> -->
+	  <h5 class="post-date" align="right">30 Aug 2010</h5>		</div> -->
 <div class="title-block">
-  <h3><a href="/2015/04/22/oracle.html">[2015-04-22] oracle</a></h3>
+  <h3><a href="/windows/2010/08/30/wifi-lan-coexist.html">[2010-08-30] Wifi lan coexist</a></h3>
   
-  
-BULK COLLECT
-
-
-
-procedure testList is
-
-	type table_gwgjzy is table of z_gwgjyj_visu_gather_value%rowtype;
-	listcc table_gwgjzy;
-
-  begin
-
-	select * bulk collect into listcc from z_gwgjyj_visu_gather_value;
-	dbms_output.put_line(listcc.count);
-  exception
-	when others then
-	  dbms_output.put_line(sqlcode || '' || sqlerrm);
-  end;
-
-
-
-
-
-
-22
+  <p>
+有线网络和无线网络使用了不同的网关，在你的PC机上默认路由应该是指向了你有线网络的网关，如果需要二个网络同时可以使用，那么就必须在你的PC机上调整路由表。
+</p>
 
 
   
   <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> windows</a>
 	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
 
-	<a href="/2015/04/22/oracle.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/2015/04/22/oracle.html#disqus_thread">0 comment</a>
+	<a href="/windows/2010/08/30/wifi-lan-coexist.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/windows/2010/08/30/wifi-lan-coexist.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
@@ -538,23 +519,27 @@ procedure testList is
 
 
 <div class="pagination pull-right">
-
-  <span><a class="btn  btn-sm disabled">Page: 4 of 16</a></span>
-
+  <span><a class="btn  btn-sm disabled">Page: 4 of 4</a></span>
   
   
   <a class="btn btn-sm" href="/blog">First</a>
   <a class="btn btn-sm" href="/blog/page3/">&laquo;</a>
   
   
-
+  
+  
+      
+      
   
   
    
+ <a href="/blog/page0/" class="btn  btn-sm">0</a>
    
-  
-																	   
-  
+ 
+   
+   <a href="/blog/index.html" class="btn  btn-sm">1</a>
+   
+ 
    
  <a href="/blog/page2/" class="btn  btn-sm">2</a>
    
@@ -568,20 +553,9 @@ procedure testList is
    
  
    
- <a href="/blog/page5/" class="btn  btn-sm">5</a>
-   
- 
-   
- <a href="/blog/page6/" class="btn  btn-sm">6</a>
-   
- 
-
-
-   
-  <a class="btn  btn-sm" href="/blog/page5/">&raquo;</a>
-  <a class="btn btn-sm" href="/blog/page16/">Last</a>
+  <span><a class="btn  btn-sm disabled">&raquo;</a></span>
+  <span><a class="btn  btn-sm disabled">Last</a></span>
   
-
 </div>
 
 
@@ -590,16 +564,7 @@ procedure testList is
 
 
 <script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES * * */
-  var disqus_shortname = 'geek41';
   
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function () {
-  var s = document.createElement('script'); s.async = true;
-  s.type = 'text/javascript';
-  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
 </script>
 
 	  </div>
@@ -608,6 +573,12 @@ procedure testList is
 </div>
 
 
+	<div id="footer">
+	  <p>© Geek41 2014 with help from <a href="#">Jekyll</a> and <a href="">Twitter Bootstrap</a></p>
+	</div>
+	
+	<script type="text/javascript" src="/assets/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

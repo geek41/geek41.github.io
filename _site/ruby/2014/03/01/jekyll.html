@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|Jekyll折腾笔记</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/assets/stylesheets/pygments.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"微软雅黑";font-size:13px;}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+
+	  .bs-glyphicons {
+/**      overflow: hidden;*/
+	  }
+
+	  .bs-glyphicons li {
+      font-size: 12px;
+      width: 12.5%;
+	  }
+	  .bs-glyphicons li {
+      border: 1px solid #fff;
+      float: left;
+      font-size: 10px;
+      line-height: 1.4;
+	  padding: 10px 10px 10px 0;
+      text-align: center;
+      width: 25%;
+	  }
+	  .bs-glyphicons-list {
+	  padding:0;
+      list-style: outside none none;
+	  }
+
+	  .bs-glyphicons-list a{
+	  color:#000;
+	  }
+	  .bs-glyphicons-list a:hover{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+	  .bs-glyphicons-list a.active{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+
+
+	  .bs-glyphicons .glyphicon {
+      font-size: 24px;
+      margin-top: 5px;
+	  }
+
+	  .pagination a.btn{border:1px solid #337ab7;border-radius: 2px;font-style: italic;color:#337ab7}
+	  .pagination a.btn:hover{color:#fff;background-color: #337ab7;
+	  }
+  	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
+	  }
+.title-block h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0 15px;font-weight:bold;
+}
+	  .commit a{color:#999;}
+	  .title-block p{color:#999;}
+	  .bs-glyphicons .dropdown li {
+      border: none;
+      float: left;
+      line-height: 1.4;
+	  padding: 0;
+      text-align: center;
+      width: 100%;
+	  }
+
+	  #footer{text-align:center;padding:10px;}
+	</style>
+  </head>
+
+  <body>
+
+	　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+
+	  <div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		  <li>
+			<a href="/">
+			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Home</span></a>
+		  </li>
+
+		  <li>
+			<a href="/blog">
+			  <span class="glyphicon glyphicon glyphicon-console" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Notes</span></a>
+		  </li>
+
+		  <li>
+			<a href="/about">
+			  <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+			  <span class="glyphicon-class">About</span></a>
+		  </li>
+
+		  <li>
+			<div class="dropdown">
+  			  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+				<span class="glyphicon-class">Contact</span>			  
+			  </a>
+
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>
+				  <a href="#">Gmail</a>
+				</li>
+				<li>
+				  <a href="#">Weibo</a>
+				</li>
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+		
+	  </div>
+
+	  
+	  <div class="">
+		<h4>Category</h4>
+		
+		<!-- category list-->
+		<ul>
+		  
+		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#java">java(7)</a></li>
+		  
+		  <li><a href="/blog/categories.html#server">server(2)</a></li>
+		  
+		  <li><a href="/blog/categories.html#test">test(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(6)</a></li>
+		  
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(5)</a></li>
+		  
+		  <li><a href="/blog/categories.html#web前端">web前端(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#spring">spring(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#ruby">ruby(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#database">database(1)</a></li>
+		  
+	  </ul></div>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
+
+<li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
+
+<li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
+
+<li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
+
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
+
+<li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
+
+<li><a href="/linux&unix/2014/04/04/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a></li>
+
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html" title="Emacs configuration collection">Emacs configuration collection</a></li>
+
+<li><a href="/database/2014/04/01/oracle-procedure.html" title="Oracle存储过程书写规范和技巧">Oracle存储过程书写规范和技巧</a></li>
+
+<li><a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+	  <div>	   
+		<a href="/blog/tags.html#java" 
+           title="java" 
+           style="font-size: 120%;">java(8)</a>
+		
+		<a href="/blog/tags.html#http server" 
+           title="http server" 
+           style="font-size: 100%;">http server(2)</a>
+		
+		<a href="/blog/tags.html#nginx" 
+           title="nginx" 
+           style="font-size: 100%;">nginx(1)</a>
+		
+		<a href="/blog/tags.html#tomcat" 
+           title="tomcat" 
+           style="font-size: 100%;">tomcat(1)</a>
+		
+		<a href="/blog/tags.html#负载均衡" 
+           title="负载均衡" 
+           style="font-size: 100%;">负载均衡(1)</a>
+		
+		<a href="/blog/tags.html#test" 
+           title="test" 
+           style="font-size: 100%;">test(1)</a>
+		
+		<a href="/blog/tags.html#linux" 
+           title="linux" 
+           style="font-size: 120%;">linux(6)</a>
+		
+		<a href="/blog/tags.html#ssh" 
+           title="ssh" 
+           style="font-size: 100%;">ssh(1)</a>
+		
+		<a href="/blog/tags.html#emacs" 
+           title="emacs" 
+           style="font-size: 120%;">emacs(5)</a>
+		
+		<a href="/blog/tags.html#yasinppet" 
+           title="yasinppet" 
+           style="font-size: 100%;">yasinppet(1)</a>
+		
+		<a href="/blog/tags.html#javascript" 
+           title="javascript" 
+           style="font-size: 100%;">javascript(3)</a>
+		
+		<a href="/blog/tags.html#url" 
+           title="url" 
+           style="font-size: 100%;">url(1)</a>
+		
+		<a href="/blog/tags.html#org-mode" 
+           title="org-mode" 
+           style="font-size: 100%;">org-mode(2)</a>
+		
+		<a href="/blog/tags.html#软件架构" 
+           title="软件架构" 
+           style="font-size: 100%;">软件架构(1)</a>
+		
+		<a href="/blog/tags.html#apache" 
+           title="apache" 
+           style="font-size: 100%;">apache(1)</a>
+		
+		<a href="/blog/tags.html#datepicker" 
+           title="datepicker" 
+           style="font-size: 100%;">datepicker(1)</a>
+		
+		<a href="/blog/tags.html#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
+		
+		<a href="/blog/tags.html#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(2)</a>
+		
+		<a href="/blog/tags.html#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(2)</a>
+		
+		<a href="/blog/tags.html#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(2)</a>
+		
+		<a href="/blog/tags.html#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(2)</a>
+		
+		<a href="/blog/tags.html#aop" 
+           title="aop" 
+           style="font-size: 100%;">aop(1)</a>
+		
+		<a href="/blog/tags.html#jekyll" 
+           title="jekyll" 
+           style="font-size: 100%;">jekyll(1)</a>
+		
+		<a href="/blog/tags.html#github pages" 
+           title="github pages" 
+           style="font-size: 100%;">github pages(1)</a>
+		
+		<a href="/blog/tags.html#static blog" 
+           title="static blog" 
+           style="font-size: 100%;">static blog(1)</a>
+		
+		<a href="/blog/tags.html#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="/blog/tags.html#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="/blog/tags.html#procedure" 
+           title="procedure" 
+           style="font-size: 100%;">procedure(1)</a>
+		
+		<a href="/blog/tags.html#sqldeveloper" 
+           title="sqldeveloper" 
+           style="font-size: 100%;">sqldeveloper(1)</a>
+		
+		<a href="/blog/tags.html#font" 
+           title="font" 
+           style="font-size: 100%;">font(2)</a>
+		
+		<a href="/blog/tags.html#ubuntu" 
+           title="ubuntu" 
+           style="font-size: 100%;">ubuntu(1)</a>
+		
+		<a href="/blog/tags.html#linux qq" 
+           title="linux qq" 
+           style="font-size: 100%;">linux qq(1)</a>
+		
+		<a href="/blog/tags.html#fcitx" 
+           title="fcitx" 
+           style="font-size: 100%;">fcitx(1)</a>
+		
+		<a href="/blog/tags.html#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="/blog/tags.html#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="/blog/tags.html#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="/blog/tags.html#archlinux" 
+           title="archlinux" 
+           style="font-size: 100%;">archlinux(1)</a>
+		
+		<a href="/blog/tags.html#xcompmgr" 
+           title="xcompmgr" 
+           style="font-size: 100%;">xcompmgr(1)</a>
+		
+		<a href="/blog/tags.html#wget" 
+           title="wget" 
+           style="font-size: 100%;">wget(1)</a>
+		</div>
+	  
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		<section class="post">
+  <h3>Jekyll折腾笔记	</h3>
+  　<p>
+记录折腾Jekyll静态博客到github的一些心路历程，空闲的时间会持续更新
+</p>
+
+<!-- more -->
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 插入图片</h2>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 分页——通过 Liquid 模板语法为 jekyll添加分页</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Jekyll官网提供了2个分页的实例,1是"上一下下一页"的，2是列出所有的页数，这都不是我想要的。我想要的还是要更加人性化和美观一点，哈哈.no pic i say jb ,先上图:
+</p>
+
+
+<div class="figure">
+<p><img src="file:///home/sylvan/Documents/org-note/assets/images/jekyll/QQ截图20150424163609.png" alt="QQ截图20150424163609.png" />
+</p>
+</div>
+
+<p>
+代码如下,(不是不想贴代码,是贴不上liquid)
+</p>
+
+
+<div class="figure">
+<p><img src="file:///home/sylvan/Documents/org-note/assets/images/jekyll/QQ截图20150427101619.png" alt="QQ截图20150427101619.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Official documents</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+截取一些官方的文档以便折腾的时候查阅，以为官网每次要加载googleapis.com的内容，国内又访问不了，所以加载时间比较慢，所以放在这里。
+</p>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Working with drafts</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Drafts are posts without a date. They’re posts you’re still working on and don’t want to publish yet. To get up and running with drafts, create a _drafts folder in your site’s root (as described in the site structure section) and create your first draft:
+</p>
+
+
+<pre class="example">
+|-- _drafts/
+|   |-- a-draft-post.md
+</pre>
+
+<p>
+To preview your site with drafts, simply run jekyll serve or jekyll build with the &#x2013;drafts switch. Each will be assigned the value modification time of the draft file for its date, and thus you will see currently edited drafts as the latest posts.
+</p>
+
+<p>
+上面是官网对于drafts的解释，但是github貌似不支持，不会加载drafts中的文档，想用drafts只能选择折中的方法。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Writing posts</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+One of Jekyll’s best aspects is that it is “blog aware”. What does this mean, exactly? Well, simply put, it means that blogging is baked into Jekyll’s functionality. If you write articles and publish them online, this means that you can publish and maintain a blog simply by managing a folder of text-files on your computer. Compared to the hassle of configuring and maintaining databases and web-based CMS systems, this will be a welcome change!
+</p>
+</div>
+
+<div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> The Posts Folder</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+​As explained on the directory structure page, the _posts folder is where your blog posts will live. These files can be either Markdown or Textile formatted text files, and as long as they have YAML Front Matter, they will be converted from their source format into an HTML page that is part of your static site.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> Creating Post Files</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+To create a new post, all you need to do is create a new file in the _posts directory. How you name files in this folder is important. Jekyll requires blog post files to be named according to the following format:
+</p>
+
+<pre class="example">
+YEAR-MONTH-DAY-title.MARKUP
+</pre>
+
+<p>
+Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and MARKUP is the file extension representing the format used in the file. For example, the following are examples of valid post filenames:
+</p>
+
+<pre class="example">
+2011-12-31-new-years-eve-is-awesome.md
+2012-09-12-how-to-write-a-blog.textile
+</pre>
+
+<p>
+<b>ProTip™: Link to other posts</b>
+</p>
+<pre class="example">
+​ Use the post_url tag to link to other posts without having to worry about the URL's breaking when the site permalink style changes.
+</pre>
+
+<p>
+-​Content Formats
+</p>
+
+<p>
+All blog post files must begin with YAML Front Matter. After that, it’s simply a matter of deciding which format you prefer. Jekyll supports two popular content markup formats: Markdown and Textile. These formats each have their own way of marking up different types of content within a post, so you should familiarize yourself with these formats and decide which one best suits your needs.
+</p>
+
+<p>
+-Be aware of character sets
+</p>
+
+<p>
+Content processors can modify certain characters to make them look nicer. For example, the smart extension in Redcarpet converts standard, ASCII quotation characters to curly, Unicode ones. In order for the browser to display those characters properly, define the charset meta value by including &lt;meta charset="utf-8"&gt; in the &lt;head&gt; of your layout.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3"><span class="section-number-4">3.2.3</span> Including images and resources</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+Chances are, at some point, you’ll want to include images, downloads, or other digital assets along with your text content. While the syntax for linking to these resources differs between Markdown and Textile, the problem of working out where to store these files in your site is something everyone will face.
+Because of Jekyll’s flexibility, there are many solutions to how to do this. One common solution is to create a folder in the root of the project directory called something like assets or downloads, into which any images, downloads or other resources are placed. Then, from within any post, they can be linked to using the site’s root as the path for the asset to include. Again, this will depend on the way your site’s (sub)domain and path are configured, but here some examples (in Markdown) of how you could do this using the site.url variable in a post.
+Including an image asset in a post:
+</p>
+
+<pre class="example">
+… which is shown in the screenshot below:
+![My helpful screenshot](/assets/screenshot.jpg)
+</pre>
+
+<p>
+Linking to a PDF for readers to download:
+</p>
+
+<pre class="example">
+… you can [get the PDF](/assets/mydoc.pdf) directly.
+</pre>
+
+
+<p>
+ProTip™: Link using just the site root URL
+</p>
+
+<p>
+You can skip the  variable if you know your site will only ever be displayed at the root URL of your domain. In this case you can reference assets directly with just /path/file.jpg.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-4" class="outline-4">
+<h4 id="sec-3-2-4"><span class="section-number-4">3.2.4</span> Displaying an index of posts</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+It’s all well and good to have posts in a folder, but a blog is no use unless you have a list of posts somewhere. Creating an index of posts on another page (or in a template) is easy, thanks to the Liquid template language and its tags. Here’s a basic example of how to create a list of links to your blog posts:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;ul&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/linux&unix/2015/02/21/wget.html"&gt;用wget下载网页&manualtitle&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/linux&unix/2014/12/01/archlinux.html"&gt;Arch linux notes&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html"&gt;Google font api notes&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/linux&unix/2014/07/01/nohup.html"&gt;shell后台运行与nohup&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html"&gt;Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/linux&unix/2014/05/02/ubuntu-qq.html"&gt;Linux 下的 qq解决方案&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/linux&unix/2014/04/04/sqldeveloper.html"&gt;解决linux下sqldeveloper 中文环境显示乱码的问题&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html"&gt;Emacs configuration collection&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/database/2014/04/01/oracle-procedure.html"&gt;Oracle存储过程书写规范和技巧&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/java/2014/03/12/spring-data.html"&gt;Spring-data 使用笔记&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/ruby/2014/03/01/jekyll.html"&gt;Jekyll折腾笔记&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/spring/2013/10/23/spring-aop.html"&gt;Spring aop notes&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/java/2013/10/23/maven.html"&gt;Maven 使用笔记&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/oracle/2013/10/02/oracle.html"&gt;Oracle 使用笔记&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/java/2013/09/14/maven-exception.html"&gt;Maven jar exceptions&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/web%E5%89%8D%E7%AB%AF/2013/08/03/jquery-ui.html"&gt;Jquery datepicker z-index&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/web%E5%89%8D%E7%AB%AF/2013/07/03/javascript-array.html"&gt;Javascript 数组拓展&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/server/2013/06/10/apache.html"&gt;Apache configuration&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/architecture/2013/05/12/software-architecture-design.html"&gt;如何进行软件架构设计?&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/%E6%8A%98%E8%85%BEemacs/2013/05/12/org-mode-subscripter-setting.html"&gt;Org-mode 不让下划线_转义&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/%E6%8A%98%E8%85%BEemacs/2013/04/09/org-manual.html"&gt;Org manual 整理&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/web%E5%89%8D%E7%AB%AF/2013/03/01/javascript-url.html"&gt;Javascript url&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/%E6%8A%98%E8%85%BEemacs/2013/02/09/yasnippet.html"&gt;Emacs-Yasnippet代码模板&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/linux&unix/2013/02/01/ssh-commond.html"&gt;SSH 命令笔记&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/java/test/2013/01/10/test-concurrency.html"&gt;java模拟并发操作进行压力测试&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/server/2012/12/10/nginx-tomcat-windows.html"&gt;Nginx+tomcat+windows配置负载均衡&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/java/2012/10/03/java-class-forName.html"&gt;理解Class.forName()&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/java/2012/02/12/properties.html"&gt;Java获取properties资源文件路径问题&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/java/2011/02/03/java-path.html"&gt;Java path config&lt;/a&gt;
+	&lt;/li&gt;
+  
+	&lt;li&gt;
+	  &lt;a href="/windows/2010/08/30/wifi-lan-coexist.html"&gt;Wifi lan coexist&lt;/a&gt;
+	&lt;/li&gt;
+  
+&lt;/ul&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<div id="footer">
+	  <p>© Geek41 2014 with help from <a href="#">Jekyll</a> and <a href="">Twitter Bootstrap</a></p>
+	</div>
+	
+	<script type="text/javascript" src="/assets/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

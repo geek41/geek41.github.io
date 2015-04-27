@@ -4,6 +4,7 @@
 	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	　<title>Geek 41|Maven jar exceptions</title>
 	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/assets/stylesheets/pygments.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
 	
 	<style type="text/css" media="screen">
@@ -11,7 +12,7 @@
       font-family: monaco;
       src: url('/assets/fonts/Monaco_Linux.ttf');
 	  }
-	  * {font-family:monaco,"文泉驿等宽微米黑";font-size:13px;}
+	  * {font-family:monaco,"微软雅黑";font-size:13px;}
 	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
 	  .h2 h2{font-size:20px;}
 	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
@@ -19,7 +20,7 @@
 	  .commit{padding:5px;}
 
 	  .bs-glyphicons {
-      overflow: hidden;
+/**      overflow: hidden;*/
 	  }
 
 	  .bs-glyphicons li {
@@ -47,6 +48,10 @@
 	  color:#337ab7;
 	  text-decoration:none;
 	  }
+	  .bs-glyphicons-list a.active{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
 
 
 	  .bs-glyphicons .glyphicon {
@@ -59,8 +64,23 @@
 	  }
   	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
 	  }
+.title-block h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0 15px;font-weight:bold;
+}
+	  .commit a{color:#999;}
+	  .title-block p{color:#999;}
+	  .bs-glyphicons .dropdown li {
+      border: none;
+      float: left;
+      line-height: 1.4;
+	  padding: 0;
+      text-align: center;
+      width: 100%;
+	  }
 
-
+	  #footer{text-align:center;padding:10px;}
 	</style>
   </head>
 
@@ -96,41 +116,56 @@
 		  </li>
 
 		  <li>
-			<a href="/rss">
-			  <span class="glyphicon glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
-			  <span class="glyphicon-class">Rss</span></a>
+			<div class="dropdown">
+  			  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+				<span class="glyphicon-class">Contact</span>			  
+			  </a>
+
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>
+				  <a href="#">Gmail</a>
+				</li>
+				<li>
+				  <a href="#">Weibo</a>
+				</li>
+			  </ul>
+			</div>
 		  </li>
 		</ul>
 		
 	  </div>
 
+	  
 	  <div class="">
 		<h4>Category</h4>
 		
 		<!-- category list-->
 		<ul>
 		  
-		  <li><a href="/blog/categories.html#webserver">webserver(1)</a></li>
+		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(4)</a></li>
+		  <li><a href="/blog/categories.html#java">java(7)</a></li>
+		  
+		  <li><a href="/blog/categories.html#server">server(2)</a></li>
 		  
 		  <li><a href="/blog/categories.html#test">test(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#linux&unix">linux&unix(4)</a></li>
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(6)</a></li>
 		  
-		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(4)</a></li>
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(5)</a></li>
+		  
+		  <li><a href="/blog/categories.html#web前端">web前端(4)</a></li>
 		  
 		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
 		  
 		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#emacs">emacs(2)</a></li>
+		  <li><a href="/blog/categories.html#spring">spring(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#jquery">jquery(1)</a></li>
+		  <li><a href="/blog/categories.html#ruby">ruby(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#linux">linux(1)</a></li>
-		  
-		  <li><a href="/blog/categories.html#windows">windows(2)</a></li>
+		  <li><a href="/blog/categories.html#database">database(1)</a></li>
 		  
 	  </ul></div>
 
@@ -138,25 +173,25 @@
 <h4>Recently Posts</h4>
 <ul>
 
-<li><a href="/windows/2015/04/23/wifi-lan-coexist.html" title="无线与有线网络共存问题">无线与有线网络共存问题</a></li>
+<li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
 
-<li><a href="/linux&unix/2015/04/23/wget.html" title="用wget下载网页&manual">用wget下载网页&manual</a></li>
+<li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
 
-<li><a href="/2015/04/23/org-publish-html-tutorial.html" title="Org Publish Html Tutorial">Org Publish Html Tutorial</a></li>
+<li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
 
-<li><a href="/2015/04/23/maven-jar.html" title="Maven Jar">Maven Jar</a></li>
+<li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
 
-<li><a href="/2015/04/23/maven.html" title="Maven">Maven</a></li>
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
 
-<li><a href="/2015/04/23/jqgrid-notes.html" title="Jqgrid Notes">Jqgrid Notes</a></li>
+<li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
 
-<li><a href="/2015/04/23/javascript-url.html" title="Javascript Url">Javascript Url</a></li>
+<li><a href="/linux&unix/2014/04/04/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a></li>
 
-<li><a href="/2015/04/23/javascript-array.html" title="Javascript Array">Javascript Array</a></li>
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html" title="Emacs configuration collection">Emacs configuration collection</a></li>
 
-<li><a href="/2015/04/23/java-path.html" title="java设置环境变量">java设置环境变量</a></li>
+<li><a href="/database/2014/04/01/oracle-procedure.html" title="Oracle存储过程书写规范和技巧">Oracle存储过程书写规范和技巧</a></li>
 
-<li><a href="/2015/04/23/java-class-forName.html" title="Java Class Forname">Java Class Forname</a></li>
+<li><a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a></li>
 
 </ul>
 </section>
@@ -164,109 +199,161 @@
 
 	  <h4>Tags</h4>
 	  <div>	   
-		<a href="#java" 
+		<a href="/blog/tags.html#java" 
            title="java" 
-           style="font-size: 100%;">java(4)</a>
+           style="font-size: 120%;">java(8)</a>
 		
-		<a href="#http server" 
+		<a href="/blog/tags.html#http server" 
            title="http server" 
-           style="font-size: 100%;">http server(1)</a>
+           style="font-size: 100%;">http server(2)</a>
 		
-		<a href="#nginx" 
+		<a href="/blog/tags.html#nginx" 
            title="nginx" 
            style="font-size: 100%;">nginx(1)</a>
 		
-		<a href="#tomcat" 
+		<a href="/blog/tags.html#tomcat" 
            title="tomcat" 
            style="font-size: 100%;">tomcat(1)</a>
 		
-		<a href="#负载均衡" 
+		<a href="/blog/tags.html#负载均衡" 
            title="负载均衡" 
            style="font-size: 100%;">负载均衡(1)</a>
 		
-		<a href="#test" 
+		<a href="/blog/tags.html#test" 
            title="test" 
            style="font-size: 100%;">test(1)</a>
 		
-		<a href="#linux" 
+		<a href="/blog/tags.html#linux" 
            title="linux" 
-           style="font-size: 100%;">linux(3)</a>
+           style="font-size: 120%;">linux(6)</a>
 		
-		<a href="#ssh" 
+		<a href="/blog/tags.html#ssh" 
            title="ssh" 
            style="font-size: 100%;">ssh(1)</a>
 		
-		<a href="#emacs" 
+		<a href="/blog/tags.html#emacs" 
            title="emacs" 
-           style="font-size: 120%;">emacs(6)</a>
+           style="font-size: 120%;">emacs(5)</a>
 		
-		<a href="#yasinppet" 
+		<a href="/blog/tags.html#yasinppet" 
            title="yasinppet" 
-           style="font-size: 100%;">yasinppet(2)</a>
+           style="font-size: 100%;">yasinppet(1)</a>
 		
-		<a href="#org-mode" 
+		<a href="/blog/tags.html#javascript" 
+           title="javascript" 
+           style="font-size: 100%;">javascript(3)</a>
+		
+		<a href="/blog/tags.html#url" 
+           title="url" 
+           style="font-size: 100%;">url(1)</a>
+		
+		<a href="/blog/tags.html#org-mode" 
            title="org-mode" 
            style="font-size: 100%;">org-mode(2)</a>
 		
-		<a href="#软件架构" 
+		<a href="/blog/tags.html#软件架构" 
            title="软件架构" 
            style="font-size: 100%;">软件架构(1)</a>
 		
-		<a href="#jar" 
-           title="jar" 
-           style="font-size: 100%;">jar(1)</a>
+		<a href="/blog/tags.html#apache" 
+           title="apache" 
+           style="font-size: 100%;">apache(1)</a>
 		
-		<a href="#maven" 
-           title="maven" 
-           style="font-size: 100%;">maven(1)</a>
-		
-		<a href="#oracle" 
-           title="oracle" 
-           style="font-size: 100%;">oracle(1)</a>
-		
-		<a href="#sql" 
-           title="sql" 
-           style="font-size: 100%;">sql(1)</a>
-		
-		<a href="#spring" 
-           title="spring" 
-           style="font-size: 100%;">spring(1)</a>
-		
-		<a href="#spring-data-jpa" 
-           title="spring-data-jpa" 
-           style="font-size: 100%;">spring-data-jpa(1)</a>
-		
-		<a href="#orm" 
-           title="orm" 
-           style="font-size: 100%;">orm(1)</a>
-		
-		<a href="#nohup" 
-           title="nohup" 
-           style="font-size: 100%;">nohup(1)</a>
-		
-		<a href="#shell" 
-           title="shell" 
-           style="font-size: 100%;">shell(1)</a>
-		
-		<a href="#jquery" 
-           title="jquery" 
-           style="font-size: 100%;">jquery(1)</a>
-		
-		<a href="#datepicker" 
+		<a href="/blog/tags.html#datepicker" 
            title="datepicker" 
            style="font-size: 100%;">datepicker(1)</a>
 		
-		<a href="#web前端" 
-           title="web前端" 
-           style="font-size: 100%;">web前端(1)</a>
+		<a href="/blog/tags.html#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
 		
-		<a href="#sqldeveloper" 
+		<a href="/blog/tags.html#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(2)</a>
+		
+		<a href="/blog/tags.html#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(2)</a>
+		
+		<a href="/blog/tags.html#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(2)</a>
+		
+		<a href="/blog/tags.html#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(2)</a>
+		
+		<a href="/blog/tags.html#aop" 
+           title="aop" 
+           style="font-size: 100%;">aop(1)</a>
+		
+		<a href="/blog/tags.html#jekyll" 
+           title="jekyll" 
+           style="font-size: 100%;">jekyll(1)</a>
+		
+		<a href="/blog/tags.html#github pages" 
+           title="github pages" 
+           style="font-size: 100%;">github pages(1)</a>
+		
+		<a href="/blog/tags.html#static blog" 
+           title="static blog" 
+           style="font-size: 100%;">static blog(1)</a>
+		
+		<a href="/blog/tags.html#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="/blog/tags.html#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="/blog/tags.html#procedure" 
+           title="procedure" 
+           style="font-size: 100%;">procedure(1)</a>
+		
+		<a href="/blog/tags.html#sqldeveloper" 
            title="sqldeveloper" 
            style="font-size: 100%;">sqldeveloper(1)</a>
 		
-		<a href="#windows" 
-           title="windows" 
-           style="font-size: 100%;">windows(2)</a>
+		<a href="/blog/tags.html#font" 
+           title="font" 
+           style="font-size: 100%;">font(2)</a>
+		
+		<a href="/blog/tags.html#ubuntu" 
+           title="ubuntu" 
+           style="font-size: 100%;">ubuntu(1)</a>
+		
+		<a href="/blog/tags.html#linux qq" 
+           title="linux qq" 
+           style="font-size: 100%;">linux qq(1)</a>
+		
+		<a href="/blog/tags.html#fcitx" 
+           title="fcitx" 
+           style="font-size: 100%;">fcitx(1)</a>
+		
+		<a href="/blog/tags.html#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="/blog/tags.html#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="/blog/tags.html#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="/blog/tags.html#archlinux" 
+           title="archlinux" 
+           style="font-size: 100%;">archlinux(1)</a>
+		
+		<a href="/blog/tags.html#xcompmgr" 
+           title="xcompmgr" 
+           style="font-size: 100%;">xcompmgr(1)</a>
+		
+		<a href="/blog/tags.html#wget" 
+           title="wget" 
+           style="font-size: 100%;">wget(1)</a>
 		</div>
 	  
 	</div>
@@ -333,7 +420,12 @@ cmd中输入：
 
 <div class="org-src-container">
 
-<pre class="src src-shell">mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.2.0 -Dpackaging=jar -Dfile=C:\Users\Administrator\Desktop\ojdbc14-10.2.0.2.0.jar
+<pre class="src src-shell">mvn install:install-file \
+	-DgroupId=com.oracle \
+	-DartifactId=ojdbc14 \
+	-Dversion=10.2.0.2.0 \
+	-Dpackaging=jar \
+	-Dfile=C:\Users\Administrator\Desktop\ojdbc14-10.2.0.2.0.jar
 </pre>
 </div>
 
@@ -368,6 +460,12 @@ cmd中输入：
 </div>
 
 
+	<div id="footer">
+	  <p>© Geek41 2014 with help from <a href="#">Jekyll</a> and <a href="">Twitter Bootstrap</a></p>
+	</div>
+	
+	<script type="text/javascript" src="/assets/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

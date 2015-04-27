@@ -1,0 +1,39 @@
+---
+layout: view
+comments: true
+title:  Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法
+categories: 折腾emacs
+tags: [emacs,linux,fcitx]
+date: 2014-6-1
+keywords: emacs,linux,fcitx,gnome
+description: Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法
+---
+
+<p>
+Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系统环境为英文，ubuntu启动先加载gonme-settings-daemon，后加载fcitx。
+</p>
+
+<!-- more -->
+
+<p>
+解决办法:
+</p>
+
+<p>
+1.在终端启动,亲测可用
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell">env LANG=zh_CN.utf-8 emacs
+</pre>
+</div>
+
+
+<p>
+2.改变gonme-settings-daemon和fcitx的启动顺序，网上看的，我没试。
+</p>
+
+<p>
+先起动输入法fcitx，接着起动gnome-settings-daemon。
+</p>

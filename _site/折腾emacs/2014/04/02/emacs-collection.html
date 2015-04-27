@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|Emacs configuration collection</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/assets/stylesheets/pygments.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"微软雅黑";font-size:13px;}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+
+	  .bs-glyphicons {
+/**      overflow: hidden;*/
+	  }
+
+	  .bs-glyphicons li {
+      font-size: 12px;
+      width: 12.5%;
+	  }
+	  .bs-glyphicons li {
+      border: 1px solid #fff;
+      float: left;
+      font-size: 10px;
+      line-height: 1.4;
+	  padding: 10px 10px 10px 0;
+      text-align: center;
+      width: 25%;
+	  }
+	  .bs-glyphicons-list {
+	  padding:0;
+      list-style: outside none none;
+	  }
+
+	  .bs-glyphicons-list a{
+	  color:#000;
+	  }
+	  .bs-glyphicons-list a:hover{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+	  .bs-glyphicons-list a.active{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+
+
+	  .bs-glyphicons .glyphicon {
+      font-size: 24px;
+      margin-top: 5px;
+	  }
+
+	  .pagination a.btn{border:1px solid #337ab7;border-radius: 2px;font-style: italic;color:#337ab7}
+	  .pagination a.btn:hover{color:#fff;background-color: #337ab7;
+	  }
+  	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
+	  }
+.title-block h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0 15px;font-weight:bold;
+}
+	  .commit a{color:#999;}
+	  .title-block p{color:#999;}
+	  .bs-glyphicons .dropdown li {
+      border: none;
+      float: left;
+      line-height: 1.4;
+	  padding: 0;
+      text-align: center;
+      width: 100%;
+	  }
+
+	  #footer{text-align:center;padding:10px;}
+	</style>
+  </head>
+
+  <body>
+
+	　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+
+	  <div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		  <li>
+			<a href="/">
+			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Home</span></a>
+		  </li>
+
+		  <li>
+			<a href="/blog">
+			  <span class="glyphicon glyphicon glyphicon-console" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Notes</span></a>
+		  </li>
+
+		  <li>
+			<a href="/about">
+			  <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+			  <span class="glyphicon-class">About</span></a>
+		  </li>
+
+		  <li>
+			<div class="dropdown">
+  			  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+				<span class="glyphicon-class">Contact</span>			  
+			  </a>
+
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>
+				  <a href="#">Gmail</a>
+				</li>
+				<li>
+				  <a href="#">Weibo</a>
+				</li>
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+		
+	  </div>
+
+	  
+	  <div class="">
+		<h4>Category</h4>
+		
+		<!-- category list-->
+		<ul>
+		  
+		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#java">java(7)</a></li>
+		  
+		  <li><a href="/blog/categories.html#server">server(2)</a></li>
+		  
+		  <li><a href="/blog/categories.html#test">test(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(6)</a></li>
+		  
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(5)</a></li>
+		  
+		  <li><a href="/blog/categories.html#web前端">web前端(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#spring">spring(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#ruby">ruby(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#database">database(1)</a></li>
+		  
+	  </ul></div>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
+
+<li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
+
+<li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
+
+<li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
+
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
+
+<li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
+
+<li><a href="/linux&unix/2014/04/04/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a></li>
+
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html" title="Emacs configuration collection">Emacs configuration collection</a></li>
+
+<li><a href="/database/2014/04/01/oracle-procedure.html" title="Oracle存储过程书写规范和技巧">Oracle存储过程书写规范和技巧</a></li>
+
+<li><a href="/java/2014/03/12/spring-data.html" title="Spring-data 使用笔记">Spring-data 使用笔记</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+	  <div>	   
+		<a href="/blog/tags.html#java" 
+           title="java" 
+           style="font-size: 120%;">java(8)</a>
+		
+		<a href="/blog/tags.html#http server" 
+           title="http server" 
+           style="font-size: 100%;">http server(2)</a>
+		
+		<a href="/blog/tags.html#nginx" 
+           title="nginx" 
+           style="font-size: 100%;">nginx(1)</a>
+		
+		<a href="/blog/tags.html#tomcat" 
+           title="tomcat" 
+           style="font-size: 100%;">tomcat(1)</a>
+		
+		<a href="/blog/tags.html#负载均衡" 
+           title="负载均衡" 
+           style="font-size: 100%;">负载均衡(1)</a>
+		
+		<a href="/blog/tags.html#test" 
+           title="test" 
+           style="font-size: 100%;">test(1)</a>
+		
+		<a href="/blog/tags.html#linux" 
+           title="linux" 
+           style="font-size: 120%;">linux(6)</a>
+		
+		<a href="/blog/tags.html#ssh" 
+           title="ssh" 
+           style="font-size: 100%;">ssh(1)</a>
+		
+		<a href="/blog/tags.html#emacs" 
+           title="emacs" 
+           style="font-size: 120%;">emacs(5)</a>
+		
+		<a href="/blog/tags.html#yasinppet" 
+           title="yasinppet" 
+           style="font-size: 100%;">yasinppet(1)</a>
+		
+		<a href="/blog/tags.html#javascript" 
+           title="javascript" 
+           style="font-size: 100%;">javascript(3)</a>
+		
+		<a href="/blog/tags.html#url" 
+           title="url" 
+           style="font-size: 100%;">url(1)</a>
+		
+		<a href="/blog/tags.html#org-mode" 
+           title="org-mode" 
+           style="font-size: 100%;">org-mode(2)</a>
+		
+		<a href="/blog/tags.html#软件架构" 
+           title="软件架构" 
+           style="font-size: 100%;">软件架构(1)</a>
+		
+		<a href="/blog/tags.html#apache" 
+           title="apache" 
+           style="font-size: 100%;">apache(1)</a>
+		
+		<a href="/blog/tags.html#datepicker" 
+           title="datepicker" 
+           style="font-size: 100%;">datepicker(1)</a>
+		
+		<a href="/blog/tags.html#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
+		
+		<a href="/blog/tags.html#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(2)</a>
+		
+		<a href="/blog/tags.html#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(2)</a>
+		
+		<a href="/blog/tags.html#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(2)</a>
+		
+		<a href="/blog/tags.html#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(2)</a>
+		
+		<a href="/blog/tags.html#aop" 
+           title="aop" 
+           style="font-size: 100%;">aop(1)</a>
+		
+		<a href="/blog/tags.html#jekyll" 
+           title="jekyll" 
+           style="font-size: 100%;">jekyll(1)</a>
+		
+		<a href="/blog/tags.html#github pages" 
+           title="github pages" 
+           style="font-size: 100%;">github pages(1)</a>
+		
+		<a href="/blog/tags.html#static blog" 
+           title="static blog" 
+           style="font-size: 100%;">static blog(1)</a>
+		
+		<a href="/blog/tags.html#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="/blog/tags.html#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="/blog/tags.html#procedure" 
+           title="procedure" 
+           style="font-size: 100%;">procedure(1)</a>
+		
+		<a href="/blog/tags.html#sqldeveloper" 
+           title="sqldeveloper" 
+           style="font-size: 100%;">sqldeveloper(1)</a>
+		
+		<a href="/blog/tags.html#font" 
+           title="font" 
+           style="font-size: 100%;">font(2)</a>
+		
+		<a href="/blog/tags.html#ubuntu" 
+           title="ubuntu" 
+           style="font-size: 100%;">ubuntu(1)</a>
+		
+		<a href="/blog/tags.html#linux qq" 
+           title="linux qq" 
+           style="font-size: 100%;">linux qq(1)</a>
+		
+		<a href="/blog/tags.html#fcitx" 
+           title="fcitx" 
+           style="font-size: 100%;">fcitx(1)</a>
+		
+		<a href="/blog/tags.html#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="/blog/tags.html#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="/blog/tags.html#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="/blog/tags.html#archlinux" 
+           title="archlinux" 
+           style="font-size: 100%;">archlinux(1)</a>
+		
+		<a href="/blog/tags.html#xcompmgr" 
+           title="xcompmgr" 
+           style="font-size: 100%;">xcompmgr(1)</a>
+		
+		<a href="/blog/tags.html#wget" 
+           title="wget" 
+           style="font-size: 100%;">wget(1)</a>
+		</div>
+	  
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		<section class="post">
+  <h3>Emacs configuration collection	</h3>
+  　<p>
+收藏一些emacs的配置，有时间的时候查阅和调整
+</p>
+
+<!-- more -->
+
+
+<p>
+1.来源 <a href="http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html">http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html</a>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-lisp">;; author: chinazhangjie
+;; e-mail: chinajiezhang@gmail.com
+
+;; 指针颜色设置为白色
+(set-cursor-color "white")
+;; 鼠标颜色设置为白色
+(set-mouse-color "white")
+
+
+;; 从color-theme中获取
+;; 网上下载color-theme.el，放到加载路径(／usr/share/emacs/site-lisp )下
+;; M-x color-theme-select,鼠标左键选中，回车查看效果
+;; d查看信息，将出现如下信息:
+;; color-theme-matrix is an interactive Lisp function in `color-theme.el'.
+;; (color-theme-matrix)
+;; Color theme by walterh@rocketmail.com, created 2003-10-16.
+;; 选择(color-theme-blue-mood)即可
+(require 'color-theme)
+(setq color-theme-is-global t)
+(color-theme-dark-blue2)
+
+;; 使用tabbar.el
+(require 'tabbar)
+(tabbar-mode)
+(global-set-key (kbd "") 'tabbar-backward-group)
+(global-set-key (kbd "") 'tabbar-forward-group)
+(global-set-key (kbd "") 'tabbar-backward)
+(global-set-key (kbd "") 'tabbar-forward)
+
+
+;; 一打开就起用 text 模式。  
+(setq default-major-mode 'text-mode)
+
+;; 语法高亮
+(global-font-lock-mode t)
+
+;; 以 y/n代表 yes/no
+(fset 'yes-or-no-p 'y-or-n-p) 
+
+;; 显示括号匹配 
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+;; 显示时间，格式如下
+(display-time-mode 1)  
+(setq display-time-24hr-format t)  
+(setq display-time-day-and-date t)  
+
+(transient-mark-mode t) 
+
+;; 支持emacs和外部程序的粘贴
+(setq x-select-enable-clipboard t) 
+
+;; 在标题栏提示你目前在什么位置
+(setq frame-title-format "zhj@%b")  
+
+;; 默认显示 80列就换行 
+(setq default-fill-column 80) 
+
+;; 去掉工具栏
+(tool-bar-mode nil)
+
+;;去掉菜单栏
+(menu-bar-mode nil)
+
+;; 去掉滚动栏
+(scroll-bar-mode nil)
+
+;; 设置字体
+;; 方法为: emacs-&gt;options-&gt;Set Default Font-&gt;"M-x describe-font"查看当前使用的字体名称、字体大小
+(set-default-font " -bitstream-Courier 10 Pitch-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
+
+;; 显示列号
+(setq column-number-mode t)
+(setq line-number-mode t)
+
+;; 使用 C++ mode， 感谢csdn yq_118
+(add-to-list 'auto-mode-alist (cons "\\.h$" #'c++-mode))
+
+;; 设置缩进
+(setq c-basic-offset 4)
+(setq indent-tabs-mode nil)
+(setq default-tab-width 4)
+(setq tab-width 4)
+(setq tab-stop-list ())
+(loop for x downfrom 40 to 1 do
+	  (setq tab-stop-list (cons (* x 4) tab-stop-list)))
+
+
+;; 回车缩进
+(global-set-key "\C-m" 'newline-and-indent)
+(global-set-key (kbd "C-&lt;return&gt;") 'newline)
+
+;; 实现全屏效果，快捷键为f6
+(global-set-key [f6] 'my-fullscreen) 
+(defun my-fullscreen ()
+(interactive)
+(x-send-client-message
+nil 0 nil "_NET_WM_STATE" 32
+'(2 "_NET_WM_STATE_FULLSCREEN" 0))
+)
+
+;; 最大化
+(defun my-maximized ()
+(interactive)
+(x-send-client-message
+nil 0 nil "_NET_WM_STATE" 32
+'(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+(x-send-client-message
+nil 0 nil "_NET_WM_STATE" 32
+'(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+)
+;; 启动emacs时窗口最大化
+(my-maximized)
+
+;; 启动窗口大小
+(setq default-frame-alist
+	  '((height . 35) (width . 125) (menu-bar-lines . 20) (tool-bar-lines . 0))) 
+(put 'upcase-region 'disabled nil)
+</pre>
+</div>
+
+</section>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<div id="footer">
+	  <p>© Geek41 2014 with help from <a href="#">Jekyll</a> and <a href="">Twitter Bootstrap</a></p>
+	</div>
+	
+	<script type="text/javascript" src="/assets/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

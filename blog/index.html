@@ -31,9 +31,7 @@ title: Don't repeat yourself
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination pull-right">
-
   <span><a class="btn  btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
-
   {% if paginator.previous_page %}
   {% if paginator.previous_page == 1 %}
   <a class="btn  btn-sm" href="/blog">First</a>
@@ -46,7 +44,6 @@ title: Don't repeat yourself
   <span><a class="btn  btn-sm disabled" href="/blog">First</a></span>
   <span><a class="btn  btn-sm disabled">&laquo;</a></span>
   {% endif %}
-
   {% assign dd = paginator.total_pages | minus:2 %}
   {% if paginator.page < 3 %}
 	  {% assign start1 = 1  %}
@@ -58,7 +55,6 @@ title: Don't repeat yourself
    {% assign start1 = paginator.page | minus:2  %}
    {% assign end = paginator.page | plus:2  %}
   {% endif %}
-																	   
   {% for page in (start1..end) %}
    {% if page == paginator.page %}
    <a class="btn  btn-sm disabled" >{{ page }}</a>
@@ -68,8 +64,6 @@ title: Don't repeat yourself
  <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="btn  btn-sm">{{ page }}</a>
    {% endif %}
  {% endfor %}
-
-
    {% if paginator.next_page %}
   <a class="btn  btn-sm" href="/blog/page{{paginator.next_page}}/">&raquo;</a>
   <a class="btn btn-sm" href="/blog/page{{paginator.total_pages}}/">Last</a>
@@ -77,7 +71,6 @@ title: Don't repeat yourself
   <span><a class="btn  btn-sm disabled">&raquo;</a></span>
   <span><a class="btn  btn-sm disabled">Last</a></span>
   {% endif %}
-
 </div>
 {% endif %}
 
@@ -109,14 +102,5 @@ title: Don't repeat yourself
 </div>
 and {% endcomment %}
 <script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES * * */
-  var disqus_shortname = 'geek41';
   
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function () {
-  var s = document.createElement('script'); s.async = true;
-  s.type = 'text/javascript';
-  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
 </script>
