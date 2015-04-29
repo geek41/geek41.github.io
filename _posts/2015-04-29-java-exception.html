@@ -25,10 +25,10 @@ description: java
 </li>
 </ul>
 </li>
-<li><a href="#sec-2">2. 可查的异常和非可查异常</a>
+<li><a href="#sec-2">2. checked&amp;unchecked</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 可查异常（编译器要求必须处置的异常）</a></li>
-<li><a href="#sec-2-2">2.2. 不可查异常(编译器不要求强制处置的异常)1</a></li>
+<li><a href="#sec-2-1">2.1. checked exceptions</a></li>
+<li><a href="#sec-2-2">2.2. unchecked exceptions</a></li>
 </ul>
 </li>
 <li><a href="#sec-3">3. 运行时异常和非运行时异常(编译异常)</a>
@@ -80,7 +80,8 @@ description: java
 <h2 id="sec-1"><span class="section-number-2">1</span> Throwable</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-有两个重要的子类：Exception（异常）和 Error（错误），二者都是 Java 异常处理的重要子类，各自都包含大量子类。异常和错误的区别：异常能被程序本身可以处理，错误是无法处理。
+有两个重要的子类：Exception（异常）和 Error（错误），二者都是 Java 异常处理的重要子类，各自都包含大量子类。
+<b>异常和错误的区别:异常能被程序本身可以处理，错误是无法处理</b>
 </p>
 </div>
 
@@ -118,7 +119,7 @@ RuntimeException 类及其子类表示“JVM 常用操作”引发的错误。�
 
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 可查的异常和非可查异常</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> checked&amp;unchecked</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 通常，Java的异常(包括Exception和Error)分为可查的异常（checked exceptions）和不可查的异常（unchecked exceptions）。
@@ -126,23 +127,27 @@ RuntimeException 类及其子类表示“JVM 常用操作”引发的错误。�
 </div>
 
 <div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 可查异常（编译器要求必须处置的异常）</h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> checked exceptions</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-正确的程序在运行中，很容易出现的、情理可容的异常状况。可查异常虽然是异常状况，但在一定程度上它的发生是可以预计的，而且一旦发生这种异常状况，就必须采取某种方式进行处理。
+正确的程序在运行中，很容易出现的、情理可容的异常状况。可查异常虽然是异常状况，但在一定程度上它的发生是可以预计的，而且一旦发生这种异常状况，就必须采取某种方式进行处理。这种异常的特点是Java编译器会检查它，也就是说，当程序中可能出现这类异常，要么用
+</p>
+<code>try-catch</code>
+<p>
+语句捕获它，要么用throws子句声明抛出它，否则编译不会通过。
 </p>
 
-<p>
-除了RuntimeException及其子类以外，其他的Exception类及其子类都属于可查异常。这种异常的特点是Java编译器会检查它，也就是说，当程序中可能出现这类异常，要么用try-catch语句捕获它，要么用throws子句声明抛出它，否则编译不会通过。
+<p class="bg-danger">
+编译器要求必须处置的异常,除了RuntimeException及其子类以外，其他的Exception类及其子类都属于可查异常。
 </p>
 </div>
 </div>
 
 <div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 不可查异常(编译器不要求强制处置的异常)1</h3>
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> unchecked exceptions</h3>
 <div class="outline-text-3" id="text-2-2">
-<p>
-包括运行时异常（RuntimeException与其子类）和错误（Error）。
+<p class="bg-danger">
+编译器不要求强制处置的异常,包括运行时异常（RuntimeException与其子类）和错误（Error） 
 </p>
 </div>
 </div>
