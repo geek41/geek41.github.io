@@ -145,7 +145,7 @@
 		  
 		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(8)</a></li>
+		  <li><a href="/blog/categories.html#java">java(9)</a></li>
 		  
 		  <li><a href="/blog/categories.html#server">server(2)</a></li>
 		  
@@ -187,13 +187,13 @@
 
 <li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
 
+<li><a href="/java/2014/05/10/hibernate.html" title="Hiberate 缓存">Hiberate 缓存</a></li>
+
 <li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
 
 <li><a href="/linux&unix/2014/04/04/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a></li>
 
 <li><a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html" title="Emacs configuration collection">Emacs configuration collection</a></li>
-
-<li><a href="/database/2014/04/01/oracle-procedure.html" title="Oracle存储过程书写规范和技巧">Oracle存储过程书写规范和技巧</a></li>
 
 </ul>
 </section>
@@ -332,6 +332,10 @@
 		<a href="/blog/tags.html#linux qq" 
            title="linux qq" 
            style="font-size: 100%;">linux qq(1)</a>
+		
+		<a href="/blog/tags.html#java,hibernate" 
+           title="java,hibernate" 
+           style="font-size: 100%;">java,hibernate(1)</a>
 		
 		<a href="/blog/tags.html#fcitx" 
            title="fcitx" 
@@ -517,6 +521,52 @@ Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系�
 
 <!--
 	<div >
+	  <h5 class="post-date" align="right">10 May 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/05/10/hibernate.html">[2014-05-10] Hiberate 缓存</a></h3>
+  
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. ORM中的缓存</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 事务级缓存</a></li>
+<li><a href="#sec-1-2">1.2. 应用级缓存</a></li>
+<li><a href="#sec-1-3">1.3. 分布式缓存</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Hibernate的缓存策略:</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 一级缓存(Session):</a></li>
+<li><a href="#sec-2-2">2.2. 二级缓存(SessionFactory)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="main">
+
+<p>
+对于Hibernate这类ORM而言,缓存显的尤为重要,它是持久层性能提升的关键.简单来讲Hibernate就是对JDBC进行封装,以实现内部状态的管理,OR关系的映射等,但随之带来的就是数据访问效率的降低,和性能的下降,而缓存就是弥补这一缺点的重要方法.
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java,hibernate </a>
+
+	<a href="/java/2014/05/10/hibernate.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2014/05/10/hibernate.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
 	  <h5 class="post-date" align="right">02 May 2014</h5>		</div> -->
 <div class="title-block">
   <h3><a href="/linux&unix/2014/05/02/ubuntu-qq.html">[2014-05-02] Linux 下的 qq解决方案</a></h3>
@@ -533,30 +583,6 @@ Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系�
 
 	<a href="/linux&unix/2014/05/02/ubuntu-qq.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
 	<a href="/linux&unix/2014/05/02/ubuntu-qq.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">04 Apr 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/linux&unix/2014/04/04/sqldeveloper.html">[2014-04-04] 解决linux下sqldeveloper 中文环境显示乱码的问题</a></h3>
-  
-  <p>
-解决linux下sqldeveloper 中文环境显示乱码的问题
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> linux&unix</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> linux, sqldeveloper, and font </a>
-
-	<a href="/linux&unix/2014/04/04/sqldeveloper.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/linux&unix/2014/04/04/sqldeveloper.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
