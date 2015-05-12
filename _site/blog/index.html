@@ -145,7 +145,7 @@
 		  
 		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(9)</a></li>
+		  <li><a href="/blog/categories.html#java">java(10)</a></li>
 		  
 		  <li><a href="/blog/categories.html#server">server(2)</a></li>
 		  
@@ -175,6 +175,12 @@
 <h4>Recently Posts</h4>
 <ul>
 
+<li><a href="/2015/05/12/singlton.html" title="Singlton">Singlton</a></li>
+
+<li><a href="/2015/05/12/java-interface.html" title="Java Interface">Java Interface</a></li>
+
+<li><a href="/2015/05/12/java-final.html" title="Java Final">Java Final</a></li>
+
 <li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
 
 <li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
@@ -185,15 +191,9 @@
 
 <li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
 
+<li><a href="/java/2014/06/10/design-pattern.html" title="Design patten">Design patten</a></li>
+
 <li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
-
-<li><a href="/java/2014/05/10/hibernate.html" title="Hiberate 缓存">Hiberate 缓存</a></li>
-
-<li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
-
-<li><a href="/linux&unix/2014/04/04/sqldeveloper.html" title="解决linux下sqldeveloper 中文环境显示乱码的问题">解决linux下sqldeveloper 中文环境显示乱码的问题</a></li>
-
-<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html" title="Emacs configuration collection">Emacs configuration collection</a></li>
 
 </ul>
 </section>
@@ -203,7 +203,7 @@
 	  <div>	   
 		<a href="/blog/tags.html#java" 
            title="java" 
-           style="font-size: 120%;">java(9)</a>
+           style="font-size: 140%;">java(10)</a>
 		
 		<a href="/blog/tags.html#http server" 
            title="http server" 
@@ -377,6 +377,114 @@
 		
 <!--
 	<div >
+	  <h5 class="post-date" align="right">12 May 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/05/12/singlton.html">[2015-05-12] Singlton</a></h3>
+  
+  layout: view
+comments: true
+title: 设计模式-单例
+categories: categories
+tags: tags
+date: date
+keywords: keyword
+description: description
+---
+
+
+---
+<p>
+所谓单例模式，简单来说，就是在整个应用中保证只有一个类的实例存在。就像是Java Web中的application，也就是提供了一个全局变量，用处相当广泛，比如保存全局数据，实现全局性的操作等。单例模式用于保证在程序的运行期间某个类有且仅有一个实例。其优势在于尽可能解决系统资源。通过修改构造方法的访问权限就可以实现单例模式。
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/05/12/singlton.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/05/12/singlton.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">12 May 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/05/12/java-interface.html">[2015-05-12] Java Interface</a></h3>
+  
+  layout: view
+comments: true
+title: java interface
+categories: categories
+tags: tags
+date: date
+keywords: keyword
+description: description
+---
+
+
+---
+<p>
+"针对接口编程"真正的意思是"针对超类型(supertype)编程"."针对接口编程"关键就在多态.利用多态,程序可以针对超类型编程,执行时会根据实际情况执行到真正的行为,不会被绑死在超类型的行为上."针对超类型编程"这句话,可以更明确的说成"变量的声明类型应该是超类型,通常是一个抽象类或者是一个接口,如此,只要是具体实现此超类型的类所产生的对象,都可以指定给这个变量.这也意味着,声明类时不用理会以后执行时的真正对象类型!".
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/05/12/java-interface.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/05/12/java-interface.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">12 May 2015</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/2015/05/12/java-final.html">[2015-05-12] Java Final</a></h3>
+  
+  layout: view
+comments: true
+title: Java final 关键字
+categories: java
+tags: java
+date: 2013-10-1
+keywords: java
+description: java
+---
+
+
+---
+<p>
+Java中的final共有三种用法:
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> </a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>  </a>
+
+	<a href="/2015/05/12/java-final.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/2015/05/12/java-final.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
 	  <h5 class="post-date" align="right">21 Feb 2015</h5>		</div> -->
 <div class="title-block">
   <h3><a href="/linux&unix/2015/02/21/wget.html">[2015-02-21] 用wget下载网页&manualtitle</a></h3>
@@ -489,100 +597,6 @@ nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令�
 
 	<a href="/linux&unix/2014/07/01/nohup.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
 	<a href="/linux&unix/2014/07/01/nohup.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">01 Jun 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html">[2014-06-01] Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></h3>
-  
-  <p>
-Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系统环境为英文，ubuntu启动先加载gonme-settings-daemon，后加载fcitx。
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 折腾emacs</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> emacs, linux, and fcitx </a>
-
-	<a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">10 May 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/java/2014/05/10/hibernate.html">[2014-05-10] Hiberate 缓存</a></h3>
-  
-  <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. ORM中的缓存</a>
-<ul>
-<li><a href="#sec-1-1">1.1. 事务级缓存</a></li>
-<li><a href="#sec-1-2">1.2. 应用级缓存</a></li>
-<li><a href="#sec-1-3">1.3. 分布式缓存</a></li>
-</ul>
-</li>
-<li><a href="#sec-2">2. Hibernate的缓存策略:</a>
-<ul>
-<li><a href="#sec-2-1">2.1. 一级缓存(Session):</a></li>
-<li><a href="#sec-2-2">2.2. 二级缓存(SessionFactory)</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="main">
-
-<p>
-对于Hibernate这类ORM而言,缓存显的尤为重要,它是持久层性能提升的关键.简单来讲Hibernate就是对JDBC进行封装,以实现内部状态的管理,OR关系的映射等,但随之带来的就是数据访问效率的降低,和性能的下降,而缓存就是弥补这一缺点的重要方法.
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java,hibernate </a>
-
-	<a href="/java/2014/05/10/hibernate.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/java/2014/05/10/hibernate.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">02 May 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/linux&unix/2014/05/02/ubuntu-qq.html">[2014-05-02] Linux 下的 qq解决方案</a></h3>
-  
-  <p>
-在Ubuntu下装QQ一直是个非常折腾人的事，试过很多方法。webqq,pidgin,longne qq,winestrick,要么不成功要么效果不好。无意间发现deepin qq（qq2012 international），安装容易，还算好用。
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> linux&unix</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> linux, ubuntu, and linux qq </a>
-
-	<a href="/linux&unix/2014/05/02/ubuntu-qq.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/linux&unix/2014/05/02/ubuntu-qq.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
