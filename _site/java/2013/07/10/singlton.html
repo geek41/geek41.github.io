@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|设计模式-单例</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/assets/stylesheets/pygments.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"微软雅黑";font-size:13px;}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+
+	  .bs-glyphicons {
+/**      overflow: hidden;*/
+	  }
+
+	  .bs-glyphicons li {
+      font-size: 12px;
+      width: 12.5%;
+	  }
+	  .bs-glyphicons li {
+      border: 1px solid #fff;
+      float: left;
+      font-size: 10px;
+      line-height: 1.4;
+	  padding: 10px 10px 10px 0;
+      text-align: center;
+      width: 25%;
+	  }
+	  .bs-glyphicons-list {
+	  padding:0;
+      list-style: outside none none;
+	  }
+
+	  .bs-glyphicons-list a{
+	  color:#000;
+	  }
+	  .bs-glyphicons-list a:hover{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+	  .bs-glyphicons-list a.active{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+
+
+	  .bs-glyphicons .glyphicon {
+      font-size: 24px;
+      margin-top: 5px;
+	  }
+
+	  .pagination a.btn{border:1px solid #337ab7;border-radius: 2px;font-style: italic;color:#337ab7}
+	  .pagination a.btn:hover{color:#fff;background-color: #337ab7;
+	  }
+  	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
+	  }
+.title-block h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0 15px;font-weight:bold;
+}
+	  .commit a{color:#999;}
+	  .title-block p{color:#999;}
+	  .bs-glyphicons .dropdown li {
+      border: none;
+      float: left;
+      line-height: 1.4;
+	  padding: 0;
+      text-align: center;
+      width: 100%;
+	  }
+
+	  #footer{text-align:center;padding:10px;}
+	</style>
+  </head>
+
+  <body>
+
+	　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+
+	  <div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		  <li>
+			<a href="/">
+			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Home</span></a>
+		  </li>
+
+		  <li>
+			<a href="/blog">
+			  <span class="glyphicon glyphicon glyphicon-console" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Notes</span></a>
+		  </li>
+
+		  <li>
+			<a href="/about">
+			  <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+			  <span class="glyphicon-class">About</span></a>
+		  </li>
+
+		  <li>
+			<div class="dropdown">
+  			  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+				<span class="glyphicon-class">Contact</span>			  
+			  </a>
+
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>
+				  <a href="#">Gmail</a>
+				</li>
+				<li>
+				  <a href="#">Weibo</a>
+				</li>
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+		
+	  </div>
+
+	  
+	  <div class="">
+		<h4>Category</h4>
+		
+		<!-- category list-->
+		<ul>
+		  
+		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#java">java(11)</a></li>
+		  
+		  <li><a href="/blog/categories.html#server">server(2)</a></li>
+		  
+		  <li><a href="/blog/categories.html#test">test(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(6)</a></li>
+		  
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(5)</a></li>
+		  
+		  <li><a href="/blog/categories.html#web前端">web前端(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#spring">spring(3)</a></li>
+		  
+		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#ruby">ruby(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#database">database(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#读书笔记">读书笔记(1)</a></li>
+		  
+	  </ul></div>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/2015/05/12/java-interface.html" title="Java Interface">Java Interface</a></li>
+
+<li><a href="/2015/05/12/java-final.html" title="Java Final">Java Final</a></li>
+
+<li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
+
+<li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
+
+<li><a href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2014/10/09/software-rush.html" title="Software rush——java夜未免">Software rush——java夜未免</a></li>
+
+<li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
+
+<li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
+
+<li><a href="/java/2014/06/10/design-pattern.html" title="Design patten">Design patten</a></li>
+
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
+
+<li><a href="/java/2014/05/10/hibernate.html" title="Hiberate 缓存">Hiberate 缓存</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+	  <div>	   
+		<a href="/blog/tags.html#java" 
+           title="java" 
+           style="font-size: 140%;">java(11)</a>
+		
+		<a href="/blog/tags.html#http server" 
+           title="http server" 
+           style="font-size: 100%;">http server(2)</a>
+		
+		<a href="/blog/tags.html#nginx" 
+           title="nginx" 
+           style="font-size: 100%;">nginx(1)</a>
+		
+		<a href="/blog/tags.html#tomcat" 
+           title="tomcat" 
+           style="font-size: 100%;">tomcat(1)</a>
+		
+		<a href="/blog/tags.html#负载均衡" 
+           title="负载均衡" 
+           style="font-size: 100%;">负载均衡(1)</a>
+		
+		<a href="/blog/tags.html#test" 
+           title="test" 
+           style="font-size: 100%;">test(1)</a>
+		
+		<a href="/blog/tags.html#linux" 
+           title="linux" 
+           style="font-size: 120%;">linux(6)</a>
+		
+		<a href="/blog/tags.html#ssh" 
+           title="ssh" 
+           style="font-size: 100%;">ssh(1)</a>
+		
+		<a href="/blog/tags.html#emacs" 
+           title="emacs" 
+           style="font-size: 120%;">emacs(5)</a>
+		
+		<a href="/blog/tags.html#yasinppet" 
+           title="yasinppet" 
+           style="font-size: 100%;">yasinppet(1)</a>
+		
+		<a href="/blog/tags.html#javascript" 
+           title="javascript" 
+           style="font-size: 100%;">javascript(3)</a>
+		
+		<a href="/blog/tags.html#url" 
+           title="url" 
+           style="font-size: 100%;">url(1)</a>
+		
+		<a href="/blog/tags.html#org-mode" 
+           title="org-mode" 
+           style="font-size: 100%;">org-mode(2)</a>
+		
+		<a href="/blog/tags.html#软件架构" 
+           title="软件架构" 
+           style="font-size: 100%;">软件架构(1)</a>
+		
+		<a href="/blog/tags.html#apache" 
+           title="apache" 
+           style="font-size: 100%;">apache(1)</a>
+		
+		<a href="/blog/tags.html#设计模式" 
+           title="设计模式" 
+           style="font-size: 100%;">设计模式(1)</a>
+		
+		<a href="/blog/tags.html#datepicker" 
+           title="datepicker" 
+           style="font-size: 100%;">datepicker(1)</a>
+		
+		<a href="/blog/tags.html#spring,ioc,java" 
+           title="spring,ioc,java" 
+           style="font-size: 100%;">spring,ioc,java(1)</a>
+		
+		<a href="/blog/tags.html#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
+		
+		<a href="/blog/tags.html#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(2)</a>
+		
+		<a href="/blog/tags.html#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(2)</a>
+		
+		<a href="/blog/tags.html#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(2)</a>
+		
+		<a href="/blog/tags.html#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(3)</a>
+		
+		<a href="/blog/tags.html#aop" 
+           title="aop" 
+           style="font-size: 100%;">aop(2)</a>
+		
+		<a href="/blog/tags.html#jekyll" 
+           title="jekyll" 
+           style="font-size: 100%;">jekyll(1)</a>
+		
+		<a href="/blog/tags.html#github pages" 
+           title="github pages" 
+           style="font-size: 100%;">github pages(1)</a>
+		
+		<a href="/blog/tags.html#static blog" 
+           title="static blog" 
+           style="font-size: 100%;">static blog(1)</a>
+		
+		<a href="/blog/tags.html#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="/blog/tags.html#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="/blog/tags.html#procedure" 
+           title="procedure" 
+           style="font-size: 100%;">procedure(1)</a>
+		
+		<a href="/blog/tags.html#sqldeveloper" 
+           title="sqldeveloper" 
+           style="font-size: 100%;">sqldeveloper(1)</a>
+		
+		<a href="/blog/tags.html#font" 
+           title="font" 
+           style="font-size: 100%;">font(2)</a>
+		
+		<a href="/blog/tags.html#ubuntu" 
+           title="ubuntu" 
+           style="font-size: 100%;">ubuntu(1)</a>
+		
+		<a href="/blog/tags.html#linux qq" 
+           title="linux qq" 
+           style="font-size: 100%;">linux qq(1)</a>
+		
+		<a href="/blog/tags.html#java,hibernate" 
+           title="java,hibernate" 
+           style="font-size: 100%;">java,hibernate(1)</a>
+		
+		<a href="/blog/tags.html#fcitx" 
+           title="fcitx" 
+           style="font-size: 100%;">fcitx(1)</a>
+		
+		<a href="/blog/tags.html#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="/blog/tags.html#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="/blog/tags.html#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="/blog/tags.html#挨踢生涯" 
+           title="挨踢生涯" 
+           style="font-size: 100%;">挨踢生涯(1)</a>
+		
+		<a href="/blog/tags.html#archlinux" 
+           title="archlinux" 
+           style="font-size: 100%;">archlinux(1)</a>
+		
+		<a href="/blog/tags.html#xcompmgr" 
+           title="xcompmgr" 
+           style="font-size: 100%;">xcompmgr(1)</a>
+		
+		<a href="/blog/tags.html#wget" 
+           title="wget" 
+           style="font-size: 100%;">wget(1)</a>
+		</div>
+	  
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		<section class="post">
+  <h3>设计模式-单例	</h3>
+  　<p>
+所谓单例模式，简单来说，就是在整个应用中保证只有一个类的实例存在。就像是Java Web中的application，也就是提供了一个全局变量，用处相当广泛，比如保存全局数据，实现全局性的操作等。单例模式用于保证在程序的运行期间某个类有且仅有一个实例。其优势在于尽可能解决系统资源。通过修改构造方法的访问权限就可以实现单例模式。
+</p>
+
+<!-- more -->
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 单例的实现与优化</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 最简单的实现</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+首先，能够想到的最简单的实现是，把类的构造函数写成private的，从而保证别的类不能实例化此类，然后在类中提供一个静态的实例并能够返回给使用者。这样，使用者就可以通过这个引用使用到这个类的实例了。
+</p>
+
+<p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{}</span>
+<span class="o">}</span></code></pre></div> 
+</p>
+
+<p>
+如上例，外部使用者如果需要使用SingletonClass的实例，只能通过getInstance()方法，并且它的构造方法是private的，这样就保证了只能有一个对象存在。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 性能优化——lazy loaded</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+上面的代码虽然简单，但是有一个问题——无论这个类是否被使用，都会创建一个instance对象。如果这个创建过程很耗时，比如需要连接10000次数据库(夸张了…:-))，并且这个类还并不一定会被使用，那么这个创建过程就是无用的。怎么办呢？
+</p>
+
+<p>
+为了解决这个问题，我们想到了新的解决方案：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java">public class SingletonClass {
+
+  private static SingletonClass instance = null;
+
+  public static SingletonClass getInstance() {
+	if(instance == null) {
+	  instance = new SingletonClass();
+	}
+	return instance;
+  }
+
+  private SingletonClass() {
+
+  }
+
+}
+</pre>
+</div>
+
+<p>
+代码的变化有两处——首先，把instance初始化为null，直到第一次使用的时候通过判断是否为null来创建对象。因为创建过程不在声明处，所以那个final的修饰必须去掉。
+</p>
+
+<p>
+我们来想象一下这个过程。要使用SingletonClass，调用getInstance()方法。第一次的时候发现instance是null，然后就新建一个对象，返回出去；第二次再使用的时候，因为这个instance是static的，所以已经不是null了，因此不会再创建对象，直接将其返回。
+</p>
+
+<p>
+这个过程就成为lazy loaded，也就是迟加载——直到使用的时候才进行加载。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 同步</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+上面的代码很清楚，也很简单。然而就像那句名言：“80%的错误都是由20%代码优化引起的”。单线程下，这段代码没有什么问题，可是如果是多线程，麻烦就来了。我们来分析一下：
+</p>
+
+<p>
+线程A希望使用SingletonClass，调用getInstance()方法。因为是第一次调用，A就发现instance是null的，于是它开始创建实例，就在这个时候，CPU发生时间片切换，线程B开始执行，它要使用SingletonClass，调用getInstance()方法，同样检测到instance是null——注意，这是在A检测完之后切换的，也就是说A并没有来得及创建对象——因此B开始创建。B创建完成后，切换到A继续执行，因为它已经检测完了，所以A不会再检测一遍，它会直接创建对象。这样，线程A和B各自拥有一个SingletonClass的对象——单例失败！
+</p>
+
+<p>
+解决的方法也很简单，那就是加锁：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java">public class SingletonClass {
+
+  private static SingletonClass instance = null;
+
+  public synchronized static SingletonClass getInstance() {
+	if(instance == null) {
+	  instance = new SingletonClass();
+	}
+	return instance;
+  }
+
+  private SingletonClass() {
+
+  }
+
+}
+</pre>
+</div>
+
+<p>
+是要getInstance()加上同步锁，一个线程必须等待另外一个线程创建完成后才能使用这个方法，这就保证了单例的唯一性。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 又是性能</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+上面的代码又是很清楚很简单的，然而，简单的东西往往不够理想。这段代码毫无疑问存在性能的问题——synchronized修饰的同步块可是要比一般的代码段慢上几倍的！如果存在很多次getInstance()的调用，那性能问题就不得不考虑了！
+</p>
+
+<p>
+让我们来分析一下，究竟是整个方法都必须加锁，还是仅仅其中某一句加锁就足够了？我们为什么要加锁呢？分析一下出现lazy loaded的那种情形的原因。原因就是检测null的操作和创建对象的操作分离了。如果这两个操作能够原子地进行，那么单例就已经保证了。于是，我们开始修改代码：
+</p>
+
+
+<div class="org-src-container">
+
+<pre class="src src-java">   public class SingletonClass {
+
+  private static SingletonClass instance = null;
+
+  public static SingletonClass getInstance() {
+	synchronized (SingletonClass.class) {
+	  if(instance == null) {
+		instance = new SingletonClass();
+	  }
+	}    
+	return instance;
+  }
+
+  private SingletonClass() {
+
+  }
+
+}
+</pre>
+</div>
+
+<p>
+首先去掉getInstance()的同步操作，然后把同步锁加载if语句上。但是这样的修改起不到任何作用：因为每次调用getInstance()的时候必然要同步，性能问题还是存在。如果……如果我们事先判断一下是不是为null再去同步呢？
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java">public class SingletonClass {
+
+  private static SingletonClass instance = null;
+
+  public static SingletonClass getInstance() {
+	if (instance == null) {
+	  synchronized (SingletonClass.class) {
+		if (instance == null) {
+		  instance = new SingletonClass();
+		}
+	  }
+	}
+	return instance;
+  }
+
+  private SingletonClass() {
+
+  }
+
+}
+</pre>
+</div>
+
+
+<p>
+还有问题吗？首先判断instance是不是为null，如果为null，加锁初始化；如果不为null，直接返回instance。
+</p>
+
+<p>
+这就是double-checked locking设计实现单例模式。到此为止，一切都很完美。我们用一种很聪明的方式实现了单例模式。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 从源头检查</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+下面我们开始说编译原理。所谓编译，就是把源代码“翻译”成目标代码——大多数是指机器代码——的过程。针对Java，它的目标代码不是本地机器代码，而是虚拟机代码。编译原理里面有一个很重要的内容是编译器优化。所谓编译器优化是指，在不改变原来语义的情况下，通过调整语句顺序，来让程序运行的更快。这个过程成为reorder。
+</p>
+
+<p>
+要知道，JVM只是一个标准，并不是实现。JVM中并没有规定有关编译器优化的内容，也就是说，JVM实现可以自由的进行编译器优化。
+</p>
+
+<p>
+下面来想一下，创建一个变量需要哪些步骤呢？一个是申请一块内存，调用构造方法进行初始化操作，另一个是分配一个指针指向这块内存。这两个操作谁在前谁在后呢？JVM规范并没有规定。那么就存在这么一种情况，JVM是先开辟出一块内存，然后把指针指向这块内存，最后调用构造方法进行初始化。
+</p>
+
+<p>
+下面我们来考虑这么一种情况：线程A开始创建SingletonClass的实例，此时线程B调用了getInstance()方法，首先判断instance是否为null。按照我们上面所说的内存模型，A已经把instance指向了那块内存，只是还没有调用构造方法，因此B检测到instance不为null，于是直接把instance返回了——问题出现了，尽管instance不为null，但它并没有构造完成，就像一套房子已经给了你钥匙，但你并不能住进去，因为里面还没有收拾。此时，如果B在A将instance构造完成之前就是用了这个实例，程序就会出现错误了！
+</p>
+
+<p>
+于是，我们想到了下面的代码：
+</p>
+
+<p>
+public class SingletonClass {
+</p>
+
+<p>
+private static SingletonClass instance = null;
+</p>
+
+<p>
+public static SingletonClass getInstance() {
+  if (instance == null) {
+    SingletonClass sc;
+    synchronized (SingletonClass.class) {
+      sc = instance;
+      if (sc == null) {
+        synchronized (SingletonClass.class) {
+          if(sc == null) {
+            sc = new SingletonClass();
+          }
+        }
+        instance = sc;
+      }
+    }
+  }
+  return instance;
+}
+</p>
+
+<p>
+private SingletonClass() {
+</p>
+
+<p>
+}
+</p>
+
+<p>
+}
+</p>
+
+<p>
+我们在第一个同步块里面创建一个临时变量，然后使用这个临时变量进行对象的创建，并且在最后把instance指针临时变量的内存空间。写出这种代码基于以下思想，即synchronized会起到一个代码屏蔽的作用，同步块里面的代码和外部的代码没有联系。因此，在外部的同步块里面对临时变量sc进行操作并不影响instance，所以外部类在instance=sc;之前检测instance的时候，结果instance依然是null。
+</p>
+
+<p>
+不过，这种想法完全是错误的！同步块的释放保证在此之前——也就是同步块里面——的操作必须完成，但是并不保证同步块之后的操作不能因编译器优化而调换到同步块结束之前进行。因此，编译器完全可以把instance=sc;这句移到内部同步块里面执行。这样，程序又是错误的了！
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 解决方案</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+说了这么多，难道单例没有办法在Java中实现吗？其实不然！
+</p>
+
+<p>
+在JDK 5之后，Java使用了新的内存模型。volatile关键字有了明确的语义——在JDK1.5之前，volatile是个关键字，但是并没有明确的规定其用途——被volatile修饰的写变量不能和之前的读写代码调整，读变量不能和之后的读写代码调整！因此，只要我们简单的把instance加上volatile关键字就可以了。
+</p>
+
+<p>
+public class SingletonClass {
+</p>
+
+<p>
+private volatile static SingletonClass instance = null;
+</p>
+
+<p>
+public static SingletonClass getInstance() {
+  if (instance == null) {
+    synchronized (SingletonClass.class) {
+      if(instance == null) {
+        instance = new SingletonClass();
+      }
+    }
+  }
+  return instance;
+}
+</p>
+
+<p>
+private SingletonClass() {
+</p>
+
+<p>
+}
+</p>
+
+<p>
+}
+</p>
+
+<p>
+然而，这只是JDK1.5之后的Java的解决方案，那之前版本呢？其实，还有另外的一种解决方案，并不会受到Java版本的影响：
+</p>
+
+<p>
+public class SingletonClass {
+</p>
+
+<p>
+private static class SingletonClassInstance {
+  private static final SingletonClass instance = new SingletonClass();
+}
+</p>
+
+<p>
+public static SingletonClass getInstance() {
+  return SingletonClassInstance.instance;
+}
+</p>
+
+<p>
+private SingletonClass() {
+</p>
+
+<p>
+}
+</p>
+
+<p>
+}
+</p>
+
+<p>
+在这一版本的单例模式实现代码中，我们使用了Java的静态内部类。这一技术是被JVM明确说明了的，因此不存在任何二义性。在这段代码中，因为SingletonClass没有static的属性，因此并不会被初始化。直到调用getInstance()的时候，会首先加载SingletonClassInstance类，这个类有一个static的SingletonClass实例，因此需要调用SingletonClass的构造方法，然后getInstance()将把这个内部类的instance返回给使用者。由于这个instance是static的，因此并不会构造多次。
+</p>
+
+<p>
+由于SingletonClassInstance是私有静态内部类，所以不会被其他类知道，同样，static语义也要求不会有多个实例存在。并且，JSL规范定义，类的构造必须是原子性的，非并发的，因此不需要加同步块。同样，由于这个构造是并发的，所以getInstance()也并不需要加同步。
+</p>
+
+<p>
+至此，我们完整的了解了单例模式在Java语言中的时候，提出了两种解决方案。个人偏向于第二种，并且Effiective Java也推荐的这种方式。
+</p>
+
+<p>
+这个类我只想创建一个实例， 所以就用单例模式
+</p>
+</div>
+</div>
+</div>
+
+</section>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<div id="footer">
+	  <p>© Geek41 2014 with help from <a href="#">Jekyll</a> and <a href="">Twitter Bootstrap</a></p>
+	</div>
+	
+	<script type="text/javascript" src="/assets/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

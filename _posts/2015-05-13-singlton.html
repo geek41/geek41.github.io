@@ -1,15 +1,14 @@
+---
 layout: view
 comments: true
 title: 设计模式-单例
-categories: categories
-tags: tags
-date: date
-keywords: keyword
-description: description
+categories: java
+tags: [设计模式,java]
+date: 2013-7-10
+keywords: java
+description: java
 ---
 
-
----
 <p>
 所谓单例模式，简单来说，就是在整个应用中保证只有一个类的实例存在。就像是Java Web中的application，也就是提供了一个全局变量，用处相当广泛，比如保存全局数据，实现全局性的操作等。单例模式用于保证在程序的运行期间某个类有且仅有一个实例。其优势在于尽可能解决系统资源。通过修改构造方法的访问权限就可以实现单例模式。
 </p>
@@ -28,29 +27,15 @@ description: description
 </p>
 
 <p>
+{% highlight java %}
 public class SingletonClass {
-</p>
-
-<p>
-private static final SingletonClass instance = new SingletonClass();
-</p>
-
-<p>
-public static SingletonClass getInstance() {
-return instance;
+    private static final SingletonClass instance = new SingletonClass();
+    public static SingletonClass getInstance() {
+        return instance;
+    }
+    private SingletonClass() {}
 }
-</p>
-
-<p>
-private SingletonClass() {
-</p>
-
-<p>
-}
-</p>
-
-<p>
-}
+{% endhighlight %} 
 </p>
 
 <p>
