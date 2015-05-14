@@ -55,26 +55,21 @@ public class SingletonClass {
 为了解决这个问题，我们想到了新的解决方案：
 </p>
 
-<div class="org-src-container">
-
-<pre class="src src-java">public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public static SingletonClass getInstance() {
-	if(instance == null) {
-	  instance = new SingletonClass();
-	}
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
+<p>
+{% highlight java %}
+public class SingletonClass {
+    private static SingletonClass instance = null;
+    public static SingletonClass getInstance() {
+        if(instance == null) {
+            instance = new SingletonClass();
+        }
+        return instance;
+    }
+    private SingletonClass() {}
 }
-</pre>
-</div>
+{% endhighlight %}
+</p>
+
 
 <p>
 代码的变化有两处——首先，把instance初始化为null，直到第一次使用的时候通过判断是否为null来创建对象。因为创建过程不在声明处，所以那个final的修饰必须去掉。
@@ -105,26 +100,21 @@ public class SingletonClass {
 解决的方法也很简单，那就是加锁：
 </p>
 
-<div class="org-src-container">
-
-<pre class="src src-java">public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public synchronized static SingletonClass getInstance() {
-	if(instance == null) {
-	  instance = new SingletonClass();
-	}
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
+<p>
+{% highlight java %}
+public class SingletonClass {
+    private static SingletonClass instance = null;
+    public synchronized static SingletonClass getInstance() {
+        if(instance == null) {
+            instance = new SingletonClass();
+        }
+        return instance;
+    }
+    private SingletonClass() {
+    }
 }
-</pre>
-</div>
+{% endhighlight %}
+</p>
 
 <p>
 是要getInstance()加上同步锁，一个线程必须等待另外一个线程创建完成后才能使用这个方法，这就保证了单例的唯一性。
@@ -143,59 +133,47 @@ public class SingletonClass {
 让我们来分析一下，究竟是整个方法都必须加锁，还是仅仅其中某一句加锁就足够了？我们为什么要加锁呢？分析一下出现lazy loaded的那种情形的原因。原因就是检测null的操作和创建对象的操作分离了。如果这两个操作能够原子地进行，那么单例就已经保证了。于是，我们开始修改代码：
 </p>
 
-
-<div class="org-src-container">
-
-<pre class="src src-java">   public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public static SingletonClass getInstance() {
-	synchronized (SingletonClass.class) {
-	  if(instance == null) {
-		instance = new SingletonClass();
-	  }
-	}    
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
+<p>
+{% highlight java %}
+public class SingletonClass {
+    private static SingletonClass instance = null;
+    public static SingletonClass getInstance() {
+        synchronized (SingletonClass.class) {
+            if(instance == null) {
+                instance = new SingletonClass();
+            }
+        }    
+        return instance;
+    }
+    private SingletonClass() {
+    }
 }
-</pre>
-</div>
+{% endhighlight %}
+</p>
 
 <p>
 首先去掉getInstance()的同步操作，然后把同步锁加载if语句上。但是这样的修改起不到任何作用：因为每次调用getInstance()的时候必然要同步，性能问题还是存在。如果……如果我们事先判断一下是不是为null再去同步呢？
 </p>
 
-<div class="org-src-container">
-
-<pre class="src src-java">public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public static SingletonClass getInstance() {
-	if (instance == null) {
-	  synchronized (SingletonClass.class) {
-		if (instance == null) {
-		  instance = new SingletonClass();
-		}
-	  }
-	}
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
+<p>
+{% highlight java %}
+public class SingletonClass {
+    private static SingletonClass instance = null;
+    public static SingletonClass getInstance() {
+        if (instance == null) {
+            synchronized (SingletonClass.class) {
+                if (instance == null) {
+                    instance = new SingletonClass();
+                }
+            }
+        }
+        return instance;
+    }
+    private SingletonClass() {
+    }
 }
-</pre>
-</div>
-
+{% endhighlight %} 
+</p>
 
 <p>
 还有问题吗？首先判断instance是不是为null，如果为null，加锁初始化；如果不为null，直接返回instance。
@@ -231,44 +209,32 @@ public class SingletonClass {
 </p>
 
 <p>
+{% highlight java %}
 public class SingletonClass {
-</p>
-
-<p>
-private static SingletonClass instance = null;
-</p>
-
-<p>
-public static SingletonClass getInstance() {
-  if (instance == null) {
-    SingletonClass sc;
-    synchronized (SingletonClass.class) {
-      sc = instance;
-      if (sc == null) {
-        synchronized (SingletonClass.class) {
-          if(sc == null) {
-            sc = new SingletonClass();
-          }
+    private static SingletonClass instance = null;
+    public static SingletonClass getInstance() {
+        if (instance == null) {
+            SingletonClass sc;
+            synchronized (SingletonClass.class) {
+                sc = instance;
+                if (sc == null) {
+                    synchronized (SingletonClass.class) {
+                        if(sc == null) {
+                            sc = new SingletonClass();
+                        }
+                    }
+                    instance = sc;
+                }
+            }
         }
-        instance = sc;
-      }
+        return instance;
     }
-  }
-  return instance;
+    private SingletonClass() {
+    }
 }
+{% endhighlight %}
 </p>
 
-<p>
-private SingletonClass() {
-</p>
-
-<p>
-}
-</p>
-
-<p>
-}
-</p>
 
 <p>
 我们在第一个同步块里面创建一个临时变量，然后使用这个临时变量进行对象的创建，并且在最后把instance指针临时变量的内存空间。写出这种代码基于以下思想，即synchronized会起到一个代码屏蔽的作用，同步块里面的代码和外部的代码没有联系。因此，在外部的同步块里面对临时变量sc进行操作并不影响instance，所以外部类在instance=sc;之前检测instance的时候，结果instance依然是null。
@@ -292,36 +258,23 @@ private SingletonClass() {
 </p>
 
 <p>
+{% highlight java %}
 public class SingletonClass {
-</p>
-
-<p>
-private volatile static SingletonClass instance = null;
-</p>
-
-<p>
-public static SingletonClass getInstance() {
-  if (instance == null) {
-    synchronized (SingletonClass.class) {
-      if(instance == null) {
-        instance = new SingletonClass();
-      }
+    private volatile static SingletonClass instance = null;
+    public static SingletonClass getInstance() {
+        if (instance == null) {
+            synchronized (SingletonClass.class) {
+                if(instance == null) {
+                    instance = new SingletonClass();
+                }
+            }
+        }
+        return instance;
     }
-  }
-  return instance;
+    private SingletonClass() {
+    }
 }
-</p>
-
-<p>
-private SingletonClass() {
-</p>
-
-<p>
-}
-</p>
-
-<p>
-}
+{% endhighlight %}
 </p>
 
 <p>
@@ -329,31 +282,18 @@ private SingletonClass() {
 </p>
 
 <p>
+{% highlight java %}
 public class SingletonClass {
-</p>
-
-<p>
-private static class SingletonClassInstance {
-  private static final SingletonClass instance = new SingletonClass();
+    private static class SingletonClassInstance {
+        private static final SingletonClass instance = new SingletonClass();
+    }
+    public static SingletonClass getInstance() {
+        return SingletonClassInstance.instance;
+    }
+    private SingletonClass() {
+    }
 }
-</p>
-
-<p>
-public static SingletonClass getInstance() {
-  return SingletonClassInstance.instance;
-}
-</p>
-
-<p>
-private SingletonClass() {
-</p>
-
-<p>
-}
-</p>
-
-<p>
-}
+{% endhighlight %} 
 </p>
 
 <p>

@@ -145,7 +145,7 @@
 		  
 		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(11)</a></li>
+		  <li><a href="/blog/categories.html#java">java(13)</a></li>
 		  
 		  <li><a href="/blog/categories.html#server">server(2)</a></li>
 		  
@@ -175,15 +175,13 @@
 <h4>Recently Posts</h4>
 <ul>
 
-<li><a href="/2015/05/12/java-interface.html" title="Java Interface">Java Interface</a></li>
-
-<li><a href="/2015/05/12/java-final.html" title="Java Final">Java Final</a></li>
-
 <li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
 
 <li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
 
 <li><a href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2014/10/09/software-rush.html" title="Software rush——java夜未免">Software rush——java夜未免</a></li>
+
+<li><a href="/java/2014/09/10/java-interface.html" title="Java接口编程">Java接口编程</a></li>
 
 <li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
 
@@ -195,6 +193,8 @@
 
 <li><a href="/java/2014/05/10/hibernate.html" title="Hiberate 缓存">Hiberate 缓存</a></li>
 
+<li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
+
 </ul>
 </section>
 
@@ -203,7 +203,7 @@
 	  <div>	   
 		<a href="/blog/tags.html#java" 
            title="java" 
-           style="font-size: 140%;">java(11)</a>
+           style="font-size: 140%;">java(13)</a>
 		
 		<a href="/blog/tags.html#http server" 
            title="http server" 
@@ -424,26 +424,19 @@
 为了解决这个问题，我们想到了新的解决方案：
 </p>
 
-<div class="org-src-container">
+<p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{}</span>
+<span class="o">}</span></code></pre></div>
+</p>
 
-<pre class="src src-java">public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public static SingletonClass getInstance() {
-	if(instance == null) {
-	  instance = new SingletonClass();
-	}
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
-}
-</pre>
-</div>
 
 <p>
 代码的变化有两处——首先，把instance初始化为null，直到第一次使用的时候通过判断是否为null来创建对象。因为创建过程不在声明处，所以那个final的修饰必须去掉。
@@ -474,26 +467,19 @@
 解决的方法也很简单，那就是加锁：
 </p>
 
-<div class="org-src-container">
-
-<pre class="src src-java">public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public synchronized static SingletonClass getInstance() {
-	if(instance == null) {
-	  instance = new SingletonClass();
-	}
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
-}
-</pre>
-</div>
+<p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+</p>
 
 <p>
 是要getInstance()加上同步锁，一个线程必须等待另外一个线程创建完成后才能使用这个方法，这就保证了单例的唯一性。
@@ -512,59 +498,43 @@
 让我们来分析一下，究竟是整个方法都必须加锁，还是仅仅其中某一句加锁就足够了？我们为什么要加锁呢？分析一下出现lazy loaded的那种情形的原因。原因就是检测null的操作和创建对象的操作分离了。如果这两个操作能够原子地进行，那么单例就已经保证了。于是，我们开始修改代码：
 </p>
 
-
-<div class="org-src-container">
-
-<pre class="src src-java">   public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public static SingletonClass getInstance() {
-	synchronized (SingletonClass.class) {
-	  if(instance == null) {
-		instance = new SingletonClass();
-	  }
-	}    
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
-}
-</pre>
-</div>
+<p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">synchronized</span> <span class="o">(</span><span class="n">SingletonClass</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>    
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+</p>
 
 <p>
 首先去掉getInstance()的同步操作，然后把同步锁加载if语句上。但是这样的修改起不到任何作用：因为每次调用getInstance()的时候必然要同步，性能问题还是存在。如果……如果我们事先判断一下是不是为null再去同步呢？
 </p>
 
-<div class="org-src-container">
-
-<pre class="src src-java">public class SingletonClass {
-
-  private static SingletonClass instance = null;
-
-  public static SingletonClass getInstance() {
-	if (instance == null) {
-	  synchronized (SingletonClass.class) {
-		if (instance == null) {
-		  instance = new SingletonClass();
-		}
-	  }
-	}
-	return instance;
-  }
-
-  private SingletonClass() {
-
-  }
-
-}
-</pre>
-</div>
-
+<p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">synchronized</span> <span class="o">(</span><span class="n">SingletonClass</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div> 
+</p>
 
 <p>
 还有问题吗？首先判断instance是不是为null，如果为null，加锁初始化；如果不为null，直接返回instance。
@@ -600,44 +570,30 @@
 </p>
 
 <p>
-public class SingletonClass {
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">SingletonClass</span> <span class="n">sc</span><span class="o">;</span>
+            <span class="kd">synchronized</span> <span class="o">(</span><span class="n">SingletonClass</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sc</span> <span class="o">=</span> <span class="n">instance</span><span class="o">;</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">sc</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="kd">synchronized</span> <span class="o">(</span><span class="n">SingletonClass</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="k">if</span><span class="o">(</span><span class="n">sc</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                            <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+                        <span class="o">}</span>
+                    <span class="o">}</span>
+                    <span class="n">instance</span> <span class="o">=</span> <span class="n">sc</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 </p>
 
-<p>
-private static SingletonClass instance = null;
-</p>
-
-<p>
-public static SingletonClass getInstance() {
-  if (instance == null) {
-    SingletonClass sc;
-    synchronized (SingletonClass.class) {
-      sc = instance;
-      if (sc == null) {
-        synchronized (SingletonClass.class) {
-          if(sc == null) {
-            sc = new SingletonClass();
-          }
-        }
-        instance = sc;
-      }
-    }
-  }
-  return instance;
-}
-</p>
-
-<p>
-private SingletonClass() {
-</p>
-
-<p>
-}
-</p>
-
-<p>
-}
-</p>
 
 <p>
 我们在第一个同步块里面创建一个临时变量，然后使用这个临时变量进行对象的创建，并且在最后把instance指针临时变量的内存空间。写出这种代码基于以下思想，即synchronized会起到一个代码屏蔽的作用，同步块里面的代码和外部的代码没有联系。因此，在外部的同步块里面对临时变量sc进行操作并不影响instance，所以外部类在instance=sc;之前检测instance的时候，结果instance依然是null。
@@ -661,36 +617,21 @@ private SingletonClass() {
 </p>
 
 <p>
-public class SingletonClass {
-</p>
-
-<p>
-private volatile static SingletonClass instance = null;
-</p>
-
-<p>
-public static SingletonClass getInstance() {
-  if (instance == null) {
-    synchronized (SingletonClass.class) {
-      if(instance == null) {
-        instance = new SingletonClass();
-      }
-    }
-  }
-  return instance;
-}
-</p>
-
-<p>
-private SingletonClass() {
-</p>
-
-<p>
-}
-</p>
-
-<p>
-}
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">volatile</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">synchronized</span> <span class="o">(</span><span class="n">SingletonClass</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 </p>
 
 <p>
@@ -698,31 +639,16 @@ private SingletonClass() {
 </p>
 
 <p>
-public class SingletonClass {
-</p>
-
-<p>
-private static class SingletonClassInstance {
-  private static final SingletonClass instance = new SingletonClass();
-}
-</p>
-
-<p>
-public static SingletonClass getInstance() {
-  return SingletonClassInstance.instance;
-}
-</p>
-
-<p>
-private SingletonClass() {
-</p>
-
-<p>
-}
-</p>
-
-<p>
-}
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingletonClass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SingletonClassInstance</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">SingletonClass</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SingletonClass</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SingletonClass</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">SingletonClassInstance</span><span class="o">.</span><span class="na">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="nf">SingletonClass</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div> 
 </p>
 
 <p>
