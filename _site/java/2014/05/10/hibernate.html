@@ -93,7 +93,7 @@
 <div id="main">
 
 <p>
-对于Hibernate这类ORM而言,缓存显的尤为重要,它是持久层性能提升的关键.简单来讲Hibernate就是对JDBC进行封装,以实现内部状态的管理,OR关系的映射等,但随之带来的就是数据访问效率的降低,和性能的下降,而缓存就是弥补这一缺点的重要方法.
+对于 <a href="http://www.hibernate.org">Hibernate</a> 这类ORM而言,缓存显的尤为重要,它是持久层性能提升的关键.简单来讲  <a href="http://www.hibernate.org">Hibernate</a> 就是对JDBC进行封装,以实现内部状态的管理,OR关系的映射等,但随之带来的就是数据访问效率的降低,和性能的下降,而缓存就是弥补这一缺点的重要方法.
 </p>
 
 <!-- more -->
@@ -109,7 +109,7 @@
 <h3 id="sec-1-1"><span class="section-number-3">1.1</span> 事务级缓存</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-即在当前事务范围内的数据缓存.就Hibernate来讲,事务级缓存是基于Session的生命周期实现的,每个Session内部会存在一个数据缓存,它随着 Session的创建而存在,随着Session的销毁而灭亡,因此也称为Session Level Cache.
+即在当前事务范围内的数据缓存.就 <a href="http://www.hibernate.org">Hibernate</a> 来讲,事务级缓存是基于Session的生命周期实现的,每个Session内部会存在一个数据缓存,它随着 Session的创建而存在,随着Session的销毁而灭亡,因此也称为Session Level Cache.
 </p>
 </div>
 </div>
@@ -118,7 +118,7 @@
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> 应用级缓存</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-即在某个应用中或应用中某个独立数据库访问子集中的共享缓存,此缓存可由多个事务共享(数据库事务或应用事务),事务之间的缓存共享策略与应用的事务隔离机制密切相关.在Hibernate中,应用级缓存由SessionFactory实现,所有由一个SessionFactory创建的 Session实例共享此缓存,因此也称为SessionFactory Level Cache.
+即在某个应用中或应用中某个独立数据库访问子集中的共享缓存,此缓存可由多个事务共享(数据库事务或应用事务),事务之间的缓存共享策略与应用的事务隔离机制密切相关.在 <a href="http://www.hibernate.org">Hibernate</a> 中,应用级缓存由SessionFactory实现,所有由一个SessionFactory创建的 Session实例共享此缓存,因此也称为SessionFactory Level Cache.
 </p>
 </div>
 </div>
@@ -138,7 +138,7 @@
 <h2 id="sec-2"><span class="section-number-2">2</span> Hibernate的缓存策略:</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Hibernate中提供了两级Cache，第一级别的缓存是Session级别的缓存，它是属于事务范围的缓存。这一级别的缓存由hibernate管理的，一般情况下无需进行干预；第二级别的缓存是SessionFactory级别的缓存，它是属于进程范围或群集范围的缓存。这一级别的缓存可以进行配置和更改，并且可以动态加载和卸载，属于多事务级别，要防止事务并发性。
+<a href="http://www.hibernate.org">Hibernate</a> 中提供了两级Cache，第一级别的缓存是Session级别的缓存，它是属于事务范围的缓存。这一级别的缓存由 <a href="http://www.hibernate.org">Hibernate</a> 管理的，一般情况下无需进行干预；第二级别的缓存是SessionFactory级别的缓存，它是属于进程范围或群集范围的缓存。这一级别的缓存可以进行配置和更改，并且可以动态加载和卸载，属于多事务级别，要防止事务并发性。
 </p>
 
 <p>
@@ -154,7 +154,7 @@ Hibernate中提供了两级Cache，第一级别的缓存是Session级别的缓�
 </p>
 
 <p>
-一级缓存的管理：当应用程序调用Session的save()、update()、saveOrUpdate()、get()或load()，以及调用查询接口的 list()、iterate()&#x2013;(用的是n+1次查询，先查id)或filter()方法时，如果在Session缓存中还不存在相应的对象，Hibernate就会把该对象加入到第一级缓存中。当清理缓存时，Hibernate会根据缓存中对象的状态变化来同步更新数据库。 Session为应用程序提供了两个管理缓存的方法： evict(Object obj)：从缓存中清除参数指定的持久化对象。 clear()：清空缓存中所有持久化对象,flush():使缓存与数据库同步。
+一级缓存的管理：当应用程序调用Session的save()、update()、saveOrUpdate()、get()或load()，以及调用查询接口的 list()、iterate()&#x2013;(用的是n+1次查询，先查id)或filter()方法时，如果在Session缓存中还不存在相应的对象， <a href="http://www.hibernate.org">Hibernate</a> 会把该对象加入到第一级缓存中。当清理缓存时， <a href="http://www.hibernate.org">Hibernate</a> 会根据缓存中对象的状态变化来同步更新数据库。 Session为应用程序提供了两个管理缓存的方法： evict(Object obj)：从缓存中清除参数指定的持久化对象。 clear()：清空缓存中所有持久化对象,flush():使缓存与数据库同步。
 </p>
 
 <p>
@@ -173,12 +173,12 @@ Hibernate的二级缓存策略的一般过程如下：
 <p>
 1:条件查询的时候，总是发出一条select * from table_name where …. （选择所有字段）这样的SQL句查询数据库，一次获得所有的数据对象(这个问题要考虑，如果你查询十万条数据时，内存不是被占用)。
 2:把获得的所有数据对象根据ID放入到第二级缓存中。
-3: 当Hibernate根据ID访问数据对象的时候，首先从Session一级缓存中查；查不到，如果配置了二级缓存，那么从二级缓存中查；查不到，再查询数据库，把结果按照ID放入到缓存。
+3: 当 <a href="http://www.hibernate.org">Hibernate</a> 根据ID访问数据对象的时候，首先从Session一级缓存中查；查不到，如果配置了二级缓存，那么从二级缓存中查；查不到，再查询数据库，把结果按照ID放入到缓存。
 4:删除、更新、增加数据的时候，同时更新缓存。
 </p>
 
 <p>
-Hibernate的二级缓存策略，是针对于ID查询的缓存策略，对于条件查询则毫无作用。为此，Hibernate提供了针对条件查询的Query Cache。
+<a href="http://www.hibernate.org">Hibernate</a> 的二级缓存策略，是针对于ID查询的缓存策略，对于条件查询则毫无作用。为此， <a href="http://www.hibernate.org">Hibernate</a> 提供了针对条件查询的Query Cache。
 </p>
 
 <p>
@@ -218,7 +218,7 @@ Q:不适合存放到第二级缓存的数据？
 </p>
 
 <p>
-常用的缓存插件 Hibernater 的二级缓存是一个插件，下面是几种常用的缓存插件：
+常用的缓存插件 <a href="http://www.hibernate.org">Hibernate</a> 的二级缓存是一个插件，下面是几种常用的缓存插件：
 </p>
 
 <p>

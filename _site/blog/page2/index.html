@@ -145,13 +145,13 @@
 		  
 		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(13)</a></li>
+		  <li><a href="/blog/categories.html#java">java(14)</a></li>
 		  
 		  <li><a href="/blog/categories.html#server">server(2)</a></li>
 		  
 		  <li><a href="/blog/categories.html#test">test(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#linux&unix">linux&unix(6)</a></li>
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(7)</a></li>
 		  
 		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(5)</a></li>
 		  
@@ -181,6 +181,10 @@
 
 <li><a href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2014/10/09/software-rush.html" title="Software rush——java夜未免">Software rush——java夜未免</a></li>
 
+<li><a href="/java/2014/10/02/sitemesh.html" title="Sitemesh 简单配置">Sitemesh 简单配置</a></li>
+
+<li><a href="/linux&unix/2014/10/01/grep.html" title="Grep笔记">Grep笔记</a></li>
+
 <li><a href="/java/2014/09/10/java-interface.html" title="Java接口编程">Java接口编程</a></li>
 
 <li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
@@ -191,10 +195,6 @@
 
 <li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
 
-<li><a href="/java/2014/05/10/hibernate.html" title="Hiberate 缓存">Hiberate 缓存</a></li>
-
-<li><a href="/linux&unix/2014/05/02/ubuntu-qq.html" title="Linux 下的 qq解决方案">Linux 下的 qq解决方案</a></li>
-
 </ul>
 </section>
 
@@ -203,7 +203,7 @@
 	  <div>	   
 		<a href="/blog/tags.html#java" 
            title="java" 
-           style="font-size: 140%;">java(13)</a>
+           style="font-size: 140%;">java(14)</a>
 		
 		<a href="/blog/tags.html#http server" 
            title="http server" 
@@ -227,7 +227,7 @@
 		
 		<a href="/blog/tags.html#linux" 
            title="linux" 
-           style="font-size: 120%;">linux(6)</a>
+           style="font-size: 120%;">linux(7)</a>
 		
 		<a href="/blog/tags.html#ssh" 
            title="ssh" 
@@ -381,6 +381,120 @@
 		
 <!--
 	<div >
+	  <h5 class="post-date" align="right">10 Jun 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/06/10/design-pattern.html">[2014-06-10] Design patten</a></h3>
+  
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 设计原则</a>
+<ul>
+<li><a href="#sec-1-1">1.1. DRY</a></li>
+<li><a href="#sec-1-2">1.2. 封装变化</a></li>
+<li><a href="#sec-1-3">1.3. 针对接口编程,而不是针对实现编程</a></li>
+<li><a href="#sec-1-4">1.4. 合成复用原则</a></li>
+<li><a href="#sec-1-5">1.5. 里氏替换原则</a></li>
+<li><a href="#sec-1-6">1.6. 单一职责原则</a></li>
+<li><a href="#sec-1-7">1.7. 接口隔离原则</a></li>
+<li><a href="#sec-1-8">1.8. 开闭原则</a></li>
+<li><a href="#sec-1-9">1.9. 依赖倒转原则</a></li>
+<li><a href="#sec-1-10">1.10. 迪米特法则</a></li>
+<li><a href="#sec-1-11">1.11. 好莱坞原则</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 23种设计模式</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 创建型模式</a>
+<ul>
+<li><a href="#sec-2-1-1">2.1.1. 简单工厂(Simple Factory)</a></li>
+<li><a href="#sec-2-1-2">2.1.2. 工厂方法模式</a></li>
+<li><a href="#sec-2-1-3">2.1.3. 抽象工厂</a></li>
+<li><a href="#sec-2-1-4">2.1.4. 创建者模式(Builder)</a></li>
+<li><a href="#sec-2-1-5">2.1.5. 原型模式 (Prototype)</a></li>
+<li><a href="#sec-2-1-6">2.1.6. 单例模式 (Singleton)</a></li>
+<li><a href="#sec-2-1-7">2.1.7. 多例模式(Multition pattern)</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2">2.2. 结构型模式</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1. 外观模式(Facade)</a></li>
+<li><a href="#sec-2-2-2">2.2.2. 适配器模式(Adapter)</a></li>
+<li><a href="#sec-2-2-3">2.2.3. 装饰者模式(Decorator)</a></li>
+<li><a href="#sec-2-2-4">2.2.4. 代理模式(Proxy)</a></li>
+<li><a href="#sec-2-2-5">2.2.5. 桥模式(Bridge)</a></li>
+<li><a href="#sec-2-2-6">2.2.6. 组合模式(Composite)</a></li>
+<li><a href="#sec-2-2-7">2.2.7. 享元模式(Flyweight)</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-3">2.3. 行为型模式</a>
+<ul>
+<li><a href="#sec-2-3-1">2.3.1. 模板方法</a></li>
+<li><a href="#sec-2-3-2">2.3.2. 策略模式 (Strategy)</a></li>
+<li><a href="#sec-2-3-3">2.3.3. 观察者模式 (Observer)</a></li>
+<li><a href="#sec-2-3-4">2.3.4. 责任链模式(Chain of responsibility pattern):</a></li>
+<li><a href="#sec-2-3-5">2.3.5. 备忘录模式(Memento pattern):</a></li>
+<li><a href="#sec-2-3-6">2.3.6. 状态模式(State pattern):</a></li>
+<li><a href="#sec-2-3-7">2.3.7. 访问者模式(visitor pattern):</a></li>
+<li><a href="#sec-2-3-8">2.3.8. 命令模式(Command pattern):</a></li>
+<li><a href="#sec-2-3-9">2.3.9. 解释器模式(Interpreter pattern):</a></li>
+<li><a href="#sec-2-3-10">2.3.10. 中介者模式(Mediator pattern) :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="main">
+
+
+<p>
+使用模式最好的方式: <b>把模式装进脑子里,然后在你的设计和已有应用中,寻找何处可以使用他们.以往是代码复用,现在是经验复用</b>.&#x2013; head first design pattern.
+</p>
+
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
+
+	<a href="/java/2014/06/10/design-pattern.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2014/06/10/design-pattern.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Jun 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html">[2014-06-01] Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></h3>
+  
+  <p>
+Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系统环境为英文，ubuntu启动先加载gonme-settings-daemon，后加载fcitx。
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 折腾emacs</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> emacs, linux, and fcitx </a>
+
+	<a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
 	  <h5 class="post-date" align="right">10 May 2014</h5>		</div> -->
 <div class="title-block">
   <h3><a href="/java/2014/05/10/hibernate.html">[2014-05-10] Hiberate 缓存</a></h3>
@@ -408,7 +522,7 @@
 <div id="main">
 
 <p>
-对于Hibernate这类ORM而言,缓存显的尤为重要,它是持久层性能提升的关键.简单来讲Hibernate就是对JDBC进行封装,以实现内部状态的管理,OR关系的映射等,但随之带来的就是数据访问效率的降低,和性能的下降,而缓存就是弥补这一缺点的重要方法.
+对于 <a href="http://www.hibernate.org">Hibernate</a> 这类ORM而言,缓存显的尤为重要,它是持久层性能提升的关键.简单来讲  <a href="http://www.hibernate.org">Hibernate</a> 就是对JDBC进行封装,以实现内部状态的管理,OR关系的映射等,但随之带来的就是数据访问效率的降低,和性能的下降,而缓存就是弥补这一缺点的重要方法.
 </p>
 
 
@@ -599,59 +713,11 @@ Oracle存储过程书写规范和技巧
   </div>
 </div>
 
-<!--
-	<div >
-	  <h5 class="post-date" align="right">12 Mar 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/java/2014/03/12/spring-data.html">[2014-03-12] Spring-data 使用笔记</a></h3>
-  
-  <p>
-spring data jpa 使用笔记.
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> spring, spring-data-jpa, java, and orm </a>
-
-	<a href="/java/2014/03/12/spring-data.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/java/2014/03/12/spring-data.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">01 Mar 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/ruby/2014/03/01/jekyll.html">[2014-03-01] Jekyll折腾笔记</a></h3>
-  
-  <p>
-记录折腾Jekyll静态博客到github的一些心路历程，空闲的时间会持续更新
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> ruby</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> jekyll, github pages, and static blog </a>
-
-	<a href="/ruby/2014/03/01/jekyll.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/ruby/2014/03/01/jekyll.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
 
 
 
 <div class="pagination pull-right">
-  <span><a class="btn  btn-sm disabled">Page: 2 of 5</a></span>
+  <span><a class="btn  btn-sm disabled">Page: 2 of 6</a></span>
   
   
   <a class="btn  btn-sm" href="/blog">First</a>
@@ -686,7 +752,7 @@ spring data jpa 使用笔记.
  
    
   <a class="btn  btn-sm" href="/blog/page3/">&raquo;</a>
-  <a class="btn btn-sm" href="/blog/page5/">Last</a>
+  <a class="btn btn-sm" href="/blog/page6/">Last</a>
   
 </div>
 
