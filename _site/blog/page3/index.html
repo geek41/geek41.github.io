@@ -153,7 +153,7 @@
 		  
 		  <li><a href="/blog/categories.html#linux&unix">linux&unix(7)</a></li>
 		  
-		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(5)</a></li>
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(6)</a></li>
 		  
 		  <li><a href="/blog/categories.html#web前端">web前端(4)</a></li>
 		  
@@ -169,11 +169,15 @@
 		  
 		  <li><a href="/blog/categories.html#读书笔记">读书笔记(1)</a></li>
 		  
+		  <li><a href="/blog/categories.html#挨踢生涯">挨踢生涯(1)</a></li>
+		  
 	  </ul></div>
 
 	  <section>
 <h4>Recently Posts</h4>
 <ul>
+
+<li><a href="/%E6%8C%A8%E8%B8%A2%E7%94%9F%E6%B6%AF/2015/05/20/demand.html" title="程序员的生产效率源于需求，而不是工具！">程序员的生产效率源于需求，而不是工具！</a></li>
 
 <li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
 
@@ -189,11 +193,9 @@
 
 <li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
 
+<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/08/03/emacs.html" title="Emacs 使用笔记">Emacs 使用笔记</a></li>
+
 <li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
-
-<li><a href="/java/2014/06/10/design-pattern.html" title="Design patten">Design patten</a></li>
-
-<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html" title="Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法">Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></li>
 
 </ul>
 </section>
@@ -235,7 +237,7 @@
 		
 		<a href="/blog/tags.html#emacs" 
            title="emacs" 
-           style="font-size: 120%;">emacs(5)</a>
+           style="font-size: 120%;">emacs(6)</a>
 		
 		<a href="/blog/tags.html#yasinppet" 
            title="yasinppet" 
@@ -359,7 +361,7 @@
 		
 		<a href="/blog/tags.html#挨踢生涯" 
            title="挨踢生涯" 
-           style="font-size: 100%;">挨踢生涯(1)</a>
+           style="font-size: 100%;">挨踢生涯(2)</a>
 		
 		<a href="/blog/tags.html#archlinux" 
            title="archlinux" 
@@ -379,6 +381,108 @@
 	<div class="col-md-9">  
 	  <div class="main">
 		
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Apr 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/database/2014/04/01/oracle-procedure.html">[2014-04-01] Oracle存储过程书写规范和技巧</a></h3>
+  
+  <p>
+Oracle存储过程书写规范和技巧
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> database</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> oracle, sql, and procedure </a>
+
+	<a href="/database/2014/04/01/oracle-procedure.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/database/2014/04/01/oracle-procedure.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Apr 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/04/01/java-exception.html">[2014-04-01] Java 异常整理</a></h3>
+  
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Throwable</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Error（错误）</a></li>
+<li><a href="#sec-1-2">1.2. Exception（异常）</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. RuntimeException</a></li>
+<li><a href="#sec-1-2-2">1.2.2. IOException</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">2. checked&amp;unchecked</a>
+<ul>
+<li><a href="#sec-2-1">2.1. checked exceptions</a></li>
+<li><a href="#sec-2-2">2.2. unchecked exceptions</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 运行时异常和非运行时异常(编译异常)</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 运行时异常</a></li>
+<li><a href="#sec-3-2">3.2. 非运行时异常 （编译异常）</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. 处理异常机制</a>
+<ul>
+<li><a href="#sec-4-1">4.1. 抛出异常：</a>
+<ul>
+<li><a href="#sec-4-1-1">4.1.1. 捕获异常：try、catch 和 finally</a>
+<ul>
+<li><a href="#sec-4-1-1-1">4.1.1.1. try-catch语句</a></li>
+<li><a href="#sec-4-1-1-2">4.1.1.2. try－catch-finally语句</a></li>
+<li><a href="#sec-4-1-1-3">4.1.1.3. try-catch-finally 规则(异常处理语句的语法规则）：</a></li>
+<li><a href="#sec-4-1-1-4">4.1.1.4. try、catch、finally语句块的执行顺序:</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-1-2">4.1.2. 抛出异常</a>
+<ul>
+<li><a href="#sec-4-1-2-1">4.1.2.1. throws抛出异常</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="main">
+
+
+<p>
+异常指不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。异常是一个事件，它发生在程序运行期间，干扰了正常的指令流程。Java通 过API中Throwable类的众多子类描述各种不同的异常。因而，Java异常都是对象，是Throwable子类的实例，描述了出现在一段编码中的 错误条件。当条件生成时，错误将引发异常。
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
+
+	<a href="/java/2014/04/01/java-exception.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2014/04/01/java-exception.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
 <!--
 	<div >
 	  <h5 class="post-date" align="right">12 Mar 2014</h5>		</div> -->
@@ -517,54 +621,6 @@ oracle 使用笔记.
 
 	<a href="/oracle/2013/10/02/oracle.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
 	<a href="/oracle/2013/10/02/oracle.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">01 Oct 2013</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/java/2013/10/01/java-final.html">[2013-10-01] Java final 关键字</a></h3>
-  
-  <p>
-Java中的final共有三种用法:
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
-
-	<a href="/java/2013/10/01/java-final.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/java/2013/10/01/java-final.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">14 Sep 2013</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/java/2013/09/14/maven-exception.html">[2013-09-14] Maven jar exceptions</a></h3>
-  
-  <p>
-maven 常见jar导入问题解决,例如missiong artifact等..
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java, jar, and maven </a>
-
-	<a href="/java/2013/09/14/maven-exception.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/java/2013/09/14/maven-exception.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
