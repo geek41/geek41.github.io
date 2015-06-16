@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	　<title>Geek 41|Spring与线程</title>
+	<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/assets/stylesheets/pygments.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Rancho&effect=shadow-multiple|3d-float" type="text/css" media="screen" />
+	
+	<style type="text/css" media="screen">
+	  @font-face {
+      font-family: monaco;
+      src: url('/assets/fonts/Monaco_Linux.ttf');
+	  }
+	  * {font-family:monaco,"微软雅黑";font-size:13px;}
+	  img {width:100%}
+	  #logo span{font-family:"楷体";font-size:16px;text-shadow:none;margin:20px;}
+	  .h2 h2{font-size:20px;}
+	  .post h2{font-size:18px;padding-bottom:8px;border-bottom: 1px dotted #ccc;}
+	  .title-block{border-bottom: 1px dotted #ccc;}
+	  .commit{padding:5px;}
+
+	  .bs-glyphicons {
+/**      overflow: hidden;*/
+	  }
+
+	  .bs-glyphicons li {
+      font-size: 12px;
+      width: 12.5%;
+	  }
+	  .bs-glyphicons li {
+      border: 1px solid #fff;
+      float: left;
+      font-size: 10px;
+      line-height: 1.4;
+	  padding: 10px 10px 10px 0;
+      text-align: center;
+      width: 25%;
+	  }
+	  .bs-glyphicons-list {
+	  padding:0;
+      list-style: outside none none;
+	  }
+
+	  .bs-glyphicons-list a{
+	  color:#000;
+	  }
+	  .bs-glyphicons-list a:hover{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+	  .bs-glyphicons-list a.active{
+	  color:#337ab7;
+	  text-decoration:none;
+	  }
+
+
+	  .bs-glyphicons .glyphicon {
+      font-size: 24px;
+      margin-top: 5px;
+	  }
+
+	  .pagination a.btn{border:1px solid #337ab7;border-radius: 2px;font-style: italic;color:#337ab7}
+	  .pagination a.btn:hover{color:#fff;background-color: #337ab7;
+	  }
+  	  .pagination a.disabled{color:#fff;background-color: #337ab7;border:1px solid #337ab7;
+	  }
+.title-block h3 a {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0 15px;font-weight:bold;
+}
+	  .commit a{color:#999;}
+	  .title-block p{color:#999;}
+	  .bs-glyphicons .dropdown li {
+      border: none;
+      float: left;
+      line-height: 1.4;
+	  padding: 0;
+      text-align: center;
+      width: 100%;
+	  }
+	  pre{background-color:#444;color:#FFF;}
+	  #footer{text-align:center;padding:10px;}
+	</style>
+  </head>
+
+  <body>
+
+	　<div class="container">
+  <div id="logo" class="title  font-effect-shadow-multiple" style="font-family:Rancho;font-size:54px;font-weight:500;">Geek 41 ~ $<span> 老板，给我来一碗泪流满面..</span>
+
+  </div>
+  <div class="row">
+	<div class="col-md-3">
+
+	  <div style="padding:10px"></div>
+
+	  <div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		  <li>
+			<a href="/">
+			  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Home</span></a>
+		  </li>
+
+		  <li>
+			<a href="/blog">
+			  <span class="glyphicon glyphicon glyphicon-console" aria-hidden="true"></span>
+			  <span class="glyphicon-class">Notes</span></a>
+		  </li>
+
+		  <li>
+			<a href="/about">
+			  <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
+			  <span class="glyphicon-class">About</span></a>
+		  </li>
+
+		  <li>
+			<div class="dropdown">
+  			  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+				<span class="glyphicon-class">Contact</span>			  
+			  </a>
+
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>
+				  <a href="#">Gmail</a>
+				</li>
+				<li>
+				  <a href="#">Weibo</a>
+				</li>
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+		
+	  </div>
+
+	  
+	  <div class="">
+		<h4>Category</h4>
+		
+		<!-- category list-->
+		<ul>
+		  
+		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#java">java(17)</a></li>
+		  
+		  <li><a href="/blog/categories.html#server">server(3)</a></li>
+		  
+		  <li><a href="/blog/categories.html#test">test(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(8)</a></li>
+		  
+		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(6)</a></li>
+		  
+		  <li><a href="/blog/categories.html#web前端">web前端(4)</a></li>
+		  
+		  <li><a href="/blog/categories.html#architecture">architecture(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#spring">spring(3)</a></li>
+		  
+		  <li><a href="/blog/categories.html#oracle">oracle(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#ruby">ruby(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#database">database(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#读书笔记">读书笔记(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#life">life(1)</a></li>
+		  
+		  <li><a href="/blog/categories.html#挨踢生涯">挨踢生涯(1)</a></li>
+		  
+	  </ul></div>
+
+	  <section>
+<h4>Recently Posts</h4>
+<ul>
+
+<li><a href="/%E6%8C%A8%E8%B8%A2%E7%94%9F%E6%B6%AF/2015/05/20/demand.html" title="程序员的生产效率源于需求，而不是工具！">程序员的生产效率源于需求，而不是工具！</a></li>
+
+<li><a href="/life/2015/04/10/goodbye-qin.html" title="再见,老秦">再见,老秦</a></li>
+
+<li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
+
+<li><a href="/linux&unix/2015/01/10/linux-tips.html" title="11个让你吃惊的 Linux 终端命令">11个让你吃惊的 Linux 终端命令</a></li>
+
+<li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
+
+<li><a href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2014/10/09/software-rush.html" title="Software rush——java夜未免">Software rush——java夜未免</a></li>
+
+<li><a href="/java/2014/10/05/apache-poi.html" title="用Apache POI处理Excel">用Apache POI处理Excel</a></li>
+
+<li><a href="/java/2014/10/02/sitemesh.html" title="Sitemesh 简单配置">Sitemesh 简单配置</a></li>
+
+<li><a href="/java/2014/10/01/spring-thread.html" title="Spring与线程">Spring与线程</a></li>
+
+<li><a href="/linux&unix/2014/10/01/grep.html" title="Grep笔记">Grep笔记</a></li>
+
+</ul>
+</section>
+
+
+	  <h4>Tags</h4>
+	  <div>	   
+		<a href="/blog/tags.html#java" 
+           title="java" 
+           style="font-size: 160%;">java(17)</a>
+		
+		<a href="/blog/tags.html#http server" 
+           title="http server" 
+           style="font-size: 100%;">http server(2)</a>
+		
+		<a href="/blog/tags.html#nginx" 
+           title="nginx" 
+           style="font-size: 100%;">nginx(1)</a>
+		
+		<a href="/blog/tags.html#tomcat" 
+           title="tomcat" 
+           style="font-size: 100%;">tomcat(2)</a>
+		
+		<a href="/blog/tags.html#负载均衡" 
+           title="负载均衡" 
+           style="font-size: 100%;">负载均衡(1)</a>
+		
+		<a href="/blog/tags.html#test" 
+           title="test" 
+           style="font-size: 100%;">test(1)</a>
+		
+		<a href="/blog/tags.html#linux" 
+           title="linux" 
+           style="font-size: 120%;">linux(8)</a>
+		
+		<a href="/blog/tags.html#ssh" 
+           title="ssh" 
+           style="font-size: 100%;">ssh(1)</a>
+		
+		<a href="/blog/tags.html#emacs" 
+           title="emacs" 
+           style="font-size: 120%;">emacs(6)</a>
+		
+		<a href="/blog/tags.html#yasinppet" 
+           title="yasinppet" 
+           style="font-size: 100%;">yasinppet(1)</a>
+		
+		<a href="/blog/tags.html#javascript" 
+           title="javascript" 
+           style="font-size: 100%;">javascript(3)</a>
+		
+		<a href="/blog/tags.html#url" 
+           title="url" 
+           style="font-size: 100%;">url(1)</a>
+		
+		<a href="/blog/tags.html#org-mode" 
+           title="org-mode" 
+           style="font-size: 100%;">org-mode(2)</a>
+		
+		<a href="/blog/tags.html#软件架构" 
+           title="软件架构" 
+           style="font-size: 100%;">软件架构(1)</a>
+		
+		<a href="/blog/tags.html#apache" 
+           title="apache" 
+           style="font-size: 100%;">apache(1)</a>
+		
+		<a href="/blog/tags.html#设计模式" 
+           title="设计模式" 
+           style="font-size: 100%;">设计模式(1)</a>
+		
+		<a href="/blog/tags.html#datepicker" 
+           title="datepicker" 
+           style="font-size: 100%;">datepicker(1)</a>
+		
+		<a href="/blog/tags.html#spring,ioc,java" 
+           title="spring,ioc,java" 
+           style="font-size: 100%;">spring,ioc,java(1)</a>
+		
+		<a href="/blog/tags.html#jar" 
+           title="jar" 
+           style="font-size: 100%;">jar(1)</a>
+		
+		<a href="/blog/tags.html#maven" 
+           title="maven" 
+           style="font-size: 100%;">maven(2)</a>
+		
+		<a href="/blog/tags.html#oracle" 
+           title="oracle" 
+           style="font-size: 100%;">oracle(2)</a>
+		
+		<a href="/blog/tags.html#sql" 
+           title="sql" 
+           style="font-size: 100%;">sql(2)</a>
+		
+		<a href="/blog/tags.html#spring" 
+           title="spring" 
+           style="font-size: 100%;">spring(4)</a>
+		
+		<a href="/blog/tags.html#aop" 
+           title="aop" 
+           style="font-size: 100%;">aop(2)</a>
+		
+		<a href="/blog/tags.html#jekyll" 
+           title="jekyll" 
+           style="font-size: 100%;">jekyll(1)</a>
+		
+		<a href="/blog/tags.html#github pages" 
+           title="github pages" 
+           style="font-size: 100%;">github pages(1)</a>
+		
+		<a href="/blog/tags.html#static blog" 
+           title="static blog" 
+           style="font-size: 100%;">static blog(1)</a>
+		
+		<a href="/blog/tags.html#spring-data-jpa" 
+           title="spring-data-jpa" 
+           style="font-size: 100%;">spring-data-jpa(1)</a>
+		
+		<a href="/blog/tags.html#orm" 
+           title="orm" 
+           style="font-size: 100%;">orm(1)</a>
+		
+		<a href="/blog/tags.html#procedure" 
+           title="procedure" 
+           style="font-size: 100%;">procedure(1)</a>
+		
+		<a href="/blog/tags.html#sqldeveloper" 
+           title="sqldeveloper" 
+           style="font-size: 100%;">sqldeveloper(1)</a>
+		
+		<a href="/blog/tags.html#font" 
+           title="font" 
+           style="font-size: 100%;">font(2)</a>
+		
+		<a href="/blog/tags.html#ubuntu" 
+           title="ubuntu" 
+           style="font-size: 100%;">ubuntu(1)</a>
+		
+		<a href="/blog/tags.html#linux qq" 
+           title="linux qq" 
+           style="font-size: 100%;">linux qq(1)</a>
+		
+		<a href="/blog/tags.html#java,hibernate" 
+           title="java,hibernate" 
+           style="font-size: 100%;">java,hibernate(1)</a>
+		
+		<a href="/blog/tags.html#fcitx" 
+           title="fcitx" 
+           style="font-size: 100%;">fcitx(1)</a>
+		
+		<a href="/blog/tags.html#nohup" 
+           title="nohup" 
+           style="font-size: 100%;">nohup(1)</a>
+		
+		<a href="/blog/tags.html#shell" 
+           title="shell" 
+           style="font-size: 100%;">shell(1)</a>
+		
+		<a href="/blog/tags.html#web前端" 
+           title="web前端" 
+           style="font-size: 100%;">web前端(1)</a>
+		
+		<a href="/blog/tags.html#jvm" 
+           title="jvm" 
+           style="font-size: 100%;">jvm(1)</a>
+		
+		<a href="/blog/tags.html#挨踢生涯" 
+           title="挨踢生涯" 
+           style="font-size: 100%;">挨踢生涯(2)</a>
+		
+		<a href="/blog/tags.html#archlinux" 
+           title="archlinux" 
+           style="font-size: 100%;">archlinux(1)</a>
+		
+		<a href="/blog/tags.html#xcompmgr" 
+           title="xcompmgr" 
+           style="font-size: 100%;">xcompmgr(1)</a>
+		
+		<a href="/blog/tags.html#wget" 
+           title="wget" 
+           style="font-size: 100%;">wget(1)</a>
+		
+		<a href="/blog/tags.html#life" 
+           title="life" 
+           style="font-size: 100%;">life(1)</a>
+		</div>
+	  
+	</div>
+
+	<div class="col-md-9">  
+	  <div class="main">
+		<section class="post">
+  <h3>Spring与线程	</h3>
+  　<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. springmvc与线程</a></li>
+<li><a href="#sec-2">2. dao,service层的线程实现</a></li>
+<li><a href="#sec-3">3. Spring事务与自定义多线程陷阱</a></li>
+<li><a href="#sec-4">4. Spring中的线程池ThreadPoolTaskExecutor</a>
+<ul>
+<li><a href="#sec-4-1">4.1. 初始化</a></li>
+<li><a href="#sec-4-2">4.2. 利用线程池启动线程</a></li>
+<li><a href="#sec-4-3">4.3. 配置解释</a></li>
+<li><a href="#sec-4-4">4.4. ThreadPoolTaskExecutor队列满的异常处理</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<p>
+Spring默认的bean都是单例的(scope="singleton"),那么在多线程环境下会不会出现安全问题呢.
+</p>
+
+<!-- more -->
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> springmvc与线程</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+我们知道Web容器本身就是多线程的，Web容器为一个Http请求创建一个独立的线程，所以由此请求所牵涉到的Spring容器中的Bean也是运行于多线程的环境下。在绝大多数情况下，Spring的Bean都是单实例的（singleton），单实例Bean的最大的好处是线程无关性，不存在多线程并发访问的问题，也即是线程安全的。
+</p>
+
+<p>
+一个类能够以单实例的方式运行的前提是“无状态”：即一个类不能拥有状态化的成员变量。因此，我们在使用spring bean时，应避免在其中定义实例变量.
+</p>
+
+<p>
+例1.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">Controller</span> <span style="color: #F0DFAF; font-weight: bold;">extends</span> <span style="color: #7CB8BB;">AbstractCommandController</span> {
+
+    <span style="color: #F0DFAF; font-weight: bold;">protected</span> <span style="color: #7CB8BB;">ModelAndView</span> <span style="color: #93E0E3;">handle</span>() <span style="color: #F0DFAF; font-weight: bold;">throws</span> <span style="color: #7CB8BB;">Exception</span> {
+        company = ...;
+    }
+    <span style="color: #F0DFAF; font-weight: bold;">protected</span> <span style="color: #7CB8BB;">Company</span> <span style="color: #DFAF8F;">company</span>;
+}
+</pre>
+</div>
+
+<p>
+在这里有声明一个变量company，这里就存在并发线程安全的问题。
+如果控制器是使用单例形式，且controller中有一个私有的变量a,所有请求到同一个controller时，使用的a变量是共用的，即若是某个请求中修改了这个变量a，则，在别的请求中能够读到这个修改的内容。。
+</p>
+
+<p>
+有几种解决方法：
+</p>
+
+<ol class="org-ol">
+<li>在Controller中使用ThreadLocal变量
+</li>
+<li>在spring配置文件Controller中声明 scope="prototype"，每次都创建新的controller所在在使用spring开发web 时要注意，默认Controller、Dao、Service都是单例的。 
+</li>
+</ol>
+
+<p>
+例2.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #BFEBBF;">@RequestMapping</span>(<span style="color: #CC9393;">"/user"</span>)
+<span style="color: #BFEBBF;">@Controller</span>
+<span style="color: #7CB8BB;">Class</span> <span style="color: #DFAF8F;">UserController</span>
+{
+    <span style="color: #BFEBBF;">@Resource</span>
+    <span style="color: #7CB8BB;">UserService</span> <span style="color: #DFAF8F;">userService</span>;
+
+    <span style="color: #BFEBBF;">@RequestMapping</span>(<span style="color: #CC9393;">"/add"</span>)
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #DFAF8F;">testA</span>(<span style="color: #7CB8BB;">User</span> <span style="color: #DFAF8F;">user</span>){
+        userService.add(user);
+    }
+
+    <span style="color: #BFEBBF;">@RequestMapping</span>(<span style="color: #CC9393;">"/get"</span>)
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #DFAF8F;">testA</span>(<span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">id</span>){
+        userService.get(id);
+    }
+}
+
+<span style="color: #BFEBBF;">@Service</span>(<span style="color: #CC9393;">"userService"</span>)
+<span style="color: #7CB8BB;">Class</span> <span style="color: #DFAF8F;">UserService</span>{
+
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #7CB8BB;">Map</span>&lt;<span style="color: #7CB8BB;">Integer</span>,<span style="color: #7CB8BB;">User</span>&gt; <span style="color: #DFAF8F;">usersCache</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">HashMap</span>&lt;<span style="color: #7CB8BB;">String</span>,<span style="color: #7CB8BB;">User</span>&gt;();
+
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #DFAF8F;">add</span>(<span style="color: #7CB8BB;">User</span> <span style="color: #DFAF8F;">user</span>){
+        usersCache.put(user.getId(),user);
+    }
+
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #DFAF8F;">get</span>(<span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">id</span>){
+        usersCache.get(id);
+    }
+
+}
+</pre>
+</div>
+
+<p>
+  此段代码，usersCache对象就是线程不安全的。因为它是静态的全局共享对象。如果有多个线程同时调用add方法，可能会发生用户对象被覆盖的情况，也就是id对应对象不一致，这是多线程编程中最常发生的事情。
+所以，可以使用 Collections 工具同步Map。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #7CB8BB;">Map</span>&lt;<span style="color: #7CB8BB;">Integer</span>, <span style="color: #7CB8BB;">Users</span>&gt; <span style="color: #DFAF8F;">usersCache</span> = Collections.synchronizedMap(<span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">HashMap</span>&lt;<span style="color: #7CB8BB;">Integer</span>, <span style="color: #7CB8BB;">Users</span>&gt;());
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> dao,service层的线程实现</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+我们知道，在传统的编程中，DAO 必须执有一个 Connection，而 Connection 即是状态化的对象。所以传统的 DAO 不能做成单实例的，每次要用时都必须 new 一个新的实例。传统的 Service 由于将有状态的 DAO 作为成员变量，所以传统的 Service 本身也是有状态的。 但是在 Spring 中，DAO 和 Service 都以单实例的方式存在。Spring 是通过 ThreadLocal 将有状态的变量（如 Connection 等）本地线程化，达到另一个层面上的“线程无关”，从而实现线程安全。Spring 不遗余力地将状态化的对象无状态化，就是要达到单实例化 Bean 的目的。 
+由于 Spring 已经通过 ThreadLocal 的设施将 Bean 无状态化，所以 Spring 中单实例 Bean 对线程安全问题拥有了一种天生的免疫能力。不但单实例的 Service 可以成功运行于多线程环境中，Service 本身还可以自由地启动独立线程以执行其它的 Service。下面，
+</p>
+
+<p>
+研究一下，Spring中的源码，它对常用的开源框架做了大量封装，如，Hibernate中的sessionFactory，就使用的是 org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean，而在 AnnotationSessionFactoryBean的父类LocalSessionFactoryBean中，定义了大量的ThreadLocal来保证多线程的安全性。 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">LocalSessionFactoryBean</span> <span style="color: #F0DFAF; font-weight: bold;">extends</span> <span style="color: #7CB8BB;">AbstractSessionFactoryBean</span> <span style="color: #F0DFAF; font-weight: bold;">implements</span> <span style="color: #7CB8BB;">BeanClassLoaderAware</span> {
+
+    <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">DataSource</span>&gt; <span style="color: #DFAF8F;">configTimeDataSourceHolder</span> =
+            <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">DataSource</span>&gt;();
+
+    <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">TransactionManager</span>&gt; <span style="color: #DFAF8F;">configTimeTransactionManagerHolder</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">TransactionManager</span>&gt;();
+
+    <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">Object</span>&gt; <span style="color: #DFAF8F;">configTimeRegionFactoryHolder</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">Object</span>&gt;();
+
+    <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">CacheProvider</span>&gt; <span style="color: #DFAF8F;">configTimeCacheProviderHolder</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">CacheProvider</span>&gt;();
+
+    <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">LobHandler</span>&gt; <span style="color: #DFAF8F;">configTimeLobHandlerHolder</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">ThreadLocal</span>&lt;<span style="color: #7CB8BB;">LobHandler</span>&gt;();
+}
+</pre>
+</div>
+
+
+<p>
+例3.
+</p>
+
+<p>
+在事务方法中再独立启动一个线程，该线程运行事务方法
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #BFEBBF;">@Service</span>(<span style="color: #CC9393;">"userService"</span>)
+<span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">UserService</span> <span style="color: #F0DFAF; font-weight: bold;">extends</span> <span style="color: #7CB8BB;">BaseService</span>{
+
+    <span style="color: #BFEBBF;">@Autowired</span>
+    <span style="color: #F0DFAF; font-weight: bold;">private</span>&#160;JdbcTemplate&#160;jdbcTemplate;
+    <span style="color: #BFEBBF;">@Autowired</span>
+    <span style="color: #F0DFAF; font-weight: bold;">private</span>&#160;ScoreService&#160;scoreService;
+    <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#9312;&#160;&#22312;logon&#26041;&#27861;&#20307;&#20013;&#21551;&#21160;&#19968;&#20010;&#29420;&#31435;&#30340;&#32447;&#31243;&#160;</span>
+    <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#22312;&#35813;&#29420;&#31435;&#30340;&#32447;&#31243;&#20013;&#25191;&#34892;ScoreService#addScore()&#26041;&#27861;</span>
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #93E0E3;">logon</span>(<span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">userName</span>){
+        <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#25191;&#34892;&#21463;&#20107;&#21153;&#25511;&#21046;&#26041;&#27861;</span>
+        updateLastLogonTime(userName);
+        <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#21333;&#29420;&#21551;&#21160;&#19968;&#20010;&#32447;&#31243;</span>
+        <span style="color: #7CB8BB;">Thread</span> <span style="color: #DFAF8F;">myThread</span>=<span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">MyThread</span>(<span style="color: #F0DFAF; font-weight: bold;">this</span>.scoreService,userName,20);
+        myThread.start();
+    }
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #93E0E3;">updateLastLogonTime</span>(<span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">userName</span>){
+        <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">do update</span>
+    }
+    <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#9313;&#160;&#23553;&#35013;ScoreService#addScore()&#30340;&#32447;&#31243;</span>
+    <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">MyThread</span> <span style="color: #F0DFAF; font-weight: bold;">extends</span> <span style="color: #7CB8BB;">Thread</span>{
+        <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #7CB8BB;">ScoreService</span> <span style="color: #DFAF8F;">scoreService</span>;
+        <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">userName</span>;
+        <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">toAdd</span>;
+        <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #93E0E3;">MyThread</span>(<span style="color: #7CB8BB;">ScoreService</span> <span style="color: #DFAF8F;">scoreService</span>,<span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">userName</span>,<span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">toAdd</span>){
+            <span style="color: #F0DFAF; font-weight: bold;">this</span>.scoreService=scoreService;
+            <span style="color: #F0DFAF; font-weight: bold;">this</span>.userName=userName;
+            <span style="color: #F0DFAF; font-weight: bold;">this</span>.toAdd=toAdd;
+        }
+        <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#25191;&#34892;&#21463;&#20107;&#21153;&#25511;&#21046;&#26041;&#27861;&#65292;&#36816;&#34892;&#22312;&#33258;&#24049;&#30340;&#20107;&#21153;&#25511;&#21046;&#20013;</span>
+        <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #93E0E3;">run</span>(){
+            scoreService.addScore(userName,toAdd);
+        }
+    }
+}
+</pre>
+</div>
+
+<p>
+结论：在 相同线程中 进行相互嵌套调用的事务方法工作于相同的事务中。如果 这些相互嵌套调用的方法工作在不同的线程中，不同线程下的事务方法工作在独立的事务中
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Spring事务与自定义多线程陷阱</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>场景：Spring+Ibatis环境，使用spring aop事务(配置到service层)，在一个service方法中，自定义了一个多线程，结果事务不起作用了，不用线程，则事务有效。
+</li>
+<li>原因：Spring的事务是通过ThreadLocal来保证线程安全的，事务和当前线程绑定，所以自己开了多线程自然会让事务失效。
+</li>
+<li>Spring的事务管理器是通过ThreadLocal来保存每个线程的副本，从而实现线程安全的，再结合IoC和Aop实现高级声明式事务的功能，所以Spring的事务天然地和线程有着千丝万缕的联系。只能维护web应用的多线程，不支持多线程里的多线程。
+</li>
+<li>其他方案：修改代码架构，把逻辑处理部分抽出来，放在另外一个service中，然后通过xxx.service的方法去调用(在事务范围外做的线程操作)，这样就有了事务。
+</li>
+<li>应用场景：对历史数据进行迭代处理，处理完成一条就添加到数据库，不成功则抛出异常(如果不使用多线程则可以做到一批数据要么全部成功，有一个失败就全部回滚)。
+</li>
+</ul>
+
+<p>
+代码片段如下：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">ReclaimMatchSubscriptionServiceImpl</span>{
+
+    <span style="color: #F0DFAF; font-weight: bold;">private</span> <span style="color: #7CB8BB;">void</span> <span style="color: #93E0E3;">saveHistoryMatches</span>(<span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">MatchedInfoParams</span> <span style="color: #DFAF8F;">params</span>, <span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">CommonTaskName</span> <span style="color: #DFAF8F;">taskName</span>, <span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">List</span>&lt;<span style="color: #7CB8BB;">Integer</span>&gt; <span style="color: #DFAF8F;">matchIds</span>) {
+        <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">Thread</span>() {
+            <span style="color: #BFEBBF;">@Override</span>
+            <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #93E0E3;">run</span>() {
+                <span style="color: #7CB8BB;">MatchedInfoParams</span> <span style="color: #DFAF8F;">clonedParams</span> = params.clone();
+                <span style="color: #F0DFAF; font-weight: bold;">for</span> (<span style="color: #F0DFAF; font-weight: bold;">final</span> <span style="color: #7CB8BB;">Integer</span> <span style="color: #DFAF8F;">matchId</span> : matchIds) {
+                    <span style="color: #F0DFAF; font-weight: bold;">try</span> {
+                        clonedParams.setMatchId(matchId);
+                        saveWorkingTask(clonedParams, taskName, <span style="color: #BFEBBF;">TaskPriority</span>.LOW);
+                    } <span style="color: #F0DFAF; font-weight: bold;">catch</span> (<span style="color: #7CB8BB;">Exception</span> <span style="color: #DFAF8F;">e</span>) {
+                        logger.error(<span style="color: #CC9393;">"Save history matches to working task failed: matchedId="</span> + matchId + <span style="color: #CC9393;">", companyId="</span> + params.getCompanyId() + <span style="color: #CC9393;">", taskName="</span> + taskName
+                                     + <span style="color: #CC9393;">", matchType="</span> + params.getMatchType(), e);
+                    }
+                }
+            }
+        }.start();
+    }
+
+
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">void</span> <span style="color: #93E0E3;">saveWorkingTask</span>(<span style="color: #7CB8BB;">T</span> <span style="color: #DFAF8F;">params</span>, <span style="color: #7CB8BB;">CommonTaskName</span> <span style="color: #DFAF8F;">taskName</span>, <span style="color: #7CB8BB;">TaskPriority</span> <span style="color: #DFAF8F;">priority</span>) {
+        Assert.notNull(params, <span style="color: #CC9393;">"CommonTaskParams must not be null"</span>);
+        Assert.notNull(taskName, <span style="color: #CC9393;">"CommonTaskName must not be null"</span>);
+        Assert.notNull(priority, <span style="color: #CC9393;">"TaskPriority must not be null"</span>);
+
+        <span style="color: #F0DFAF; font-weight: bold;">if</span> (isServiceToDeal(taskName)) {
+            <span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">uniqueKey</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">MD5</span>().MD5(uniqueKey(params));
+            <span style="color: #7CB8BB;">WorkingCommonTask</span> <span style="color: #DFAF8F;">oldTask</span> = commonTaskService.getWorkingTaskByNameAndKey(taskName, uniqueKey);
+            <span style="color: #F0DFAF; font-weight: bold;">if</span> (isAddToWorkingTask(oldTask)) {
+                <span style="color: #7CB8BB;">WorkingCommonTask</span> <span style="color: #DFAF8F;">task</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">WorkingCommonTask</span>();
+                task.setCompanyId(params.getCompanyId());
+                task.setTaskName(taskName.getCode());
+                task.setUniqueKey(uniqueKey);
+                task.setRetrievalField(retrievalField(params));
+                <span style="color: #5F7F5F;">//              </span><span style="color: #7F9F7F;">task.setExtraInfo("");</span>
+                task.setRetryCount(0);
+                task.setTaskPriority(priority.getCode());
+                task.setTaskStatus(<span style="color: #BFEBBF;">CommonTaskStatus</span>.CREATED.getCode());
+                task.setTimeout(0);
+                commonTaskService.saveWorkingTask(task, getBiz(params));
+            }
+        }
+    }
+
+}
+
+<span style="color: #7CB8BB;">pulbic</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> CommonTaskServiceImpl{
+    <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">saveWorkingTask</span>(<span style="color: #7CB8BB;">WorkingCommonTask</span> <span style="color: #DFAF8F;">workingTask</span>, <span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">bizData</span>) {
+        Assert.notNull(workingTask, <span style="color: #CC9393;">"workingTask must not be null"</span>);
+        Assert.notNull(bizData, <span style="color: #CC9393;">"bizData must not be null"</span>);
+
+        <span style="color: #F0DFAF; font-weight: bold;">if</span> (workingTask.getTimeout() &lt;= 0) {
+            workingTask.setTimeout(timeout);
+        }
+
+        <span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">taskId</span> = commonTaskDao.saveWorkingTask(workingTask);
+
+        <span style="color: #7CB8BB;">CommonTaskExtraInfo</span> <span style="color: #DFAF8F;">taskExtraInfo</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">CommonTaskExtraInfo</span>();
+        taskExtraInfo.setTaskId(taskId);
+        taskExtraInfo.setBizData(bizData);
+        commonTaskDao.saveTaskExtraInfo(taskExtraInfo);
+
+        commonTaskDao.saveTaskLog(<span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">CommonTaskLog</span>(taskId, workingTask.getTaskStatus(), workingTask.getExtraInfo()));
+
+        <span style="color: #F0DFAF; font-weight: bold;">return</span> taskId;
+    }
+
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Spring中的线程池ThreadPoolTaskExecutor</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 初始化</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+1.直接调用
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #7CB8BB;">ThreadPoolTaskExecutor</span> <span style="color: #DFAF8F;">poolTaskExecutor</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">ThreadPoolTaskExecutor</span>();
+<span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#32447;&#31243;&#27744;&#25152;&#20351;&#29992;&#30340;&#32531;&#20914;&#38431;&#21015;</span>
+poolTaskExecutor.setQueueCapacity(200);
+<span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#32447;&#31243;&#27744;&#32500;&#25252;&#32447;&#31243;&#30340;&#26368;&#23569;&#25968;&#37327;</span>
+poolTaskExecutor.setCorePoolSize(5);
+<span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#32447;&#31243;&#27744;&#32500;&#25252;&#32447;&#31243;&#30340;&#26368;&#22823;&#25968;&#37327;</span>
+poolTaskExecutor.setMaxPoolSize(1000);
+<span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#32447;&#31243;&#27744;&#32500;&#25252;&#32447;&#31243;&#25152;&#20801;&#35768;&#30340;&#31354;&#38386;&#26102;&#38388;</span>
+poolTaskExecutor.setKeepAliveSeconds(30000);
+poolTaskExecutor.initialize();
+</pre>
+</div>
+
+<p>
+2.配置文件 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-xml"><span style="color: #5F7F5F;">&lt;!--</span><span style="color: #7F9F7F;"> &#37197;&#32622;&#32447;&#31243;&#27744; </span><span style="color: #5F7F5F;">--&gt;</span>  
+&lt;<span style="color: #93E0E3;">bean</span> <span style="color: #DFAF8F;">id</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">taskExecutor</span><span style="color: #CC9393;">"</span>  <span style="color: #DFAF8F;">class</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor</span><span style="color: #CC9393;">"</span> &gt;  
+    <span style="color: #5F7F5F;">&lt;!--</span><span style="color: #7F9F7F;"> &#32447;&#31243;&#27744;&#32500;&#25252;&#32447;&#31243;&#30340;&#26368;&#23569;&#25968;&#37327; </span><span style="color: #5F7F5F;">--&gt;</span>  
+&lt;<span style="color: #93E0E3;">span</span> <span style="color: #DFAF8F;">style</span>=<span style="color: #CC9393;">"</span><span style="color: #CC9393;">white-space:pre</span><span style="color: #CC9393;">"</span>&gt;  &lt;/<span style="color: #93E0E3;">span</span>&gt;&lt;<span style="color: #93E0E3;">property</span> <span style="color: #DFAF8F;">name</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">corePoolSize</span><span style="color: #CC9393;">"</span> <span style="color: #DFAF8F;">value</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">5</span><span style="color: #CC9393;">"</span> /&gt;  
+    <span style="color: #5F7F5F;">&lt;!--</span><span style="color: #7F9F7F;"> &#32447;&#31243;&#27744;&#32500;&#25252;&#32447;&#31243;&#25152;&#20801;&#35768;&#30340;&#31354;&#38386;&#26102;&#38388; </span><span style="color: #5F7F5F;">--&gt;</span>  
+&lt;<span style="color: #93E0E3;">span</span> <span style="color: #DFAF8F;">style</span>=<span style="color: #CC9393;">"</span><span style="color: #CC9393;">white-space:pre</span><span style="color: #CC9393;">"</span>&gt;  &lt;/<span style="color: #93E0E3;">span</span>&gt;&lt;<span style="color: #93E0E3;">property</span> <span style="color: #DFAF8F;">name</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">keepAliveSeconds</span><span style="color: #CC9393;">"</span> <span style="color: #DFAF8F;">value</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">30000</span><span style="color: #CC9393;">"</span> /&gt;  
+    <span style="color: #5F7F5F;">&lt;!--</span><span style="color: #7F9F7F;"> &#32447;&#31243;&#27744;&#32500;&#25252;&#32447;&#31243;&#30340;&#26368;&#22823;&#25968;&#37327; </span><span style="color: #5F7F5F;">--&gt;</span>  
+&lt;<span style="color: #93E0E3;">span</span> <span style="color: #DFAF8F;">style</span>=<span style="color: #CC9393;">"</span><span style="color: #CC9393;">white-space:pre</span><span style="color: #CC9393;">"</span>&gt;  &lt;/<span style="color: #93E0E3;">span</span>&gt;&lt;<span style="color: #93E0E3;">property</span> <span style="color: #DFAF8F;">name</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">maxPoolSize</span><span style="color: #CC9393;">"</span> <span style="color: #DFAF8F;">value</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">1000</span><span style="color: #CC9393;">"</span> /&gt;  
+    <span style="color: #5F7F5F;">&lt;!--</span><span style="color: #7F9F7F;"> &#32447;&#31243;&#27744;&#25152;&#20351;&#29992;&#30340;&#32531;&#20914;&#38431;&#21015; </span><span style="color: #5F7F5F;">--&gt;</span>  
+&lt;<span style="color: #93E0E3;">span</span> <span style="color: #DFAF8F;">style</span>=<span style="color: #CC9393;">"</span><span style="color: #CC9393;">white-space:pre</span><span style="color: #CC9393;">"</span>&gt;  &lt;/<span style="color: #93E0E3;">span</span>&gt;&lt;<span style="color: #93E0E3;">property</span> <span style="color: #DFAF8F;">name</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">queueCapacity</span><span style="color: #CC9393;">"</span> <span style="color: #DFAF8F;">value</span> =<span style="color: #CC9393;">"</span><span style="color: #CC9393;">200</span><span style="color: #CC9393;">"</span> /&gt;  
+&lt;/<span style="color: #93E0E3;">bean</span>&gt;
+</pre>
+</div>
+
+<p>
+程序里面获取：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #7CB8BB;">ApplicationContext</span> <span style="color: #DFAF8F;">ctx</span> =  <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">ClassPathXmlApplicationContext</span>(<span style="color: #CC9393;">"applicationContext.xml"</span>);
+<span style="color: #7CB8BB;">ThreadPoolTaskExecutor</span> <span style="color: #DFAF8F;">poolTaskExecutor</span> = (<span style="color: #7CB8BB;">ThreadPoolTaskExecutor</span>)ctx.getBean(<span style="color: #CC9393;">"taskExecutor"</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 利用线程池启动线程</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #7CB8BB;">Thread</span> <span style="color: #DFAF8F;">udpThread</span> = <span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">Thread</span>(udp);
+poolTaskExecutor.execute(udpThread);
+<span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">&#33719;&#21462;&#24403;&#21069;&#32447;&#31243;&#27744;&#27963;&#21160;&#30340;&#32447;&#31243;&#25968;&#65306;</span>
+<span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">count</span> = poolTaskExecutor.getActiveCount();
+logger.debug(<span style="color: #CC9393;">"[x] - now threadpool active threads totalNum : "</span> +count);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 配置解释</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+当一个任务通过execute(Runnable)方法欲添加到线程池时：
+</p>
+<ol class="org-ol">
+<li>如果此时线程池中的数量小于corePoolSize，即使线程池中的线程都处于空闲状态，也要创建新的线程来处理被添加的任务。
+</li>
+<li>如果此时线程池中的数量等于 corePoolSize，但是缓冲队列 workQueue未满，那么任务被放入缓冲队列。
+</li>
+<li>如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量小于maximumPoolSize，建新的线程来处理被添加的任务。
+</li>
+<li>如果此时线程池中的数量大于corePoolSize，缓冲队列workQueue满，并且线程池中的数量等于maximumPoolSize，那么通过handler所指定的策略来处理此任务。也就是：处理任务的优先级为：核心线程corePoolSize、任务队列workQueue、最大线程 maximumPoolSize，如果三者都满了，使用handler处理被拒绝的任务。
+</li>
+<li>当线程池中的线程数量大于 corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> ThreadPoolTaskExecutor队列满的异常处理</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Spring ThreadPoolTaskExecutor没有使用阻塞模式将任务加入到对象中，因此对象满的时候会抛出异常，对于这种情况，一般的企业执行环境不能无限制的增大内存队列容量，因此不得不阻塞队列的加入，spring内置提供的异常处理机制不好用，因为ThreadPoolExecutor.CallerRunsPolicy的处理方式是将异常任务放在调用线程中执行，这样对于单个执行时间长的任务，即使队列有空闲了，剩下的任务也要等这个任务在主线程执行完了才能继续往队列里面添加。有一个处理方法就是捕获executor.execute()的异常，只要发现有异常就等待一段时间，直到没有异常为止，这样就能模仿阻塞队列的效果，下面是代码：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #F0DFAF; font-weight: bold;">while</span>(<span style="color: #BFEBBF;">true</span>){
+    <span style="color: #F0DFAF; font-weight: bold;">try</span>{
+        taskExecutor.execute(<span style="color: #F0DFAF; font-weight: bold;">new</span> <span style="color: #7CB8BB;">MailSender</span>(tUserIssueInfo));
+        <span style="color: #F0DFAF; font-weight: bold;">break</span>;
+    }<span style="color: #F0DFAF; font-weight: bold;">catch</span>(<span style="color: #7CB8BB;">TaskRejectedException</span> <span style="color: #DFAF8F;">e</span>){
+        <span style="color: #F0DFAF; font-weight: bold;">try</span>{
+            Thread.sleep(1000);
+        }<span style="color: #F0DFAF; font-weight: bold;">catch</span>(<span style="color: #7CB8BB;">Exception</span> <span style="color: #DFAF8F;">e2</span>){}
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'geek41';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+	<div id="footer">
+	  <p>© Geek41 2014 with help from <a href="#">Jekyll</a> and <a href="">Twitter Bootstrap</a></p>
+	</div>
+	
+	<script type="text/javascript" src="/assets/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47157282-1', 'geek41.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+
+</html>

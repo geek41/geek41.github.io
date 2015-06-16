@@ -80,7 +80,7 @@
       text-align: center;
       width: 100%;
 	  }
-
+	  pre{background-color:#444;color:#FFF;}
 	  #footer{text-align:center;padding:10px;}
 	</style>
   </head>
@@ -146,13 +146,13 @@
 		  
 		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(14)</a></li>
+		  <li><a href="/blog/categories.html#java">java(17)</a></li>
 		  
 		  <li><a href="/blog/categories.html#server">server(3)</a></li>
 		  
 		  <li><a href="/blog/categories.html#test">test(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#linux&unix">linux&unix(7)</a></li>
+		  <li><a href="/blog/categories.html#linux&unix">linux&unix(8)</a></li>
 		  
 		  <li><a href="/blog/categories.html#折腾emacs">折腾emacs(6)</a></li>
 		  
@@ -170,6 +170,8 @@
 		  
 		  <li><a href="/blog/categories.html#读书笔记">读书笔记(1)</a></li>
 		  
+		  <li><a href="/blog/categories.html#life">life(1)</a></li>
+		  
 		  <li><a href="/blog/categories.html#挨踢生涯">挨踢生涯(1)</a></li>
 		  
 	  </ul></div>
@@ -180,23 +182,23 @@
 
 <li><a href="/%E6%8C%A8%E8%B8%A2%E7%94%9F%E6%B6%AF/2015/05/20/demand.html" title="程序员的生产效率源于需求，而不是工具！">程序员的生产效率源于需求，而不是工具！</a></li>
 
+<li><a href="/life/2015/04/10/goodbye-qin.html" title="再见,老秦">再见,老秦</a></li>
+
 <li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
+
+<li><a href="/linux&unix/2015/01/10/linux-tips.html" title="11个让你吃惊的 Linux 终端命令">11个让你吃惊的 Linux 终端命令</a></li>
 
 <li><a href="/linux&unix/2014/12/01/archlinux.html" title="Arch linux notes">Arch linux notes</a></li>
 
 <li><a href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2014/10/09/software-rush.html" title="Software rush——java夜未免">Software rush——java夜未免</a></li>
 
+<li><a href="/java/2014/10/05/apache-poi.html" title="用Apache POI处理Excel">用Apache POI处理Excel</a></li>
+
 <li><a href="/java/2014/10/02/sitemesh.html" title="Sitemesh 简单配置">Sitemesh 简单配置</a></li>
 
+<li><a href="/java/2014/10/01/spring-thread.html" title="Spring与线程">Spring与线程</a></li>
+
 <li><a href="/linux&unix/2014/10/01/grep.html" title="Grep笔记">Grep笔记</a></li>
-
-<li><a href="/java/2014/09/10/java-interface.html" title="Java接口编程">Java接口编程</a></li>
-
-<li><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html" title="Google font api notes">Google font api notes</a></li>
-
-<li><a href="/%E6%8A%98%E8%85%BEemacs/2014/08/03/emacs.html" title="Emacs 使用笔记">Emacs 使用笔记</a></li>
-
-<li><a href="/linux&unix/2014/07/01/nohup.html" title="shell后台运行与nohup">shell后台运行与nohup</a></li>
 
 </ul>
 </section>
@@ -206,7 +208,7 @@
 	  <div>	   
 		<a href="/blog/tags.html#java" 
            title="java" 
-           style="font-size: 160%;">java(15)</a>
+           style="font-size: 160%;">java(17)</a>
 		
 		<a href="/blog/tags.html#http server" 
            title="http server" 
@@ -230,7 +232,7 @@
 		
 		<a href="/blog/tags.html#linux" 
            title="linux" 
-           style="font-size: 120%;">linux(7)</a>
+           style="font-size: 120%;">linux(8)</a>
 		
 		<a href="/blog/tags.html#ssh" 
            title="ssh" 
@@ -294,7 +296,7 @@
 		
 		<a href="/blog/tags.html#spring" 
            title="spring" 
-           style="font-size: 100%;">spring(3)</a>
+           style="font-size: 100%;">spring(4)</a>
 		
 		<a href="/blog/tags.html#aop" 
            title="aop" 
@@ -360,6 +362,10 @@
            title="web前端" 
            style="font-size: 100%;">web前端(1)</a>
 		
+		<a href="/blog/tags.html#jvm" 
+           title="jvm" 
+           style="font-size: 100%;">jvm(1)</a>
+		
 		<a href="/blog/tags.html#挨踢生涯" 
            title="挨踢生涯" 
            style="font-size: 100%;">挨踢生涯(2)</a>
@@ -375,6 +381,10 @@
 		<a href="/blog/tags.html#wget" 
            title="wget" 
            style="font-size: 100%;">wget(1)</a>
+		
+		<a href="/blog/tags.html#life" 
+           title="life" 
+           style="font-size: 100%;">life(1)</a>
 		</div>
 	  
 	</div>
@@ -382,6 +392,195 @@
 	<div class="col-md-9">  
 	  <div class="main">
 		
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Oct 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/10/01/spring-thread.html">[2014-10-01] Spring与线程</a></h3>
+  
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. springmvc与线程</a></li>
+<li><a href="#sec-2">2. dao,service层的线程实现</a></li>
+<li><a href="#sec-3">3. Spring事务与自定义多线程陷阱</a></li>
+<li><a href="#sec-4">4. Spring中的线程池ThreadPoolTaskExecutor</a>
+<ul>
+<li><a href="#sec-4-1">4.1. 初始化</a></li>
+<li><a href="#sec-4-2">4.2. 利用线程池启动线程</a></li>
+<li><a href="#sec-4-3">4.3. 配置解释</a></li>
+<li><a href="#sec-4-4">4.4. ThreadPoolTaskExecutor队列满的异常处理</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<p>
+Spring默认的bean都是单例的(scope="singleton"),那么在多线程环境下会不会出现安全问题呢.
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> spring and java </a>
+
+	<a href="/java/2014/10/01/spring-thread.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2014/10/01/spring-thread.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">01 Oct 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/linux&unix/2014/10/01/grep.html">[2014-10-01] Grep笔记</a></h3>
+  
+  <p>
+所有的类linux系统都会提供一个名为grep(global regular expression print，全局正则表达式输出)的搜索工具。grep命令在对一个或多个文件的内容进行基于模式的搜索的情况下是非常有用的。模式可以是单个字符、多个字符、单个单词、或者是一个句子。
+</p>
+
+<p>
+当命令匹配到执行命令时指定的模式时，grep会将包含模式的一行输出，但是并不对原文件内容进行修改。
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> linux&unix</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> linux </a>
+
+	<a href="/linux&unix/2014/10/01/grep.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/linux&unix/2014/10/01/grep.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">10 Sep 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/09/10/jvm.html">[2014-09-10] Jvm 笔记</a></h3>
+  
+  <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 运行时数据区</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 程序计数器(PC寄存器)</a></li>
+<li><a href="#sec-1-2">1.2. Java虚拟机栈</a></li>
+<li><a href="#sec-1-3">1.3. Java堆</a></li>
+<li><a href="#sec-1-4">1.4. 方法区</a>
+<ul>
+<li><a href="#sec-1-4-1">1.4.1. 运行时常量池</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-5">1.5. 本地方法栈</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 虚拟机类加载机制</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 加载</a>
+<ul>
+<li><a href="#sec-2-1-1">2.1.1. 类加载器</a></li>
+<li><a href="#sec-2-1-2">2.1.2. 双亲委派模型</a></li>
+<li><a href="#sec-2-1-3">2.1.3. 破坏双亲委派模型</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2">2.2. 验证</a></li>
+<li><a href="#sec-2-3">2.3. 准备</a></li>
+<li><a href="#sec-2-4">2.4. 解析</a></li>
+<li><a href="#sec-2-5">2.5. 初始化</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 垃圾收集器与内存分配策略</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 那些内存需要回收?</a>
+<ul>
+<li><a href="#sec-3-1-1">3.1.1. 堆内存回收</a></li>
+<li><a href="#sec-3-1-2">3.1.2. 回收方法区</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2">3.2. 垃圾收集算法</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="main">
+
+
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> jvm </a>
+
+	<a href="/java/2014/09/10/jvm.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2014/09/10/jvm.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">10 Sep 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/09/10/java-interface.html">[2014-09-10] Java接口编程</a></h3>
+  
+  <p>
+"针对接口编程"真正的意思是"针对超类型(supertype)编程"."针对接口编程"关键就在多态.利用多态,程序可以针对超类型编程,执行时会根据实际情况执行到真正的行为,不会被绑死在超类型的行为上."针对超类型编程"这句话,可以更明确的说成"变量的声明类型应该是超类型,通常是一个抽象类或者是一个接口,如此,只要是具体实现此超类型的类所产生的对象,都可以指定给这个变量.这也意味着,声明类时不用理会以后执行时的真正对象类型!".
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
+
+	<a href="/java/2014/09/10/java-interface.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2014/09/10/java-interface.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
+	  <h5 class="post-date" align="right">10 Aug 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html">[2014-08-10] Google font api notes</a></h3>
+  
+  <p>
+谷歌字体API使用教程
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> web前端</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> font and web前端 </a>
+
+	<a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/web%E5%89%8D%E7%AB%AF/2014/08/10/font-api.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
 <!--
 	<div >
 	  <h5 class="post-date" align="right">03 Aug 2014</h5>		</div> -->
@@ -520,153 +719,11 @@ nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令�
   </div>
 </div>
 
-<!--
-	<div >
-	  <h5 class="post-date" align="right">01 Jun 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html">[2014-06-01] Emacs在Ubuntu的gnome环境无法使用fcitx的解决办法</a></h3>
-  
-  <p>
-Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系统环境为英文，ubuntu启动先加载gonme-settings-daemon，后加载fcitx。
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 折腾emacs</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> emacs, linux, and fcitx </a>
-
-	<a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/%E6%8A%98%E8%85%BEemacs/2014/06/01/emacs-fcitx.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">10 May 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/java/2014/05/10/hibernate.html">[2014-05-10] Hiberate 缓存</a></h3>
-  
-  <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. ORM中的缓存</a>
-<ul>
-<li><a href="#sec-1-1">1.1. 事务级缓存</a></li>
-<li><a href="#sec-1-2">1.2. 应用级缓存</a></li>
-<li><a href="#sec-1-3">1.3. 分布式缓存</a></li>
-</ul>
-</li>
-<li><a href="#sec-2">2. Hibernate的缓存策略:</a>
-<ul>
-<li><a href="#sec-2-1">2.1. 一级缓存(Session):</a></li>
-<li><a href="#sec-2-2">2.2. 二级缓存(SessionFactory)</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="main">
-
-<p>
-对于 <a href="http://www.hibernate.org">Hibernate</a> 这类ORM而言,缓存显的尤为重要,它是持久层性能提升的关键.简单来讲  <a href="http://www.hibernate.org">Hibernate</a> 就是对JDBC进行封装,以实现内部状态的管理,OR关系的映射等,但随之带来的就是数据访问效率的降低,和性能的下降,而缓存就是弥补这一缺点的重要方法.
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java,hibernate </a>
-
-	<a href="/java/2014/05/10/hibernate.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/java/2014/05/10/hibernate.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">02 May 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/linux&unix/2014/05/02/ubuntu-qq.html">[2014-05-02] Linux 下的 qq解决方案</a></h3>
-  
-  <p>
-在Ubuntu下装QQ一直是个非常折腾人的事，试过很多方法。webqq,pidgin,longne qq,winestrick,要么不成功要么效果不好。无意间发现deepin qq（qq2012 international），安装容易，还算好用。
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> linux&unix</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> linux, ubuntu, and linux qq </a>
-
-	<a href="/linux&unix/2014/05/02/ubuntu-qq.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/linux&unix/2014/05/02/ubuntu-qq.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">04 Apr 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/linux&unix/2014/04/04/sqldeveloper.html">[2014-04-04] 解决linux下sqldeveloper 中文环境显示乱码的问题</a></h3>
-  
-  <p>
-解决linux下sqldeveloper 中文环境显示乱码的问题
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> linux&unix</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> linux, sqldeveloper, and font </a>
-
-	<a href="/linux&unix/2014/04/04/sqldeveloper.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/linux&unix/2014/04/04/sqldeveloper.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">02 Apr 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html">[2014-04-02] Emacs configuration collection</a></h3>
-  
-  <p>
-收藏一些emacs的配置，有时间的时候查阅和调整
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 折腾emacs</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> emacs </a>
-
-	<a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/%E6%8A%98%E8%85%BEemacs/2014/04/02/emacs-collection.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
 
 
 
 <div class="pagination pull-right">
-  <span><a class="btn  btn-sm disabled">Page: 2 of 6</a></span>
+  <span><a class="btn  btn-sm disabled">Page: 2 of 7</a></span>
   
   
   <a class="btn  btn-sm" href="/blog">First</a>
@@ -701,7 +758,7 @@ Emacs更新到了24+，切换fcitx中文输入法的时候无效。原因是系�
  
    
   <a class="btn  btn-sm" href="/blog/page3/">&raquo;</a>
-  <a class="btn btn-sm" href="/blog/page6/">Last</a>
+  <a class="btn btn-sm" href="/blog/page7/">Last</a>
   
 </div>
 

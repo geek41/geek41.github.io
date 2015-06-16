@@ -87,6 +87,7 @@
 <li><a href="#sec-2-2">2.2. 二级缓存(SessionFactory)</a></li>
 </ul>
 </li>
+<li><a href="#sec-3">3. Error</a></li>
 </ul>
 </div>
 </div>
@@ -248,8 +249,24 @@ Q:不适合存放到第二级缓存的数据？
 <p>
 　　2 选择合适的缓存插件，然后编辑该插件的配置文件。
 </p>
-
 </div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Error</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+#+begin_example
+org.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions
+#+end_exmaple
+</p>
+
+<p>
+当i=0时，执行dao.save(ab);之后，ab的主键就由Hibernate生成了，当i=1时，你再save的时候，ab已经有主键了，因为主键是唯一标识一个对象的，所以不能保存了。你应该重新new一个ab，然后再set.
+持久化时需要new一个对象.
+</p>
+
 </div>
 </div>
 </div>
