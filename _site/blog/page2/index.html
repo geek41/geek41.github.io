@@ -146,7 +146,7 @@
 		  
 		  <li><a href="/blog/categories.html#windows">windows(1)</a></li>
 		  
-		  <li><a href="/blog/categories.html#java">java(17)</a></li>
+		  <li><a href="/blog/categories.html#java">java(18)</a></li>
 		  
 		  <li><a href="/blog/categories.html#server">server(3)</a></li>
 		  
@@ -186,6 +186,8 @@
 
 <li><a href="/life/2015/04/10/goodbye-qin.html" title="再见,老秦">再见,老秦</a></li>
 
+<li><a href="/java/2015/03/01/map.html" title="Map的线程安全问题">Map的线程安全问题</a></li>
+
 <li><a href="/linux&unix/2015/02/21/wget.html" title="用wget下载网页&manualtitle">用wget下载网页&manualtitle</a></li>
 
 <li><a href="/linux&unix/2015/01/10/linux-tips.html" title="11个让你吃惊的 Linux 终端命令">11个让你吃惊的 Linux 终端命令</a></li>
@@ -200,8 +202,6 @@
 
 <li><a href="/java/2014/10/01/spring-thread.html" title="Spring与线程">Spring与线程</a></li>
 
-<li><a href="/linux&unix/2014/10/01/grep.html" title="Grep笔记">Grep笔记</a></li>
-
 </ul>
 </section>
 
@@ -210,7 +210,7 @@
 	  <div>	   
 		<a href="/blog/tags.html#java" 
            title="java" 
-           style="font-size: 160%;">java(17)</a>
+           style="font-size: 160%;">java(18)</a>
 		
 		<a href="/blog/tags.html#http server" 
            title="http server" 
@@ -400,6 +400,34 @@
 		
 <!--
 	<div >
+	  <h5 class="post-date" align="right">02 Oct 2014</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="/java/2014/10/02/sitemesh.html">[2014-10-02] Sitemesh 简单配置</a></h3>
+  
+  <p>
+<a href="http://www.sitemesh.org">Sitemesh</a> 是一个网页布局和修饰的框架，利用它可以将网页的内容和页面结构分离，以达到页面结构共享的目的。使用起来比较简单
+</p>
+
+<p>
+现在有2个分支,一个是org.sitemesh的sitemesh3,一个是opensymphony的 <a href="http://www.sitemesh.org">Sitemesh</a> .口碑上的3比2好用,但是下面配置是sitemesh2的,以为再配置3的时候决定用tiles来作为布局修饰框架了&#x2026;原因是sitemesh确实很简单,资料也少(sitemesh3的官方wiki真心不够看).
+</p>
+
+
+  
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> java</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> java </a>
+
+	<a href="/java/2014/10/02/sitemesh.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="/java/2014/10/02/sitemesh.html#disqus_thread">0 comment</a>
+
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+
+<!--
+	<div >
 	  <h5 class="post-date" align="right">01 Oct 2014</h5>		</div> -->
 <div class="title-block">
   <h3><a href="/java/2014/10/01/spring-thread.html">[2014-10-01] Spring与线程</a></h3>
@@ -515,7 +543,27 @@ Spring默认的bean都是单例的(scope="singleton"),那么在多线程环境�
 <li><a href="#sec-3-1-2">3.1.2. 回收方法区</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-2">3.2. 垃圾收集算法</a></li>
+<li><a href="#sec-3-2">3.2. 垃圾收集算法</a>
+<ul>
+<li><a href="#sec-3-2-1">3.2.1. 标记-清除算法(mark-sweep)</a></li>
+<li><a href="#sec-3-2-2">3.2.2. 复制算法</a></li>
+<li><a href="#sec-3-2-3">3.2.3. 标记-整理(mark-compact)</a></li>
+<li><a href="#sec-3-2-4">3.2.4. 分带收集</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-3">3.3. 垃圾收集器</a>
+<ul>
+<li><a href="#sec-3-3-1">3.3.1. Serial收集器</a></li>
+<li><a href="#sec-3-3-2">3.3.2. ParNew 收集器</a></li>
+<li><a href="#sec-3-3-3">3.3.3. Parallel Scavenge收集器</a></li>
+<li><a href="#sec-3-3-4">3.3.4. Serial Old收集器</a></li>
+<li><a href="#sec-3-3-5">3.3.5. Parallel Old 收集器</a></li>
+<li><a href="#sec-3-3-6">3.3.6. CMS(Concurrent Mark Sweep)</a></li>
+<li><a href="#sec-3-3-7">3.3.7. G1收集器</a></li>
+<li><a href="#sec-3-3-8">3.3.8. 垃圾收集参数</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-4">3.4. 内存分配策略</a></li>
 </ul>
 </li>
 </ul>
@@ -629,30 +677,6 @@ Intellij idea的使用笔记
 
 	<a href="/%E6%8A%98%E8%85%BEemacs/2014/08/03/emacs.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
 	<a href="/%E6%8A%98%E8%85%BEemacs/2014/08/03/emacs.html#disqus_thread">0 comment</a>
-
-	<!-- 
-		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
-  </div>
-</div>
-
-<!--
-	<div >
-	  <h5 class="post-date" align="right">01 Jul 2014</h5>		</div> -->
-<div class="title-block">
-  <h3><a href="/linux&unix/2014/07/01/nohup.html">[2014-07-01] shell后台运行与nohup</a></h3>
-  
-  <p>
-nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示“and”的符号）到命令的尾部。
-</p>
-
-
-  
-  <div class="commit">
-	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> linux&unix</a>
-	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> linux, nohup, and shell </a>
-
-	<a href="/linux&unix/2014/07/01/nohup.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
-	<a href="/linux&unix/2014/07/01/nohup.html#disqus_thread">0 comment</a>
 
 	<!-- 
 		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->

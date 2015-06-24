@@ -1,15 +1,3 @@
----
-layout: view_toc
-comments: true
-title: Jvm 笔记
-categories: Java
-tags: jvm
-date: 2014-9-10
-keywords: jvm
-description: jvm
----
-
-
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -50,32 +38,23 @@ description: jvm
 <li><a href="#sec-3-1-2">3.1.2. 回收方法区</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-2">3.2. 垃圾收集算法</a>
-<ul>
-<li><a href="#sec-3-2-1">3.2.1. 标记-清除算法(mark-sweep)</a></li>
-<li><a href="#sec-3-2-2">3.2.2. 复制算法</a></li>
-<li><a href="#sec-3-2-3">3.2.3. 标记-整理(mark-compact)</a></li>
-<li><a href="#sec-3-2-4">3.2.4. 分带收集</a></li>
-</ul>
-</li>
-<li><a href="#sec-3-3">3.3. 垃圾收集器</a>
-<ul>
-<li><a href="#sec-3-3-1">3.3.1. Serial收集器</a></li>
-<li><a href="#sec-3-3-2">3.3.2. ParNew 收集器</a></li>
-<li><a href="#sec-3-3-3">3.3.3. Parallel Scavenge收集器</a></li>
-<li><a href="#sec-3-3-4">3.3.4. Serial Old收集器</a></li>
-<li><a href="#sec-3-3-5">3.3.5. Parallel Old 收集器</a></li>
-<li><a href="#sec-3-3-6">3.3.6. CMS(Concurrent Mark Sweep)</a></li>
-<li><a href="#sec-3-3-7">3.3.7. G1收集器</a></li>
-<li><a href="#sec-3-3-8">3.3.8. 垃圾收集参数</a></li>
-</ul>
-</li>
-<li><a href="#sec-3-4">3.4. 内存分配策略</a></li>
+<li><a href="#sec-3-2">3.2. 垃圾收集算法</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
+---
+layout: view_toc
+comments: true
+title: Jvm 笔记
+categories: Java
+tags: jvm
+date: 2014-9-10
+keywords: jvm
+description: jvm
+---
+
 <div id="main">
 
 
@@ -199,7 +178,7 @@ Java堆可能发生如下异常情况：
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
-<p><img src="{{site.url}}/assets/images/jvm/QQ截图20150604143430.png" alt="QQ截图20150604143430.png" />
+<p><img src="file:///home/sylvan/Documents/org-note/assets/images/jvm/QQ截图20150604143430.png" alt="QQ截图20150604143430.png" />
 </p>
 </div>
 
@@ -268,7 +247,7 @@ Java堆可能发生如下异常情况：
 <div class="outline-text-4" id="text-2-1-2">
 
 <div class="figure">
-<p><img src="{{site.url}}/assets/images/jvm/QQ截图20150604152358.png" alt="QQ截图20150604152358.png" />
+<p><img src="file:///home/sylvan/Documents/org-note/assets/images/jvm/QQ截图20150604152358.png" alt="QQ截图20150604152358.png" />
 </p>
 </div>
 
@@ -377,10 +356,11 @@ Java 虚拟机指令 anewarray、checkcast、getfield、getstatic、instanceof�
 <li>虚拟机保证一个类的&lt;clinit&gt;()方法在多线程环境中被正确的枷锁和同步,其他线程阻塞等待
 </li>
 </ul>
-</div>
-</div>
-</div>
 
+</div>
+</div>
+</div>
+</div>
 
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> 垃圾收集器与内存分配策略</h2>
@@ -459,240 +439,17 @@ Java虚拟机规范中确实说过可以不要求虚拟机在方法区实现垃�
 <div id="outline-container-sec-3-2" class="outline-3">
 <h3 id="sec-3-2"><span class="section-number-3">3.2</span> 垃圾收集算法</h3>
 <div class="outline-text-3" id="text-3-2">
-</div><div id="outline-container-sec-3-2-1" class="outline-4">
-<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> 标记-清除算法(mark-sweep)</h4>
-<div class="outline-text-4" id="text-3-2-1">
 <p>
-缺点是效率低,和空间产生大量不连续的碎片,会导致分配较大对象时无法找到足够连续内存而提前触发一次垃圾收集.
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-2-2" class="outline-4">
-<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> 复制算法</h4>
-<div class="outline-text-4" id="text-3-2-2">
-<p>
-将可用内存分成大小相同的2块,每次只用一块.当这一块用完了就将 <b>存活</b> 的对象复制到另一块上,再把已用的内存一次清理掉.优点是移动堆顶指针顺序分配简单高效.缺点是内存会缩小一半,较多复制效率低.
+fffffff&#x2013;
 </p>
 
-<p>
-由于新生代对象80%朝生夕死所以不需要按1:1来分配内存空间,可以分一块较大的eden和2块较小的survivor.Hotspot虚拟机采用8:1:1分配,这样新生代容量为90%.如果回收会存活的对象超过10%的survior空间,对象通过 <b>分配担保</b> 机制进入老年代.
-</p>
-</div>
-</div>
 
 
 
-<div id="outline-container-sec-3-2-3" class="outline-4">
-<h4 id="sec-3-2-3"><span class="section-number-4">3.2.3</span> 标记-整理(mark-compact)</h4>
-<div class="outline-text-4" id="text-3-2-3">
-<p>
-类似标记清除算法,但是将存活的对象向一端移动,直接清理掉端边界以外的内存.常用于老年代(没有多于的担保空间).
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-2-4" class="outline-4">
-<h4 id="sec-3-2-4"><span class="section-number-4">3.2.4</span> 分带收集</h4>
-<div class="outline-text-4" id="text-3-2-4">
-<p>
-把Java堆分为 <b>新生代</b> 和 <b>老年代</b> .对新生代用复制算法,老年代用标记清理或标记整理.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 垃圾收集器</h3>
-<div class="outline-text-3" id="text-3-3">
-
-<div class="figure">
-<p><img src="{{site.url}}/assets/images/jvm/QQ截图20150623140928.png" alt="QQ截图20150623140928.png" />
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3-1" class="outline-4">
-<h4 id="sec-3-3-1"><span class="section-number-4">3.3.1</span> Serial收集器</h4>
-<div class="outline-text-4" id="text-3-3-1">
-<p>
-单线程的stop the world的收集器.(有意思的比喻,你妈妈一边打扫你一边扔纸屑,这房间能打扫完吗).单CPU环境简单高效(收集100M最多停顿100毫秒约).
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3-2" class="outline-4">
-<h4 id="sec-3-3-2"><span class="section-number-4">3.3.2</span> ParNew 收集器</h4>
-<div class="outline-text-4" id="text-3-3-2">
-<p>
-Serial的多线程版本.默认与CPU数量相同的线程数.
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3-3" class="outline-4">
-<h4 id="sec-3-3-3"><span class="section-number-4">3.3.3</span> Parallel Scavenge收集器</h4>
-<div class="outline-text-4" id="text-3-3-3">
-<p>
-和ParNew类似,但关注可控的吞吐量(Throughout).吞吐量=1-垃圾收集时间/虚拟机运行时间=运行用户代码时间/(运行用户代码时间+垃圾收集时间).能高效利用cpu时间.
-</p>
-
-<ul class="org-ul">
-<li>-XX:MaxGCPauseMillis 最大垃圾收集停顿时间.
-</li>
-<li>-XX:GCTimeRatio 设置吞吐量大小.大于0小于100的整数.默认为99,允许收集最大时间为1%.
-</li>
-<li>-XX:UseAdaptiveSizePolicy 设置开关GC自适应调节策略.会动态调整新生代大小(-Xmn),Eden与Survior的比例(-XX:SurviorRatio),晋升老年代对象年龄(-XX:PretenureSizeThreshold)等参数.
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3-4" class="outline-4">
-<h4 id="sec-3-3-4"><span class="section-number-4">3.3.4</span> Serial Old收集器</h4>
-<div class="outline-text-4" id="text-3-3-4">
-<p>
-Serial的老年代版本.可作为CMS的预备方案(出现Concurrent mode failure).
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3-5" class="outline-4">
-<h4 id="sec-3-3-5"><span class="section-number-4">3.3.5</span> Parallel Old 收集器</h4>
-<div class="outline-text-4" id="text-3-3-5">
-<p>
-Paraller Scavenge的老年代版本.,使用多线程和mark-compact算法.在注重吞吐量及CPU资源敏感的场合,可优先考虑scavenge和old.
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3-6" class="outline-4">
-<h4 id="sec-3-3-6"><span class="section-number-4">3.3.6</span> CMS(Concurrent Mark Sweep)</h4>
-<div class="outline-text-4" id="text-3-3-6">
-
-<div class="figure">
-<p><img src="{{site.url}}/assets/images/jvm/QQ截图20150623143127.png" alt="QQ截图20150623143127.png" />
-</p>
-</div>
-
-<p>
-缺点:
-</p>
-
-<ul class="org-ul">
-<li>占用CPU资源.虽然不会导致停顿,但是占用CPU资源导致程序变慢,总吞吐量降低.默认回收线程(CPU数量+3)/4 .
-</li>
-<li>无法处理浮动垃圾(标记之后产生的垃圾),可能出现"Concurrent mode failure"而导致一次Full GC.默认在老年代68%已用空间被激活,可通过-XX:CMSInitalingOccupancyFraction来调整触发百分比.但是设置太高容易导致大量Concurrent mode failure,就需要临时启用Serial Old来收集,停顿时间就很长了.
-</li>
-<li>标记-清除算法.无足够连续空间分配提前触发一次Full GC.开关参数"-XX:+UseCMSCompactAtFullCollection"用于在Full GC之后额外执行一次碎片整理,内存整理无法并发.空间碎片问题没有了,但停顿时间不得不变长了,通过参数"-XX:CMSFullGCsBeforeCompaction",执行多少次不压缩的Full GC后,跟着来一次压缩的.
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-3-3-7" class="outline-4">
-<h4 id="sec-3-3-7"><span class="section-number-4">3.3.7</span> G1收集器</h4>
-</div>
-
-<div id="outline-container-sec-3-3-8" class="outline-4">
-<h4 id="sec-3-3-8"><span class="section-number-4">3.3.8</span> 垃圾收集参数</h4>
-<div class="outline-text-4" id="text-3-3-8">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-<colgroup>
-<col  class="left" />
 
-<col  class="left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="left">参数</th>
-<th scope="col" class="left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="left">UseSerialGC</td>
-<td class="left">虚拟机Client模式下默认值,打开开关使用Serial+Serail Old组合</td>
-</tr>
 
-<tr>
-<td class="left">UseParNewGC</td>
-<td class="left">打开开关使用ParNew+Serial Old</td>
-</tr>
-
-<tr>
-<td class="left">UseConcMarkSweepGC</td>
-<td class="left">使用ParNew+CMS+Serial Old(备)</td>
-</tr>
-
-<tr>
-<td class="left">UseParallelGC</td>
-<td class="left">Parallel Scavenge+Serial Old(PS MarkSweep)</td>
-</tr>
-
-<tr>
-<td class="left">UseParallelOldGC</td>
-<td class="left">Parallel Scavenge+Parallel Old</td>
-</tr>
-
-<tr>
-<td class="left">SurvivorRatio</td>
-<td class="left">新生代中Eden与Survivor的比,默认8:1</td>
-</tr>
-
-<tr>
-<td class="left">PretenureSizeThreshold</td>
-<td class="left">直接晋升到老年代对象大小</td>
-</tr>
-
-<tr>
-<td class="left">MaxTenuringThreshold</td>
-<td class="left">晋升到老年代对象大小,每次Minor GC后年龄+1</td>
-</tr>
-
-<tr>
-<td class="left">UseAdaptiveSizePolicy</td>
-<td class="left">动态调整Java堆中各个区域大小及进入老年代年龄</td>
-</tr>
-
-<tr>
-<td class="left">HandlePromotionFailure</td>
-<td class="left">是否允许担保失败</td>
-</tr>
-
-<tr>
-<td class="left">ParallelGCThreads</td>
-<td class="left">并行GC的线程数</td>
-</tr>
-
-<tr>
-<td class="left">GCTimeRatio</td>
-<td class="left">GC时间占总时间比.默认99,仅在Para Scavenge时生效</td>
-</tr>
-
-<tr>
-<td class="left">MaxGCPauseMillis</td>
-<td class="left">最大垃圾收集停顿时间,仅在Para Scavenge时生效</td>
-</tr>
-
-<tr>
-<td class="left">CMS..</td>
-<td class="left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 内存分配策略</h3>
-<div class="outline-text-3" id="text-3-4">
-<p>
-对象优先在Eden分配,大对象直接进老年代,长期存活进老年代.
-</p>
 
 </div>
 </div>
