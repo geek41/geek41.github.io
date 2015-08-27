@@ -1,0 +1,245 @@
+---
+layout: view_toc
+comments: true
+title: Drolay2.0 需求文档
+categories: others
+tags: jvm
+date: 2000-1-1
+keywords: jvm
+description: jvm
+---
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 团队控管</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 发布新团</a></li>
+<li><a href="#sec-1-2">1.2. <span class="todo TODO">TODO</span> 统筹控位?? D:0.5</a></li>
+<li><a href="#sec-1-3">1.3. <span class="todo TODO">TODO</span> 批量调价(批量修改) D:1~2</a></li>
+<li><a href="#sec-1-4">1.4. 定时任务</a></li>
+<li><a href="#sec-1-5">1.5. 账期</a></li>
+<li><a href="#sec-1-6">1.6. 报名(代理商)</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 产品库</a></li>
+<li><a href="#sec-3">3. <span class="todo TODO">TODO</span> 产品平移</a></li>
+<li><a href="#sec-4">4. <span class="todo TODO">TODO</span> 轨迹</a></li>
+<li><a href="#sec-5">5. 订单控管(c:毛叔)</a>
+<ul>
+<li><a href="#sec-5-1">5.1. 查询订单列表，查看订单，退团，修改订单金额，添加联系人(代理商)，添加游客，添加费用，添加备注，客户查询查看打印</a></li>
+<li><a href="#sec-5-2">5.2. <span class="todo TODO">TODO</span> 收支确认单-收款审批 D:0.5</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. 收支项(c:毛叔)</a></li>
+<li><a href="#sec-7">7. 代理商管理(c:毛叔)</a>
+<ul>
+<li><a href="#sec-7-1">7.1. <span class="todo TODO">TODO</span> 销售专员 delay to doc done</a></li>
+</ul>
+</li>
+<li><a href="#sec-8">8. 直客管理(c:于娜)</a></li>
+<li><a href="#sec-9">9. 签证管理(c:张千鸿)</a></li>
+<li><a href="#sec-10">10. 业务统计表(to:俊明)</a></li>
+<li><a href="#sec-11">11. 财务统计表(to:俊明)</a></li>
+<li><a href="#sec-12">12. 统计分析(to:俊明)</a>
+<ul>
+<li><a href="#sec-12-1">12.1. 概况</a></li>
+<li><a href="#sec-12-2">12.2. 目的地</a></li>
+<li><a href="#sec-12-3">12.3. 代理商</a></li>
+<li><a href="#sec-12-4">12.4. 流量统计</a></li>
+</ul>
+</li>
+<li><a href="#sec-13">13. <span class="todo TODO">TODO</span> 本部管理(c:建青) 需要维护</a>
+<ul>
+<li><a href="#sec-13-1">13.1. <span class="todo TODO">TODO</span> 企业账户 D:0.5~1</a></li>
+<li><a href="#sec-13-2">13.2. 组织架构</a></li>
+<li><a href="#sec-13-3">13.3. 部门管理</a></li>
+<li><a href="#sec-13-4">13.4. 角色管理</a></li>
+<li><a href="#sec-13-5">13.5. 账户管理</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="main">
+
+
+
+<!-- more -->
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 团队控管</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 发布新团</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+计划人数，领队人数算在计划人数里。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <span class="todo TODO">TODO</span> 统筹控位?? D:0.5</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+因为供应商同时开了几个团，需要根据哪个团的报名情况最好，人工进行票位分配。
+</p>
+
+<p>
+供应商对自己持有票数(线下)进行对子团的调控，只有在报名中的团并且为同一天的子团进行票位分配。
+票位分配区间，(已报名人数~(计划人数-1))
+票位影响报名和出团。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> <span class="todo TODO">TODO</span> 批量调价(批量修改) D:1~2</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+可批量修改子团的计划人数，同行价，市场价，和截止子团。国内的交通方式分为多条来算。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 定时任务</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+订单状态为 <b>确认&amp;款清</b> 到期做出团设置。出团状态到期做回团处理
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 账期</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+供应商账期，子团账期。回团以后+账期提交自动结款
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 报名(代理商)</h3>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 产品库</h2>
+</div>
+
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> 产品平移</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+将供应商用户的子团转给其他用户，改变属主
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> 轨迹</h2>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 订单控管(c:毛叔)</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 查询订单列表，查看订单，退团，修改订单金额，添加联系人(代理商)，添加游客，添加费用，添加备注，客户查询查看打印</h3>
+</div>
+
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> <span class="todo TODO">TODO</span> 收支确认单-收款审批 D:0.5</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+收款审批和确认收款的状态改变，线下流程线上录入。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 收支项(c:毛叔)</h2>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 代理商管理(c:毛叔)</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> <span class="todo TODO">TODO</span> 销售专员 delay to doc done</h3>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> 直客管理(c:于娜)</h2>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> 签证管理(c:张千鸿)</h2>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> 业务统计表(to:俊明)</h2>
+</div>
+
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> 财务统计表(to:俊明)</h2>
+</div>
+
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> 统计分析(to:俊明)</h2>
+<div class="outline-text-2" id="text-12">
+</div><div id="outline-container-sec-12-1" class="outline-3">
+<h3 id="sec-12-1"><span class="section-number-3">12.1</span> 概况</h3>
+</div>
+<div id="outline-container-sec-12-2" class="outline-3">
+<h3 id="sec-12-2"><span class="section-number-3">12.2</span> 目的地</h3>
+</div>
+<div id="outline-container-sec-12-3" class="outline-3">
+<h3 id="sec-12-3"><span class="section-number-3">12.3</span> 代理商</h3>
+</div>
+<div id="outline-container-sec-12-4" class="outline-3">
+<h3 id="sec-12-4"><span class="section-number-3">12.4</span> 流量统计</h3>
+</div>
+</div>
+
+
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> <span class="todo TODO">TODO</span> 本部管理(c:建青) 需要维护</h2>
+<div class="outline-text-2" id="text-13">
+</div><div id="outline-container-sec-13-1" class="outline-3">
+<h3 id="sec-13-1"><span class="section-number-3">13.1</span> <span class="todo TODO">TODO</span> 企业账户 D:0.5~1</h3>
+<div class="outline-text-3" id="text-13-1">
+<p>
+添加企业账户的支付信息。
+类型     开户行     账号     开户名     创建日期     操作
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-13-2" class="outline-3">
+<h3 id="sec-13-2"><span class="section-number-3">13.2</span> 组织架构</h3>
+</div>
+<div id="outline-container-sec-13-3" class="outline-3">
+<h3 id="sec-13-3"><span class="section-number-3">13.3</span> 部门管理</h3>
+</div>
+<div id="outline-container-sec-13-4" class="outline-3">
+<h3 id="sec-13-4"><span class="section-number-3">13.4</span> 角色管理</h3>
+</div>
+<div id="outline-container-sec-13-5" class="outline-3">
+<h3 id="sec-13-5"><span class="section-number-3">13.5</span> 账户管理</h3>
+<div class="outline-text-3" id="text-13-5">
+</div>
+</div>
+</div>
+</div>
