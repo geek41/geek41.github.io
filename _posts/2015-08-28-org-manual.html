@@ -82,7 +82,7 @@ emacs官方内置的org不再包含contributed libraries,如果你想用到他�
 
 <div class="org-src-container">
 
-<pre class="src src-lisp">(add-to-list 'load-path <span style="color: #CC9393;">"~/path/to/orgdir/contrib/lisp"</span> t)
+<pre class="src src-lisp">(add-to-list 'load-path "~/path/to/orgdir/contrib/lisp" t)
 </pre>
 </div>
 
@@ -138,10 +138,10 @@ PlantUML通过简单和直观的语言来定义图形，它可以生成PNG、SVG
 
 <div class="org-src-container">
 
-<pre class="src src-lisp"><span style="color: #5F7F5F;">;; </span><span style="color: #7F9F7F;">active Org-babel languages</span>
+<pre class="src src-lisp">;; active Org-babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
- '(<span style="color: #5F7F5F;">;; </span><span style="color: #7F9F7F;">other Babel languages</span>
+ '(;; other Babel languages
    (plantuml . t)))
 </pre>
 </div>
@@ -153,7 +153,7 @@ PlantUML通过简单和直观的语言来定义图形，它可以生成PNG、SVG
 <div class="org-src-container">
 
 <pre class="src src-lisp">(setq org-plantuml-jar-path
-      (expand-file-name <span style="color: #CC9393;">"~/path/to/plantuml.jar"</span>))
+	  (expand-file-name "~/path/to/plantuml.jar"))
 </pre>
 </div>
 
@@ -169,10 +169,11 @@ PlantUML通过简单和直观的语言来定义图形，它可以生成PNG、SVG
 </pre>
 
 
+<div class="org-src-container">
 
-<div class="figure">
-<p><img src="../assets/images/emacs/orgmode-babel-sequenceuml.png" alt="orgmode-babel-sequenceuml.png" />
-</p>
+<pre class="src src-plantuml">Alice -&gt; Bob: synchronous call
+Alice -&gt;&gt; Bob: asynchronous call
+</pre>
 </div>
 </div>
 </div>
