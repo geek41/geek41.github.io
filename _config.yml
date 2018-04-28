@@ -2,7 +2,8 @@
 #paginate: 8
 #paginate_path: "/blog/page:num/"
 #excerpt_separator: "<!-- more -->"
+paginate: 8
 plugins:
   - jekyll-paginate
-#paginate:  8
+
 #paginate_path:  "/blog/page:num/"
