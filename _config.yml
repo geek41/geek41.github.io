@@ -8,13 +8,10 @@ collections:
     title: Posts
     paginate_path: "/blog/page/:num/"
 plugins:
-  - jekyll-paginate
   - jekyll-paginate-multiple
 
 #paginate_path:  "/blog/page:num/"
 
 title: Geek41.github.io
-description: 
-google_analytics: 
-show_downloads: true
-theme: jekyll-theme-architect
+
+
