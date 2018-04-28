@@ -29,7 +29,6 @@ pagination:
 
 plugins:
   - jekyll-paginate-v2
-  - jekyll-paginate
 
 #paginate_path:  "/blog/page:num/"
 
