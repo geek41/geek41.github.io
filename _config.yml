@@ -9,5 +9,6 @@ collections:
     paginate_path: "/blog/page/:num/"
 plugins:
   - jekyll-paginate
+  - jekyll-paginate-multiple
 
 #paginate_path:  "/blog/page:num/"
