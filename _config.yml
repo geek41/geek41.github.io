@@ -1,34 +1,11 @@
 #markdown: rdiscount
-#paginate: 8
-#paginate_path: "/blog/page:num/"
+safe: false
+paginate: 8
+paginate_path: "/blog/page:num/"
 #excerpt_separator: "<!-- more -->"
-############################################################
-# Site configuration for the Jekyll 3 Pagination Gem
-# The values here represent the defaults if nothing is set
-pagination:
-  
-  # Site-wide kill switch, disabled here it doesn't run at all 
-  enabled: true
-
-  # Set to 'true' to enable pagination debugging. This can be enabled in the site config or only for individual pagination pages
-  debug: false
-
-  # The default document collection to paginate if nothing is specified ('posts' is default)
-  collection: 'posts'
-
-  # How many objects per paginated page, used to be `paginate` (default: 0, means all)
-  per_page: 10
-
-  # The permalink structure for the paginated pages (this can be any level deep)
-  permalink: '/blog/page/:num/' # Pages are index.html inside this folder (default)
-  #permalink: '/page/:num.html' # Pages are simple html files 
-  #permalink: '/page/:num' # Pages are html files, linked jekyll extensionless permalink style.
-
-
-
 
 plugins:
-  - jekyll-paginate-v2
+  - jekyll-paginate
 
 #paginate_path:  "/blog/page:num/"
 
