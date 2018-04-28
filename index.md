@@ -1,22 +1,107 @@
-### Welcome to GitHub Pages.
-This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:
+---
+layout: blog
+title: Happy coding
+pg_type: index
+---
 
-```
-$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-```
 
-If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.
+{% for post in paginator.posts %}
+<!--
+	<div >
+	  <h5 class="post-date" align="right">{{ post.date | date_to_string}}</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="{{ post.url }}">[{{ post.date | date:"%F" }}] {{ post.title }}</a></h3>
+  {% if post.content contains "<!-- more -->" %}
+  {{ post.content | split:'<!-- more -->' | first }}
+  {% else %}
+  {{ post.content | strip_html | truncatewords:50 }}
+  {% endif %}
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> {{post.categories}}</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> {{post.tags | array_to_sentence_string }} </a>
 
-### Designer Templates
-We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.
+	<a href="{{post.url}}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="{{post.url}}#disqus_thread">0 comment</a>
 
-### Rather Drive Stick?
-If you prefer to not use the automatic generator, push a branch named `gh-pages` to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+{% endfor %}
 
-### Authors and Contributors
-You can @mention a GitHub username to generate a link to their profile. The resulting `<a>` element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (@defunkt), PJ Hyett (@pjhyett), and Tom Preston-Werner (@mojombo) founded GitHub.
 
-### Support or Contact
-Having trouble with Pages? Check out the documentation at http://help.github.com/pages or contact support@github.com and we’ll help you sort it out.
+{% if paginator.total_pages > 1 %}
+<div class="pagination pull-right">
+  <span><a class="btn  btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
+  {% if paginator.previous_page %}
+  {% if paginator.previous_page == 1 %}
+  <a class="btn  btn-sm" href="/blog">First</a>
+  <a class="btn btn-sm" href="/blog">&laquo;</a>
+  {% else %}
+  <a class="btn btn-sm" href="/blog">First</a>
+  <a class="btn btn-sm" href="/blog/page{{paginator.previous_page}}/">&laquo;</a>
+  {% endif %}
+  {% else %}
+  <span><a class="btn  btn-sm disabled" href="/blog">First</a></span>
+  <span><a class="btn  btn-sm disabled">&laquo;</a></span>
+  {% endif %}
+  {% assign dd = paginator.total_pages | minus:2 %}
+  {% if paginator.page < 3 %}
+	  {% assign start1 = 1  %}
+	  {% assign end = 5  %}
+  {% elsif paginator.page > dd %}
+      {% assign start1 = paginator.total_pages | minus:4  %}
+      {% assign end = paginator.total_pages  %}
+  {% else %}
+   {% assign start1 = paginator.page | minus:2  %}
+   {% assign end = paginator.page | plus:2  %}
+  {% endif %}
+  {% for page in (start1..end) %}
+   {% if page == paginator.page %}
+   <a class="btn  btn-sm disabled" >{{ page }}</a>
+   {% elsif page == 1 %}
+   <a href="{{ '/blog/index.html' | prepend: site.baseurl | replace: '//', '/' }}" class="btn  btn-sm">{{ page }}</a>
+   {% else %}
+ <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="btn  btn-sm">{{ page }}</a>
+   {% endif %}
+ {% endfor %}
+   {% if paginator.next_page %}
+  <a class="btn  btn-sm" href="/blog/page{{paginator.next_page}}/">&raquo;</a>
+  <a class="btn btn-sm" href="/blog/page{{paginator.total_pages}}/">Last</a>
+  {% else if paginator.page == paginator.total_pages %}
+  <span><a class="btn  btn-sm disabled">&raquo;</a></span>
+  <span><a class="btn  btn-sm disabled">Last</a></span>
+  {% endif %}
+</div>
+{% endif %}
+
+
+<!-- Pagination links -->
+
+{% comment %} 
+<div class="pull-right">
+  {% if paginator.previous_page %}
+  {% if paginator.previous_page == 1 %}
+  <a class="btn btn-primary btn-sm" href="/">Home</a>
+  <a class="btn btn-primary btn-sm" href="/blog">&laquo; Prev</a>
+  {% else %}
+  <a class="btn btn-primary btn-sm" href="/">Home</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.previous_page}}/">&laquo; Prev</a>
+  {% endif %}
+  {% else %}
+  <span><a class="btn btn-primary btn-sm disabled" href="/blog">Home</a></span>
+  <span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
+  {% endif %}
+  <span><a class="btn btn-primary btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
+  {% if paginator.next_page %}
+  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.next_page}}/">Next &raquo;</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.total_pages}}/">Last</a>
+  {% else if paginator.page == paginator.total_pages %}
+  <span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
+  <span><a class="btn btn-primary btn-sm disabled">Last</a></span>
+  {% endif %}
+</div>
+and {% endcomment %}
+<script type="text/javascript">
+  
+</script>
