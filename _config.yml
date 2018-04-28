@@ -3,17 +3,14 @@
 #paginate_path: "/blog/page:num/"
 #excerpt_separator: "<!-- more -->"
 lsi: false
- safe: true
  incremental: false
  highlighter: rouge
- gist:
-   noscript: false
  kramdown:
    math_engine: mathjax
    syntax_highlighter: rouge
-paginate: 8
 collections:
   posts:
+    paginate: 8
     title: Posts
     paginate_path: "/blog/page/:num/"
 plugins:
