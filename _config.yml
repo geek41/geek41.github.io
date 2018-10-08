@@ -19,10 +19,4 @@ categories_path: categories.html
 tags_path: tags.html
 copyright_path: copyright.html
 
-defaults:
-  -
-    scope:
-      path: "" # empty string for all files
-    values:
-      title: Johnny
 
