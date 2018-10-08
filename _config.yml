@@ -1,22 +1,22 @@
-paginate: 10 # pagination based on number of posts
-paginate_path: "page:num/"
-exclude: ["README.md", "Gemfile", "Gemfile.lock", "LICENSE"] # files to exclude
-permalink: "/:title.html"
+#paginate: 10 # pagination based on number of posts
+#paginate_path: "page:num/"
+#exclude: ["README.md", "Gemfile", "Gemfile.lock", "LICENSE"] # files to exclude
+#permalink: "/:title.html"
 ## future: true
-highlighter: rouge
-markdown: kramdown
-kramdown:
-  input: GFM
+#highlighter: rouge
+#markdown: kramdown
+#kramdown:
+#  input: GFM
 
-gems:
-  - jemoji
-  - jekyll-mentions
-  - jekyll-paginate
-  - jekyll-gist
+#gems:
+#  - jemoji
+#  - jekyll-mentions
+#  - jekyll-paginate
+#  - jekyll-gist
 
-rss_path: feed.xml
-categories_path: categories.html
-tags_path: tags.html
-copyright_path: copyright.html
+#rss_path: feed.xml
+#categories_path: categories.html
+#tags_path: tags.html
+#copyright_path: copyright.html
 
 
