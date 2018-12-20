@@ -192,3 +192,16 @@ background: #83BF73;
 #ds-thread #ds-reset .ds-login-buttons .ds-more-services{color:#2e9afe !important;}
 #ds-reset .ds-highlight{color:#2e9afe  !important;}
 #ds-thread #ds-reset #ds-bubble a{color:#2e9afe  !important;}
+
+
+#content{font-size:12px;}
+/* 3 columns */
+/*
+#content .outline-2{float:left;width:33%;padding:0 0.15%;}
+#content .outline-2:nth-of-type(3n+1) {clear:both;}
+*/
+/* 4 columns */
+#content .outline-2{float:left;width:24%;padding:0 0.15%;}
+#content .outline-2:nth-of-type(4n+1) {clear:both;}
+#postamble{clear:both;}
+p{padding:.5em 1em;}
