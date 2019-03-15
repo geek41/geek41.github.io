@@ -1,0 +1,140 @@
+---
+layout: view_simple
+title: emacs配置收集
+excerpt: 
+keywords: ""
+categories: [emacs]
+tags: [emacs]
+---
+
+
+<p>
+收藏一些emacs的配置，有时间的时候查阅和调整
+</p>
+<p>
+1.来源 <a href="http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html">http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html</a>
+</p>
+
+
+<pre class="example">
+;; author: chinazhangjie
+;; e-mail: chinajiezhang@gmail.com
+
+;; 指针颜色设置为白色
+(set-cursor-color "white")
+;; 鼠标颜色设置为白色
+(set-mouse-color "white")
+
+
+;; 从color-theme中获取
+;; 网上下载color-theme.el，放到加载路径(／usr/share/emacs/site-lisp )下
+;; M-x color-theme-select,鼠标左键选中，回车查看效果
+;; d查看信息，将出现如下信息:
+;; color-theme-matrix is an interactive Lisp function in `color-theme.el'.
+;; (color-theme-matrix)
+;; Color theme by walterh@rocketmail.com, created 2003-10-16.
+;; 选择(color-theme-blue-mood)即可
+(require 'color-theme)
+(setq color-theme-is-global t)
+(color-theme-dark-blue2)
+
+;; 使用tabbar.el
+(require 'tabbar)
+(tabbar-mode)
+(global-set-key (kbd "") 'tabbar-backward-group)
+(global-set-key (kbd "") 'tabbar-forward-group)
+(global-set-key (kbd "") 'tabbar-backward)
+(global-set-key (kbd "") 'tabbar-forward)
+
+
+;; 一打开就起用 text 模式。  
+(setq default-major-mode 'text-mode)
+
+;; 语法高亮
+(global-font-lock-mode t)
+
+;; 以 y/n代表 yes/no
+(fset 'yes-or-no-p 'y-or-n-p) 
+
+;; 显示括号匹配 
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+;; 显示时间，格式如下
+(display-time-mode 1)  
+(setq display-time-24hr-format t)  
+(setq display-time-day-and-date t)  
+
+(transient-mark-mode t) 
+
+;; 支持emacs和外部程序的粘贴
+(setq x-select-enable-clipboard t) 
+
+;; 在标题栏提示你目前在什么位置
+(setq frame-title-format "zhj@%b")  
+
+;; 默认显示 80列就换行 
+(setq default-fill-column 80) 
+
+;; 去掉工具栏
+(tool-bar-mode nil)
+
+;;去掉菜单栏
+(menu-bar-mode nil)
+
+;; 去掉滚动栏
+(scroll-bar-mode nil)
+
+;; 设置字体
+;; 方法为: emacs-&gt;options-&gt;Set Default Font-&gt;"M-x describe-font"查看当前使用的字体名称、字体大小
+(set-default-font " -bitstream-Courier 10 Pitch-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
+
+;; 显示列号
+(setq column-number-mode t)
+(setq line-number-mode t)
+
+;; 使用 C++ mode， 感谢csdn yq_118
+(add-to-list 'auto-mode-alist (cons "\\.h$" #'c++-mode))
+
+;; 设置缩进
+(setq c-basic-offset 4)
+(setq indent-tabs-mode nil)
+(setq default-tab-width 4)
+(setq tab-width 4)
+(setq tab-stop-list ())
+(loop for x downfrom 40 to 1 do
+      (setq tab-stop-list (cons (* x 4) tab-stop-list)))
+
+
+;; 回车缩进
+(global-set-key "\C-m" 'newline-and-indent)
+(global-set-key (kbd "C-&lt;return&gt;") 'newline)
+
+;; 实现全屏效果，快捷键为f6
+(global-set-key [f6] 'my-fullscreen) 
+(defun my-fullscreen ()
+(interactive)
+(x-send-client-message
+nil 0 nil "_NET_WM_STATE" 32
+'(2 "_NET_WM_STATE_FULLSCREEN" 0))
+)
+
+;; 最大化
+(defun my-maximized ()
+(interactive)
+(x-send-client-message
+nil 0 nil "_NET_WM_STATE" 32
+'(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+(x-send-client-message
+nil 0 nil "_NET_WM_STATE" 32
+'(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+)
+;; 启动emacs时窗口最大化
+(my-maximized)
+
+;; 启动窗口大小
+(setq default-frame-alist
+      '((height . 35) (width . 125) (menu-bar-lines . 20) (tool-bar-lines . 0))) 
+(put 'upcase-region 'disabled nil)
+</pre>
+
