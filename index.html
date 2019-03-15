@@ -1,54 +1,106 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>Geek 41's page | keep it simple stupid</title>  
-    <link rel="stylesheet" href="assets/stylesheets/index.css">
-    <style type="text/css">
-      body{background-color:#fbfaf7}
-      #bimg{width:800px;margin:120px auto;text-align:center;}
-      .left{float:left;}
-      li{list-style:none;padding:5px;display:block;}
-      a{text-decoration:none;}
-      a:hover{text-decoration:underline;}
-      #container { margin: 10em auto;     text-align: right; }
-      nav {margin-left:-5em;border-right: 1px solid #000;padding-right: 20px;}
-      
-    </style>
-  </head>
+---
+layout: blog
+title: Happy coding
+---
+{%paginator.posts %}
 
-  <body>
+{% for post in paginator.posts %}
+<!--
+	<div >
+	  <h5 class="post-date" align="right">{{ post.date | date_to_string}}</h5>		</div> -->
+<div class="title-block">
+  <h3><a href="{{ post.url }}">[{{ post.date | date:"%F" }}] {{ post.title }}</a></h3>
+  {% if post.content contains "<!-- more -->" %}
+  {{ post.content | split:'<!-- more -->' | first }}
+  {% else %}
+  {{ post.content | strip_html | truncatewords:50 }}
+  {% endif %}
+  <div class="commit">
+	<a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> {{post.categories}}</a>
+	<a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> {{post.tags | array_to_sentence_string }} </a>
 
-    <!--
-	Only god can judge me.!
-      -->
-    <div id="container">
-      <div id="main" role="main">
-	<nav>
-	  <span><a title="home page" class="" href="/">Home</a></span>
-	  <span><a title="blog" class="" href="/blog/">Blog</a></span>
-	  <span><a title="favorites" class="" href="/favorites/">Favorites</a></span>
-	  <span><a title="about" class="" href="/about/">About</a></span>
-	  <span><a title="tags" class="" href="/archive/">Archive</a></span>
-	</nav>
-	<img src="assets/images/index01.jpg" ></img>
-      </div>
+	<a href="{{post.url}}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+	<a href="{{post.url}}#disqus_thread">0 comment</a>
 
-    </div>
+	<!-- 
+		 <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Star</a>-->
+  </div>
+</div>
+{% endfor %}
 
-    <!--
-	<div id="bimg">
-	  <div class="left" style="padding:30px;">
-	    <ul>
-	      <li><a href="#">Home</a></li>
-	      <li><a href="/blog">Blog</a></li>
-	      <li><a href="#">About me</a></li>
-	    </ul>
-	  </div>
-	  <div class="left">
-	    <img src='images/index01.jpg' title="努力，奋斗" /></div>
-	</div>
-	<div style="clear:both"></div>
-</div> -->
-</body>
-</html>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination pull-right">
+  <span><a class="btn  btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
+  {% if paginator.previous_page %}
+  {% if paginator.previous_page == 1 %}
+  <a class="btn  btn-sm" href="/blog">First</a>
+  <a class="btn btn-sm" href="/blog">&laquo;</a>
+  {% else %}
+  <a class="btn btn-sm" href="/blog">First</a>
+  <a class="btn btn-sm" href="/blog/page{{paginator.previous_page}}/">&laquo;</a>
+  {% endif %}
+  {% else %}
+  <span><a class="btn  btn-sm disabled" href="/blog">First</a></span>
+  <span><a class="btn  btn-sm disabled">&laquo;</a></span>
+  {% endif %}
+  {% assign dd = paginator.total_pages | minus:2 %}
+  {% if paginator.page < 3 %}
+	  {% assign start1 = 1  %}
+	  {% assign end = 5  %}
+  {% elsif paginator.page > dd %}
+      {% assign start1 = paginator.total_pages | minus:4  %}
+      {% assign end = paginator.total_pages  %}
+  {% else %}
+   {% assign start1 = paginator.page | minus:2  %}
+   {% assign end = paginator.page | plus:2  %}
+  {% endif %}
+  {% for page in (start1..end) %}
+   {% if page == paginator.page %}
+   <a class="btn  btn-sm disabled" >{{ page }}</a>
+   {% elsif page == 1 %}
+   <a href="{{ '/blog/index.html' | prepend: site.baseurl | replace: '//', '/' }}" class="btn  btn-sm">{{ page }}</a>
+   {% else %}
+ <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="btn  btn-sm">{{ page }}</a>
+   {% endif %}
+ {% endfor %}
+   {% if paginator.next_page %}
+  <a class="btn  btn-sm" href="/blog/page{{paginator.next_page}}/">&raquo;</a>
+  <a class="btn btn-sm" href="/blog/page{{paginator.total_pages}}/">Last</a>
+  {% else if paginator.page == paginator.total_pages %}
+  <span><a class="btn  btn-sm disabled">&raquo;</a></span>
+  <span><a class="btn  btn-sm disabled">Last</a></span>
+  {% endif %}
+</div>
+{% endif %}
+
+
+<!-- Pagination links -->
+
+{% comment %} 
+<div class="pull-right">
+  {% if paginator.previous_page %}
+  {% if paginator.previous_page == 1 %}
+  <a class="btn btn-primary btn-sm" href="/">Home</a>
+  <a class="btn btn-primary btn-sm" href="/blog">&laquo; Prev</a>
+  {% else %}
+  <a class="btn btn-primary btn-sm" href="/">Home</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.previous_page}}/">&laquo; Prev</a>
+  {% endif %}
+  {% else %}
+  <span><a class="btn btn-primary btn-sm disabled" href="/blog">Home</a></span>
+  <span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
+  {% endif %}
+  <span><a class="btn btn-primary btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
+  {% if paginator.next_page %}
+  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.next_page}}/">Next &raquo;</a>
+  <a class="btn btn-primary btn-sm" href="/blog/page{{paginator.total_pages}}/">Last</a>
+  {% else if paginator.page == paginator.total_pages %}
+  <span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
+  <span><a class="btn btn-primary btn-sm disabled">Last</a></span>
+  {% endif %}
+</div>
+and {% endcomment %}
+<script type="text/javascript">
+  
+</script>
