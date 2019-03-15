@@ -1,5 +1,5 @@
 paginate: 10 # pagination based on number of posts
-#paginate_path: "page:num/"
+paginate_path: "page:num/"
 #exclude: ["README.md", "Gemfile", "Gemfile.lock", "LICENSE"] # files to exclude
 #permalink: "/:title.html"
 ## future: true
@@ -7,12 +7,6 @@ paginate: 10 # pagination based on number of posts
 #markdown: kramdown
 #kramdown:
 #  input: GFM
-
-#gems:
-#  - jemoji
-#  - jekyll-mentions
-#  - jekyll-paginate
-#  - jekyll-gist
 
 #rss_path: feed.xml
 #categories_path: categories.html
