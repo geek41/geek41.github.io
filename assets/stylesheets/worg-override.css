@@ -4,7 +4,7 @@
 {
     html {
 	margin: 0;
-	font: 300 .9em/1.6em "Droid Serif", Cambria, Georgia, "DejaVu Serif", serif;
+	font: 300 .9em/1.6em "微软雅黑","Droid Serif", Cambria, Georgia, "DejaVu Serif", serif;
 	background-image: url(http://orgmode.org/img/org-mode-unicorn-logo-worg.png);
 	background-attachment: fixed;
 	background-position: right bottom;
@@ -13,8 +13,8 @@
     }
 
     body {
-	font-size: 12pt;
-	line-height: 18pt;
+	font-size: 14px;
+	line-height: 16px;
 	color: black;
 	margin-top: 0;
 
@@ -169,15 +169,15 @@ content: "*** "
     }
 
     table {
-	border: none;
+	border: 1px solid #000;
     }
 
     td {
-	border: none;
+	border: 1px solid #000;
     }
 
     th {
-	border: none;
+	border: 1px solid #000;
     }
 
     code {

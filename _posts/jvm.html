@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-04-01 Mon 20:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JVM</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Johnny Li" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">JVM</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4b4686a">1. JVM内存模型</a>
+<ul>
+<li><a href="#org9e8ce4c">1.1. 程序计数器（Program Counter Register）</a></li>
+<li><a href="#org2790138">1.2. Java虚拟机栈</a></li>
+<li><a href="#orgc7896ce">1.3. Heap</a></li>
+<li><a href="#orgb801e42">1.4. 方法区 (Method Area)</a></li>
+<li><a href="#org41e18d7">1.5. 本地方法栈</a></li>
+</ul>
+</li>
+<li><a href="#orgcff144c">2. JVM垃圾回收</a>
+<ul>
+<li><a href="#orgafa1497">2.1. 常见判断对象是否存货的算法</a>
+<ul>
+<li><a href="#org776c8e5">2.1.1. 引用计数算法</a></li>
+<li><a href="#org1f90df6">2.1.2. 可达性分析算法（Reachability Analysis）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb01d325">3. 虚拟机栈（栈帧中的本地变量表）中引用的对象。</a></li>
+<li><a href="#org40d8117">4. 本地方法栈中JNI（即一般说的Native方法）引用的对象。</a></li>
+<li><a href="#orgb602ece">5. 方法区中类静态属性引用的对象。</a></li>
+<li><a href="#org7f91554">6. 方法区中常量引用的对象。</a>
+<ul>
+<li><a href="#org28b5854">6.1. 垃圾收集算法</a>
+<ul>
+<li><a href="#org66c7c75">6.1.1. 标记-清除算法(mark-sweep)</a></li>
+<li><a href="#orgdbe55e3">6.1.2. 复制算法</a></li>
+<li><a href="#org6eb0ac2">6.1.3. 标记-整理(mark-compact)</a></li>
+<li><a href="#orga661b96">6.1.4. 分带收集</a></li>
+</ul>
+</li>
+<li><a href="#org4841977">6.2. 垃圾收集器</a>
+<ul>
+<li><a href="#org847a62c">6.2.1. Serial收集器</a></li>
+<li><a href="#orgcf1d640">6.2.2. ParNew 收集器</a></li>
+<li><a href="#org1e4b74e">6.2.3. Parallel Scavenge收集器</a></li>
+<li><a href="#org8c4eb08">6.2.4. Serial Old收集器</a></li>
+<li><a href="#org6c04014">6.2.5. Parallel Old 收集器</a></li>
+<li><a href="#orgf85e961">6.2.6. CMS(Concurrent Mark Sweep)</a></li>
+<li><a href="#orge048284">6.2.7. G1收集器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgeeb658f">7. JVM类加载机制</a></li>
+<li><a href="#orgc3cd464">8. 内存溢出和内存泄漏的区别</a></li>
+<li><a href="#orge9970ac">9. Java内存模型及各个区域的OOM，如何重现OOM</a></li>
+<li><a href="#org4980df9">10. 出现OOM如何解决</a></li>
+<li><a href="#org9570422">11. 用什么工具可以查出内存泄漏</a></li>
+<li><a href="#org150073a">12. Java内存管理及回收算法</a></li>
+<li><a href="#orgc95b227">13. Java类加载器及如何加载类(双亲委派)</a></li>
+<li><a href="#orgfe9aa3b">14. Stack depth</a></li>
+<li><a href="#org5b952f0">15. GC</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org4b4686a" class="outline-2">
+<h2 id="org4b4686a"><span class="section-number-2">1</span> JVM内存模型</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<b>程序计数器（Program Counter Register）,Java虚拟机栈,Java堆,方法区,本地方法栈</b>
+</p>
+</div>
+
+<div id="outline-container-org9e8ce4c" class="outline-3">
+<h3 id="org9e8ce4c"><span class="section-number-3">1.1</span> 程序计数器（Program Counter Register）</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<b>线程私有</b> 的内存，唯一没有规定任何 <b>OutOfMemoryError</b>
+如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是 <b>Natvie</b> 方法，这个计数器值则为空（ <b>Undefined</b> ）。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2790138" class="outline-3">
+<h3 id="org2790138"><span class="section-number-3">1.2</span> Java虚拟机栈</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<b>线程私有</b> 的内存
+Java虚拟机栈用来存放 <b>栈帧</b> ，而栈帧主要包括了： <b>局部变量表、操作数栈、动态链接</b> 。
+如果线程请求分配的栈容量超过Java虚拟机栈允许的最大容量时( <b>栈的深度</b> )，Java虚拟机将会抛出一个 <b>StackOverflowError</b> 异常。
+如果Java虚拟机栈可以动态扩展，并且扩展的动作已经尝试过，但是目前无法申请到足够的内存去完成扩展，或者在建立新的线程时没有足够的内存去创建对应的虚拟机栈，那Java虚拟机将会抛出一个 <b>OutOfMemoryError</b> 异常
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc7896ce" class="outline-3">
+<h3 id="orgc7896ce"><span class="section-number-3">1.3</span> Heap</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Java堆主要用来为类实例对象和数组分配内存
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb801e42" class="outline-3">
+<h3 id="orgb801e42"><span class="section-number-3">1.4</span> 方法区 (Method Area)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+方法区在虚拟机启动的时候被创建，它存储了每一个类的结构信息，例如 <b>运行时常量池、字段和方法数据、构造函数和普通方法的字节码内容</b> 、还包括一些在类、实例、接口初始化时用到的特殊方法。
+</p>
+
+<p>
+运行时常量池:string.intern()
+</p>
+</div>
+</div>
+
+<div id="outline-container-org41e18d7" class="outline-3">
+<h3 id="org41e18d7"><span class="section-number-3">1.5</span> 本地方法栈</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+本地方法栈用于支持native方法的运行。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcff144c" class="outline-2">
+<h2 id="orgcff144c"><span class="section-number-2">2</span> JVM垃圾回收</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgafa1497" class="outline-3">
+<h3 id="orgafa1497"><span class="section-number-3">2.1</span> 常见判断对象是否存货的算法</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org776c8e5" class="outline-4">
+<h4 id="org776c8e5"><span class="section-number-4">2.1.1</span> 引用计数算法</h4>
+</div>
+<div id="outline-container-org1f90df6" class="outline-4">
+<h4 id="org1f90df6"><span class="section-number-4">2.1.2</span> 可达性分析算法（Reachability Analysis）</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+这个算法的基本思路就是通过一系列的称为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链（Reference Chain），当一个对象到GC Roots没有任何引用链相连（用图论的话来说，就是从GC Roots到这个对象不可达）时，则证明此对象是不可用的。即使在可达性分析算法中不可达的对象，也并非是“非死不可”的，这时候它们暂时处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程.可作为GC Roots的对象包括下面几种：
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb01d325" class="outline-2">
+<h2 id="orgb01d325"><span class="section-number-2">3</span> 虚拟机栈（栈帧中的本地变量表）中引用的对象。</h2>
+</div>
+<div id="outline-container-org40d8117" class="outline-2">
+<h2 id="org40d8117"><span class="section-number-2">4</span> 本地方法栈中JNI（即一般说的Native方法）引用的对象。</h2>
+</div>
+<div id="outline-container-orgb602ece" class="outline-2">
+<h2 id="orgb602ece"><span class="section-number-2">5</span> 方法区中类静态属性引用的对象。</h2>
+</div>
+<div id="outline-container-org7f91554" class="outline-2">
+<h2 id="org7f91554"><span class="section-number-2">6</span> 方法区中常量引用的对象。</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org28b5854" class="outline-3">
+<h3 id="org28b5854"><span class="section-number-3">6.1</span> 垃圾收集算法</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org66c7c75" class="outline-4">
+<h4 id="org66c7c75"><span class="section-number-4">6.1.1</span> 标记-清除算法(mark-sweep)</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+缺点是效率低,和空间产生大量不连续的碎片,会导致分配较大对象时无法找到足够连续内存而提前触发一次垃圾收集.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdbe55e3" class="outline-4">
+<h4 id="orgdbe55e3"><span class="section-number-4">6.1.2</span> 复制算法</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+将可用内存分成大小相同的2块,每次只用一块.当这一块用完了就将 存活 的对象复制到另一块上,再把已用的内存一次清理掉.优点是移动堆顶指针顺序分配简单高效.缺点是内存会缩小一半,较多复制效率低.
+由于新生代对象80%朝生夕死所以不需要按1:1来分配内存空间,可以分一块较大的eden和2块较小的survivor.Hotspot虚拟机采用8:1:1分配,这样新生代容量为90%.如果回收会存活的对象超过10%的survior空间,对象通过 分配担保 机制进入老年代.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6eb0ac2" class="outline-4">
+<h4 id="org6eb0ac2"><span class="section-number-4">6.1.3</span> 标记-整理(mark-compact)</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+类似标记清除算法,但是将存活的对象向一端移动,直接清理掉端边界以外的内存.常用于老年代(没有多于的担保空间).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga661b96" class="outline-4">
+<h4 id="orga661b96"><span class="section-number-4">6.1.4</span> 分带收集</h4>
+<div class="outline-text-4" id="text-6-1-4">
+<p>
+把Java堆分为 新生代 和 老年代 .对新生代用复制算法,老年代用标记清理或标记整理.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4841977" class="outline-3">
+<h3 id="org4841977"><span class="section-number-3">6.2</span> 垃圾收集器</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-org847a62c" class="outline-4">
+<h4 id="org847a62c"><span class="section-number-4">6.2.1</span> Serial收集器</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<p>
+单线程的stop the world的收集器.(有意思的比喻,你妈妈一边打扫你一边扔纸屑,这房间能打扫完吗).单CPU环境简单高效(收集100M最多停顿100毫秒约).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcf1d640" class="outline-4">
+<h4 id="orgcf1d640"><span class="section-number-4">6.2.2</span> ParNew 收集器</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+Serial的多线程版本.默认与CPU数量相同的线程数.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1e4b74e" class="outline-4">
+<h4 id="org1e4b74e"><span class="section-number-4">6.2.3</span> Parallel Scavenge收集器</h4>
+<div class="outline-text-4" id="text-6-2-3">
+<p>
+和ParNew类似,但关注可控的吞吐量(Throughout).吞吐量=1-垃圾收集时间/虚拟机运行时间=运行用户代码时间/(运行用户代码时间+垃圾收集时间).能高效利用cpu时间.
+a. -XX:MaxGCPauseMillis 最大垃圾收集停顿时间.
+b. -XX:GCTimeRatio 设置吞吐量大小.大于0小于100的整数.默认为99,允许收集最大时间为1%.
+c. -XX:UseAdaptiveSizePolicy 设置开关GC自适应调节策略.会动态调整新生代大小(-Xmn),Eden与Survior的比例(-XX:SurviorRatio),晋升老年代对象年龄(-XX:PretenureSizeThreshold)等参数.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8c4eb08" class="outline-4">
+<h4 id="org8c4eb08"><span class="section-number-4">6.2.4</span> Serial Old收集器</h4>
+<div class="outline-text-4" id="text-6-2-4">
+<p>
+Serial的老年代版本.可作为CMS的预备方案(出现Concurrent mode failure).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c04014" class="outline-4">
+<h4 id="org6c04014"><span class="section-number-4">6.2.5</span> Parallel Old 收集器</h4>
+<div class="outline-text-4" id="text-6-2-5">
+<p>
+Paraller Scavenge的老年代版本.,使用多线程和mark-compact算法.在注重吞吐量及CPU资源敏感的场合,可优先考虑scavenge和old.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf85e961" class="outline-4">
+<h4 id="orgf85e961"><span class="section-number-4">6.2.6</span> CMS(Concurrent Mark Sweep)</h4>
+<div class="outline-text-4" id="text-6-2-6">
+<p>
+缺点:
+a. 占用CPU资源.虽然不会导致停顿,但是占用CPU资源导致程序变慢,总吞吐量降低.默认回收线程(CPU数量+3)/4 .
+b. 无法处理浮动垃圾(标记之后产生的垃圾),可能出现"Concurrent mode failure"而导致一次Full GC.默认在老年代68%已用空间被激活,可通过-XX:CMSInitalingOccupancyFraction来调整触发百分比.但是设置太高容易导致大量Concurrent mode failure,就需要临时启用Serial Old来收集,停顿时间就很长了.
+c. 标记-清除算法.无足够连续空间分配提前触发一次Full GC.开关参数"-XX:+UseCMSCompactAtFullCollection"用于在Full GC之后额外执行一次碎片整理,内存整理无法并发.空间碎片问题没有了,但停顿时间不得不变长了,通过参数"-XX:CMSFullGCsBeforeCompaction",执行多少次不压缩的Full GC后,跟着来一次压缩的.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge048284" class="outline-4">
+<h4 id="orge048284"><span class="section-number-4">6.2.7</span> G1收集器</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeeb658f" class="outline-2">
+<h2 id="orgeeb658f"><span class="section-number-2">7</span> JVM类加载机制</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+<b>3种系统提供的加载器:</b>
+</p>
+
+<ol class="org-ol">
+<li><b>启动类加载器(Bootstrap ClassLoader)</b> 加载 $JAVA<sub>HOME</sub>/lib 或者 -Xbootclasspath指定路径的类库.(按文件名识别,如rt.jar,名字不符合不会被加载).无法被Java程序直接调用.</li>
+
+<li><b>拓展类加载器(Extension ClassLoader)</b> 由sun.misc.Launcher$ExtClassLoader实现,负责加载目录$JAVA<sub>HOME</sub>/lib/ext或者java.ext.dirs系统变量指定路径的类库.用户可以直接使用</li>
+
+<li><p>
+<b>应用程序类加载器(Application ClassLoader)</b> 由sun.misc.Launcher$AppClassLoader实现.负责加载用户类路径(ClassPath)指定的类库.开发者可以直接使用.也被称为系统加载器(getSystemClassLoader()方法的返回值).如果应用程序中没有自定义过自己的类加载器,已此为默认.
+</p>
+
+<p>
+<b>双亲委派模型</b>
+</p>
+
+<p>
+工作过程: <b>始终委托给父类加载,如果父类无法加载,自己再加载</b> .好处是保证同一个类只有一个被加载.保证程序稳定运行.
+</p>
+
+<p>
+<b>破坏双亲委派模型</b>
+</p>
+
+<p>
+1.第一次破坏
+</p>
+
+<p>
+2.第二次破坏 双亲委派模型很好的解决了各个类加载器的基础类的统一问题(越基础的类越由越上层的加载器加载).但是"基础类"如果调用用户的代码(如 <b>第三方独立厂商的代码</b> ,rt.jar中的JNDI接口调用Service Provider Interface. JDBC调用mysql.jar等).启动类加载器不认识这些代码无法完成加载.
+</p>
+
+<p>
+为了解决困境,引入了 <b>线程上下文类加载器(Thread Context ClassLoader)</b> .可通过java.lang.Thread类的setContextClassLoader()设置,不设置即为默认.几乎所有设计SPI的加载动作由此完成.JNDI,JDBC,JAXB等.
+3.JSR297,JSR277,OSGI等Java模块化.
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc3cd464" class="outline-2">
+<h2 id="orgc3cd464"><span class="section-number-2">8</span> 内存溢出和内存泄漏的区别</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+内存溢出是指程序在申请内存时，没有足够的内存空间供其使用，出现out of
+memory。
+内存泄漏是指分配出去的内存不再使用，但是无法回收。 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge9970ac" class="outline-2">
+<h2 id="orge9970ac"><span class="section-number-2">9</span> Java内存模型及各个区域的OOM，如何重现OOM</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+这部分内容很重要，详细阅读《深入理解Java虚拟机》，也可以详细阅读这篇文章
+</p>
+
+<p>
+<a href="http://hllvm.group.iteye.com/group/wiki/2857-JVM">http://hllvm.group.iteye.com/group/wiki/2857-JVM</a> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4980df9" class="outline-2">
+<h2 id="org4980df9"><span class="section-number-2">10</span> 出现OOM如何解决</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+一. 可通过命令定期抓取heap dump或者启动参数OOM时自动抓取heap dump文件。
+二. 通过对比多个heap dump，以及heap dump的内容，分析代码找出内存占用最多的地方。
+三. 分析占用的内存对象，是否是因为错误导致的内存未及时释放，或者数据过多导致的内存溢出。 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9570422" class="outline-2">
+<h2 id="org9570422"><span class="section-number-2">11</span> 用什么工具可以查出内存泄漏</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+一. Memory
+Analyzer－是一款开源的JAVA内存分析软件，查找内存泄漏，能容易找到大块内存并验证谁在一直占用它，它是
+基于Eclipse
+RCP(Rich Client Platform)，可以下载RCP的独立版本或者Eclipse的插件。
+二. JProbe－分析Java的内存泄漏。
+三.JProfiler－一个全功能的Java剖析工具，专用于分析J2SE和J2EE应用程序。它把CPU、执行绪和内存的剖析
+组合在一个强大的应用中，GUI可以找到效能瓶颈、抓出内存泄漏、并解决执行绪的问题。
+四. JRockit－用来诊断Java内存泄漏并指出根本原因，专门针对Intel平台并得到优化，能在Intel硬件上获得最高
+的性能。
+五. YourKit-.NET &amp; Java Profiling业界领先的Java和.NET程序性能分析工具。
+六.AutomatedQA －AutomatedQA的获奖产品performance profiling和memory debugging工具集的下一代替换
+产品，支持Microsoft,Borland, Intel, Compaq 和 GNU编译器。可以为.NET和Windows程序生成全面细致的报
+告，从而帮助您轻松隔离并排除代码中含有的性能问题和内存/资源泄露问题。支持.Net 1.0,1.1,2.0,3.0和
+Windows 32/64位应用程序。
+七.Compuware DevPartner Java Edition－包含Java内存检测,代码覆盖率测试,代码性能测试,线程死锁,分布式应
+用等几大功能模块 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org150073a" class="outline-2">
+<h2 id="org150073a"><span class="section-number-2">12</span> Java内存管理及回收算法</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+阅读这篇文章：<a href="http://www.cnblogs.com/hnrainll/archive/2013/11/06/3410042.html">http://www.cnblogs.com/hnrainll/archive/2013/11/06/3410042.html</a> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc95b227" class="outline-2">
+<h2 id="orgc95b227"><span class="section-number-2">13</span> Java类加载器及如何加载类(双亲委派)</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+阅读文章：
+<a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/%EF%BC%88%E6%8E%A8%E8%8D%90">https://www.ibm.com/developerworks/cn/java/j-lo-classloader/（推荐</a>）
+<a href="http://blog.csdn.net/zhoudaxia/article/details/35824249">http://blog.csdn.net/zhoudaxia/article/details/35824249</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe9aa3b" class="outline-2">
+<h2 id="orgfe9aa3b"><span class="section-number-2">14</span> Stack depth</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+我们知道java栈是java虚拟机的一个重要的组成部分，在栈里进行线程操作，存放方法参数等等。栈在初始化过后是有一定的大小的。
+</p>
+<div class="org-src-container">
+<pre class="src src-java">
+<span class="org-keyword">public</span> <span class="org-keyword">class</span> <span class="org-type">Test</span>{
+
+  <span class="org-keyword">private</span> <span class="org-type">int</span> <span class="org-variable-name">count</span> = 0;
+
+  <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">testAdd</span>(){
+      count ++;
+      testAdd();
+  }
+  <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">test</span>(){
+      <span class="org-keyword">try</span>{
+      testAdd();
+       }<span class="org-keyword">catch</span>(<span class="org-type">Throwable</span> <span class="org-variable-name">e</span>){
+           System.out.println(e);
+           System.out.println(<span class="org-string">"&#26632;&#28145;&#24230;:"</span>+count);
+       }
+  }
+  <span class="org-keyword">public</span> <span class="org-keyword">static</span> <span class="org-type">void</span> <span class="org-function-name">main</span>(<span class="org-type">String</span> [] <span class="org-variable-name">args</span>){
+      <span class="org-keyword">new</span> <span class="org-type">Test</span>().test();
+  }    
+      }
+
+</pre>
+</div>
+
+<p>
+运行程序，可以看到栈深度：
+栈深度:11114
+栈的高度称为栈的深度，栈深度受栈帧大小影响。我们知道，在栈中存放局部变量，参数，运行中间结果等
+</p>
+
+
+<div class="figure">
+<p><img src="assets/Center.png" alt="Center.png" />
+</p>
+</div>
+
+<p>
+通过-Xss可以设置栈的大小：
+</p>
+
+
+<div class="figure">
+<p><img src="assets/Center2.png" alt="Center2.png" />
+</p>
+</div>
+
+<p>
+-----&#x2013;&#x2014;改变传入参数&#x2013;增加传入参数，观察栈深度变化。
+public void testAdd(int a,int b,int c){
+count ++;
+testAdd(a,b,c);
+}
+运行程序：
+结果-栈深度：6632
+-----&#x2013;&#x2014;增加局部变量：
+public void testAdd(int a,int b,int c){
+int d=0;
+long h=9l;
+count ++;
+testAdd(a,b,c);
+}
+结果-栈深度-5928.
+由此可以看出，局部变量表内容越多，栈帧越大，栈深度越小。
+知道了栈深度，该怎么用呢？对JVM调优有什么用呢？
+当JVM我们定义的方法参数和局部变量过多，字节过大，考虑到可能会导致栈深度多小，可能使程序出现错误。
+这个时候就需要手动的增加栈的深度，避免出错。
+而且当看到StackOverFlow的时候我们也可以知道可能是栈溢出造成的错误。知道如果去解决。这才是最重要的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b952f0" class="outline-2">
+<h2 id="org5b952f0"><span class="section-number-2">15</span> GC</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Johnny Li</p>
+<p class="date">Created: 2019-04-01 Mon 20:40</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
