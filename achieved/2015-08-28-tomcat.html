@@ -1,0 +1,140 @@
+---
+layout: view
+comments: true
+title: tomcat配置虚拟目录 
+categories: server
+tags: [tomcat,java]
+date: 2013-4-3
+keywords: tomcat
+description: tomcat 
+---
+
+<p>
+tomcat配置虚拟目录
+</p>
+
+<!-- more -->
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 配置JDK</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+在$TOMCAT/bin下的catalina.sh&amp;catalian.bat中加入
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-xml">JAVA_HOME=/home/sylvan/work/jdk-for-jhop/jdk1.7.0_45/
+JRE_HOME=/home/sylvan/work/jdk-for-jhop/jdk1.7.0_45/jre
+JAVA_OPTS='-Xms512m -Xmx1024m'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> tomcat配置虚拟目录</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+在tomcat6版本中：
+</p>
+<ol class="org-ol">
+<li>【官方文档】本人不推荐。
+</li>
+</ol>
+<p>
+在tomcat\conf下server.xml中找到
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true"
+	xmlValidation="false" xmlNamespaceAware="false"&gt;
+&lt;/Host&gt;
+</pre>
+</div>
+
+<p>
+在其中添加：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;Context path="" docBase="换成你的路径" reloadable="true"&gt;&lt;/Context&gt;
+</pre>
+</div>
+
+<p>
+这的docBase要改成你的项目目录。
+</p>
+
+<ol class="org-ol">
+<li>不修改server.xml【推荐使用此方法】
+</li>
+</ol>
+
+<p>
+在tomcat文件夹的conf"catalina"localhost(对于Tomcat6版本及其以上，需要自己创建catalina和localhost这两个文件夹)下新建一个xml文件。内容为
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;Context 
+docBase="换成你的路径" 
+reloadable="true"&gt; 
+&lt;/Context&gt;
+</pre>
+</div>
+
+<p>
+文件名改成你自己的譬如<a href="http://localhost:8080/bbs">http://localhost:8080/bbs</a> ，文件名就为bbs.xml 
+</p>
+
+<p>
+其他配置：
+打开 Tomcat6.0"conf"web.xml 文件，找到:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;init-param&gt;
+&lt;param-name&gt;listings&lt;/param-name&gt;
+&lt;param-value&gt;false&lt;/param-value&gt;
+&lt;/init-param&gt;
+</pre>
+</div>
+
+<p>
+把false设成true保存，重启Tomcat，让tomcat6支持文件列表显示
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 设置登录用户</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+添加到$TOMCAT/conf/tomcat-user.xml中
+</p>
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;user username="admin" password="admin" roles="tomcat,manager-gui"/&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 异常</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 部署异常</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+1.java.lang.NoSuchMethodException: org.apache.catalina.deploy.WebXml addServlet
+因为工程中用到tomcat的catalina.jar，被部署到tomcat中时，这个包也跟着部署进去了，部署报异常.删掉即可.
+</p>
+</div>
+</div>
+</div>

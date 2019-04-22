@@ -1,0 +1,134 @@
+---
+layout: view
+comments: true
+title: Sitemesh 简单配置
+categories: java
+tags: [java]
+date: 2014-10-2
+keywords: java
+description: java
+---
+
+<p>
+<a href="http://www.sitemesh.org">Sitemesh</a> 是一个网页布局和修饰的框架，利用它可以将网页的内容和页面结构分离，以达到页面结构共享的目的。使用起来比较简单
+</p>
+
+<p>
+现在有2个分支,一个是org.sitemesh的sitemesh3,一个是opensymphony的 <a href="http://www.sitemesh.org">Sitemesh</a> .口碑上的3比2好用,但是下面配置是sitemesh2的,以为再配置3的时候决定用tiles来作为布局修饰框架了&#x2026;原因是sitemesh确实很简单,资料也少(sitemesh3的官方wiki真心不够看).
+</p>
+
+<!-- more -->
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 安装及配置</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 安装</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;dependency&gt;
+  &lt;groupId&gt;opensymphony&lt;/groupId&gt;
+  &lt;artifactId&gt;sitemesh&lt;/artifactId&gt;
+  &lt;version&gt;2.4.2&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 定义filter</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+将下面filter添加到web.xml中
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;filter&gt;
+  &lt;filter-name&gt;sitemesh&lt;/filter-name&gt;
+  &lt;filter-class&gt;com.opensymphony.module.sitemesh.filter.PageFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+  &lt;filter-name&gt;sitemesh&lt;/filter-name&gt;
+  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 配置装饰器</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+建立WEB-INF/decorators.xml描述各装饰器页面。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;decorators defaultdir="/WEB-INF/decorators"&gt;
+  &lt;decorator name="main" page="main.jsp"&gt;
+	&lt;pattern&gt;*&lt;/pattern&gt;
+  &lt;/decorator&gt;
+&lt;/decorators&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 建立装饰器页面 /WEB-INF/decorators/main.jsp</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;%@ page contentType="text/html; charset=GBK"%&gt;
+&lt;%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%&gt;
+&lt;html&gt;
+  &lt;head&gt;
+	&lt;title&gt;&lt;decorator:title default="装饰器页面..." /&gt;&lt;/title&gt;
+	&lt;decorator:head /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+	sitemesh的例子&lt;hr&gt;
+	&lt;decorator:body /&gt;
+	&lt;hr&gt;chen56@msn.com
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 建立一个的被装饰页面 /index.jsp(内容页面)</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;%@ page contentType="text/html; charset=GBK"%&gt;
+&lt;html&gt;
+  &lt;head&gt;
+	&lt;title&gt;Agent Test&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+	&lt;p&gt;本页只有一句，就是本句.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 最后访问index.jsp，将生成如下页面：</h3>
+<div class="outline-text-3" id="text-1-6">
+
+<div class="figure">
+<p><img src="file:///home/sylvan/Documents/org-note/assets/images/java/sitemesh.jpg" alt="sitemesh.jpg" />
+</p>
+</div>
+</div>
+</div>
+</div>

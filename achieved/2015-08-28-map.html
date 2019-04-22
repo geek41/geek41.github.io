@@ -1,0 +1,204 @@
+---
+layout: view
+comments: true
+title: Map的线程安全问题
+categories: java
+tags: java
+date: 2015-3-1
+keywords: keyword
+description: description
+---
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> ConcurrentHashMap</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+实现原理:锁分离技术 (Lock Stripping)
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java">public V put(K key, V value) {
+	Segment&lt;K,V&gt; s;
+	if (value == null)
+		throw new NullPointerException();
+	int hash = hash(key);
+	int j = (hash &gt;&gt;&gt; segmentShift) &amp; segmentMask;
+	if ((s = (Segment&lt;K,V&gt;)UNSAFE.getObject          // nonvolatile; recheck
+		 (segments, (j &lt;&lt; SSHIFT) + SBASE)) == null) //  in ensureSegment
+		s = ensureSegment(j);
+	return s.put(key, hash, value, false);
+}
+</pre>
+</div>
+
+<p>
+通过段(Segment)来操作.在看segment的put方法.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java">static final class Segment&lt;K,V&gt; extends ReentrantLock implements Serializable {
+  final V put(K key, int hash, V value, boolean onlyIfAbsent) {
+			HashEntry&lt;K,V&gt; node = tryLock() ? null :
+				scanAndLockForPut(key, hash, value);
+	  // ....
+  }
+
+ private HashEntry&lt;K,V&gt; scanAndLockForPut(K key, int hash, V value) {
+			HashEntry&lt;K,V&gt; first = entryForHash(this, hash);
+			HashEntry&lt;K,V&gt; e = first;
+			HashEntry&lt;K,V&gt; node = null;
+			int retries = -1; // negative while locating node
+			while (!tryLock()) {
+				HashEntry&lt;K,V&gt; f; // to recheck first below
+				if (retries &lt; 0) {
+					if (e == null) {
+						if (node == null) // speculatively create node
+							node = new HashEntry&lt;K,V&gt;(hash, key, value, null);
+						retries = 0;
+					}
+					else if (key.equals(e.key))
+						retries = 0;
+					else
+						e = e.next;
+				}
+				else if (++retries &gt; MAX_SCAN_RETRIES) {
+					lock();
+					break;
+				}
+				else if ((retries &amp; 1) == 0 &amp;&amp;
+						 (f = entryForHash(this, hash)) != first) {
+					e = first = f; // re-traverse if entry changed
+					retries = -1;
+				}
+			}
+			return node;
+		}
+}
+</pre>
+</div>
+
+<p>
+以上方法很明显有lock锁机制.在来看lock是怎么实现的.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java">  public class ReentrantLock implements Lock, java.io.Serializable {
+	private static final long serialVersionUID = 7373984872572414699L;
+	/** Synchronizer providing all implementation mechanics */
+	private final Sync sync;
+
+	/**
+	 * Base of synchronization control for this lock. Subclassed
+	 * into fair and nonfair versions below. Uses AQS state to
+	 * represent the number of holds on the lock.
+	 */
+	abstract static class Sync extends AbstractQueuedSynchronizer {
+		private static final long serialVersionUID = -5179523762034025860L;
+
+		/**
+		 * Performs {@link Lock#lock}. The main reason for subclassing
+		 * is to allow fast path for nonfair version.
+		 */
+		abstract void lock();
+   }
+
+static final class NonfairSync extends Sync {
+		private static final long serialVersionUID = 7316153563782823691L;
+
+		/**
+		 * Performs lock.  Try immediate barge, backing up to normal
+		 * acquire on failure.
+		 */
+		final void lock() {
+			if (compareAndSetState(0, 1))
+				setExclusiveOwnerThread(Thread.currentThread());
+			else
+				acquire(1);
+		}
+
+		protected final boolean tryAcquire(int acquires) {
+			return nonfairTryAcquire(acquires);
+		}
+	}
+
+	/**
+	 * Sync object for fair locks
+	 */
+	static final class FairSync extends Sync {
+		private static final long serialVersionUID = -3000897897090466540L;
+
+		final void lock() {
+			acquire(1);
+		}
+
+		/**
+		 * Fair version of tryAcquire.  Don't grant access unless
+		 * recursive call or no waiters or is first.
+		 */
+		protected final boolean tryAcquire(int acquires) {
+			final Thread current = Thread.currentThread();
+			int c = getState();
+			if (c == 0) {
+				if (!hasQueuedPredecessors() &amp;&amp;
+					compareAndSetState(0, acquires)) {
+					setExclusiveOwnerThread(current);
+					return true;
+				}
+			}
+			else if (current == getExclusiveOwnerThread()) {
+				int nextc = c + acquires;
+				if (nextc &lt; 0)
+					throw new Error("Maximum lock count exceeded");
+				setState(nextc);
+				return true;
+			}
+			return false;
+		}
+	}
+
+	/**
+	 * Creates an instance of {@code ReentrantLock}.
+	 * This is equivalent to using {@code ReentrantLock(false)}.
+	 */
+	public ReentrantLock() {
+		sync = new NonfairSync();
+	}
+
+	/**
+	 * Creates an instance of {@code ReentrantLock} with the
+	 * given fairness policy.
+	 *
+	 * @param fair {@code true} if this lock should use a fair ordering policy
+	 */
+	public ReentrantLock(boolean fair) {
+		sync = fair ? new FairSync() : new NonfairSync();
+	}
+
+	/**
+	 * Acquires the lock.
+	 *
+	 * &lt;p&gt;Acquires the lock if it is not held by another thread and returns
+	 * immediately, setting the lock hold count to one.
+	 *
+	 * &lt;p&gt;If the current thread already holds the lock then the hold
+	 * count is incremented by one and the method returns immediately.
+	 *
+	 * &lt;p&gt;If the lock is held by another thread then the
+	 * current thread becomes disabled for thread scheduling
+	 * purposes and lies dormant until the lock has been acquired,
+	 * at which time the lock hold count is set to one.
+	 */
+	public void lock() {
+		sync.lock();
+	}
+</pre>
+</div>
+
+
+
+<!-- more -->
+</div>
+</div>

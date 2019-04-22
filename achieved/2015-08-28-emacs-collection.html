@@ -1,23 +1,28 @@
 ---
-layout: worg_ext
-title: emacs配置收集
-excerpt: 
-keywords: ""
-categories: [emacs]
+layout: view
+comments: true
+title: Emacs configuration collection 
+categories: 折腾emacs
 tags: [emacs]
+date: 2014-4-2
+keywords: emacs 
+description: emacs 配置文件收藏
 ---
 
 
 <p>
 收藏一些emacs的配置，有时间的时候查阅和调整
 </p>
+
+<!-- more -->
+
+
 <p>
 1.来源 <a href="http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html">http://www.cnblogs.com/chinazhangjie/archive/2011/06/01/2067263.html</a>
 </p>
+<div class="org-src-container">
 
-
-<pre class="example">
-;; author: chinazhangjie
+<pre class="src src-lisp">;; author: chinazhangjie
 ;; e-mail: chinajiezhang@gmail.com
 
 ;; 指针颜色设置为白色
@@ -103,7 +108,7 @@ tags: [emacs]
 (setq tab-width 4)
 (setq tab-stop-list ())
 (loop for x downfrom 40 to 1 do
-      (setq tab-stop-list (cons (* x 4) tab-stop-list)))
+	  (setq tab-stop-list (cons (* x 4) tab-stop-list)))
 
 
 ;; 回车缩进
@@ -134,7 +139,7 @@ nil 0 nil "_NET_WM_STATE" 32
 
 ;; 启动窗口大小
 (setq default-frame-alist
-      '((height . 35) (width . 125) (menu-bar-lines . 20) (tool-bar-lines . 0))) 
+	  '((height . 35) (width . 125) (menu-bar-lines . 20) (tool-bar-lines . 0))) 
 (put 'upcase-region 'disabled nil)
 </pre>
-
+</div>
